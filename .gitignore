@@ -1,0 +1,5 @@
+# Local snapshots copied from the Ubuntu robot-control host.
+ubuntu-backups/snapshots/*/hand_eye_calibration/
+ubuntu-backups/snapshots/*/rm_rl_grasp/
+ubuntu-backups/snapshots/*/home-probes/
+.DS_Store

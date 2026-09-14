@@ -1,0 +1,149 @@
+{
+  "pairs": [
+    {
+      "index": 0,
+      "color_stamp_ns": 1788756449036298096,
+      "depth_stamp_ns": 1788756449036298096,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.994970703125,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 1,
+      "color_stamp_ns": 1788756449469487793,
+      "depth_stamp_ns": 1788756449469487793,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.995390625,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 2,
+      "color_stamp_ns": 1788756449869498779,
+      "depth_stamp_ns": 1788756449869498779,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.9951497395833333,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 3,
+      "color_stamp_ns": 1788756450270222168,
+      "depth_stamp_ns": 1788756450270222168,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.9948014322916666,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 4,
+      "color_stamp_ns": 1788756450670945801,
+      "depth_stamp_ns": 1788756450670945801,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.9948958333333333,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 5,
+      "color_stamp_ns": 1788756451071501953,
+      "depth_stamp_ns": 1788756451071501953,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.9950813802083334,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 6,
+      "color_stamp_ns": 1788756451471975342,
+      "depth_stamp_ns": 1788756451471975342,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.9953483072916667,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 7,
+      "color_stamp_ns": 1788756451872385254,
+      "depth_stamp_ns": 1788756451872385254,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.994921875,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 8,
+      "color_stamp_ns": 1788756452272478760,
+      "depth_stamp_ns": 1788756452272478760,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.995244140625,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    },
+    {
+      "index": 9,
+      "color_stamp_ns": 1788756452705913574,
+      "depth_stamp_ns": 1788756452705913574,
+      "delta_ms": 0.0,
+      "depth_nonzero_fraction": 0.9950162760416666,
+      "shape": [
+        480,
+        640
+      ],
+      "encoding": "16UC1"
+    }
+  ],
+  "camera_info": {
+    "K": [
+      607.930419921875,
+      0.0,
+      318.028076171875,
+      0.0,
+      606.4090576171875,
+      233.55087280273438,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "D": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "distortion_model": "plumb_bob"
+  },
+  "pair_limit_ms": 5,
+  "frame": "camera_color_optical_frame",
+  "base_transform_available": false,
+  "purpose": "static scene diagnostic only"
+}

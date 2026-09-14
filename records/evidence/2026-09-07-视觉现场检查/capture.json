@@ -1,0 +1,146 @@
+{
+  "frames": [
+    {
+      "index": 0,
+      "color_stamp": 1788756366.6398962,
+      "depth_stamp": 1788756366.6398962,
+      "sync_ms": 0.0,
+      "color_shape": [
+        480,
+        640,
+        3
+      ],
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_encoding": "16UC1",
+      "depth_nonzero_fraction": 0.9952180989583334,
+      "color_frame": "camera_color_optical_frame",
+      "depth_frame": "camera_color_optical_frame",
+      "color_K": [
+        607.930419921875,
+        0.0,
+        318.028076171875,
+        0.0,
+        606.4090576171875,
+        233.55087280273438,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "depth_K": [
+        607.930419921875,
+        0.0,
+        318.028076171875,
+        0.0,
+        606.4090576171875,
+        233.55087280273438,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "index": 1,
+      "color_stamp": 1788756367.6420052,
+      "depth_stamp": 1788756367.6754234,
+      "sync_ms": 33.41817855834961,
+      "color_shape": [
+        480,
+        640,
+        3
+      ],
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_encoding": "16UC1",
+      "depth_nonzero_fraction": 0.9951920572916667,
+      "color_frame": "camera_color_optical_frame",
+      "depth_frame": "camera_color_optical_frame",
+      "color_K": [
+        607.930419921875,
+        0.0,
+        318.028076171875,
+        0.0,
+        606.4090576171875,
+        233.55087280273438,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "depth_K": [
+        607.930419921875,
+        0.0,
+        318.028076171875,
+        0.0,
+        606.4090576171875,
+        233.55087280273438,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "index": 2,
+      "color_stamp": 1788756368.6748385,
+      "depth_stamp": 1788756368.7081409,
+      "sync_ms": 33.30230712890625,
+      "color_shape": [
+        480,
+        640,
+        3
+      ],
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_encoding": "16UC1",
+      "depth_nonzero_fraction": 0.995546875,
+      "color_frame": "camera_color_optical_frame",
+      "depth_frame": "camera_color_optical_frame",
+      "color_K": [
+        607.930419921875,
+        0.0,
+        318.028076171875,
+        0.0,
+        606.4090576171875,
+        233.55087280273438,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "depth_K": [
+        607.930419921875,
+        0.0,
+        318.028076171875,
+        0.0,
+        606.4090576171875,
+        233.55087280273438,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "static_tf_edges": [
+    {
+      "parent": "camera_link",
+      "child": "camera_depth_frame"
+    },
+    {
+      "parent": "camera_depth_frame",
+      "child": "camera_depth_optical_frame"
+    },
+    {
+      "parent": "camera_link",
+      "child": "camera_color_frame"
+    },
+    {
+      "parent": "camera_color_frame",
+      "child": "camera_color_optical_frame"
+    }
+  ],
+  "base_transform_verified": false
+}
