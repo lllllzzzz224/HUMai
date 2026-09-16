@@ -164,7 +164,7 @@ scene:
   - 1.2
   - 0.1
 targets:
-  grasp_above_apple_m: 0.004
+  grasp_above_apple_m: 0.024
   lift_m: 0.07
   orientation_tolerance_rad: 0.03
   position_tolerance_m: 0.003
