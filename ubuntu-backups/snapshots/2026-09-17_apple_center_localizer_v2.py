@@ -134,6 +134,9 @@ class AppleCenterLocalizer(Node):
         self.diagnostics_pub = self.create_publisher(
             String, "/apple_pick_v2/apple_diagnostics", 10
         )
+        self.annotated_image_pub = self.create_publisher(
+            Image, "/apple_pick_v2/annotated_image", 2
+        )
 
         self.create_subscription(CameraInfo, INFO_TOPIC, self.on_info, 10)
         self.create_subscription(Image, DEPTH_TOPIC, self.on_depth, 10)
@@ -361,6 +364,7 @@ class AppleCenterLocalizer(Node):
         if self.candidates_pub is not None:
             self.publish_candidate_snapshot(message, depth, candidates, rois, roi_images, results, model_duration_s)
         self.save_debug_images(color, roi_images, results, candidates, selected)
+        self.publish_annotated_image(color, candidates, selected, message.header)
         if not candidates:
             self.stats["conf_reject"] += 1
             self.stats["last_reject"] = "no_apple_box_at_threshold"
@@ -502,6 +506,49 @@ class AppleCenterLocalizer(Node):
                 seen.add(r)
                 unique_rois.append(r)
         return unique_rois
+
+    
+    def publish_annotated_image(self, color: np.ndarray, candidates, selected, header) -> None:
+        if self.annotated_image_pub.get_subscription_count() == 0:
+            return
+        annotated = color.copy()
+        for candidate in candidates:
+            x0, y0, x1, y1 = np.rint(candidate["global_xyxy"]).astype(int)
+            is_selected = candidate is selected
+            if is_selected:
+                box_color = (0, 255, 0)
+            elif candidate.get("touches_edge", False):
+                box_color = (0, 165, 255)
+            else:
+                box_color = (255, 120, 0)
+            cv2.rectangle(annotated, (x0, y0), (x1, y1), box_color, 2)
+            c_name = CLASS_NAMES.get(candidate["class_id"], "fruit")
+            label = f"{c_name} {candidate.get('confidence', 0.0):.2f}"
+            if is_selected:
+                label += " [SELECTED]"
+            elif candidate.get("touches_edge", False):
+                label += " [EDGE]"
+            cv2.putText(
+                annotated,
+                label,
+                (x0, max(y0 - 6, 14)),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.45,
+                box_color,
+                1,
+                cv2.LINE_AA,
+            )
+            cu, cv = int((x0 + x1) * 0.5), int((y0 + y1) * 0.5)
+            cv2.circle(annotated, (cu, cv), 4, (0, 0, 255), -1)
+
+        msg = Image()
+        msg.header = header
+        msg.height, msg.width = annotated.shape[:2]
+        msg.encoding = "bgr8"
+        msg.is_bigendian = 0
+        msg.step = msg.width * 3
+        msg.data = annotated.tobytes()
+        self.annotated_image_pub.publish(msg)
 
     def save_debug_images(
         self,
