@@ -26,7 +26,7 @@ candidate_search:
     - 0.0
     - -2.4
     - -3.14159
-  ik_total_solver_budget_s: 0.08
+  ik_total_solver_budget_s: 0.2
   joint_lower_limits_rad:
   - -3.1
   - -2.268
@@ -52,6 +52,7 @@ candidate_search:
     yaw_offset_deg: 0.001
   yaw_offsets_deg:
   - 0
+  - 180
 cartesian:
   jump_threshold: 1.5
   max_step_m: 0.003
