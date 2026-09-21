@@ -12,7 +12,7 @@ import sys
 import time
 
 # 默认远程配置
-DEFAULT_HOST = "li@10.77.0.2"
+DEFAULT_HOST = "humai@10.77.0.2"
 REMOTE_SCRIPT = "/home/li/hand_eye_calibration/scripts/robot_stack_manager.sh"
 
 # ANSI 颜色定义

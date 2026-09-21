@@ -13,9 +13,23 @@ ROS_SETUP="/opt/ros/jazzy/setup.bash"
 WS_SETUP="/home/li/ros2_ws/install/setup.bash"
 YOLO_PYTHON="/home/li/anaconda3/envs/yolo11/bin/python"
 ROBOT_IP="192.168.1.18"
-ROBOT_NET_IF="enx00e04c3a4178"
+ROBOT_NET_IF_DEFAULT="enx00e04c3a4178"
 ROBOT_HOST_IP="192.168.1.100/24"
 export ROS_DOMAIN_ID=42
+
+detect_robot_net_if() {
+    if [ -n "${ROBOT_NET_IF:-}" ] && ip link show "${ROBOT_NET_IF}" >/dev/null 2>&1; then
+        echo "${ROBOT_NET_IF}"
+        return
+    fi
+    local cand
+    cand=$(ip -br link | awk '{print $1}' | grep -E '^enx|^eth[1-9]|^enp[2-9]|^usb' | head -n 1)
+    if [ -n "$cand" ]; then
+        echo "$cand"
+    else
+        echo "${ROBOT_NET_IF_DEFAULT}"
+    fi
+}
 
 # 颜色输出
 RED='\033[0;31m'
@@ -57,14 +71,16 @@ do_doctor() {
     local all_passed=true
 
     # 1.1 检查机械臂网络连接
-    log_step "1. 检查机械臂网络连通性 (目标 IP: ${ROBOT_IP})..."
+    local net_if
+    net_if=$(detect_robot_net_if)
+    log_step "1. 检查机械臂网络连通性 (目标 IP: ${ROBOT_IP}, 探测网卡: ${net_if})..."
     if ping -c 1 -W 1 "${ROBOT_IP}" >/dev/null 2>&1; then
         echo -e "   [PASS] 机械臂 IP 通信正常 (${ROBOT_IP})"
     else
         log_warn "   [FAIL] 无法 Ping 通机械臂 IP (${ROBOT_IP})"
-        log_step "   正在尝试配置网卡 ${ROBOT_NET_IF} IP 为 ${ROBOT_HOST_IP}..."
-        if sudo ip address replace "${ROBOT_HOST_IP}" dev "${ROBOT_NET_IF}" 2>/dev/null && \
-           sudo ip link set "${ROBOT_NET_IF}" up 2>/dev/null; then
+        log_step "   正在尝试配置网卡 ${net_if} IP 为 ${ROBOT_HOST_IP}..."
+        if sudo ip address replace "${ROBOT_HOST_IP}" dev "${net_if}" 2>/dev/null && \
+           sudo ip link set "${net_if}" up 2>/dev/null; then
             sleep 1
             if ping -c 1 -W 1 "${ROBOT_IP}" >/dev/null 2>&1; then
                 echo -e "   [FIXED] 网卡已自动恢复，机械臂通信成功！"
@@ -73,7 +89,7 @@ do_doctor() {
                 all_passed=false
             fi
         else
-            log_err "   [FAIL] 网卡 ${ROBOT_NET_IF} 不存在或权限不足。"
+            log_err "   [FAIL] 网卡 ${net_if} 不存在或权限不足。"
             all_passed=false
         fi
     fi
@@ -173,10 +189,12 @@ do_start() {
     do_stop
 
     # 3.2 检查网络与硬件
+    local net_if
+    net_if=$(detect_robot_net_if)
     if ! ping -c 1 -W 1 "${ROBOT_IP}" >/dev/null 2>&1; then
-        log_warn "机械臂 IP 不通，尝试修复..."
-        sudo ip address replace "${ROBOT_HOST_IP}" dev "${ROBOT_NET_IF}" 2>/dev/null || true
-        sudo ip link set "${ROBOT_NET_IF}" up 2>/dev/null || true
+        log_warn "机械臂 IP 不通，尝试在网卡 ${net_if} 上配置..."
+        sudo ip address replace "${ROBOT_HOST_IP}" dev "${net_if}" 2>/dev/null || true
+        sudo ip link set "${net_if}" up 2>/dev/null || true
         sleep 1
         if ! ping -c 1 -W 1 "${ROBOT_IP}" >/dev/null 2>&1; then
             log_err "无法连接机械臂 (${ROBOT_IP})，启动终止！"
