@@ -1,0 +1,1322 @@
+{
+  "timestamp": "2026-08-11 18:17:32",
+  "status": "PASS_PICK_RETURN_COMPLETE",
+  "single_round": false,
+  "continuous": true,
+  "round_index": 1,
+  "autonomous_requested": true,
+  "fully_autonomous_requested": true,
+  "preflight_only": false,
+  "verify_only": false,
+  "return_after_lift_requested": true,
+  "visual_xy_correction_disabled_by_cli": false,
+  "single_apple_scene_operator_confirmed": true,
+  "motion_started": true,
+  "gripper_close_commanded": true,
+  "lift_completed": true,
+  "gripper_reopened": true,
+  "returned_to_scan": true,
+  "pre_motion_attempt": 1,
+  "apple_center_raw_base_m": [
+    0.3162259,
+    -0.2666911,
+    -0.0618906
+  ],
+  "apple_center_corrected_base_m": [
+    0.3141028,
+    -0.241131,
+    -0.0618906
+  ],
+  "apple_center_base_m": [
+    0.3141028,
+    -0.241131,
+    -0.0618906
+  ],
+  "visual_xy_correction": {
+    "configured_enabled": true,
+    "disabled_by_cli": false,
+    "applied": true,
+    "model": "similarity_2d_base_link",
+    "raw_xyz_m": [
+      0.3162258523875806,
+      -0.2666910908926809,
+      -0.061890620742067026
+    ],
+    "scale": 0.9249983311376341,
+    "rotation_deg": 2.2829447233570446,
+    "translation_xy_m": [
+      0.01199984868,
+      -0.0062898608
+    ],
+    "corrected_xyz_m": [
+      0.31410276057387826,
+      -0.24113099283949657,
+      -0.061890620742067026
+    ],
+    "delta_xyz_m": [
+      -0.002123091813702349,
+      0.02556009805318432,
+      0.0
+    ],
+    "correction_norm_mm": 25.648121399779104,
+    "fit_point_count": 8,
+    "fit_rmse_mm": 6.411567017694393,
+    "fit_max_residual_mm": 9.626213316333969
+  },
+  "apple_radius_m": 0.031108,
+  "vision_diagnostics": {
+    "frame": "base_link",
+    "confidence": 0.592,
+    "radius_m": 0.031102,
+    "valid_depth_pixels": 1155,
+    "sync_error_ms": 0.0,
+    "surface_xyz_m": [
+      0.315359,
+      -0.261207,
+      -0.031278
+    ],
+    "center_xyz_m": [
+      0.316223,
+      -0.266675,
+      -0.061883
+    ],
+    "_received_monotonic": 15189.356723413
+  },
+  "pregrasp_base_m": [
+    0.3141028,
+    -0.241131,
+    0.0381094
+  ],
+  "verify_base_m": [
+    0.3141028,
+    -0.241131,
+    -0.0318906
+  ],
+  "grasp_base_m": [
+    0.3141028,
+    -0.241131,
+    -0.0418906
+  ],
+  "grasp_offset_above_center_m": 0.02,
+  "lift_base_m": [
+    0.3141028,
+    -0.241131,
+    0.0281094
+  ],
+  "gripper_open_mm": 80.0,
+  "gripper_close_mm": 2.0,
+  "candidate_yaw_offsets_deg": [
+    0.0,
+    90.0,
+    180.0,
+    270.0
+  ],
+  "candidate_pitch_stages_deg": [
+    [
+      0.0
+    ],
+    [
+      10.0,
+      -10.0
+    ],
+    [
+      20.0,
+      -20.0
+    ]
+  ],
+  "table_guard_top_z_m": -0.09099862074206702,
+  "fast_candidate_screen": {
+    "total_solver_budget_s_per_candidate": 0.08,
+    "screen_waypoints": [
+      "PREGRASP",
+      "VERIFY",
+      "GRASP"
+    ],
+    "solver_budget_s_per_waypoint": 0.02666666666666667,
+    "seed_count": 4,
+    "ik_avoid_collisions": false,
+    "independent_state_collision_check": true,
+    "records": [
+      {
+        "stage": 0,
+        "yaw_offset_deg": 0.0,
+        "yaw_rad": 2.847,
+        "pitch_deg": 0.0,
+        "waypoints": {
+          "PREGRASP": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "DUPLICATE_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 1,
+            "result": "PASS",
+            "best_solution": {
+              "score": 1.3743403010830801,
+              "score_details": {
+                "score": 1.3743403010830801,
+                "max_joint_delta_rad": 0.8454716649498246,
+                "sum_joint_delta_rad": 2.1775272956364513,
+                "min_normalized_joint_limit_margin": 0.09889262912287561,
+                "joint_limit_penalty": 10.11197708938939,
+                "canonical_yaw_offset_deg": 0.0
+              },
+              "joint_positions_rad": [
+                2.4868656994381713,
+                0.9045425402966967,
+                1.0499209028061454,
+                4.103052076309476e-06,
+                1.1871218340430951,
+                -0.3601324118412671
+              ]
+            }
+          },
+          "VERIFY": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "DUPLICATE_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 1,
+            "result": "PASS",
+            "best_solution": {
+              "score": 1.6491911808711672,
+              "score_details": {
+                "score": 1.6491911808711672,
+                "max_joint_delta_rad": 1.0568953686506846,
+                "sum_joint_delta_rad": 2.60037481824358,
+                "min_normalized_joint_limit_margin": 0.09889260580005109,
+                "joint_limit_penalty": 10.111979474197286,
+                "canonical_yaw_offset_deg": 0.0
+              },
+              "joint_positions_rad": [
+                2.4868658440396834,
+                1.0501984491165064,
+                1.1156887260803177,
+                4.446788123219184e-06,
+                0.9756981303422352,
+                -0.360132986991113
+              ]
+            }
+          },
+          "GRASP": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "DUPLICATE_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 1,
+            "result": "PASS",
+            "best_solution": {
+              "score": 1.6827198509196584,
+              "score_details": {
+                "score": 1.6827198509196584,
+                "max_joint_delta_rad": 1.0826866448470915,
+                "sum_joint_delta_rad": 2.6519574969075506,
+                "min_normalized_joint_limit_margin": 0.09889260968628406,
+                "joint_limit_penalty": 10.111979076821706,
+                "canonical_yaw_offset_deg": 0.0
+              },
+              "joint_positions_rad": [
+                2.486865819945039,
+                1.075034876787933,
+                1.1166435674766078,
+                4.575702939795269e-06,
+                0.9499068541458282,
+                -0.3601332252111323
+              ]
+            }
+          }
+        },
+        "result": "PASS",
+        "ranking_score": 1.6827198509196584
+      },
+      {
+        "stage": 0,
+        "yaw_offset_deg": 90.0,
+        "yaw_rad": 4.417796326794896,
+        "pitch_deg": 0.0,
+        "waypoints": {
+          "PREGRASP": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "DUPLICATE_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 1,
+            "result": "PASS",
+            "best_solution": {
+              "score": 2.7147954953302493,
+              "score_details": {
+                "score": 2.7147954953302493,
+                "max_joint_delta_rad": 1.8603081365869438,
+                "sum_joint_delta_rad": 3.748318446715372,
+                "min_normalized_joint_limit_margin": 0.09889260469882509,
+                "joint_limit_penalty": 10.11197958679999,
+                "canonical_yaw_offset_deg": 90.0
+              },
+              "joint_positions_rad": [
+                2.4868658508672845,
+                0.9045453432785474,
+                1.0499157583271805,
+                3.961108662773186e-06,
+                1.1871242055288407,
+                -1.9309282853887475
+              ]
+            }
+          },
+          "VERIFY": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "DUPLICATE_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 2,
+            "result": "PASS",
+            "best_solution": {
+              "score": 2.7782244400859266,
+              "score_details": {
+                "score": 2.7782244400859266,
+                "max_joint_delta_rad": 1.8603091891701165,
+                "sum_joint_delta_rad": 4.171171077922787,
+                "min_normalized_joint_limit_margin": 0.09889260592550242,
+                "joint_limit_penalty": 10.11197946136962,
+                "canonical_yaw_offset_deg": 90.0
+              },
+              "joint_positions_rad": [
+                2.486865843261885,
+                1.0501984964940296,
+                1.1156886310685235,
+                4.475193386939262e-06,
+                0.9756981463820991,
+                -1.9309293379719201
+              ]
+            }
+          },
+          "GRASP": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 2,
+            "result": "PASS",
+            "best_solution": {
+              "score": 2.7859622621352997,
+              "score_details": {
+                "score": 2.7859622621352997,
+                "max_joint_delta_rad": 1.8603096405660136,
+                "sum_joint_delta_rad": 4.2227536257176475,
+                "min_normalized_joint_limit_margin": 0.09889261155656076,
+                "joint_limit_penalty": 10.11197888558195,
+                "canonical_yaw_offset_deg": 90.0
+              },
+              "joint_positions_rad": [
+                2.4868658083493234,
+                1.0750350033989984,
+                1.1166432984521903,
+                4.7920616413756425e-06,
+                0.9499069423160781,
+                -1.9309297893678172
+              ]
+            }
+          }
+        },
+        "result": "PASS",
+        "ranking_score": 2.7859622621352997
+      },
+      {
+        "stage": 0,
+        "yaw_offset_deg": 180.0,
+        "yaw_rad": 5.988592653589793,
+        "pitch_deg": 0.0,
+        "waypoints": {
+          "PREGRASP": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 1,
+            "result": "PASS",
+            "best_solution": {
+              "score": 3.9453341097555388,
+              "score_details": {
+                "score": 3.9453341097555388,
+                "max_joint_delta_rad": 2.852080844551766,
+                "sum_joint_delta_rad": 4.7400911560289485,
+                "min_normalized_joint_limit_margin": 0.09889260466780825,
+                "joint_limit_penalty": 10.111979589971527,
+                "canonical_yaw_offset_deg": 180.0
+              },
+              "joint_positions_rad": [
+                2.486865851059589,
+                0.9045453426896282,
+                1.04991575921341,
+                3.9605631817078315e-06,
+                1.1871242048305732,
+                2.781460695749962
+              ]
+            }
+          },
+          "VERIFY": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              }
+            ],
+            "collision_free_solution_count": 2,
+            "result": "PASS",
+            "best_solution": {
+              "score": 4.008760693713469,
+              "score_details": {
+                "score": 4.008760693713469,
+                "max_joint_delta_rad": 2.8520798422759586,
+                "sum_joint_delta_rad": 5.162941727629207,
+                "min_normalized_joint_limit_margin": 0.09889260442639534,
+                "joint_limit_penalty": 10.11197961465651,
+                "canonical_yaw_offset_deg": 180.0
+              },
+              "joint_positions_rad": [
+                2.486865852556349,
+                1.0501985220613819,
+                1.1156886050005836,
+                4.43513049150929e-06,
+                0.9756981800493645,
+                2.781459693474155
+              ]
+            }
+          },
+          "GRASP": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              }
+            ],
+            "collision_free_solution_count": 2,
+            "result": "PASS",
+            "best_solution": {
+              "score": 4.883007791361584,
+              "score_details": {
+                "score": 4.883007791361584,
+                "max_joint_delta_rad": 3.1714329175823512,
+                "sum_joint_delta_rad": 9.703372621275646,
+                "min_normalized_joint_limit_margin": 0.26291925888099477,
+                "joint_limit_penalty": 3.803449029394345,
+                "canonical_yaw_offset_deg": 180.0
+              },
+              "joint_positions_rad": [
+                -0.654724134623367,
+                -1.0750425813537778,
+                -1.1166502906705147,
+                -4.519102606532295e-06,
+                -0.9499071283397686,
+                -0.3601251755815689
+              ]
+            }
+          }
+        },
+        "result": "PASS",
+        "ranking_score": 4.883007791361584
+      },
+      {
+        "stage": 0,
+        "yaw_offset_deg": 270.0,
+        "yaw_rad": 7.559388980384689,
+        "pitch_deg": 0.0,
+        "waypoints": {
+          "PREGRASP": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "DUPLICATE_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 2,
+            "result": "PASS",
+            "best_solution": {
+              "score": 2.048920139300991,
+              "score_details": {
+                "score": 2.048920139300991,
+                "max_joint_delta_rad": 1.2812847667036147,
+                "sum_joint_delta_rad": 3.1693053480347615,
+                "min_normalized_joint_limit_margin": 0.09889261513569302,
+                "joint_limit_penalty": 10.111978519608114,
+                "canonical_yaw_offset_deg": 90.0
+              },
+              "joint_positions_rad": [
+                2.4868657861587034,
+                0.9045390576443647,
+                1.0499270849919864,
+                3.840806743250454e-06,
+                1.187119160367246,
+                1.210664617901811
+              ]
+            }
+          },
+          "VERIFY": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 1,
+            "result": "PASS",
+            "best_solution": {
+              "score": 2.1123449506233634,
+              "score_details": {
+                "score": 2.1123449506233634,
+                "max_joint_delta_rad": 1.2812834810914844,
+                "sum_joint_delta_rad": 3.5921457285349643,
+                "min_normalized_joint_limit_margin": 0.09889259564491457,
+                "joint_limit_penalty": 10.11198051258172,
+                "canonical_yaw_offset_deg": 90.0
+              },
+              "joint_positions_rad": [
+                2.4868659070015298,
+                1.0501983074397059,
+                1.115689057507128,
+                4.487338668382766e-06,
+                0.9756979491906447,
+                1.2106633322896807
+              ]
+            }
+          },
+          "GRASP": {
+            "ik_diagnostics": [
+              {
+                "seed_index": 0,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 1,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "DUPLICATE_IK"
+              },
+              {
+                "seed_index": 2,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": 1,
+                "result": "PASS"
+              },
+              {
+                "seed_index": 3,
+                "solver_timeout_s": 0.006666666666666667,
+                "ik_error_code": -31,
+                "result": "NO_IK"
+              }
+            ],
+            "collision_free_solution_count": 2,
+            "result": "PASS",
+            "best_solution": {
+              "score": 2.120081561831337,
+              "score_details": {
+                "score": 2.120081561831337,
+                "max_joint_delta_rad": 1.2812829413439208,
+                "sum_joint_delta_rad": 3.6437269983225455,
+                "min_normalized_joint_limit_margin": 0.09889261496607694,
+                "joint_limit_penalty": 10.111978536951716,
+                "canonical_yaw_offset_deg": 90.0
+              },
+              "joint_positions_rad": [
+                2.486865787210323,
+                1.0750349440123934,
+                1.1166433317964408,
+                4.874920237965346e-06,
+                0.9499067827271375,
+                1.2106627925421172
+              ]
+            }
+          }
+        },
+        "result": "PASS",
+        "ranking_score": 2.120081561831337
+      }
+    ]
+  },
+  "ranked_candidates_in_selected_stage": [
+    {
+      "stage": 0,
+      "yaw_offset_deg": 0.0,
+      "yaw_rad": 2.847,
+      "pitch_deg": 0.0,
+      "pitch_rad": 0.0,
+      "score": 1.6827198509196584,
+      "score_details": {
+        "ranking_basis": "max_waypoint_score",
+        "waypoint_scores": {
+          "PREGRASP": 1.3743403010830801,
+          "VERIFY": 1.6491911808711672,
+          "GRASP": 1.6827198509196584
+        }
+      },
+      "joint_positions_rad": [
+        2.4868656994381713,
+        0.9045425402966967,
+        1.0499209028061454,
+        4.103052076309476e-06,
+        1.1871218340430951,
+        -0.3601324118412671
+      ],
+      "waypoint_best_solutions": {
+        "PREGRASP": {
+          "score": 1.3743403010830801,
+          "score_details": {
+            "score": 1.3743403010830801,
+            "max_joint_delta_rad": 0.8454716649498246,
+            "sum_joint_delta_rad": 2.1775272956364513,
+            "min_normalized_joint_limit_margin": 0.09889262912287561,
+            "joint_limit_penalty": 10.11197708938939,
+            "canonical_yaw_offset_deg": 0.0
+          },
+          "joint_positions_rad": [
+            2.4868656994381713,
+            0.9045425402966967,
+            1.0499209028061454,
+            4.103052076309476e-06,
+            1.1871218340430951,
+            -0.3601324118412671
+          ]
+        },
+        "VERIFY": {
+          "score": 1.6491911808711672,
+          "score_details": {
+            "score": 1.6491911808711672,
+            "max_joint_delta_rad": 1.0568953686506846,
+            "sum_joint_delta_rad": 2.60037481824358,
+            "min_normalized_joint_limit_margin": 0.09889260580005109,
+            "joint_limit_penalty": 10.111979474197286,
+            "canonical_yaw_offset_deg": 0.0
+          },
+          "joint_positions_rad": [
+            2.4868658440396834,
+            1.0501984491165064,
+            1.1156887260803177,
+            4.446788123219184e-06,
+            0.9756981303422352,
+            -0.360132986991113
+          ]
+        },
+        "GRASP": {
+          "score": 1.6827198509196584,
+          "score_details": {
+            "score": 1.6827198509196584,
+            "max_joint_delta_rad": 1.0826866448470915,
+            "sum_joint_delta_rad": 2.6519574969075506,
+            "min_normalized_joint_limit_margin": 0.09889260968628406,
+            "joint_limit_penalty": 10.111979076821706,
+            "canonical_yaw_offset_deg": 0.0
+          },
+          "joint_positions_rad": [
+            2.486865819945039,
+            1.075034876787933,
+            1.1166435674766078,
+            4.575702939795269e-06,
+            0.9499068541458282,
+            -0.3601332252111323
+          ]
+        }
+      }
+    },
+    {
+      "stage": 0,
+      "yaw_offset_deg": 270.0,
+      "yaw_rad": 7.559388980384689,
+      "pitch_deg": 0.0,
+      "pitch_rad": 0.0,
+      "score": 2.120081561831337,
+      "score_details": {
+        "ranking_basis": "max_waypoint_score",
+        "waypoint_scores": {
+          "PREGRASP": 2.048920139300991,
+          "VERIFY": 2.1123449506233634,
+          "GRASP": 2.120081561831337
+        }
+      },
+      "joint_positions_rad": [
+        2.4868657861587034,
+        0.9045390576443647,
+        1.0499270849919864,
+        3.840806743250454e-06,
+        1.187119160367246,
+        1.210664617901811
+      ],
+      "waypoint_best_solutions": {
+        "PREGRASP": {
+          "score": 2.048920139300991,
+          "score_details": {
+            "score": 2.048920139300991,
+            "max_joint_delta_rad": 1.2812847667036147,
+            "sum_joint_delta_rad": 3.1693053480347615,
+            "min_normalized_joint_limit_margin": 0.09889261513569302,
+            "joint_limit_penalty": 10.111978519608114,
+            "canonical_yaw_offset_deg": 90.0
+          },
+          "joint_positions_rad": [
+            2.4868657861587034,
+            0.9045390576443647,
+            1.0499270849919864,
+            3.840806743250454e-06,
+            1.187119160367246,
+            1.210664617901811
+          ]
+        },
+        "VERIFY": {
+          "score": 2.1123449506233634,
+          "score_details": {
+            "score": 2.1123449506233634,
+            "max_joint_delta_rad": 1.2812834810914844,
+            "sum_joint_delta_rad": 3.5921457285349643,
+            "min_normalized_joint_limit_margin": 0.09889259564491457,
+            "joint_limit_penalty": 10.11198051258172,
+            "canonical_yaw_offset_deg": 90.0
+          },
+          "joint_positions_rad": [
+            2.4868659070015298,
+            1.0501983074397059,
+            1.115689057507128,
+            4.487338668382766e-06,
+            0.9756979491906447,
+            1.2106633322896807
+          ]
+        },
+        "GRASP": {
+          "score": 2.120081561831337,
+          "score_details": {
+            "score": 2.120081561831337,
+            "max_joint_delta_rad": 1.2812829413439208,
+            "sum_joint_delta_rad": 3.6437269983225455,
+            "min_normalized_joint_limit_margin": 0.09889261496607694,
+            "joint_limit_penalty": 10.111978536951716,
+            "canonical_yaw_offset_deg": 90.0
+          },
+          "joint_positions_rad": [
+            2.486865787210323,
+            1.0750349440123934,
+            1.1166433317964408,
+            4.874920237965346e-06,
+            0.9499067827271375,
+            1.2106627925421172
+          ]
+        }
+      }
+    },
+    {
+      "stage": 0,
+      "yaw_offset_deg": 90.0,
+      "yaw_rad": 4.417796326794896,
+      "pitch_deg": 0.0,
+      "pitch_rad": 0.0,
+      "score": 2.7859622621352997,
+      "score_details": {
+        "ranking_basis": "max_waypoint_score",
+        "waypoint_scores": {
+          "PREGRASP": 2.7147954953302493,
+          "VERIFY": 2.7782244400859266,
+          "GRASP": 2.7859622621352997
+        }
+      },
+      "joint_positions_rad": [
+        2.4868658508672845,
+        0.9045453432785474,
+        1.0499157583271805,
+        3.961108662773186e-06,
+        1.1871242055288407,
+        -1.9309282853887475
+      ],
+      "waypoint_best_solutions": {
+        "PREGRASP": {
+          "score": 2.7147954953302493,
+          "score_details": {
+            "score": 2.7147954953302493,
+            "max_joint_delta_rad": 1.8603081365869438,
+            "sum_joint_delta_rad": 3.748318446715372,
+            "min_normalized_joint_limit_margin": 0.09889260469882509,
+            "joint_limit_penalty": 10.11197958679999,
+            "canonical_yaw_offset_deg": 90.0
+          },
+          "joint_positions_rad": [
+            2.4868658508672845,
+            0.9045453432785474,
+            1.0499157583271805,
+            3.961108662773186e-06,
+            1.1871242055288407,
+            -1.9309282853887475
+          ]
+        },
+        "VERIFY": {
+          "score": 2.7782244400859266,
+          "score_details": {
+            "score": 2.7782244400859266,
+            "max_joint_delta_rad": 1.8603091891701165,
+            "sum_joint_delta_rad": 4.171171077922787,
+            "min_normalized_joint_limit_margin": 0.09889260592550242,
+            "joint_limit_penalty": 10.11197946136962,
+            "canonical_yaw_offset_deg": 90.0
+          },
+          "joint_positions_rad": [
+            2.486865843261885,
+            1.0501984964940296,
+            1.1156886310685235,
+            4.475193386939262e-06,
+            0.9756981463820991,
+            -1.9309293379719201
+          ]
+        },
+        "GRASP": {
+          "score": 2.7859622621352997,
+          "score_details": {
+            "score": 2.7859622621352997,
+            "max_joint_delta_rad": 1.8603096405660136,
+            "sum_joint_delta_rad": 4.2227536257176475,
+            "min_normalized_joint_limit_margin": 0.09889261155656076,
+            "joint_limit_penalty": 10.11197888558195,
+            "canonical_yaw_offset_deg": 90.0
+          },
+          "joint_positions_rad": [
+            2.4868658083493234,
+            1.0750350033989984,
+            1.1166432984521903,
+            4.7920616413756425e-06,
+            0.9499069423160781,
+            -1.9309297893678172
+          ]
+        }
+      }
+    },
+    {
+      "stage": 0,
+      "yaw_offset_deg": 180.0,
+      "yaw_rad": 5.988592653589793,
+      "pitch_deg": 0.0,
+      "pitch_rad": 0.0,
+      "score": 4.883007791361584,
+      "score_details": {
+        "ranking_basis": "max_waypoint_score",
+        "waypoint_scores": {
+          "PREGRASP": 3.9453341097555388,
+          "VERIFY": 4.008760693713469,
+          "GRASP": 4.883007791361584
+        }
+      },
+      "joint_positions_rad": [
+        2.486865851059589,
+        0.9045453426896282,
+        1.04991575921341,
+        3.9605631817078315e-06,
+        1.1871242048305732,
+        2.781460695749962
+      ],
+      "waypoint_best_solutions": {
+        "PREGRASP": {
+          "score": 3.9453341097555388,
+          "score_details": {
+            "score": 3.9453341097555388,
+            "max_joint_delta_rad": 2.852080844551766,
+            "sum_joint_delta_rad": 4.7400911560289485,
+            "min_normalized_joint_limit_margin": 0.09889260466780825,
+            "joint_limit_penalty": 10.111979589971527,
+            "canonical_yaw_offset_deg": 180.0
+          },
+          "joint_positions_rad": [
+            2.486865851059589,
+            0.9045453426896282,
+            1.04991575921341,
+            3.9605631817078315e-06,
+            1.1871242048305732,
+            2.781460695749962
+          ]
+        },
+        "VERIFY": {
+          "score": 4.008760693713469,
+          "score_details": {
+            "score": 4.008760693713469,
+            "max_joint_delta_rad": 2.8520798422759586,
+            "sum_joint_delta_rad": 5.162941727629207,
+            "min_normalized_joint_limit_margin": 0.09889260442639534,
+            "joint_limit_penalty": 10.11197961465651,
+            "canonical_yaw_offset_deg": 180.0
+          },
+          "joint_positions_rad": [
+            2.486865852556349,
+            1.0501985220613819,
+            1.1156886050005836,
+            4.43513049150929e-06,
+            0.9756981800493645,
+            2.781459693474155
+          ]
+        },
+        "GRASP": {
+          "score": 4.883007791361584,
+          "score_details": {
+            "score": 4.883007791361584,
+            "max_joint_delta_rad": 3.1714329175823512,
+            "sum_joint_delta_rad": 9.703372621275646,
+            "min_normalized_joint_limit_margin": 0.26291925888099477,
+            "joint_limit_penalty": 3.803449029394345,
+            "canonical_yaw_offset_deg": 180.0
+          },
+          "joint_positions_rad": [
+            -0.654724134623367,
+            -1.0750425813537778,
+            -1.1166502906705147,
+            -4.519102606532295e-06,
+            -0.9499071283397686,
+            -0.3601251755815689
+          ]
+        }
+      }
+    }
+  ],
+  "selected_candidate": {
+    "stage": 0,
+    "yaw_offset_deg": 0.0,
+    "yaw_rad": 2.847,
+    "pitch_deg": 0.0,
+    "score": 1.6827198509196584,
+    "score_details": {
+      "ranking_basis": "max_waypoint_score",
+      "waypoint_scores": {
+        "PREGRASP": 1.3743403010830801,
+        "VERIFY": 1.6491911808711672,
+        "GRASP": 1.6827198509196584
+      }
+    },
+    "joint_positions_rad": [
+      2.4868656994381713,
+      0.9045425402966967,
+      1.0499209028061454,
+      4.103052076309476e-06,
+      1.1871218340430951,
+      -0.3601324118412671
+    ],
+    "waypoint_best_solutions": {
+      "PREGRASP": {
+        "score": 1.3743403010830801,
+        "score_details": {
+          "score": 1.3743403010830801,
+          "max_joint_delta_rad": 0.8454716649498246,
+          "sum_joint_delta_rad": 2.1775272956364513,
+          "min_normalized_joint_limit_margin": 0.09889262912287561,
+          "joint_limit_penalty": 10.11197708938939,
+          "canonical_yaw_offset_deg": 0.0
+        },
+        "joint_positions_rad": [
+          2.4868656994381713,
+          0.9045425402966967,
+          1.0499209028061454,
+          4.103052076309476e-06,
+          1.1871218340430951,
+          -0.3601324118412671
+        ]
+      },
+      "VERIFY": {
+        "score": 1.6491911808711672,
+        "score_details": {
+          "score": 1.6491911808711672,
+          "max_joint_delta_rad": 1.0568953686506846,
+          "sum_joint_delta_rad": 2.60037481824358,
+          "min_normalized_joint_limit_margin": 0.09889260580005109,
+          "joint_limit_penalty": 10.111979474197286,
+          "canonical_yaw_offset_deg": 0.0
+        },
+        "joint_positions_rad": [
+          2.4868658440396834,
+          1.0501984491165064,
+          1.1156887260803177,
+          4.446788123219184e-06,
+          0.9756981303422352,
+          -0.360132986991113
+        ]
+      },
+      "GRASP": {
+        "score": 1.6827198509196584,
+        "score_details": {
+          "score": 1.6827198509196584,
+          "max_joint_delta_rad": 1.0826866448470915,
+          "sum_joint_delta_rad": 2.6519574969075506,
+          "min_normalized_joint_limit_margin": 0.09889260968628406,
+          "joint_limit_penalty": 10.111979076821706,
+          "canonical_yaw_offset_deg": 0.0
+        },
+        "joint_positions_rad": [
+          2.486865819945039,
+          1.075034876787933,
+          1.1166435674766078,
+          4.575702939795269e-06,
+          0.9499068541458282,
+          -0.3601332252111323
+        ]
+      }
+    },
+    "pitch_rad": 0.0
+  },
+  "selected_candidate_full_preflight": {
+    "result": "PASS",
+    "planning_time_s": 5.0,
+    "planning_attempts": 3
+  },
+  "final_target_validation_m": 1.87820992222498e-05,
+  "actual_lift_tcp_base_m": [
+    0.3142943,
+    -0.2414904,
+    0.0277453
+  ],
+  "actual_release_tcp_base_m": [
+    0.3141694,
+    -0.241407,
+    -0.0413176
+  ],
+  "release_center_m": [
+    0.31410276057387826,
+    -0.24113099283949657,
+    -0.061890620742067026
+  ],
+  "events": [
+    {
+      "time": "2026-08-11 18:17:32",
+      "step": "实验性视觉 XY 尺度模型",
+      "result": "APPLIED",
+      "raw_xyz_m": [
+        0.3162259,
+        -0.2666911,
+        -0.0618906
+      ],
+      "corrected_xyz_m": [
+        0.3141028,
+        -0.241131,
+        -0.0618906
+      ],
+      "delta_xy_mm": [
+        -2.12,
+        25.56
+      ],
+      "scale": 0.9249983311376341,
+      "rotation_deg": 2.2829447233570446
+    },
+    {
+      "time": "2026-08-11 18:17:32",
+      "step": "单苹果现场",
+      "result": "PASS",
+      "verification": "operator-confirmed: one visible apple"
+    },
+    {
+      "time": "2026-08-11 18:17:32",
+      "step": "放回与撤离路径预检",
+      "result": "PASS",
+      "yaw_offset_deg": 0.0,
+      "pitch_deg": 0.0
+    },
+    {
+      "time": "2026-08-11 18:17:32",
+      "step": "全部路径预检",
+      "result": "PASS",
+      "yaw_offset_deg": 0.0,
+      "pitch_deg": 0.0
+    },
+    {
+      "time": "2026-08-11 18:17:37",
+      "step": "自动开始 SCAN -> PREGRASP -> VERIFY",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-11 18:17:44",
+      "step": "到达 VERIFY",
+      "result": "PASS",
+      "actual_tcp_base_m": [
+        0.3142161,
+        -0.2414581,
+        -0.0312775
+      ]
+    },
+    {
+      "time": "2026-08-11 18:17:44",
+      "step": "VERIFY 后自动继续",
+      "result": "PASS",
+      "explicit_flag": "--autonomous"
+    },
+    {
+      "time": "2026-08-11 18:17:46",
+      "step": "到达 GRASP",
+      "result": "PASS",
+      "actual_tcp_base_m": [
+        0.3142164,
+        -0.2414242,
+        -0.0412988
+      ]
+    },
+    {
+      "time": "2026-08-11 18:17:46",
+      "step": "保守闭爪",
+      "result": "PASS",
+      "opening_mm": 2.0
+    },
+    {
+      "time": "2026-08-11 18:17:50",
+      "step": "上抬完成",
+      "result": "PASS",
+      "distance_m": 0.07
+    },
+    {
+      "time": "2026-08-11 18:17:50",
+      "step": "LIFT 后自动放回",
+      "result": "PASS",
+      "explicit_flag": "--fully-autonomous"
+    },
+    {
+      "time": "2026-08-11 18:17:54",
+      "step": "到达 RELEASE",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-11 18:17:54",
+      "step": "释放苹果",
+      "result": "PASS",
+      "opening_mm": 80.0
+    },
+    {
+      "time": "2026-08-11 18:17:59",
+      "step": "释放后直线撤离",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-11 18:18:02",
+      "step": "返回固定鸟瞰位",
+      "result": "PASS"
+    }
+  ],
+  "finished_at": "2026-08-11 18:18:02"
+}

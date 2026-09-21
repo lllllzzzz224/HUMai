@@ -1,0 +1,89 @@
+{
+  "status": 6,
+  "result": {
+    "error_code": {
+      "val": 99999,
+      "message": "",
+      "source": ""
+    },
+    "trajectory_start": {
+      "joint_state": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": ""
+        },
+        "name": [],
+        "position": [],
+        "velocity": [],
+        "effort": []
+      },
+      "multi_dof_joint_state": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": ""
+        },
+        "joint_names": [],
+        "transforms": [],
+        "twist": [],
+        "wrench": []
+      },
+      "attached_collision_objects": [],
+      "is_diff": false
+    },
+    "planned_trajectory": {
+      "joint_trajectory": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": ""
+        },
+        "joint_names": [],
+        "points": []
+      },
+      "multi_dof_joint_trajectory": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": ""
+        },
+        "joint_names": [],
+        "points": []
+      }
+    },
+    "executed_trajectory": {
+      "joint_trajectory": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": ""
+        },
+        "joint_names": [],
+        "points": []
+      },
+      "multi_dof_joint_trajectory": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": ""
+        },
+        "joint_names": [],
+        "points": []
+      }
+    },
+    "planning_time": 0.0
+  }
+}

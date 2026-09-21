@@ -1,0 +1,213 @@
+#!/usr/bin/env python3
+"""Interactive five-pose hand-eye consistency recorder.
+
+The script only subscribes to apple centre and joint-state topics. It cannot
+move the robot or command the gripper.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+from datetime import datetime
+import json
+from pathlib import Path
+import time
+
+from geometry_msgs.msg import PoseStamped
+import numpy as np
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import JointState
+
+
+POSE_LABELS = [
+    "鸟瞰位",
+    "左侧观察",
+    "右侧观察",
+    "前侧观察",
+    "腕部旋转观察",
+]
+RESULT_ROOT = Path("/home/li/hand_eye_calibration/apple_pick_v2/results")
+
+
+class ConsistencyRecorder(Node):
+    def __init__(self) -> None:
+        super().__init__("hand_eye_consistency_recorder")
+        self.capture_start_ns = 0
+        self.collecting = False
+        self.samples: list[dict] = []
+        self.latest_joint_names: list[str] = []
+        self.latest_joint_positions: list[float] = []
+        self.create_subscription(
+            PoseStamped, "/apple_pick_v2/apple_center", self.on_pose, 30
+        )
+        self.create_subscription(JointState, "/joint_states", self.on_joint_state, 30)
+
+    def on_joint_state(self, message: JointState) -> None:
+        self.latest_joint_names = list(message.name)
+        self.latest_joint_positions = [float(value) for value in message.position]
+
+    def on_pose(self, message: PoseStamped) -> None:
+        if not self.collecting or message.header.frame_id != "base_link":
+            return
+        stamp_ns = message.header.stamp.sec * 1_000_000_000 + message.header.stamp.nanosec
+        if stamp_ns < self.capture_start_ns:
+            return
+        p = message.pose.position
+        self.samples.append(
+            {
+                "stamp_ns": stamp_ns,
+                "xyz": [float(p.x), float(p.y), float(p.z)],
+                "joint_names": self.latest_joint_names.copy(),
+                "joint_positions": self.latest_joint_positions.copy(),
+            }
+        )
+
+    def collect(self, count: int, timeout_s: float) -> list[dict]:
+        self.samples = []
+        self.capture_start_ns = self.get_clock().now().nanoseconds
+        self.collecting = True
+        deadline = time.monotonic() + timeout_s
+        try:
+            while len(self.samples) < count and time.monotonic() < deadline:
+                rclpy.spin_once(self, timeout_sec=0.25)
+        finally:
+            self.collecting = False
+        return self.samples[:count]
+
+
+def robust_pose_statistics(samples: list[dict]) -> dict:
+    points = np.asarray([sample["xyz"] for sample in samples], dtype=np.float64)
+    median = np.median(points, axis=0)
+    distances = np.linalg.norm(points - median, axis=1)
+    median_distance = float(np.median(distances))
+    mad = float(np.median(np.abs(distances - median_distance)))
+    limit = max(0.004, median_distance + 3.5 * max(mad, 0.0005))
+    keep = distances <= limit
+    if int(np.count_nonzero(keep)) < max(5, len(points) // 2):
+        keep = np.ones(len(points), dtype=bool)
+    filtered = points[keep]
+    mean = np.mean(filtered, axis=0)
+    std = np.std(filtered, axis=0)
+    radial = np.linalg.norm(filtered - mean, axis=1)
+    return {
+        "sample_count": int(len(points)),
+        "kept_count": int(len(filtered)),
+        "mean_xyz_m": mean.tolist(),
+        "median_xyz_m": np.median(filtered, axis=0).tolist(),
+        "std_xyz_mm": (std * 1000.0).tolist(),
+        "max_jitter_mm": float(np.max(radial) * 1000.0),
+        "keep_mask": keep.tolist(),
+    }
+
+
+def cross_pose_statistics(pose_results: list[dict]) -> dict:
+    means = np.asarray([item["statistics"]["mean_xyz_m"] for item in pose_results])
+    grand_mean = np.mean(means, axis=0)
+    offsets = np.linalg.norm(means - grand_mean, axis=1)
+    pairwise = np.linalg.norm(means[:, None, :] - means[None, :, :], axis=2)
+    max_pairwise_mm = float(np.max(pairwise) * 1000.0)
+    if max_pairwise_mm <= 10.0:
+        verdict = "PASS：五姿态聚类在 10 mm 内，可进入 plan-only 阶段。"
+    elif max_pairwise_mm <= 20.0:
+        verdict = "WARN：漂移在 10–20 mm，先复测并检查苹果中心估计。"
+    else:
+        verdict = "FAIL：漂移超过 20 mm，停止 IK/抓取，排查手眼链路。"
+    return {
+        "grand_mean_xyz_m": grand_mean.tolist(),
+        "pose_offset_from_grand_mean_mm": (offsets * 1000.0).tolist(),
+        "max_pairwise_distance_mm": max_pairwise_mm,
+        "axis_peak_to_peak_mm": ((np.max(means, axis=0) - np.min(means, axis=0)) * 1000.0).tolist(),
+        "verdict": verdict,
+    }
+
+
+def save_results(run_dir: Path, pose_results: list[dict], overall: dict) -> None:
+    run_dir.mkdir(parents=True, exist_ok=False)
+    with (run_dir / "samples.csv").open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(
+            ["pose_index", "pose_label", "sample_index", "stamp_ns", "x_m", "y_m", "z_m", "kept", "joint_names", "joint_positions_rad"]
+        )
+        for pose_index, result in enumerate(pose_results, start=1):
+            keep_mask = result["statistics"]["keep_mask"]
+            for sample_index, (sample, kept) in enumerate(zip(result["samples"], keep_mask), start=1):
+                writer.writerow(
+                    [
+                        pose_index,
+                        result["label"],
+                        sample_index,
+                        sample["stamp_ns"],
+                        *sample["xyz"],
+                        kept,
+                        json.dumps(sample["joint_names"], ensure_ascii=False),
+                        json.dumps(sample["joint_positions"]),
+                    ]
+                )
+    output = {
+        "created_at": datetime.now().astimezone().isoformat(),
+        "input_topic": "/apple_pick_v2/apple_center",
+        "frame": "base_link",
+        "notes": "Apple centre is a sphere approximation; confirm with AprilTag/ArUco for higher accuracy.",
+        "poses": [
+            {"label": result["label"], "statistics": result["statistics"]}
+            for result in pose_results
+        ],
+        "overall": overall,
+    }
+    with (run_dir / "summary.json").open("w", encoding="utf-8") as handle:
+        json.dump(output, handle, ensure_ascii=False, indent=2)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Five-pose Eye-in-Hand consistency test")
+    parser.add_argument("--samples", type=int, default=10, help="samples per pose")
+    parser.add_argument("--timeout", type=float, default=20.0, help="seconds per pose")
+    args, ros_args = parser.parse_known_args()
+    if args.samples < 5:
+        parser.error("--samples must be at least 5")
+
+    rclpy.init(args=ros_args)
+    node = ConsistencyRecorder()
+    pose_results = []
+    try:
+        print("\n五姿态手眼一致性测试：只订阅数据，不会控制机械臂或夹爪。")
+        print("每次用示教器低速移动，稳定 1–2 秒后按 Enter；苹果全程不能移动。\n")
+        for index, label in enumerate(POSE_LABELS, start=1):
+            input(f"[{index}/5] 到达“{label}”并稳定后，按 Enter 开始采样：")
+            samples = node.collect(args.samples, args.timeout)
+            if len(samples) < args.samples:
+                raise RuntimeError(
+                    f"“{label}”只收到 {len(samples)}/{args.samples} 个有效 base_link 样本。"
+                )
+            statistics = robust_pose_statistics(samples)
+            pose_results.append({"label": label, "samples": samples, "statistics": statistics})
+            mean = np.asarray(statistics["mean_xyz_m"])
+            std = np.asarray(statistics["std_xyz_mm"])
+            print(
+                f"  平均 XYZ = [{mean[0]:.6f}, {mean[1]:.6f}, {mean[2]:.6f}] m；"
+                f"轴向标准差 = [{std[0]:.2f}, {std[1]:.2f}, {std[2]:.2f}] mm；"
+                f"最大单姿态抖动 = {statistics['max_jitter_mm']:.2f} mm"
+            )
+
+        overall = cross_pose_statistics(pose_results)
+        run_dir = RESULT_ROOT / datetime.now().strftime("hand_eye_%Y%m%d_%H%M%S")
+        save_results(run_dir, pose_results, overall)
+        print("\n五姿态汇总：")
+        for result, offset in zip(pose_results, overall["pose_offset_from_grand_mean_mm"]):
+            print(f"  {result['label']}: 离总均值 {offset:.2f} mm")
+        print(f"  XYZ 峰峰值: {np.round(overall['axis_peak_to_peak_mm'], 2).tolist()} mm")
+        print(f"  最大姿态间距离: {overall['max_pairwise_distance_mm']:.2f} mm")
+        print(f"  {overall['verdict']}")
+        print(f"  原始数据与汇总已保存：{run_dir}")
+    except (KeyboardInterrupt, EOFError):
+        print("\n测试已取消；没有发送任何运动或夹爪命令。")
+    finally:
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

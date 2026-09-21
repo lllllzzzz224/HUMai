@@ -1,0 +1,17 @@
+{
+  "status": "NOT_RUN_NO_FRESH_RGB",
+  "diagnostic_scope": "full_frame_offline_diagnostic_not_validated_grasp_candidate",
+  "captured_at": null,
+  "image": null,
+  "model": "/home/li/hand_eye_calibration/models/yolo11n-seg.pt",
+  "requested_classes": [
+    47,
+    49
+  ],
+  "requested_confidence_threshold": 0.15,
+  "requested_device": "cpu",
+  "detections": null,
+  "target_mask": null,
+  "annotated_image": null,
+  "reason": "No RealSense device visible; no fresh RGB frame was captured. This is not a no-orange detection result."
+}

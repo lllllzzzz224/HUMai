@@ -1,0 +1,85 @@
+{
+  "frames": 6,
+  "capture_errors": [],
+  "checks": [
+    {
+      "frame": 0,
+      "max_reprojection_difference_m": 0.0,
+      "sync_error_s": 0.0,
+      "bracket_s": 0.1738286018371582,
+      "joint_span_deg": 0.003,
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_dtype": "uint16",
+      "stamps_inside_arm_bracket": true
+    },
+    {
+      "frame": 1,
+      "max_reprojection_difference_m": 0.0,
+      "sync_error_s": 0.0,
+      "bracket_s": 0.10886883735656738,
+      "joint_span_deg": 0.002,
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_dtype": "uint16",
+      "stamps_inside_arm_bracket": true
+    },
+    {
+      "frame": 2,
+      "max_reprojection_difference_m": 0.0,
+      "sync_error_s": 0.0,
+      "bracket_s": 0.07296609878540039,
+      "joint_span_deg": 0.003,
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_dtype": "uint16",
+      "stamps_inside_arm_bracket": true
+    },
+    {
+      "frame": 3,
+      "max_reprojection_difference_m": 0.0,
+      "sync_error_s": 0.0,
+      "bracket_s": 0.0671234130859375,
+      "joint_span_deg": 0.001,
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_dtype": "uint16",
+      "stamps_inside_arm_bracket": true
+    },
+    {
+      "frame": 4,
+      "max_reprojection_difference_m": 0.0,
+      "sync_error_s": 0.0,
+      "bracket_s": 0.07516980171203613,
+      "joint_span_deg": 0.003,
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_dtype": "uint16",
+      "stamps_inside_arm_bracket": true
+    },
+    {
+      "frame": 5,
+      "max_reprojection_difference_m": 0.0,
+      "sync_error_s": 0.0,
+      "bracket_s": 0.07371401786804199,
+      "joint_span_deg": 0.003,
+      "depth_shape": [
+        480,
+        640
+      ],
+      "depth_dtype": "uint16",
+      "stamps_inside_arm_bracket": true
+    }
+  ],
+  "scope": "Independent arithmetic and timestamp audit only; old hand-eye assumed; partial visible surface is not fruit center; no motion."
+}

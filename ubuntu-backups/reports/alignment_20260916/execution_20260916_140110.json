@@ -1,0 +1,7 @@
+{
+  "status": "FAILED",
+  "closed": false,
+  "return": false,
+  "start_joint_error_rad": 5.2454376220589793e-05,
+  "error": "RuntimeError('table mismatch')"
+}

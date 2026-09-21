@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-08-31 15:31:53",
+  "status": "STOPPED_BY_OPERATOR",
+  "settings": {
+    "max_rounds": 0,
+    "min_position_change_m": 0.03,
+    "stable_time_s": 2.0,
+    "safety_countdown_s": 3.0,
+    "retry_delay_s": 2.0,
+    "max_pre_motion_retries": 3,
+    "max_axis_span_m": 0.01
+  },
+  "completed_rounds": 0,
+  "pre_motion_rejections": 0,
+  "vision_wait_errors": 0,
+  "rounds": [],
+  "finished_at": "2026-08-31 15:32:15"
+}

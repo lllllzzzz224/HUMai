@@ -1,0 +1,23 @@
+{
+  "status": "PASS_RETURN_TO_RECORDED_OBSERVATION_ONLY",
+  "execution_record": "/home/li/桌面/9月机械臂实验（算法）/reports/return_observation_20260916/execution_20260916_201707.json",
+  "final_tcp_ros_m": [
+    0.27408468598315866,
+    -0.18559453954176647,
+    0.31238655315617336
+  ],
+  "stationary_controller_samples": 12,
+  "controller_errors_all_zero": true,
+  "tcp_axis_span_mm": [
+    0.01723460504149399,
+    0.029822780303778718,
+    0.02616008307698703
+  ],
+  "fresh_rgbd_pairs": 6,
+  "recorder_frames": 1433,
+  "root_visual_observation": "Three oranges completely within final RGB image; visual check does not independently measure physical fingertip height",
+  "gripper_commands": false,
+  "strict_vertical_pose": false,
+  "target_scope": "Restored previously recorded observation pose, not a newly calibrated vertical pose",
+  "measurement_correction_applied": false
+}

@@ -1,0 +1,89 @@
+{
+  "started_at": "2026-09-21T12:22:25.587336+08:00",
+  "ended_at": "2026-09-21T12:22:29.162332+08:00",
+  "source": "Newly started local RealSense stream; no robot access",
+  "error": null,
+  "records": [
+    {
+      "received_at": "2026-09-21T12:22:27.449482+08:00",
+      "color_frame_number": 40,
+      "color_timestamp_ms": 1789964547405.669,
+      "depth_timestamp_ms": 1789964547405.6514,
+      "timestamp_domain": "timestamp_domain.global_time",
+      "depth_scale_m": 0.0010000000474974513,
+      "depth_valid_fraction": 0.8929296875,
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 911.8956909179688,
+        "fy": 909.613525390625,
+        "ppx": 637.0421142578125,
+        "ppy": 350.3262939453125,
+        "distortion_model": "distortion.inverse_brown_conrady",
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_00.jpg",
+      "depth_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/depth_00.npy"
+    },
+    {
+      "received_at": "2026-09-21T12:22:28.112137+08:00",
+      "color_frame_number": 60,
+      "color_timestamp_ms": 1789964548054.6892,
+      "depth_timestamp_ms": 1789964548054.6716,
+      "timestamp_domain": "timestamp_domain.global_time",
+      "depth_scale_m": 0.0010000000474974513,
+      "depth_valid_fraction": 0.89017578125,
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 911.8956909179688,
+        "fy": 909.613525390625,
+        "ppx": 637.0421142578125,
+        "ppy": 350.3262939453125,
+        "distortion_model": "distortion.inverse_brown_conrady",
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_01.jpg",
+      "depth_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/depth_01.npy"
+    },
+    {
+      "received_at": "2026-09-21T12:22:28.766471+08:00",
+      "color_frame_number": 80,
+      "color_timestamp_ms": 1789964548709.505,
+      "depth_timestamp_ms": 1789964548709.487,
+      "timestamp_domain": "timestamp_domain.global_time",
+      "depth_scale_m": 0.0010000000474974513,
+      "depth_valid_fraction": 0.8926529947916667,
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 911.8956909179688,
+        "fy": 909.613525390625,
+        "ppx": 637.0421142578125,
+        "ppy": 350.3262939453125,
+        "distortion_model": "distortion.inverse_brown_conrady",
+        "coeffs": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_02.jpg",
+      "depth_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/depth_02.npy"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "status": "PASS_RETURN_TO_RECORDED_OBSERVATION_ONLY",
+  "closed": false,
+  "return": true,
+  "start_joint_error_rad": 0.0004712909727069281,
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "return_observation_count": 50,
+    "current_diag20_obstacles": 55,
+    "previous_obstacles_preserved": {
+      "alignment_observed": 115,
+      "realign_observed": 96
+    },
+    "new_obstacles": 81
+  },
+  "interface_discovery": [
+    {
+      "elapsed_s": 0.0002405340001132572,
+      "action_ready": true,
+      "stop_count": 2,
+      "stop_nodes": [
+        "rm_control",
+        "rm_driver"
+      ]
+    }
+  ],
+  "gripper_commands": false,
+  "final_tcp_m": [
+    0.27408468598315866,
+    -0.18559453954176647,
+    0.31238655315617336
+  ]
+}

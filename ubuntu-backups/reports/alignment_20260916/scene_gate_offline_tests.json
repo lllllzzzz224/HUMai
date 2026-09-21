@@ -1,0 +1,22 @@
+[
+  {
+    "case": "object_pose",
+    "result": "ACCEPT",
+    "scene_readback_table_top_m": -0.05499999999999999
+  },
+  {
+    "case": "primitive_pose",
+    "result": "ACCEPT",
+    "scene_readback_table_top_m": -0.05499999999999999
+  },
+  {
+    "case": "camera_quaternion_sign",
+    "result": "ACCEPT",
+    "scene_readback_table_top_m": -0.05499999999999999
+  },
+  {
+    "case": "wrong_table_10mm",
+    "result": "REJECT",
+    "reason": "table mismatch"
+  }
+]

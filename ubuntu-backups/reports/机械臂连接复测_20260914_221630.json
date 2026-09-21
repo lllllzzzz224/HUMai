@@ -1,0 +1,8 @@
+{
+  "time": "2026-09-14T22:16:30.052477",
+  "endpoint": "192.168.1.18:8080",
+  "query": "get_current_arm_state",
+  "response": "{\"arm_state\":{\"err\":[0],\"joint\":[143363,21497,37106,3043,109614,-3499],\"pose\":[250251,-176054,430469,3108,208,2582]},\"state\":\"current_arm_state\"}\r\n",
+  "motion_command_sent": false,
+  "camera_usb_speed": "480M"
+}

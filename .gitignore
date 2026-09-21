@@ -4,11 +4,21 @@ ubuntu-backups/snapshots/*/rm_rl_grasp/
 ubuntu-backups/snapshots/*/home-probes/
 .DS_Store
 
-# Host local workspace symlinks
-apple_pick_v2
-best.pt
-hand_eye_calibration
-models
-ros2_ws
-vertical-grasp
+# Host local workspace symlinks (root level only)
+/apple_pick_v2
+/best.pt
+/hand_eye_calibration
+/models
+/ros2_ws
+/vertical-grasp
+
+# Heavy binary caches and artifacts
+*.npy
+*.pt
+*.tar.gz
+*.deb
+*.zip
+*.bin
+__pycache__/
+*.pyc
 

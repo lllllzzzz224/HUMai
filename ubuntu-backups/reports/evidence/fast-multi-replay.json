@@ -1,0 +1,142 @@
+{
+  "mode": "DETERMINISTIC_SOFTWARE_REPLAY",
+  "hardware_connected": false,
+  "timing_scope": "software control only; no perception model, MoveIt, or robot benchmark",
+  "status": "ALL_ATTEMPTED",
+  "rounds": [
+    {
+      "target_id": "fruit-1",
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.95,
+      "capture_stamp_s": 10.2,
+      "attempt_count": 1,
+      "motion_started": false,
+      "physical_grasp_success": "UNVERIFIED",
+      "status": "PLANNED_ONLY"
+    },
+    {
+      "target_id": "fruit-2",
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.85,
+      "capture_stamp_s": 10.399999999999999,
+      "attempt_count": 1,
+      "motion_started": false,
+      "physical_grasp_success": "UNVERIFIED",
+      "status": "PLANNED_ONLY"
+    },
+    {
+      "target_id": "fruit-3",
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.75,
+      "capture_stamp_s": 10.599999999999998,
+      "attempt_count": 1,
+      "motion_started": false,
+      "physical_grasp_success": "UNVERIFIED",
+      "status": "PLANNED_ONLY"
+    }
+  ],
+  "phases": [
+    {
+      "id": 1,
+      "parent_id": null,
+      "phase": "selection",
+      "target_id": null,
+      "start_monotonic_s": 880555.396190131,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396203807,
+      "duration_s": 1.3676006346940994e-05
+    },
+    {
+      "id": 2,
+      "parent_id": null,
+      "phase": "preflight",
+      "target_id": "fruit-1",
+      "start_monotonic_s": 880555.396211117,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396213506,
+      "duration_s": 2.3889588192105293e-06
+    },
+    {
+      "id": 3,
+      "parent_id": null,
+      "phase": "revalidation",
+      "target_id": "fruit-1",
+      "start_monotonic_s": 880555.396215836,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396221855,
+      "duration_s": 6.018904969096184e-06
+    },
+    {
+      "id": 4,
+      "parent_id": null,
+      "phase": "selection",
+      "target_id": null,
+      "start_monotonic_s": 880555.396260553,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396268993,
+      "duration_s": 8.439994417130947e-06
+    },
+    {
+      "id": 5,
+      "parent_id": null,
+      "phase": "preflight",
+      "target_id": "fruit-2",
+      "start_monotonic_s": 880555.396273387,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396274715,
+      "duration_s": 1.3279495760798454e-06
+    },
+    {
+      "id": 6,
+      "parent_id": null,
+      "phase": "revalidation",
+      "target_id": "fruit-2",
+      "start_monotonic_s": 880555.396276057,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396280508,
+      "duration_s": 4.451023414731026e-06
+    },
+    {
+      "id": 7,
+      "parent_id": null,
+      "phase": "selection",
+      "target_id": null,
+      "start_monotonic_s": 880555.396313041,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396319212,
+      "duration_s": 6.171059794723988e-06
+    },
+    {
+      "id": 8,
+      "parent_id": null,
+      "phase": "preflight",
+      "target_id": "fruit-3",
+      "start_monotonic_s": 880555.396322049,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396323079,
+      "duration_s": 1.0300427675247192e-06
+    },
+    {
+      "id": 9,
+      "parent_id": null,
+      "phase": "revalidation",
+      "target_id": "fruit-3",
+      "start_monotonic_s": 880555.396324194,
+      "inclusive": true,
+      "status": "OK",
+      "end_monotonic_s": 880555.396327843,
+      "duration_s": 3.648921847343445e-06
+    }
+  ]
+}

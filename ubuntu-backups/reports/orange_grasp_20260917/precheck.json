@@ -1,0 +1,541 @@
+{
+  "diagnostics": {
+    "data": "{\"frame\": \"base_link\", \"confidence\": 0.4924, \"radius_m\": 0.038277, \"valid_depth_pixels\": 6152, \"sync_error_ms\": 0.0, \"surface_xyz_m\": [0.319287, -0.294996, -0.028413], \"center_xyz_m\": [0.321062, -0.303866, -0.065606]}"
+  },
+  "center": {
+    "header": {
+      "stamp": {
+        "sec": 1789631227,
+        "nanosec": 345738127
+      },
+      "frame_id": "base_link"
+    },
+    "pose": {
+      "position": {
+        "x": 0.32106177589276175,
+        "y": -0.3038664062498605,
+        "z": -0.06560623400417465
+      },
+      "orientation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+      }
+    }
+  },
+  "scene": {
+    "scene": {
+      "name": "(noname)+",
+      "robot_state": {
+        "joint_state": {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "base_link"
+          },
+          "name": [
+            "joint1",
+            "joint2",
+            "joint3",
+            "joint4",
+            "joint5",
+            "joint6"
+          ],
+          "position": [
+            2.496815793609619,
+            0.36030761251449583,
+            0.6468714946746826,
+            0.054077549600601196,
+            2.0306914287567137,
+            -0.08225930392742158
+          ],
+          "velocity": [],
+          "effort": []
+        },
+        "multi_dof_joint_state": {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "base_link"
+          },
+          "joint_names": [],
+          "transforms": [],
+          "twist": [],
+          "wrench": []
+        },
+        "attached_collision_objects": [
+          {
+            "link_name": "Link6",
+            "object": {
+              "header": {
+                "stamp": {
+                  "sec": 0,
+                  "nanosec": 0
+                },
+                "frame_id": "Link6"
+              },
+              "pose": {
+                "position": {
+                  "x": -0.06451444708500008,
+                  "y": 0.005428183272000022,
+                  "z": 0.003696935130999972
+                },
+                "orientation": {
+                  "x": 0.020548815920011305,
+                  "y": -0.7282537760744002,
+                  "z": 0.0017285122880011247,
+                  "w": 0.6849972233833758
+                }
+              },
+              "id": "realsense_camera_guard",
+              "type": {
+                "key": "",
+                "db": ""
+              },
+              "primitives": [
+                {
+                  "type": 1,
+                  "dimensions": [
+                    0.11,
+                    0.05,
+                    0.05
+                  ],
+                  "polygon": {
+                    "points": []
+                  }
+                }
+              ],
+              "primitive_poses": [
+                {
+                  "position": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0
+                  },
+                  "orientation": {
+                    "x": 0.0,
+                    "y": 0.0,
+                    "z": 0.0,
+                    "w": 1.0
+                  }
+                }
+              ],
+              "meshes": [],
+              "mesh_poses": [],
+              "planes": [],
+              "plane_poses": [],
+              "subframe_names": [],
+              "subframe_poses": [],
+              "operation": "\u0000"
+            },
+            "touch_links": [
+              "Link6",
+              "gripper_body_approx",
+              "tcp_link"
+            ],
+            "detach_posture": {
+              "header": {
+                "stamp": {
+                  "sec": 0,
+                  "nanosec": 0
+                },
+                "frame_id": ""
+              },
+              "joint_names": [],
+              "points": []
+            },
+            "weight": 0.0
+          }
+        ],
+        "is_diff": false
+      },
+      "robot_model_name": "rm_65_description",
+      "fixed_frame_transforms": [
+        {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "base_link"
+          },
+          "child_frame_id": "base_link",
+          "transform": {
+            "translation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "rotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          }
+        },
+        {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "camera_color_frame"
+          },
+          "child_frame_id": "base_link",
+          "transform": {
+            "translation": {
+              "x": 0.2963163895546514,
+              "y": -0.18016859773004368,
+              "z": 0.4529859665694736
+            },
+            "rotation": {
+              "x": 0.19043776712074661,
+              "y": 0.6146356273501048,
+              "z": -0.21276293003837565,
+              "w": 0.7353151963936913
+            }
+          }
+        },
+        {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "camera_color_optical_frame"
+          },
+          "child_frame_id": "base_link",
+          "transform": {
+            "translation": {
+              "x": 0.2963163895546514,
+              "y": -0.18016859773004368,
+              "z": 0.4529859665694736
+            },
+            "rotation": {
+              "x": -0.47337506329233686,
+              "y": 0.8765757604514592,
+              "z": -0.0715023659806077,
+              "w": 0.04917720306297884
+            }
+          }
+        },
+        {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "camera_depth_frame"
+          },
+          "child_frame_id": "base_link",
+          "transform": {
+            "translation": {
+              "x": 0.28830643839384357,
+              "y": -0.19253170160568778,
+              "z": 0.4526609360018842
+            },
+            "rotation": {
+              "x": 0.18651645109392434,
+              "y": 0.6177073919764571,
+              "z": -0.20971098493865828,
+              "w": 0.7346226882999389
+            }
+          }
+        },
+        {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "camera_depth_optical_frame"
+          },
+          "child_frame_id": "base_link",
+          "transform": {
+            "translation": {
+              "x": 0.28830643839384357,
+              "y": -0.19253170160568778,
+              "z": 0.4526609360018842
+            },
+            "rotation": {
+              "x": -0.47805132212190676,
+              "y": 0.8742787581544892,
+              "z": -0.07005491508410787,
+              "w": 0.04686038123937406
+            }
+          }
+        },
+        {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "camera_link"
+          },
+          "child_frame_id": "base_link",
+          "transform": {
+            "translation": {
+              "x": 0.28830643839384357,
+              "y": -0.19253170160568778,
+              "z": 0.4526609360018842
+            },
+            "rotation": {
+              "x": 0.18651645109392434,
+              "y": 0.6177073919764571,
+              "z": -0.20971098493865828,
+              "w": 0.7346226882999389
+            }
+          }
+        }
+      ],
+      "allowed_collision_matrix": {
+        "entry_names": [
+          "Link1",
+          "Link2",
+          "Link3",
+          "Link4",
+          "Link5",
+          "Link6",
+          "base_link",
+          "gripper_body_approx"
+        ],
+        "entry_values": [
+          {
+            "enabled": [
+              false,
+              true,
+              true,
+              true,
+              false,
+              false,
+              true,
+              false
+            ]
+          },
+          {
+            "enabled": [
+              true,
+              false,
+              true,
+              true,
+              false,
+              false,
+              true,
+              false
+            ]
+          },
+          {
+            "enabled": [
+              true,
+              true,
+              false,
+              true,
+              true,
+              true,
+              true,
+              false
+            ]
+          },
+          {
+            "enabled": [
+              true,
+              true,
+              true,
+              false,
+              true,
+              true,
+              false,
+              false
+            ]
+          },
+          {
+            "enabled": [
+              false,
+              false,
+              true,
+              true,
+              false,
+              true,
+              false,
+              false
+            ]
+          },
+          {
+            "enabled": [
+              false,
+              false,
+              true,
+              true,
+              true,
+              false,
+              false,
+              true
+            ]
+          },
+          {
+            "enabled": [
+              true,
+              true,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false
+            ]
+          },
+          {
+            "enabled": [
+              false,
+              false,
+              false,
+              false,
+              false,
+              true,
+              false,
+              false
+            ]
+          }
+        ],
+        "default_entry_names": [],
+        "default_entry_values": []
+      },
+      "link_padding": [
+        {
+          "link_name": "Link1",
+          "padding": 0.0
+        },
+        {
+          "link_name": "Link2",
+          "padding": 0.0
+        },
+        {
+          "link_name": "Link3",
+          "padding": 0.0
+        },
+        {
+          "link_name": "Link4",
+          "padding": 0.0
+        },
+        {
+          "link_name": "Link5",
+          "padding": 0.0
+        },
+        {
+          "link_name": "Link6",
+          "padding": 0.0
+        },
+        {
+          "link_name": "base_link",
+          "padding": 0.0
+        },
+        {
+          "link_name": "gripper_body_approx",
+          "padding": 0.0
+        }
+      ],
+      "link_scale": [
+        {
+          "link_name": "Link1",
+          "scale": 1.0
+        },
+        {
+          "link_name": "Link2",
+          "scale": 1.0
+        },
+        {
+          "link_name": "Link3",
+          "scale": 1.0
+        },
+        {
+          "link_name": "Link4",
+          "scale": 1.0
+        },
+        {
+          "link_name": "Link5",
+          "scale": 1.0
+        },
+        {
+          "link_name": "Link6",
+          "scale": 1.0
+        },
+        {
+          "link_name": "base_link",
+          "scale": 1.0
+        },
+        {
+          "link_name": "gripper_body_approx",
+          "scale": 1.0
+        }
+      ],
+      "object_colors": [],
+      "world": {
+        "collision_objects": [],
+        "octomap": {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": "base_link"
+          },
+          "origin": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "orientation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "octomap": {
+            "header": {
+              "stamp": {
+                "sec": 0,
+                "nanosec": 0
+              },
+              "frame_id": ""
+            },
+            "binary": false,
+            "id": "",
+            "resolution": 0.0,
+            "data": []
+          }
+        }
+      },
+      "is_diff": false
+    }
+  },
+  "rgb_stamp": {
+    "stamp": {
+      "sec": 1789631228,
+      "nanosec": 838953857
+    },
+    "frame_id": "camera_color_optical_frame"
+  },
+  "annotated_stamp": {
+    "stamp": {
+      "sec": 1789631226,
+      "nanosec": 970934326
+    },
+    "frame_id": "camera_color_optical_frame"
+  },
+  "counts": {
+    "rgb": 277,
+    "diagnostics": 6,
+    "center": 6,
+    "annotated": 6
+  },
+  "wall_time": 1789631228.8941422
+}

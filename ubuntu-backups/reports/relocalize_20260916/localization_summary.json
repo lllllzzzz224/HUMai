@@ -1,0 +1,74 @@
+{
+  "no_motion_no_gripper_no_scene_update": true,
+  "hand_eye_condition": "old hand-eye used; camera/gripper mount has not been independently verified",
+  "tracked_target": "B, associated by previous right fruit and projection; truncated at bottom",
+  "selected_executable_target": null,
+  "complete_candidate": "A labeled fruit; different fruit from previous selected B",
+  "previous_surface_projection_in_current_image_pixel": [
+    362.69367847951617,
+    473.2799038125085
+  ],
+  "B_visible_surface_minus_previous_surface_mm": [
+    10.360626210973557,
+    -4.368974288026239,
+    -1.1198958190715147
+  ],
+  "comparison_limit": "B sample at (358,451) is a visible surface patch, not full-fruit center or same physical surface point after camera movement; difference is NOT calibration or alignment error",
+  "timestamp_bracket_all": true,
+  "target_patches": {
+    "complete_label": {
+      "valid_fraction_min": 1.0,
+      "median_depth_range_mm": [
+        338.0,
+        338.0
+      ],
+      "surface_median_m": [
+        0.4833443648618788,
+        -0.26443620718859073,
+        -0.01921613014464313
+      ],
+      "surface_span_mm": [
+        0.124821568758815,
+        0.02391646531152425,
+        0.8211961715785532
+      ],
+      "note": "selected 11x11 visible surface patch; not full-fruit center or sphere center; no historical XY correction"
+    },
+    "previous_target_visible_surface": {
+      "valid_fraction_min": 1.0,
+      "median_depth_range_mm": [
+        323.0,
+        324.0
+      ],
+      "surface_median_m": [
+        0.374483402208155,
+        -0.28324454297502455,
+        -0.028162007890547153
+      ],
+      "surface_span_mm": [
+        0.022419918168148367,
+        0.028414772456464288,
+        0.6027945868255502
+      ],
+      "note": "selected 11x11 visible surface patch; not full-fruit center or sphere center; no historical XY correction"
+    },
+    "left_truncated_visible_surface": {
+      "valid_fraction_min": 1.0,
+      "median_depth_range_mm": [
+        327.0,
+        328.0
+      ],
+      "surface_median_m": [
+        0.42899032419151584,
+        -0.18505288092641228,
+        -0.03284843913561436
+      ],
+      "surface_span_mm": [
+        0.09676560914434473,
+        0.2914364366508604,
+        1.0761413511106155
+      ],
+      "note": "selected 11x11 visible surface patch; not full-fruit center or sphere center; no historical XY correction"
+    }
+  }
+}

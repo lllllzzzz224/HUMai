@@ -1,0 +1,635 @@
+#!/usr/bin/env python3
+"""Apple centre estimator for Eye-in-Hand consistency testing.
+
+The node publishes both the measured visible surface point and an estimated
+sphere centre.  It subscribes to camera/TF only and has no robot-motion,
+MoveIt, or gripper interfaces.
+"""
+
+from __future__ import annotations
+
+import argparse
+from datetime import datetime
+import json
+import math
+from pathlib import Path
+
+import cv2
+from geometry_msgs.msg import Point, PoseStamped
+import numpy as np
+import rclpy
+from rclpy.duration import Duration
+from rclpy.executors import ExternalShutdownException
+from rclpy.node import Node
+from sensor_msgs.msg import CameraInfo, Image
+from std_msgs.msg import String
+from tf2_ros import Buffer, TransformException, TransformListener
+from ultralytics import YOLO
+from visualization_msgs.msg import Marker, MarkerArray
+
+from project_paths import RESULTS_DIR, default_model_path
+
+
+BASE_FRAME = "base_link"
+COLOR_TOPIC = "/camera/camera/color/image_raw"
+DEPTH_TOPIC = "/camera/camera/aligned_depth_to_color/image_raw"
+INFO_TOPIC = "/camera/camera/aligned_depth_to_color/camera_info"
+APPLE_CLASS_ID = 47
+MIN_CONFIDENCE = 0.15
+MAX_SYNC_ERROR_NS = 100_000_000
+# Cropping makes a distant apple larger for the generic COCO model, but one
+# fixed crop can truncate the fruit and destabilise the estimated radius.
+# Overlapping full-height tiles ensure at least one complete view.  Every box
+# is mapped back to the full aligned depth image before 3-D estimation.
+INFERENCE_TILE_WIDTH_PX = 480
+INFERENCE_TILE_STRIDE_PX = 160
+ROI_EDGE_MARGIN_PX = 4
+DEFAULT_VISION_DEBUG_ROOT = RESULTS_DIR / "vision_debug"
+
+
+def image_array(message: Image) -> np.ndarray:
+    channels = 1 if message.encoding in ("mono8", "16UC1", "mono16") else 3
+    dtype = np.uint16 if message.encoding in ("16UC1", "mono16") else np.uint8
+    row_values = message.step // np.dtype(dtype).itemsize
+    array = np.frombuffer(message.data, dtype=dtype).reshape(message.height, row_values)
+    if channels == 1:
+        return array[:, : message.width]
+    return array[:, : message.width * channels].reshape(message.height, message.width, channels)
+
+
+def quat_rotate(q, vector: np.ndarray) -> np.ndarray:
+    qv = np.array([q.x, q.y, q.z], dtype=np.float64)
+    uv = np.cross(qv, vector)
+    uuv = np.cross(qv, uv)
+    return vector + 2.0 * (q.w * uv + uuv)
+
+
+class AppleCenterLocalizer(Node):
+    def __init__(
+        self,
+        inference_hz: float = 2.0,
+        model_path: Path | None = None,
+        vision_debug_root: Path | None = None,
+    ) -> None:
+        super().__init__("apple_center_localizer_v2")
+        model_path = model_path or default_model_path()
+        vision_debug_root = vision_debug_root or DEFAULT_VISION_DEBUG_ROOT
+        if not model_path.is_file():
+            raise RuntimeError(f"YOLO model not found: {model_path}")
+
+        self.model = YOLO(str(model_path))
+        self.minimum_period_ns = int(1e9 / max(inference_hz, 0.2))
+        self.last_inference_ns = 0
+        self.camera_info: CameraInfo | None = None
+        self.depth: Image | None = None
+        self.latest_frame_ns: int | None = None
+        self.stats = {
+            "frames": 0,
+            "inferences": 0,
+            "yolo_boxes": 0,
+            "best_conf": None,
+            "conf_reject": 0,
+            "edge_candidates": 0,
+            "full_frame_fallbacks": 0,
+            "full_frame_accepts": 0,
+            "depth_reject": 0,
+            "tf_reject": 0,
+            "published_center": 0,
+            "selected_roi": "n/a",
+            "last_reject": "waiting_for_color",
+        }
+        run_stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.vision_debug_dir = vision_debug_root / run_stamp
+        self.debug_images_saved = False
+
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.surface_pub = self.create_publisher(
+            PoseStamped, "/apple_pick_v2/apple_surface", 10
+        )
+        self.center_pub = self.create_publisher(
+            PoseStamped, "/apple_pick_v2/apple_center", 10
+        )
+        self.marker_pub = self.create_publisher(
+            MarkerArray, "/apple_pick_v2/hand_eye_markers", 10
+        )
+        self.diagnostics_pub = self.create_publisher(
+            String, "/apple_pick_v2/apple_diagnostics", 10
+        )
+
+        self.create_subscription(CameraInfo, INFO_TOPIC, self.on_info, 10)
+        self.create_subscription(Image, DEPTH_TOPIC, self.on_depth, 10)
+        self.create_subscription(Image, COLOR_TOPIC, self.on_color, 10)
+        self.create_timer(1.0, self.report_stats)
+        self.get_logger().info(
+            "Apple centre test node started: camera/TF input and RViz output only."
+        )
+
+    def on_info(self, message: CameraInfo) -> None:
+        self.camera_info = message
+
+    def on_depth(self, message: Image) -> None:
+        self.depth = message
+
+    def on_color(self, message: Image) -> None:
+        now_ns = self.get_clock().now().nanoseconds
+        self.stats["frames"] += 1
+        self.latest_frame_ns = now_ns
+        if self.camera_info is None or self.depth is None:
+            self.stats["depth_reject"] += 1
+            self.stats["last_reject"] = "missing_camera_info_or_depth"
+            return
+
+        if now_ns - self.last_inference_ns < self.minimum_period_ns:
+            return
+
+        color_ns = message.header.stamp.sec * 1_000_000_000 + message.header.stamp.nanosec
+        depth_ns = self.depth.header.stamp.sec * 1_000_000_000 + self.depth.header.stamp.nanosec
+        sync_error_ns = abs(color_ns - depth_ns)
+        if sync_error_ns > MAX_SYNC_ERROR_NS:
+            self.stats["depth_reject"] += 1
+            self.stats["last_reject"] = "color_depth_sync"
+            self.get_logger().warning(
+                f"Color/depth pair rejected: {sync_error_ns / 1e6:.1f} ms apart.",
+                throttle_duration_sec=2.0,
+            )
+            return
+
+        self.last_inference_ns = now_ns
+        color = image_array(message)
+        if message.encoding == "rgb8":
+            color = color[:, :, ::-1]
+        depth = image_array(self.depth)
+
+        if color.shape[:2] != depth.shape[:2]:
+            self.stats["depth_reject"] += 1
+            self.stats["last_reject"] = "color_depth_shape"
+            self.get_logger().warning(
+                f"Color/depth shape mismatch: {color.shape[:2]} vs {depth.shape[:2]}.",
+                throttle_duration_sec=2.0,
+            )
+            return
+        height, width = depth.shape[:2]
+        rois = self.inference_rois(width, height)
+        roi_images = [color[y0:y1, x0:x1] for x0, y0, x1, y1 in rois]
+        results = self.model(
+            roi_images,
+            classes=[APPLE_CLASS_ID],
+            conf=MIN_CONFIDENCE,
+            verbose=False,
+        )
+        self.stats["inferences"] += 1
+        candidates = []
+        for roi_index, (roi, roi_image, result) in enumerate(
+            zip(rois, roi_images, results)
+        ):
+            if result.boxes is None:
+                continue
+            roi_x0, roi_y0, _, _ = roi
+            roi_height, roi_width = roi_image.shape[:2]
+            for box_index in range(len(result.boxes)):
+                local_xyxy = (
+                    result.boxes.xyxy[box_index].detach().cpu().numpy()
+                )
+                confidence = float(result.boxes.conf[box_index])
+                x0, y0, x1, y1 = local_xyxy
+                touches_edge = bool(
+                    x0 <= ROI_EDGE_MARGIN_PX
+                    or y0 <= ROI_EDGE_MARGIN_PX
+                    or x1 >= roi_width - ROI_EDGE_MARGIN_PX
+                    or y1 >= roi_height - ROI_EDGE_MARGIN_PX
+                )
+                candidates.append(
+                    {
+                        "roi_index": roi_index,
+                        "box_index": box_index,
+                        "local_xyxy": local_xyxy,
+                        "global_xyxy": local_xyxy
+                        + np.asarray(
+                            [roi_x0, roi_y0, roi_x0, roi_y0],
+                            dtype=np.float64,
+                        ),
+                        "confidence": confidence,
+                        "touches_edge": touches_edge,
+                        "source": f"roi_{roi_index}",
+                    }
+                )
+        complete_candidates = [
+            candidate for candidate in candidates if not candidate["touches_edge"]
+        ]
+        selected = (
+            max(complete_candidates, key=lambda candidate: candidate["confidence"])
+            if complete_candidates
+            else None
+        )
+
+        # A box can touch an internal tile boundary even though the fruit is
+        # fully visible in the physical image. Only in that case, run one
+        # full-frame fallback. Boxes touching the real image boundary remain
+        # rejected, so a physically truncated apple stays fail-safe.
+        if candidates and selected is None:
+            self.stats["full_frame_fallbacks"] += 1
+            full_results = self.model(
+                [color],
+                classes=[APPLE_CLASS_ID],
+                conf=MIN_CONFIDENCE,
+                verbose=False,
+            )
+            self.stats["inferences"] += 1
+            full_result = full_results[0]
+            full_roi_index = len(rois)
+            rois.append((0, 0, width, height))
+            roi_images.append(color)
+            results.append(full_result)
+            full_candidates = []
+            if full_result.boxes is not None:
+                for box_index in range(len(full_result.boxes)):
+                    xyxy = (
+                        full_result.boxes.xyxy[box_index]
+                        .detach()
+                        .cpu()
+                        .numpy()
+                    )
+                    confidence = float(full_result.boxes.conf[box_index])
+                    x0, y0, x1, y1 = xyxy
+                    touches_real_edge = bool(
+                        x0 <= ROI_EDGE_MARGIN_PX
+                        or y0 <= ROI_EDGE_MARGIN_PX
+                        or x1 >= width - ROI_EDGE_MARGIN_PX
+                        or y1 >= height - ROI_EDGE_MARGIN_PX
+                    )
+                    full_candidates.append(
+                        {
+                            "roi_index": full_roi_index,
+                            "box_index": box_index,
+                            "local_xyxy": xyxy,
+                            "global_xyxy": xyxy.copy(),
+                            "confidence": confidence,
+                            "touches_edge": touches_real_edge,
+                            "source": "full_frame",
+                        }
+                    )
+            candidates.extend(full_candidates)
+            complete_full_candidates = [
+                candidate
+                for candidate in full_candidates
+                if not candidate["touches_edge"]
+            ]
+            if complete_full_candidates:
+                selected = max(
+                    complete_full_candidates,
+                    key=lambda candidate: candidate["confidence"],
+                )
+                self.stats["full_frame_accepts"] += 1
+
+        self.stats["yolo_boxes"] = len(candidates)
+        self.stats["best_conf"] = None
+        self.stats["edge_candidates"] = sum(
+            int(candidate["touches_edge"]) for candidate in candidates
+        )
+        self.stats["selected_roi"] = "n/a"
+        if candidates:
+            self.stats["best_conf"] = max(
+                candidate["confidence"] for candidate in candidates
+            )
+        self.save_debug_images(color, roi_images, results, candidates, selected)
+        if not candidates:
+            self.stats["conf_reject"] += 1
+            self.stats["last_reject"] = "no_apple_box_at_threshold"
+            return
+        if selected is None:
+            self.stats["conf_reject"] += 1
+            self.stats["last_reject"] = "all_apple_boxes_touch_roi_edge"
+            return
+        roi_index = selected["roi_index"]
+        box_index = selected["box_index"]
+        roi_x0, roi_y0, roi_x1, roi_y1 = rois[roi_index]
+        roi_xyxy = selected["local_xyxy"]
+        result = results[roi_index]
+        self.stats["selected_roi"] = selected["source"]
+        roi_mask = self.detection_mask(
+            result, box_index, roi_xyxy, roi_images[roi_index].shape[:2]
+        )
+        mask = np.zeros(depth.shape[:2], dtype=bool)
+        mask[roi_y0:roi_y1, roi_x0:roi_x1] = roi_mask
+        xyxy = selected["global_xyxy"]
+        estimate = self.estimate_points(mask, xyxy, depth)
+        if estimate is None:
+            self.stats["depth_reject"] += 1
+            return
+
+        surface_camera, center_camera, radius_m, valid_pixels = estimate
+        transformed = self.to_base(
+            message.header.frame_id,
+            [surface_camera, center_camera],
+            message.header.stamp,
+        )
+        if transformed is None:
+            self.stats["tf_reject"] += 1
+            self.stats["last_reject"] = "camera_to_base_tf"
+            return
+        surface_base, center_base = transformed
+        self.publish(
+            surface_base,
+            center_base,
+            radius_m,
+            selected["confidence"],
+            valid_pixels,
+            sync_error_ns / 1e6,
+        )
+        self.stats["published_center"] += 1
+        self.stats["last_reject"] = "none"
+
+    @staticmethod
+    def inference_rois(width: int, height: int) -> list[tuple[int, int, int, int]]:
+        tile_width = min(INFERENCE_TILE_WIDTH_PX, width)
+        last_start = width - tile_width
+        starts = list(range(0, last_start + 1, INFERENCE_TILE_STRIDE_PX))
+        if not starts or starts[-1] != last_start:
+            starts.append(last_start)
+        return [(x0, 0, x0 + tile_width, height) for x0 in starts]
+
+    def save_debug_images(
+        self,
+        color: np.ndarray,
+        roi_images,
+        results,
+        candidates,
+        selected,
+    ) -> None:
+        if self.debug_images_saved:
+            return
+        try:
+            self.vision_debug_dir.mkdir(parents=True, exist_ok=True)
+            full_path = self.vision_debug_dir / "camera_color_full.jpg"
+            raw_path = self.vision_debug_dir / "yolo_input_raw.jpg"
+            annotated_path = self.vision_debug_dir / "yolo_annotated.jpg"
+            full_annotated_path = (
+                self.vision_debug_dir / "yolo_annotated_full.jpg"
+            )
+            selected_roi = 0 if selected is None else selected["roi_index"]
+            full_annotated = color.copy()
+            for candidate in candidates:
+                x0, y0, x1, y1 = np.rint(
+                    candidate["global_xyxy"]
+                ).astype(int)
+                is_selected = candidate is selected
+                box_color = (
+                    (0, 220, 0)
+                    if is_selected
+                    else ((0, 165, 255) if candidate["touches_edge"] else (255, 120, 0))
+                )
+                cv2.rectangle(full_annotated, (x0, y0), (x1, y1), box_color, 2)
+                label = (
+                    f"apple {candidate['confidence']:.2f} "
+                    f"source={candidate['source']}"
+                )
+                if candidate["touches_edge"]:
+                    label += " EDGE"
+                if is_selected:
+                    label += " SELECTED"
+                cv2.putText(
+                    full_annotated,
+                    label,
+                    (x0, max(y0 - 6, 14)),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.45,
+                    box_color,
+                    1,
+                    cv2.LINE_AA,
+                )
+            raw_ok = cv2.imwrite(str(raw_path), roi_images[selected_roi])
+            annotated_ok = cv2.imwrite(
+                str(annotated_path), results[selected_roi].plot()
+            )
+            full_ok = cv2.imwrite(str(full_path), color)
+            full_annotated_ok = cv2.imwrite(
+                str(full_annotated_path), full_annotated
+            )
+            if not all((raw_ok, annotated_ok, full_ok, full_annotated_ok)):
+                raise RuntimeError("cv2.imwrite returned false")
+            self.debug_images_saved = True
+            self.get_logger().info(
+                f"Vision debug images saved: {self.vision_debug_dir}"
+            )
+        except Exception as exc:  # Debug output must never stop localization.
+            self.get_logger().warning(
+                f"Could not save vision debug images: {exc}",
+                throttle_duration_sec=5.0,
+            )
+
+    def report_stats(self) -> None:
+        if self.latest_frame_ns is None:
+            frame_age = "n/a"
+        else:
+            age_s = max(
+                0.0,
+                (self.get_clock().now().nanoseconds - self.latest_frame_ns) / 1e9,
+            )
+            frame_age = f"{age_s:.3f}s"
+        best_conf = self.stats["best_conf"]
+        best_conf_text = "n/a" if best_conf is None else f"{best_conf:.3f}"
+        self.get_logger().info(
+            "vision_stats "
+            f"frames={self.stats['frames']} "
+            f"latest_frame_age={frame_age} "
+            f"inferences={self.stats['inferences']} "
+            f"yolo_boxes={self.stats['yolo_boxes']} "
+            f"best_conf={best_conf_text} "
+            f"edge_candidates={self.stats['edge_candidates']} "
+            f"full_frame_fallbacks={self.stats['full_frame_fallbacks']} "
+            f"full_frame_accepts={self.stats['full_frame_accepts']} "
+            f"conf_reject={self.stats['conf_reject']} "
+            f"depth_reject={self.stats['depth_reject']} "
+            f"tf_reject={self.stats['tf_reject']} "
+            f"published_center={self.stats['published_center']} "
+            f"selected_roi={self.stats['selected_roi']} "
+            f"last_reject={self.stats['last_reject']}"
+        )
+
+    @staticmethod
+    def detection_mask(result, index: int, xyxy: np.ndarray, shape) -> np.ndarray:
+        height, width = shape
+        mask = np.zeros((height, width), dtype=np.uint8)
+        if result.masks is not None and index < len(result.masks.xy):
+            polygon = np.asarray(result.masks.xy[index], dtype=np.int32)
+            if polygon.shape[0] >= 3:
+                cv2.fillPoly(mask, [polygon], 1)
+                return mask.astype(bool)
+
+        x0, y0, x1, y1 = np.rint(xyxy).astype(int)
+        x0, x1 = np.clip([x0, x1], 0, width)
+        y0, y1 = np.clip([y0, y1], 0, height)
+        if x1 > x0 and y1 > y0:
+            mask[y0:y1, x0:x1] = 1
+        return mask.astype(bool)
+
+    def estimate_points(
+        self, mask: np.ndarray, xyxy: np.ndarray, depth: np.ndarray
+    ) -> tuple[np.ndarray, np.ndarray, float, int] | None:
+        ys, xs = np.nonzero(mask)
+        if xs.size < 50:
+            self.stats["last_reject"] = "segmentation_mask_too_small"
+            return None
+
+        x0, y0, x1, y1 = xyxy
+        width_px = max(float(x1 - x0), 1.0)
+        height_px = max(float(y1 - y0), 1.0)
+        u = float(np.median(xs))
+        v = float(np.median(ys))
+
+        # Use only the central mask region to avoid background and silhouette depth.
+        central = (
+            mask
+            & (np.indices(mask.shape)[1] >= u - 0.22 * width_px)
+            & (np.indices(mask.shape)[1] <= u + 0.22 * width_px)
+            & (np.indices(mask.shape)[0] >= v - 0.22 * height_px)
+            & (np.indices(mask.shape)[0] <= v + 0.22 * height_px)
+        )
+        values = depth[central]
+        values = values[(values > 100) & (values < 3000)]
+        if values.size < 30:
+            self.stats["last_reject"] = "insufficient_valid_depth"
+            return None
+
+        z_surface = float(np.median(values)) * 0.001
+        fx = float(self.camera_info.k[0])
+        fy = float(self.camera_info.k[4])
+        cx = float(self.camera_info.k[2])
+        cy = float(self.camera_info.k[5])
+        if fx <= 0.0 or fy <= 0.0:
+            self.stats["last_reject"] = "invalid_camera_intrinsics"
+            return None
+
+        ray = np.array([(u - cx) / fx, (v - cy) / fy, 1.0], dtype=np.float64)
+        ray_unit = ray / np.linalg.norm(ray)
+        surface = ray * z_surface
+
+        radius_x = 0.5 * width_px * z_surface / fx
+        radius_y = 0.5 * height_px * z_surface / fy
+        radius_m = float(np.median([radius_x, radius_y]))
+        # Bounds only reject geometrically impossible detections; they do not fix radius.
+        if not 0.020 <= radius_m <= 0.080:
+            self.stats["last_reject"] = "implausible_apple_radius"
+            self.get_logger().warning(
+                f"Rejected implausible apple radius {radius_m * 1000:.1f} mm.",
+                throttle_duration_sec=2.0,
+            )
+            return None
+
+        # The central depth is on the visible surface. Move one estimated radius
+        # away from the camera along the centre ray to approximate the sphere centre.
+        center = surface + ray_unit * radius_m
+        return surface, center, radius_m, int(values.size)
+
+    def to_base(self, camera_frame: str, points, stamp):
+        try:
+            transform = self.tf_buffer.lookup_transform(
+                BASE_FRAME,
+                camera_frame,
+                rclpy.time.Time.from_msg(stamp),
+                timeout=Duration(seconds=0.25),
+            )
+        except TransformException as exc:
+            self.get_logger().warning(
+                f"Missing {BASE_FRAME} <- {camera_frame}: {exc}",
+                throttle_duration_sec=2.0,
+            )
+            return None
+        t = transform.transform.translation
+        translation = np.array([t.x, t.y, t.z], dtype=np.float64)
+        return [
+            quat_rotate(transform.transform.rotation, point) + translation
+            for point in points
+        ]
+
+    def make_pose(self, point: np.ndarray) -> PoseStamped:
+        pose = PoseStamped()
+        pose.header.stamp = self.get_clock().now().to_msg()
+        pose.header.frame_id = BASE_FRAME
+        pose.pose.position = Point(x=float(point[0]), y=float(point[1]), z=float(point[2]))
+        pose.pose.orientation.w = 1.0
+        return pose
+
+    def publish(
+        self,
+        surface: np.ndarray,
+        center: np.ndarray,
+        radius_m: float,
+        confidence: float,
+        valid_pixels: int,
+        sync_error_ms: float,
+    ) -> None:
+        surface_pose = self.make_pose(surface)
+        center_pose = self.make_pose(center)
+        self.surface_pub.publish(surface_pose)
+        self.center_pub.publish(center_pose)
+
+        surface_marker = Marker()
+        surface_marker.header = surface_pose.header
+        surface_marker.ns = "apple_surface"
+        surface_marker.id = 0
+        surface_marker.type = Marker.SPHERE
+        surface_marker.action = Marker.ADD
+        surface_marker.pose = surface_pose.pose
+        surface_marker.scale.x = surface_marker.scale.y = surface_marker.scale.z = 0.012
+        surface_marker.color.r = 0.1
+        surface_marker.color.g = 0.4
+        surface_marker.color.b = 1.0
+        surface_marker.color.a = 1.0
+
+        center_marker = Marker()
+        center_marker.header = center_pose.header
+        center_marker.ns = "apple_center_estimate"
+        center_marker.id = 1
+        center_marker.type = Marker.SPHERE
+        center_marker.action = Marker.ADD
+        center_marker.pose = center_pose.pose
+        diameter = 2.0 * radius_m
+        center_marker.scale.x = center_marker.scale.y = center_marker.scale.z = diameter
+        center_marker.color.r = 1.0
+        center_marker.color.g = 0.1
+        center_marker.color.b = 0.1
+        center_marker.color.a = 0.55
+        self.marker_pub.publish(MarkerArray(markers=[surface_marker, center_marker]))
+
+        diagnostics = {
+            "frame": BASE_FRAME,
+            "confidence": round(confidence, 4),
+            "radius_m": round(radius_m, 6),
+            "valid_depth_pixels": valid_pixels,
+            "sync_error_ms": round(sync_error_ms, 3),
+            "surface_xyz_m": np.round(surface, 6).tolist(),
+            "center_xyz_m": np.round(center, 6).tolist(),
+        }
+        self.diagnostics_pub.publish(String(data=json.dumps(diagnostics, ensure_ascii=False)))
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Vision-only apple centre estimator")
+    parser.add_argument("--inference-hz", type=float, default=2.0)
+    parser.add_argument("--model", type=Path, default=default_model_path())
+    parser.add_argument(
+        "--vision-debug-root",
+        type=Path,
+        default=DEFAULT_VISION_DEBUG_ROOT,
+    )
+    args, ros_args = parser.parse_known_args()
+    rclpy.init(args=ros_args)
+    node = AppleCenterLocalizer(
+        inference_hz=args.inference_hz,
+        model_path=args.model.expanduser(),
+        vision_debug_root=args.vision_debug_root.expanduser(),
+    )
+    try:
+        rclpy.spin(node)
+    except (KeyboardInterrupt, ExternalShutdownException):
+        pass
+    finally:
+        node.destroy_node()
+        if rclpy.ok():
+            rclpy.shutdown()
+
+
+if __name__ == "__main__":
+    main()

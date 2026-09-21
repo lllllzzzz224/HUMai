@@ -1,0 +1,14 @@
+{
+  "time": "2026-09-14T22:19:33.717926",
+  "camera_usb": "3.2 / 5000M",
+  "counts_6s": {
+    "color": 143,
+    "depth": 169
+  },
+  "rates_hz": {
+    "color": 25.6,
+    "depth": 28.6
+  },
+  "arm_response": "{\"arm_state\":{\"err\":[0],\"joint\":[143364,21496,37103,3044,109616,-3497],\"pose\":[250252,-176042,430486,3108,208,2582]},\"state\":\"current_arm_state\"}\r\n",
+  "motion_commands_sent": false
+}

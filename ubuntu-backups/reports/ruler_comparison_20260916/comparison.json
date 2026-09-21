@@ -1,0 +1,37 @@
+{
+  "offline_only": true,
+  "before_source": "reports/table_clearance_readonly_20260916/final_stationarity.json",
+  "after_source": "reports/vertical_diagnostic20_20260916/four_step_plan/after_completed_prefix/final_stationarity.json",
+  "urdf_sha256": "068a385ea6e54e4c7344ba81e26e437c80d9ca3c5ea836c4f5f173e81d4402eb",
+  "before_tcp_mean_m": [
+    0.36355368994305914,
+    -0.28099936575236056,
+    0.17011405790330483
+  ],
+  "after_tcp_mean_m": [
+    0.3634619500076887,
+    -0.28154679382011577,
+    0.09037646590733965
+  ],
+  "tcp_delta_mm": [
+    -0.09173993537042735,
+    -0.5474280677552068,
+    -79.73759199596518
+  ],
+  "link6_delta_mm": [
+    -0.19553567162017282,
+    -0.39941433161494455,
+    -79.77061502256377
+  ],
+  "orientation_change_deg": 0.09579465096685548,
+  "maximum_rotation_displacement_at_220mm_mm": 0.3678250114957274,
+  "completed_descents_total": 4,
+  "completed_new_batch_descents": 3,
+  "fk_vertical_drop_mm": 79.73759199596518,
+  "manual_before_mm": 270,
+  "manual_after_mm": 150.6,
+  "manual_drop_mm": 119.4,
+  "expected_after_mm_if_same_tip_table_and_rigid_mount": 190.26240800403482,
+  "manual_minus_fk_drop_mm": 39.66240800403483,
+  "interpretation": "Manual difference exceeds joint-FK drop; small attitude difference cannot explain 39mm for tool-scale lever arms. Baseline ruler reading, same fingertip/table reference, vertical measurement, mount/base/table stability and kinematic scale remain unverified. No calibration change can be inferred from these two scalar readings."
+}

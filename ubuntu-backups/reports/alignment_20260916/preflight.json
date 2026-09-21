@@ -1,0 +1,36 @@
+{
+  "motion_commands": false,
+  "gripper_commands": false,
+  "status": "PASS_PREFLIGHT_ONLY",
+  "table_top_m": -0.055,
+  "tool_assumption_m": [
+    0.16,
+    0.16,
+    0.22
+  ],
+  "start_m": [
+    0.27405179261412166,
+    -0.18541739459425727,
+    0.3123061188739647
+  ],
+  "start_error_m": 0.00023141513273853024,
+  "target_m": [
+    0.316029032,
+    -0.231046169,
+    0.17
+  ],
+  "observed_voxels": 115,
+  "retime": {
+    "original_duration_s": 1.692361455,
+    "retimed_duration_s": 27.662318863,
+    "original_max_sampled_segment_speed_m_s": 0.11887561030725842,
+    "retimed_max_sampled_segment_speed_m_s": 0.007272727271502817,
+    "stretch": 16.345396417248033,
+    "fk_points": 18,
+    "scope": "sampled segment mean speed; continuous instantaneous speed not guaranteed"
+  },
+  "min_camera_box_z_m": 0.25483920955118505,
+  "min_tcp_z_m": 0.16999852971706533,
+  "min_tool_box_z_m": 0.0706408256187768,
+  "tool_table_clearance_m": 0.1256408256187768
+}

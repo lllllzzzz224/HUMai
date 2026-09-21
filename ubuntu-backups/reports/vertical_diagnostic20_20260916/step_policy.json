@@ -1,0 +1,14 @@
+{
+  "user_instruction": "让a你每次下降2cm",
+  "descent_step_m": 0.02,
+  "gripper_commands": false,
+  "wait_stationary_after_each_step": true,
+  "revalidate_each_step": true,
+  "continuous_descent_enabled": false,
+  "stop_height_or_step_confirmation": "用户要求4次完成后询问；任一步碰撞或状态检查失败提前停止",
+  "actual_fingertip_ruler_after_first_step": "not yet reported; 25cm is prediction only",
+  "preserve_collision_protection": true,
+  "requested_additional_steps": 4,
+  "requested_total_additional_descent_m": 0.08,
+  "bounded_four_step_preflight_requested": true
+}

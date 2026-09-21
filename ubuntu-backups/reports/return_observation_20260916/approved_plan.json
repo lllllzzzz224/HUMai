@@ -1,0 +1,97 @@
+{
+  "status": "APPROVED_CANDIDATE_AWAITING_ROOT_CLEARANCE",
+  "purpose": "RETURN_TO_RECORDED_OBSERVATION_ONLY",
+  "motion_commands": false,
+  "gripper_commands": false,
+  "observed_voxels": 81,
+  "sources": [
+    {
+      "directory": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/vertical_diagnostic20_20260916/four_step_plan/step03",
+      "sha256": "f3551f40ac3909bf9860485cd6719fd69c280737e2831559a6b1b7e5b176e440"
+    },
+    {
+      "directory": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/vertical_diagnostic20_20260916/four_step_plan/step02/retry_discovery",
+      "sha256": "a8729beb034dcde76f05f6d1cc3dc5c3bcc7271195a850632aa14d4ac2a018b5"
+    },
+    {
+      "directory": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/vertical_diagnostic20_20260916/four_step_plan/step01",
+      "sha256": "25ba925b6b3a1f2d80ea3e5a971474a4764f3a8165e9eae07d7c1b588aa52116"
+    },
+    {
+      "directory": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/vertical_diagnostic20_20260916",
+      "sha256": "2622b0ecae3e1b27e39c3c08b1a46a9da2defc36b23c4bff3ad9d7324d4a6185"
+    },
+    {
+      "directory": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/birdview_alignment_20260916",
+      "sha256": "90dc084d04ee0f7a1f5f4b8de52f356d4be22c8dbca86ff38393ba6b9dd9b300"
+    }
+  ],
+  "start_m": [
+    0.3634507707481035,
+    -0.28180434229657003,
+    0.09050823909612904
+  ],
+  "start_joints_rad": [
+    2.4442389350891114,
+    0.8723952909469604,
+    0.8852036111831665,
+    0.0666415500998497,
+    1.1803877510070802,
+    -0.16097625665664672
+  ],
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "current_diag20_obstacles": 55,
+    "previous_obstacles_preserved": {
+      "alignment_observed": 115,
+      "realign_observed": 96
+    },
+    "new_obstacles": 81
+  },
+  "join_joint_delta_rad": [
+    0.0,
+    0.0,
+    0.000471024357852734,
+    0.00048255642495131923
+  ],
+  "max_joint_step_rad": 0.039200001676418905,
+  "start_joint_error_rad": 0.00045371742534339177,
+  "target_m": [
+    0.27406097002620977,
+    -0.18539267003404875,
+    0.31229584766050816
+  ],
+  "target_joints_rad": [
+    2.504249404144287,
+    0.3755065342903137,
+    0.6474996824264526,
+    0.05304799933433533,
+    1.9128340339660646,
+    -0.061075000000000004
+  ],
+  "tool_z_down_deg": 12.10147303860389,
+  "camera_optical_z_down_deg_conditional": 15.72000758138568,
+  "point_count": 73,
+  "trajectory_sha256": "b0b20cb7b1f5471c38f64dcae2972a15f4bb1b848f1da14b38cee0ced30f4ec3",
+  "spline_samples_sha256": "c88c31808ce78fb18e43390e658a6e6f581727c712a5d224901c1dd7ca27a6e4",
+  "retime": {
+    "retimed_duration_s": 149.532912685
+  },
+  "spline_validation": {
+    "status": "PASS_SAMPLED_DRIVER_SPLINE",
+    "input_sha256": "caca85cf4437dc541e35fe5609c14d8594461b929587368ade53e7346fd26f57",
+    "method": "rm_control global clamped cubic spline, both endpoint first derivatives zero, sampled <=40ms plus original knots; not continuous proof",
+    "spline_stretch": 1.1,
+    "original_spline_max_segment_speed_m_s": 0.007407119572716851,
+    "final_spline_max_segment_speed_m_s": 0.0067295863958655696,
+    "spline_min_tcp_z_m": 0.09035295389212705,
+    "spline_min_tool_box_z_m": -0.009088649653525405,
+    "spline_tool_table_clearance_m": 0.045911350346474596,
+    "sample_count": 3811,
+    "duration_s": 149.532912685,
+    "joint_limits_sampled": true,
+    "final_sha256": "b0b20cb7b1f5471c38f64dcae2972a15f4bb1b848f1da14b38cee0ced30f4ec3"
+  },
+  "return_obstacles": 50,
+  "target_scope": "Restore recorded original observation pose, NOT strict vertical"
+}

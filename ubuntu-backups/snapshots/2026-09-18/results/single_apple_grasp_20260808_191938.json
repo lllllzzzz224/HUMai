@@ -1,0 +1,161 @@
+{
+  "timestamp": "2026-08-08 19:19:38",
+  "status": "STOPPED_BY_OPERATOR",
+  "single_round": true,
+  "return_after_lift_requested": true,
+  "single_apple_scene_operator_confirmed": true,
+  "gripper_close_commanded": true,
+  "lift_completed": false,
+  "gripper_reopened": false,
+  "returned_to_scan": false,
+  "apple_center_base_m": [
+    0.3856166,
+    -0.1954001,
+    -0.0624954
+  ],
+  "apple_radius_m": 0.0314045,
+  "vision_diagnostics": {
+    "frame": "base_link",
+    "confidence": 0.4498,
+    "radius_m": 0.031396,
+    "valid_depth_pixels": 1089,
+    "sync_error_ms": 0.0,
+    "surface_xyz_m": [
+      0.380175,
+      -0.193953,
+      -0.031604
+    ],
+    "center_xyz_m": [
+      0.385642,
+      -0.195421,
+      -0.062486
+    ],
+    "_received_monotonic": 240260.999497943
+  },
+  "pregrasp_base_m": [
+    0.3856166,
+    -0.1954001,
+    0.0375046
+  ],
+  "verify_base_m": [
+    0.3856166,
+    -0.1954001,
+    -0.0324954
+  ],
+  "grasp_base_m": [
+    0.3856166,
+    -0.1954001,
+    -0.0474954
+  ],
+  "grasp_offset_above_center_m": 0.015,
+  "lift_base_m": [
+    0.3856166,
+    -0.1954001,
+    0.1525046
+  ],
+  "gripper_open_mm": 80.0,
+  "gripper_close_mm": 20.0,
+  "approach_pitch_candidates_deg": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    -2.0,
+    -4.0,
+    -6.0,
+    -8.0,
+    -10.0
+  ],
+  "table_guard_top_z_m": -0.08889987168401275,
+  "approach_pitch_failures": [
+    {
+      "pitch_deg": 0.0,
+      "reason": "倾角 +0° GRASP -> LIFT 预检 路径比例不足：fraction=0.8955"
+    }
+  ],
+  "selected_approach_pitch_deg": 2.0,
+  "events": [
+    {
+      "time": "2026-08-08 19:19:40",
+      "step": "夹爪通信配置并保持打开",
+      "result": "PASS",
+      "opening_mm": 80.0,
+      "mechanical_zeroing": false
+    },
+    {
+      "time": "2026-08-08 19:19:40",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 19:19:46",
+      "step": "单苹果现场",
+      "result": "PASS",
+      "verification": "operator-confirmed: one visible apple"
+    },
+    {
+      "time": "2026-08-08 19:19:46",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 0.0,
+      "reason": "倾角 +0° GRASP -> LIFT 预检 路径比例不足：fraction=0.8955"
+    },
+    {
+      "time": "2026-08-08 19:19:46",
+      "step": "倾角候选预检",
+      "result": "PASS",
+      "pitch_deg": 2.0
+    },
+    {
+      "time": "2026-08-08 19:19:46",
+      "step": "放回与撤离路径预检",
+      "result": "PASS",
+      "pitch_deg": 2.0
+    },
+    {
+      "time": "2026-08-08 19:19:46",
+      "step": "全部路径预检",
+      "result": "PASS",
+      "pitch_deg": 2.0
+    },
+    {
+      "time": "2026-08-08 19:19:46",
+      "step": "自动开始 SCAN -> PREGRASP -> VERIFY",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 19:19:56",
+      "step": "到达 VERIFY",
+      "result": "PASS",
+      "actual_tcp_base_m": [
+        0.3856352,
+        -0.1956442,
+        -0.031967
+      ]
+    },
+    {
+      "time": "2026-08-08 19:20:00",
+      "step": "到达 GRASP",
+      "result": "PASS",
+      "actual_tcp_base_m": [
+        0.385685,
+        -0.195674,
+        -0.0469253
+      ]
+    },
+    {
+      "time": "2026-08-08 19:20:00",
+      "step": "保守闭爪",
+      "result": "PASS",
+      "opening_mm": 20.0
+    },
+    {
+      "time": "2026-08-08 19:20:09",
+      "step": "流程",
+      "result": "STOPPED_BY_OPERATOR"
+    }
+  ],
+  "finished_at": "2026-08-08 19:20:09"
+}

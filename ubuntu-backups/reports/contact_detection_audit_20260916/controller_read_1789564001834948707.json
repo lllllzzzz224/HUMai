@@ -1,0 +1,22 @@
+{
+  "time": "2026-09-16 21:06:41+0800",
+  "read_only": true,
+  "queries": [
+    {
+      "command": "get_arm_software_info",
+      "error": "[Errno 1] Operation not permitted"
+    },
+    {
+      "command": "get_collision_stage",
+      "error": "[Errno 1] Operation not permitted"
+    },
+    {
+      "command": "get_collision_detection",
+      "error": "[Errno 1] Operation not permitted"
+    },
+    {
+      "command": "get_current_arm_state",
+      "error": "[Errno 1] Operation not permitted"
+    }
+  ]
+}

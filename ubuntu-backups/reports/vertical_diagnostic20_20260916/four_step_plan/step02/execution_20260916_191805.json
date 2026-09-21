@@ -1,0 +1,16 @@
+{
+  "status": "FAILED",
+  "closed": false,
+  "return": false,
+  "start_joint_error_rad": 0.00045371712693675903,
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "current_diag20_obstacles": 55,
+    "previous_obstacles_preserved": {
+      "alignment_observed": 115,
+      "realign_observed": 96
+    },
+    "new_obstacles": 81
+  },
+  "error": "RuntimeError('execution/stop interfaces absent')"
+}

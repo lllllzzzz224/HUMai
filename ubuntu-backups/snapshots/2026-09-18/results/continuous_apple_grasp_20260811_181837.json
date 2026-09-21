@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-08-11 18:18:37",
+  "status": "FAULT_LATCHED",
+  "settings": {
+    "max_rounds": 2,
+    "min_position_change_m": 0.03,
+    "stable_time_s": 2.0,
+    "safety_countdown_s": 3.0,
+    "retry_delay_s": 2.0,
+    "max_pre_motion_retries": 3,
+    "max_axis_span_m": 0.01
+  },
+  "completed_rounds": 1,
+  "pre_motion_rejections": 0,
+  "vision_wait_errors": 1,
+  "rounds": [
+    {
+      "log": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260811_181848_round001_attempt01.json",
+      "status": "PASS_PICK_RETURN_COMPLETE",
+      "round_index": 1
+    },
+    {
+      "log": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260811_182033_round002_attempt01.json",
+      "status": "FAILED_STOPPED",
+      "round_index": 2,
+      "attempt": 1,
+      "motion_started": true,
+      "error": "未到达固定鸟瞰位"
+    }
+  ],
+  "last_gate_snapshot": {
+    "state": "READY",
+    "stable_elapsed_s": 6.204744761998882,
+    "distance_from_reference_m": 0.11243270094663707,
+    "center_m": [
+      0.34680034012644845,
+      -0.1326594336079778,
+      -0.06265403191506244
+    ]
+  },
+  "error": "未到达固定鸟瞰位",
+  "finished_at": "2026-08-11 18:21:12"
+}

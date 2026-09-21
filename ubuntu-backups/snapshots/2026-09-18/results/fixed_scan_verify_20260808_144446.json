@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-08-08 14:44:46",
+  "apple_center_base_m": [
+    0.3205245,
+    -0.2554756,
+    -0.0492075
+  ],
+  "apple_radius_m": 0.0291165,
+  "vision_diagnostics": {
+    "frame": "base_link",
+    "confidence": 0.8566,
+    "radius_m": 0.029131,
+    "valid_depth_pixels": 4347,
+    "sync_error_ms": 0.0,
+    "surface_xyz_m": [
+      0.329628,
+      -0.251213,
+      -0.021876
+    ],
+    "center_xyz_m": [
+      0.320524,
+      -0.255475,
+      -0.049218
+    ],
+    "_received_monotonic": 223729.286594149
+  },
+  "pregrasp_base_m": [
+    0.3205245,
+    -0.2554756,
+    0.0507925
+  ],
+  "verify_base_m": [
+    0.3205245,
+    -0.2554756,
+    -0.0192075
+  ],
+  "controller_completion_tcp_base_m": [
+    0.3206222,
+    -0.2551757,
+    -0.0080982
+  ],
+  "settled_tcp_base_m": [
+    0.320560444,
+    -0.255732954,
+    -0.018932097
+  ],
+  "settled_error_to_verify_m": 0.0003786421,
+  "settled_tf_verified": true,
+  "table_guard_top_z_m": -0.07332404041249514,
+  "velocity_scaling": 0.05,
+  "acceleration_scaling": 0.05,
+  "gripper_commanded": false
+}

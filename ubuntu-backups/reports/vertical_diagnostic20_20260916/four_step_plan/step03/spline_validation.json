@@ -1,0 +1,15 @@
+{
+  "status": "PASS_SAMPLED_DRIVER_SPLINE",
+  "input_sha256": "4868261a7a81a489ab2934a66100fd76bc7dc3a3cebbd71630109b32cbbd04a3",
+  "method": "rm_control global clamped cubic spline, both endpoint first derivatives zero, sampled <=40ms plus original knots; not continuous proof",
+  "spline_stretch": 1.1,
+  "original_spline_max_segment_speed_m_s": 0.007885371010009532,
+  "final_spline_max_segment_speed_m_s": 0.007171886695553092,
+  "spline_min_tcp_z_m": 0.090352953892127,
+  "spline_min_tool_box_z_m": -0.00908864965352546,
+  "spline_tool_table_clearance_m": 0.04591135034647454,
+  "sample_count": 91,
+  "duration_s": 3.292165943,
+  "joint_limits_sampled": true,
+  "final_sha256": "f3551f40ac3909bf9860485cd6719fd69c280737e2831559a6b1b7e5b176e440"
+}

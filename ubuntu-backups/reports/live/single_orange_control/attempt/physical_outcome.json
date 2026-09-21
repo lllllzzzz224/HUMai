@@ -1,0 +1,12 @@
+{
+  "physical_success": false,
+  "program_status": "PASS_PICK_PLACE_BASIN_COMPLETE",
+  "evidence": "单果试验前后相机画面：盆中仅苹果，橘子仍在纸上",
+  "duration_s": 48,
+  "vision_sampling_s_approx": 7,
+  "conclusion": "移除邻果和枝叶后仍未入盆，多果干涉不是失败的唯一充分解释。",
+  "limits": "前后图不能确定是抓空还是夹持后掉落；本轮仍需分析动态接触或独立TCP/高度测量。",
+  "executor": "a",
+  "supervisor": "root",
+  "robot_final_state": "SCAN, gripper open, execution stopped"
+}

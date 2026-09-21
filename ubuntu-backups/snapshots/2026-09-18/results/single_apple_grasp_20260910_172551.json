@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-09-10 17:25:51",
+  "status": "FAILED_STOPPED",
+  "single_round": true,
+  "continuous": false,
+  "round_index": 1,
+  "autonomous_requested": true,
+  "fully_autonomous_requested": true,
+  "preflight_only": false,
+  "verify_only": false,
+  "return_after_lift_requested": true,
+  "visual_xy_correction_disabled_by_cli": false,
+  "single_apple_scene_operator_confirmed": true,
+  "motion_started": false,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "gripper_reopened": false,
+  "returned_to_scan": false,
+  "stale_support_guard_removed_on_start": true,
+  "error": "苹果视觉 X=0.5424m 超出尺度模型有效范围 [0.220, 0.500]m",
+  "support_guard_removed_on_exit": true,
+  "events": [
+    {
+      "time": "2026-09-10 17:25:51",
+      "step": "单轮全自动授权",
+      "result": "PASS",
+      "explicit_flag": "--fully-autonomous",
+      "auto_verify_to_grasp": true,
+      "auto_lift_to_release_and_scan": true,
+      "loop": false
+    },
+    {
+      "time": "2026-09-10 17:25:53",
+      "step": "夹爪通信配置并保持打开",
+      "result": "PASS",
+      "opening_mm": 80.0,
+      "mechanical_zeroing": false
+    },
+    {
+      "time": "2026-09-10 17:25:53",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    }
+  ],
+  "finished_at": "2026-09-10 17:25:58"
+}

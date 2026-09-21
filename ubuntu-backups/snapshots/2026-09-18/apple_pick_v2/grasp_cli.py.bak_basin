@@ -1,0 +1,143 @@
+"""Command-line parsing and explicit motion authorization for apple grasping."""
+
+from __future__ import annotations
+
+import argparse
+from dataclasses import dataclass
+from pathlib import Path
+
+from continuous_grasp_state import ContinuousSettings
+
+
+@dataclass(frozen=True)
+class RunMode:
+    continuous: bool
+    execute: bool
+    operator_confirmed: bool
+    verify_only: bool
+    preflight_only: bool
+    auto_grasp: bool
+    auto_return: bool
+    max_rounds: int
+    settings: ContinuousSettings | None
+
+
+def build_parser(default_config: Path) -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description="固定鸟瞰位单苹果完整低速抓取（默认只执行一轮）"
+    )
+    parser.add_argument("--config", type=Path, default=default_config)
+    parser.add_argument("--execute", action="store_true")
+    parser.add_argument("--operator-confirmed", action="store_true")
+    parser.add_argument(
+        "--verify-only",
+        action="store_true",
+        help="真机只执行 SCAN -> PREGRASP -> VERIFY；到位即停，不下降、不闭爪",
+    )
+    parser.add_argument(
+        "--preflight-only",
+        action="store_true",
+        help="使用实时视觉/MoveIt完成全部路径预检，但不控制夹爪、不执行轨迹",
+    )
+    parser.add_argument(
+        "--autonomous",
+        action="store_true",
+        help=(
+            "全部预检通过并到达 VERIFY 后自动继续 GRASP；"
+            "不提供此参数时仍必须人工按 Enter"
+        ),
+    )
+    parser.add_argument(
+        "--fully-autonomous",
+        action="store_true",
+        help=(
+            "单轮全自动：识别后自动抓取、上抬、回原位释放、撤离并返回 SCAN；"
+            "仍必须同时提供 --execute --operator-confirmed"
+        ),
+    )
+    parser.add_argument(
+        "--return-after-lift",
+        action="store_true",
+        help="抓取上抬后等待人工 Enter，再放回原 GRASP 并返回固定 SCAN",
+    )
+    parser.add_argument(
+        "--disable-visual-xy-correction",
+        action="store_true",
+        help="临时关闭实验性尺度/旋转 XY 校正，恢复原始 apple_center",
+    )
+    parser.add_argument(
+        "--continuous",
+        action="store_true",
+        help="持续等待换位后的单颗苹果并自动抓取、原位放回、返回 SCAN",
+    )
+    parser.add_argument(
+        "--max-rounds",
+        type=int,
+        default=None,
+        help="连续模式成功轮数上限；0 表示不限轮，省略时读取 YAML",
+    )
+    return parser
+
+
+def parse_cli(argv, default_config: Path):
+    return build_parser(default_config).parse_known_args(argv)
+
+
+def resolve_run_mode(args, cfg) -> RunMode:
+    if args.continuous:
+        old_modes = (
+            args.verify_only,
+            args.preflight_only,
+            args.autonomous,
+            args.fully_autonomous,
+            args.return_after_lift,
+        )
+        if any(old_modes):
+            raise RuntimeError("--continuous 不能组合旧单轮模式参数")
+        if not args.execute or not args.operator_confirmed:
+            raise RuntimeError(
+                "连续真机模式必须同时提供 --execute --operator-confirmed"
+            )
+        settings = ContinuousSettings.from_mapping(
+            cfg["continuous"],
+            max_axis_span_m=cfg["vision"]["max_axis_span_m"],
+            cli_max_rounds=args.max_rounds,
+        )
+        return RunMode(
+            continuous=True,
+            execute=True,
+            operator_confirmed=True,
+            verify_only=False,
+            preflight_only=False,
+            auto_grasp=True,
+            auto_return=True,
+            max_rounds=settings.max_rounds,
+            settings=settings,
+        )
+
+    if args.max_rounds is not None:
+        raise RuntimeError("--max-rounds 只能与 --continuous 一起使用")
+    auto_grasp = bool(args.autonomous or args.fully_autonomous)
+    auto_return = bool(args.return_after_lift or args.fully_autonomous)
+    if args.verify_only and (args.preflight_only or auto_grasp or auto_return):
+        raise RuntimeError("--verify-only 不能与预检/自动抓取/放回参数组合使用")
+    if args.preflight_only:
+        if args.execute:
+            raise RuntimeError("--preflight-only 与 --execute 不能同时使用")
+        if args.fully_autonomous:
+            raise RuntimeError("--preflight-only 与 --fully-autonomous 不能同时使用")
+        if not args.operator_confirmed:
+            raise RuntimeError("实时单苹果预检仍需提供 --operator-confirmed")
+    elif not args.execute or not args.operator_confirmed:
+        raise RuntimeError("真机单轮抓取必须同时提供 --execute --operator-confirmed")
+    return RunMode(
+        continuous=False,
+        execute=bool(args.execute),
+        operator_confirmed=bool(args.operator_confirmed),
+        verify_only=bool(args.verify_only),
+        preflight_only=bool(args.preflight_only),
+        auto_grasp=auto_grasp,
+        auto_return=auto_return,
+        max_rounds=1,
+        settings=None,
+    )

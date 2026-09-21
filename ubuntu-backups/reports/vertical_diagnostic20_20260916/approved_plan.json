@@ -1,0 +1,71 @@
+{
+  "motion_commands": false,
+  "gripper_commands": false,
+  "status": "PASS_PREFLIGHT_ONLY",
+  "table_top_m": -0.055,
+  "tool_assumption_m": [
+    0.16,
+    0.16,
+    0.22
+  ],
+  "start_m": [
+    0.36350549147891664,
+    -0.28125726455606337,
+    0.17022910347453266
+  ],
+  "start_error_m": 0.00029122876920341877,
+  "target_m": [
+    0.36350549147891664,
+    -0.28125726455606337,
+    0.15022910347453267
+  ],
+  "observed_voxels": 81,
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "previous_obstacles_preserved": {
+      "alignment_observed": 115,
+      "realign_observed": 96
+    },
+    "new_obstacles": 81
+  },
+  "retime": {
+    "original_duration_s": 0.39636197700000003,
+    "retimed_duration_s": 3.739855705,
+    "original_max_sampled_segment_speed_m_s": 0.06022257995077122,
+    "retimed_max_sampled_segment_speed_m_s": 0.0072727272755650505,
+    "stretch": 8.280604743231043,
+    "fk_points": 5,
+    "scope": "sampled segment mean speed; continuous instantaneous speed not guaranteed"
+  },
+  "target_surface_z_m": -0.02902003775786638,
+  "tool_target_surface_vertical_clearance_m": 0.07983346873370653,
+  "min_camera_box_z_m": 0.23509806128395164,
+  "min_tcp_z_m": 0.15022910286625357,
+  "min_tool_box_z_m": 0.05081343097584015,
+  "tool_table_clearance_m": 0.10581343097584014,
+  "spline_validation": {
+    "status": "PASS_SAMPLED_DRIVER_SPLINE",
+    "input_sha256": "d80267f15bdbb58b4fc255c0ce9a31e0bd60af475d8294ed294d3edefd1a3246",
+    "method": "rm_control global clamped cubic spline, both endpoint first derivatives zero, sampled <=40ms plus original knots; not continuous proof",
+    "spline_stretch": 1.1394645152583458,
+    "original_spline_max_segment_speed_m_s": 0.008287014656424332,
+    "final_spline_max_segment_speed_m_s": 0.007273136094127465,
+    "spline_min_tcp_z_m": 0.1502291028662538,
+    "spline_min_tool_box_z_m": 0.05081343097584032,
+    "spline_tool_table_clearance_m": 0.10581343097584031,
+    "sample_count": 98,
+    "duration_s": 3.739855705,
+    "joint_limits_sampled": true,
+    "final_sha256": "2622b0ecae3e1b27e39c3c08b1a46a9da2defc36b23c4bff3ad9d7324d4a6185"
+  },
+  "trajectory_sha256": "2622b0ecae3e1b27e39c3c08b1a46a9da2defc36b23c4bff3ad9d7324d4a6185",
+  "spline_samples_sha256": "e7890d6d01b1a927b82db825746db247d2fcf75b969a4be2e4bbc4a03920b6ce",
+  "observed_target_highest_z_m": -0.027638850475217358,
+  "spline_tool_to_observed_target_highest_vertical_clearance_m": 0.07845228145105768,
+  "cartesian_fraction_log": "1.0000",
+  "human_measurement_reference": "270mm lowest finger to table; diagnostic expected relative result250mm, no absolute offset correction",
+  "current_nearby_observed_highest_z_m": -0.020291824461422026,
+  "spline_tool_to_current_nearby_highest_vertical_clearance_m": 0.07110525543726234,
+  "current_obstacles_count": 55,
+  "current_scene_spline_validation_path": "current_scene_spline_validation.json"
+}

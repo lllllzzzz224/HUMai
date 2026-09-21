@@ -1,0 +1,40 @@
+{
+  "source": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260914_194844.json",
+  "execute_requested": false,
+  "gripper_commands": false,
+  "status": "PASS_PLAN_ONLY",
+  "start": {
+    "tcp_m": [
+      0.26899948962259934,
+      -0.2631154809834832,
+      -0.018143082393692223
+    ],
+    "position_error_m": 0.0007018340368565819,
+    "orientation_error_rad": 0.001366400557916528,
+    "tf_age_s": 0.025726727,
+    "joints_rad": [
+      2.367214609527588,
+      0.9482853239059449,
+      1.2655089553833008,
+      1.7450000828830525e-05,
+      0.9269091005325317,
+      -2.049432685089111
+    ]
+  },
+  "up_retime": {
+    "original_duration_s": 1.9677131220000001,
+    "retimed_duration_s": 10.585036016,
+    "original_max_sampled_segment_speed_m_s": 0.039122613585173154,
+    "retimed_max_sampled_segment_speed_m_s": 0.007272727269971028,
+    "stretch": 5.379359367961309,
+    "fk_points": 21,
+    "scope": "sampled segment mean speed; continuous instantaneous speed not guaranteed"
+  },
+  "up_target_m": [
+    0.2689947,
+    -0.262832,
+    0.0512149
+  ],
+  "preflight": "PASS",
+  "finished_at": "2026-09-14 20:11:06"
+}

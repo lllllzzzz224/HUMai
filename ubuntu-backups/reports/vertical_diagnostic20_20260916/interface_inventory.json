@@ -1,0 +1,15 @@
+{
+  "domain": 0,
+  "needed_services": {
+    "/apply_planning_scene": null,
+    "/get_planning_scene": null,
+    "/check_state_validity": null,
+    "/compute_ik": null,
+    "/compute_fk": null,
+    "/compute_cartesian_path": null
+  },
+  "nodes": [
+    "readonly_interface_inventory"
+  ],
+  "hardware_commands": false
+}

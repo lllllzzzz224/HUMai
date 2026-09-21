@@ -1,0 +1,79 @@
+{
+  "no_goals_or_stop_commands_sent": true,
+  "execute_action_available": true,
+  "hard_stop_subscribers": 2,
+  "observed_action_status_arrays": {
+    "/execute_trajectory/_action/status": [
+      4
+    ],
+    "/rm_group_controller/follow_joint_trajectory/_action/status": [
+      4
+    ]
+  },
+  "active_status_seen": false,
+  "joint_feedback_age_s": 0.00024583399999755784,
+  "joint_values_rad": [
+    2.444291389465332,
+    0.8506002313613892,
+    0.7356571165084839,
+    0.06316899800300599,
+    1.3513454830169678,
+    -0.14935455026626587
+  ],
+  "note": "freshly restarted control and move_group; absent status publication is reported as absent, not fabricated empty state",
+  "hard_stop_subscription_endpoints": [
+    {
+      "node_name": "rm_control",
+      "namespace": "/",
+      "type": "std_msgs/msg/Empty",
+      "gid": [
+        1,
+        15,
+        162,
+        49,
+        13,
+        109,
+        220,
+        204,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        29,
+        4
+      ]
+    },
+    {
+      "node_name": "rm_driver",
+      "namespace": "/",
+      "type": "std_msgs/msg/Empty",
+      "gid": [
+        1,
+        15,
+        162,
+        49,
+        47,
+        89,
+        23,
+        91,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        39,
+        4
+      ]
+    }
+  ],
+  "hard_stop_publisher_endpoints": [
+    {
+      "node_name": "fixed_scan_real_verify",
+      "namespace": "/",
+      "type": "std_msgs/msg/Empty"
+    }
+  ]
+}

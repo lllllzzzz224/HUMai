@@ -1,0 +1,8 @@
+{
+  "sha256": "2b6530857eb37eba44e4eefe28f0093ace012e399baf9bae04a8f94def26c4e9",
+  "points": 18,
+  "duration_s": 12.702613832,
+  "times_increasing": true,
+  "max_joint_step_rad": 0.03920000004309809,
+  "finite": true
+}

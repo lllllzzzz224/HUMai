@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-08-31 15:19:30",
+  "status": "STOPPED_BY_OPERATOR",
+  "settings": {
+    "max_rounds": 0,
+    "min_position_change_m": 0.03,
+    "stable_time_s": 2.0,
+    "safety_countdown_s": 3.0,
+    "retry_delay_s": 2.0,
+    "max_pre_motion_retries": 3,
+    "max_axis_span_m": 0.01
+  },
+  "completed_rounds": 1,
+  "pre_motion_rejections": 0,
+  "vision_wait_errors": 0,
+  "rounds": [
+    {
+      "log": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260831_151943_round001_attempt01.json",
+      "status": "PASS_PICK_RETURN_COMPLETE",
+      "round_index": 1
+    }
+  ],
+  "last_gate_snapshot": {
+    "state": "READY",
+    "stable_elapsed_s": 5.657139664981514,
+    "distance_from_reference_m": null,
+    "center_m": [
+      0.4361915317667955,
+      -0.12266901087387563,
+      -0.05796038420742522
+    ]
+  },
+  "finished_at": "2026-08-31 15:20:53"
+}

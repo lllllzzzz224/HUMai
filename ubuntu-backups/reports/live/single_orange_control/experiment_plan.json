@@ -1,0 +1,14 @@
+{
+  "purpose": "检查两果/枝叶干涉是否造成无法夹持",
+  "executor": "subagent a",
+  "supervisor": "root",
+  "baseline": "yaw90/pitch0, visual_xy_correction disabled, grasp_above_center 0.015m, close_settle 2.5s",
+  "sequence": [
+    "保持开爪沿原路径上撤至PREGRASP，再回SCAN",
+    "现场将一颗橘子单独摆放，整个进刀与闭合区域无邻果枝叶",
+    "核对图像及唯一orange视觉发布者，完整路径预检",
+    "执行一轮入盆，记录物理结果而非仅程序PASS"
+  ],
+  "success_criteria": "橘子实际从原位置被夹起并落入盆中；照片或操作员确认",
+  "interpretation_limits": "一次结果仅用于故障排查；位置/连接状态变化意味着不是严格只改变一个变量的成功率实验"
+}

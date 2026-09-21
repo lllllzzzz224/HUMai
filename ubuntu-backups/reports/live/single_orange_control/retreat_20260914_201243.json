@@ -1,0 +1,66 @@
+{
+  "source": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260914_194844.json",
+  "execute_requested": true,
+  "gripper_commands": false,
+  "status": "PASS_RETURNED_TO_SCAN",
+  "start": {
+    "tcp_m": [
+      0.26902053903371204,
+      -0.26313606991103755,
+      -0.018143733737794543
+    ],
+    "position_error_m": 0.0007102653368685177,
+    "orientation_error_rad": 0.001423263340753128,
+    "tf_age_s": 0.020750382,
+    "joints_rad": [
+      2.3672670639038085,
+      0.9482678834915161,
+      1.2655089553833008,
+      -1.7450000828830525e-05,
+      0.9268392723083496,
+      -2.0494850063323975
+    ]
+  },
+  "up_retime": {
+    "original_duration_s": 1.968004582,
+    "retimed_duration_s": 10.585888536,
+    "original_max_sampled_segment_speed_m_s": 0.039119970025861726,
+    "retimed_max_sampled_segment_speed_m_s": 0.0072727272707748805,
+    "stretch": 5.378995878555988,
+    "fk_points": 21,
+    "scope": "sampled segment mean speed; continuous instantaneous speed not guaranteed"
+  },
+  "up_target_m": [
+    0.2689947,
+    -0.262832,
+    0.0512149
+  ],
+  "preflight": "PASS",
+  "pregrasp": {
+    "tcp_m": [
+      0.26902400869074283,
+      -0.26310274315015914,
+      0.05134902727897114
+    ],
+    "position_error_m": 0.00030356379836098655,
+    "orientation_error_rad": 0.00114556785782964,
+    "tf_age_s": 0.050839571,
+    "joints_rad": [
+      2.3673368255615235,
+      0.8024731414794922,
+      1.1853610649108888,
+      -1.7450000828830525e-05,
+      1.153113472366333,
+      -2.049624662780762
+    ]
+  },
+  "final_joints_rad": [
+    2.5030802307128908,
+    0.3499771957397461,
+    0.636925,
+    0.05632859870195389,
+    2.044808445739746,
+    -0.09142054727077484
+  ],
+  "finished_at": "2026-09-14 20:13:15"
+}

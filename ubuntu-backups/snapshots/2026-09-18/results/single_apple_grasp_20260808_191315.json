@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-08-08 19:13:15",
+  "status": "FAILED_STOPPED",
+  "single_round": true,
+  "return_after_lift_requested": false,
+  "single_apple_scene_operator_confirmed": true,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "gripper_reopened": false,
+  "returned_to_scan": false,
+  "error": "真机单轮抓取必须同时提供 --execute --operator-confirmed",
+  "events": [],
+  "finished_at": "2026-08-08 19:13:15"
+}

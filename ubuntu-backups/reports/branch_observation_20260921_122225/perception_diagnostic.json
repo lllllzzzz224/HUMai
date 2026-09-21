@@ -1,0 +1,255 @@
+{
+  "purpose": "Offline fruit-detection and depth-support diagnostic; no robot/ROS access, no grasp pose, no collision model, no trajectory",
+  "model_path": "/home/li/hand_eye_calibration/models/yolo11n-seg.pt",
+  "model_sha256": "55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152",
+  "inference": "Full-frame COCO apple/orange classes, conf=0.15, CPU; not a complete replay of live tiled localization",
+  "branch_leaf_trunk_classes_in_model": [],
+  "frames": [
+    {
+      "received_at": "2026-09-21T12:22:27.449482+08:00",
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_00.jpg",
+      "detections": [
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.8541037440299988,
+          "box_xyxy_px": [
+            683.8411865234375,
+            308.89166259765625,
+            807.820556640625,
+            428.34600830078125
+          ],
+          "mask_pixels": 11989,
+          "valid_depth_fraction_inside_mask": 0.9328551171907582,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.4580000217538327,
+            0.4700000223238021,
+            0.5000000237487257
+          ],
+          "mask_file": "mask_00_00.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.6190572381019592,
+          "box_xyxy_px": [
+            0.0,
+            76.35698699951172,
+            91.56340789794922,
+            147.0693359375
+          ],
+          "mask_pixels": 5815,
+          "valid_depth_fraction_inside_mask": 0.828030954428203,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.5090000241762027,
+            0.5180000246036798,
+            0.5270000250311568
+          ],
+          "mask_file": "mask_00_01.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.40084108710289,
+          "box_xyxy_px": [
+            538.1643676757812,
+            654.1109619140625,
+            664.9968872070312,
+            720.0
+          ],
+          "mask_pixels": 5922,
+          "valid_depth_fraction_inside_mask": 0.9979736575481256,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.4070000193314627,
+            0.4110000195214525,
+            0.41600001975893974
+          ],
+          "mask_file": "mask_00_02.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.2530291974544525,
+          "box_xyxy_px": [
+            0.4470939636230469,
+            235.92959594726562,
+            25.51570701599121,
+            264.3121643066406
+          ],
+          "mask_pixels": 690,
+          "valid_depth_fraction_inside_mask": 0.3173913043478261,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.4640000220388174,
+            0.4930000234162435,
+            0.5010000237962231
+          ],
+          "mask_file": "mask_00_03.npz"
+        }
+      ]
+    },
+    {
+      "received_at": "2026-09-21T12:22:28.112137+08:00",
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_01.jpg",
+      "detections": [
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.8283156752586365,
+          "box_xyxy_px": [
+            683.840087890625,
+            308.699951171875,
+            807.838134765625,
+            428.2066650390625
+          ],
+          "mask_pixels": 11970,
+          "valid_depth_fraction_inside_mask": 0.9172096908939015,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.45700002170633525,
+            0.4700000223238021,
+            0.503000023891218
+          ],
+          "mask_file": "mask_01_00.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.6327414512634277,
+          "box_xyxy_px": [
+            0.0,
+            75.5988998413086,
+            90.2814712524414,
+            144.97103881835938
+          ],
+          "mask_pixels": 5595,
+          "valid_depth_fraction_inside_mask": 0.8464700625558534,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.5110000242711976,
+            0.5180000246036798,
+            0.5270000250311568
+          ],
+          "mask_file": "mask_01_01.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.49359992146492004,
+          "box_xyxy_px": [
+            538.7755126953125,
+            653.973388671875,
+            665.1192626953125,
+            720.0
+          ],
+          "mask_pixels": 5959,
+          "valid_depth_fraction_inside_mask": 0.9929518375566371,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.4070000193314627,
+            0.41000001947395504,
+            0.41400001966394484
+          ],
+          "mask_file": "mask_01_02.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.32858535647392273,
+          "box_xyxy_px": [
+            0.3600502014160156,
+            235.53555297851562,
+            25.639156341552734,
+            264.2872009277344
+          ],
+          "mask_pixels": 688,
+          "valid_depth_fraction_inside_mask": 0.34156976744186046,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.46700002218130976,
+            0.4930000234162435,
+            0.5020000238437206
+          ],
+          "mask_file": "mask_01_03.npz"
+        }
+      ]
+    },
+    {
+      "received_at": "2026-09-21T12:22:28.766471+08:00",
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_02.jpg",
+      "detections": [
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.8428981900215149,
+          "box_xyxy_px": [
+            683.7999267578125,
+            308.76873779296875,
+            807.81298828125,
+            428.20147705078125
+          ],
+          "mask_pixels": 11973,
+          "valid_depth_fraction_inside_mask": 0.9289234110081016,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.4560000216588378,
+            0.47100002237129956,
+            0.5020000238437206
+          ],
+          "mask_file": "mask_02_00.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.6526563763618469,
+          "box_xyxy_px": [
+            0.0,
+            75.58247375488281,
+            90.65347290039062,
+            144.6078338623047
+          ],
+          "mask_pixels": 5587,
+          "valid_depth_fraction_inside_mask": 0.8523357794880974,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.5110000242711976,
+            0.5180000246036798,
+            0.5280000250786543
+          ],
+          "mask_file": "mask_02_01.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.608660876750946,
+          "box_xyxy_px": [
+            538.490478515625,
+            653.962158203125,
+            664.5286865234375,
+            720.0
+          ],
+          "mask_pixels": 5954,
+          "valid_depth_fraction_inside_mask": 0.9966409136714813,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.40800001937896013,
+            0.4110000195214525,
+            0.4150000197114423
+          ],
+          "mask_file": "mask_02_02.npz"
+        },
+        {
+          "class_id": 49,
+          "class_name": "orange",
+          "confidence": 0.241723895072937,
+          "box_xyxy_px": [
+            0.3586921691894531,
+            235.7598876953125,
+            25.493690490722656,
+            264.34716796875
+          ],
+          "mask_pixels": 684,
+          "valid_depth_fraction_inside_mask": 0.2997076023391813,
+          "visible_surface_depth_p05_p50_p95_m": [
+            0.4660000221338123,
+            0.48800002317875624,
+            0.49800002365373075
+          ],
+          "mask_file": "mask_02_03.npz"
+        }
+      ]
+    }
+  ]
+}

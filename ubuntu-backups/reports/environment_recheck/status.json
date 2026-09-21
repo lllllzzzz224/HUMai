@@ -1,0 +1,109 @@
+{
+  "counts_10s": {
+    "color": 249,
+    "depth": 282
+  },
+  "topics": [
+    [
+      "/camera/camera/color/camera_info",
+      [
+        "sensor_msgs/msg/CameraInfo"
+      ]
+    ],
+    [
+      "/camera/camera/color/image_raw",
+      [
+        "sensor_msgs/msg/Image"
+      ]
+    ],
+    [
+      "/camera/camera/color/metadata",
+      [
+        "realsense2_camera_msgs/msg/Metadata"
+      ]
+    ],
+    [
+      "/camera/camera/depth/camera_info",
+      [
+        "sensor_msgs/msg/CameraInfo"
+      ]
+    ],
+    [
+      "/camera/camera/depth/image_rect_raw",
+      [
+        "sensor_msgs/msg/Image"
+      ]
+    ],
+    [
+      "/camera/camera/depth/metadata",
+      [
+        "realsense2_camera_msgs/msg/Metadata"
+      ]
+    ],
+    [
+      "/camera/camera/extrinsics/depth_to_color",
+      [
+        "realsense2_camera_msgs/msg/Extrinsics"
+      ]
+    ],
+    [
+      "/camera/camera/triggered_calibration/_action/feedback",
+      [
+        "realsense2_camera_msgs/action/TriggeredCalibration_FeedbackMessage"
+      ]
+    ],
+    [
+      "/camera/camera/triggered_calibration/_action/status",
+      [
+        "action_msgs/msg/GoalStatusArray"
+      ]
+    ],
+    [
+      "/parameter_events",
+      [
+        "rcl_interfaces/msg/ParameterEvent"
+      ]
+    ],
+    [
+      "/rosout",
+      [
+        "rcl_interfaces/msg/Log"
+      ]
+    ],
+    [
+      "/tf_static",
+      [
+        "tf2_msgs/msg/TFMessage"
+      ]
+    ]
+  ],
+  "rates_hz": {
+    "color": 25.033163375138002,
+    "depth": 28.46001343218633
+  },
+  "depth_nonzero_fraction": 0.84251953125,
+  "arm_state": {
+    "arm_state": {
+      "err": [
+        0
+      ],
+      "joint": [
+        143363,
+        21496,
+        37105,
+        3044,
+        109618,
+        -3497
+      ],
+      "pose": [
+        250240,
+        -176043,
+        430479,
+        3108,
+        208,
+        2582
+      ]
+    },
+    "state": "current_arm_state"
+  }
+}

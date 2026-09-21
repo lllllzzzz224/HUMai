@@ -1,0 +1,6 @@
+{
+  "physical_success": false,
+  "evidence_source": "operator_followup_and_after_image",
+  "operator_observation": "还是没夹起来，应该是定位的问题；具体闭爪位置没看清",
+  "diagnosis": "尚未确认是XY定位偏差、Z包络不足、接近时果实移动或夹持滑脱；不能按程序PASS计为物理成功。"
+}

@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-08-08 19:20:30",
+  "status": "STOPPED_BY_OPERATOR",
+  "single_round": true,
+  "return_after_lift_requested": true,
+  "single_apple_scene_operator_confirmed": true,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "gripper_reopened": false,
+  "returned_to_scan": false,
+  "apple_center_base_m": [
+    0.5164566,
+    -0.1980162,
+    -0.0563189
+  ],
+  "apple_radius_m": 0.032367,
+  "vision_diagnostics": {
+    "frame": "base_link",
+    "confidence": 0.1623,
+    "radius_m": 0.032473,
+    "valid_depth_pixels": 1225,
+    "sync_error_ms": 0.0,
+    "surface_xyz_m": [
+      0.503088,
+      -0.196031,
+      -0.026706
+    ],
+    "center_xyz_m": [
+      0.515822,
+      -0.197544,
+      -0.05654
+    ],
+    "_received_monotonic": 240322.457701047
+  },
+  "pregrasp_base_m": [
+    0.5164566,
+    -0.1980162,
+    0.0436811
+  ],
+  "verify_base_m": [
+    0.5164566,
+    -0.1980162,
+    -0.0263189
+  ],
+  "grasp_base_m": [
+    0.5164566,
+    -0.1980162,
+    -0.0413189
+  ],
+  "grasp_offset_above_center_m": 0.015,
+  "lift_base_m": [
+    0.5164566,
+    -0.1980162,
+    0.1586811
+  ],
+  "gripper_open_mm": 80.0,
+  "gripper_close_mm": 20.0,
+  "approach_pitch_candidates_deg": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    -2.0,
+    -4.0,
+    -6.0,
+    -8.0,
+    -10.0
+  ],
+  "table_guard_top_z_m": -0.08368586580444556,
+  "events": [
+    {
+      "time": "2026-08-08 19:20:32",
+      "step": "夹爪通信配置并保持打开",
+      "result": "PASS",
+      "opening_mm": 80.0,
+      "mechanical_zeroing": false
+    },
+    {
+      "time": "2026-08-08 19:20:37",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 19:20:47",
+      "step": "单苹果现场",
+      "result": "PASS",
+      "verification": "operator-confirmed: one visible apple"
+    },
+    {
+      "time": "2026-08-08 19:20:57",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 0.0,
+      "reason": "倾角 +0° SCAN -> PREGRASP：MoveIt 规划失败 error_code=99999"
+    },
+    {
+      "time": "2026-08-08 19:21:08",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 2.0,
+      "reason": "倾角 +2° SCAN -> PREGRASP：MoveIt 规划失败 error_code=99999"
+    },
+    {
+      "time": "2026-08-08 19:21:18",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 4.0,
+      "reason": "倾角 +4° SCAN -> PREGRASP：MoveIt 规划失败 error_code=99999"
+    },
+    {
+      "time": "2026-08-08 19:21:28",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 6.0,
+      "reason": "倾角 +6° SCAN -> PREGRASP：MoveIt 规划失败 error_code=99999"
+    },
+    {
+      "time": "2026-08-08 19:21:38",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 8.0,
+      "reason": "倾角 +8° SCAN -> PREGRASP：MoveIt 规划失败 error_code=99999"
+    },
+    {
+      "time": "2026-08-08 19:21:48",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 10.0,
+      "reason": "倾角 +10° SCAN -> PREGRASP：MoveIt 规划失败 error_code=99999"
+    },
+    {
+      "time": "2026-08-08 19:21:49",
+      "step": "流程",
+      "result": "STOPPED_BY_OPERATOR"
+    }
+  ],
+  "finished_at": "2026-08-08 19:21:49"
+}

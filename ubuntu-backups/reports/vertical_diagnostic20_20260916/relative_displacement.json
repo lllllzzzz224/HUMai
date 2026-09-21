@@ -1,0 +1,33 @@
+{
+  "same_chain_readonly_fk_before_mean_m": [
+    0.3635432772454894,
+    -0.2810088027221383,
+    0.17011213358575664
+  ],
+  "same_chain_readonly_fk_after_mean_m": [
+    0.36351621935390227,
+    -0.28126983312873954,
+    0.15024644333993428
+  ],
+  "delta_after_minus_before_mm": [
+    -0.027057891587134453,
+    -0.2610304066012481,
+    -19.865690245822353
+  ],
+  "stationary_sampled": true,
+  "duration_s": 1.7142815589904785,
+  "joint_span_deg": [
+    0.0020000000000095497,
+    0.005000000000002558,
+    0.003999999999997783,
+    0.0040000000000000036,
+    0.006000000000000227,
+    0.0030000000000001137
+  ],
+  "tcp_axis_span_mm": [
+    0.03217600728433467,
+    0.029395741565851896,
+    0.046603698430042195
+  ],
+  "physical_ruler_after_measurement": "pending user; expected about250mm if original270mm baseline and displacement correct"
+}

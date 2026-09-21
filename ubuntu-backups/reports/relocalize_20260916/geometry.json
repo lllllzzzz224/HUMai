@@ -1,0 +1,417 @@
+{
+  "scope": "read-only geometry; diagnostic coordinates, not execution permission",
+  "roi_pixels": [
+    [
+      300,
+      260,
+      330,
+      290
+    ],
+    [
+      80,
+      280,
+      110,
+      310
+    ],
+    [
+      250,
+      375,
+      280,
+      400
+    ]
+  ],
+  "records": [
+    {
+      "index": 0,
+      "stamps_inside_arm_bracket": true,
+      "table_coefficients": [
+        0.04808208142482838,
+        -0.033669166390037614,
+        -0.10892539726832454
+      ],
+      "table_rmse_mm": 0.9116825151676802,
+      "targets": {
+        "complete_label": {
+          "pixel": [
+            218,
+            301
+          ],
+          "surface_point_m": [
+            0.48330031328125167,
+            -0.26442081561078434,
+            -0.019038859422007892
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 338.0
+        },
+        "previous_target_visible_surface": {
+          "pixel": [
+            358,
+            451
+          ],
+          "surface_point_m": [
+            0.3744647430720392,
+            -0.2832250311547642,
+            -0.02788789961468585
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 323.0
+        },
+        "left_truncated_visible_surface": {
+          "pixel": [
+            150,
+            470
+          ],
+          "surface_point_m": [
+            0.42896101166573575,
+            -0.18515209522854967,
+            -0.032070466202487935
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 327.0
+        }
+      },
+      "tcp_m": [
+        0.3641042774981481,
+        -0.2788838016815041,
+        0.17010756087034504
+      ]
+    },
+    {
+      "index": 1,
+      "stamps_inside_arm_bracket": true,
+      "table_coefficients": [
+        0.05320555963615514,
+        -0.031551464955975855,
+        -0.11073089330555601
+      ],
+      "table_rmse_mm": 0.8982145290904048,
+      "targets": {
+        "complete_label": {
+          "pixel": [
+            218,
+            301
+          ],
+          "surface_point_m": [
+            0.4833745444475631,
+            -0.2644327558794507,
+            -0.01943171123055787
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 338.0
+        },
+        "previous_target_visible_surface": {
+          "pixel": [
+            358,
+            451
+          ],
+          "surface_point_m": [
+            0.3744822526523908,
+            -0.2832405994907093,
+            -0.02806712164811853
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 324.0
+        },
+        "left_truncated_visible_surface": {
+          "pixel": [
+            150,
+            470
+          ],
+          "surface_point_m": [
+            0.4290561593945824,
+            -0.1848606587918988,
+            -0.03311003205937213
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 328.0
+        }
+      },
+      "tcp_m": [
+        0.3641151943520567,
+        -0.2788908396728825,
+        0.17011209605620545
+      ]
+    },
+    {
+      "index": 2,
+      "stamps_inside_arm_bracket": true,
+      "table_coefficients": [
+        0.06040684535430921,
+        -0.0389874561100922,
+        -0.11583956560514666
+      ],
+      "table_rmse_mm": 0.6366988396315133,
+      "targets": {
+        "complete_label": {
+          "pixel": [
+            218,
+            301
+          ],
+          "surface_point_m": [
+            0.483268229883901,
+            -0.26443965849773077,
+            -0.018638191511590796
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 338.0
+        },
+        "previous_target_visible_surface": {
+          "pixel": [
+            358,
+            451
+          ],
+          "surface_point_m": [
+            0.37448455176391915,
+            -0.28324848645933987,
+            -0.028351889930824103
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 324.0
+        },
+        "left_truncated_visible_surface": {
+          "pixel": [
+            150,
+            470
+          ],
+          "surface_point_m": [
+            0.4290577772748801,
+            -0.18486819276463584,
+            -0.03314660755359855
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 328.0
+        }
+      },
+      "tcp_m": [
+        0.36411509036007805,
+        -0.2788959459632738,
+        0.17011659193930304
+      ]
+    },
+    {
+      "index": 3,
+      "stamps_inside_arm_bracket": true,
+      "table_coefficients": [
+        0.057082841568662786,
+        -0.042301544447764676,
+        -0.11558237145706954
+      ],
+      "table_rmse_mm": 0.8287417872622562,
+      "targets": {
+        "complete_label": {
+          "pixel": [
+            218,
+            301
+          ],
+          "surface_point_m": [
+            0.48337768708175427,
+            -0.26442918637979385,
+            -0.019393400867278365
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 338.0
+        },
+        "previous_target_visible_surface": {
+          "pixel": [
+            358,
+            451
+          ],
+          "surface_point_m": [
+            0.37448553372588345,
+            -0.28323803727434077,
+            -0.028231752053460957
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 324.0
+        },
+        "left_truncated_visible_surface": {
+          "pixel": [
+            150,
+            470
+          ],
+          "surface_point_m": [
+            0.42897824792850653,
+            -0.1851243717115777,
+            -0.03258684621185659
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 327.0
+        }
+      },
+      "tcp_m": [
+        0.3641184697101113,
+        -0.27888835575855864,
+        0.17011218927160726
+      ]
+    },
+    {
+      "index": 4,
+      "stamps_inside_arm_bracket": true,
+      "table_coefficients": [
+        0.0550492921865759,
+        -0.029047067700407617,
+        -0.1106809795654819
+      ],
+      "table_rmse_mm": 0.6036001101993211,
+      "targets": {
+        "complete_label": {
+          "pixel": [
+            218,
+            301
+          ],
+          "surface_point_m": [
+            0.4833930514526598,
+            -0.2644405229640446,
+            -0.01945938768316935
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 338.0
+        },
+        "previous_target_visible_surface": {
+          "pixel": [
+            358,
+            451
+          ],
+          "surface_point_m": [
+            0.37448716299020735,
+            -0.28325228628547755,
+            -0.028490694201511402
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 324.0
+        },
+        "left_truncated_visible_surface": {
+          "pixel": [
+            150,
+            470
+          ],
+          "surface_point_m": [
+            0.4290024004545251,
+            -0.18513053824769438,
+            -0.03254769792186207
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 327.0
+        }
+      },
+      "tcp_m": [
+        0.3641268422594482,
+        -0.2788952879060656,
+        0.17012217364399082
+      ]
+    },
+    {
+      "index": 5,
+      "stamps_inside_arm_bracket": true,
+      "table_coefficients": [
+        0.06277113564495508,
+        -0.037114349191523954,
+        -0.11679980329682577
+      ],
+      "table_rmse_mm": 0.7654974294732002,
+      "targets": {
+        "complete_label": {
+          "pixel": [
+            218,
+            301
+          ],
+          "surface_point_m": [
+            0.4833141852761945,
+            -0.26444473207609587,
+            -0.018856985575201712
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 338.0
+        },
+        "previous_target_visible_surface": {
+          "pixel": [
+            358,
+            451
+          ],
+          "surface_point_m": [
+            0.37447690649946797,
+            -0.2832534459272207,
+            -0.02809226372763335
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 324.0
+        },
+        "left_truncated_visible_surface": {
+          "pixel": [
+            150,
+            470
+          ],
+          "surface_point_m": [
+            0.4289697819891438,
+            -0.18498139014124687,
+            -0.03313631414977164
+          ],
+          "valid_fraction": 1.0,
+          "depth_median_mm": 328.0
+        }
+      },
+      "tcp_m": [
+        0.3641103882209538,
+        -0.27890243784146235,
+        0.17010688733045215
+      ]
+    }
+  ],
+  "pooled_table": {
+    "coefficients": [
+      0.056080089370819645,
+      -0.03544306132521173,
+      -0.11308335928944308
+    ],
+    "rmse_mm": 0.8524564239604135,
+    "xy_min": [
+      0.42393140763684534,
+      -0.33506558240585216
+    ],
+    "xy_max": [
+      0.5601552327356387,
+      -0.18478399418034364
+    ],
+    "z_max_m": -0.07221003164340961
+  },
+  "complete_label": {
+    "surface_median_m": [
+      0.4833443648618788,
+      -0.26443620718859073,
+      -0.01921613014464313
+    ],
+    "surface_span_mm": [
+      0.124821568758815,
+      0.02391646531152425,
+      0.8211961715785532
+    ],
+    "note": "selected 11x11 visible surface patch; not full-fruit center or sphere center; no historical XY correction"
+  },
+  "previous_target_visible_surface": {
+    "surface_median_m": [
+      0.374483402208155,
+      -0.28324454297502455,
+      -0.028162007890547153
+    ],
+    "surface_span_mm": [
+      0.022419918168148367,
+      0.028414772456464288,
+      0.6027945868255502
+    ],
+    "note": "selected 11x11 visible surface patch; not full-fruit center or sphere center; no historical XY correction"
+  },
+  "left_truncated_visible_surface": {
+    "surface_median_m": [
+      0.42899032419151584,
+      -0.18505288092641228,
+      -0.03284843913561436
+    ],
+    "surface_span_mm": [
+      0.09676560914434473,
+      0.2914364366508604,
+      1.0761413511106155
+    ],
+    "note": "selected 11x11 visible surface patch; not full-fruit center or sphere center; no historical XY correction"
+  }
+}

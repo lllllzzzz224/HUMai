@@ -1,0 +1,32 @@
+{
+  "frame": "base_link",
+  "record_index": 5,
+  "source_rgb_stamp": 1789973799.2170036,
+  "points_exported": 86851,
+  "points_in_display_crop": 71459,
+  "sampling_stride_px": 3,
+  "depth_units": "16UC1 millimeters per RealSense ROS output",
+  "display_crop_only_m": {
+    "x": [
+      0.05,
+      0.8
+    ],
+    "y": [
+      -0.65,
+      0.3
+    ],
+    "z": [
+      -0.25,
+      0.3
+    ]
+  },
+  "planning_scene_written": false,
+  "collision_model": false,
+  "executable": false,
+  "limitations": [
+    "sampled visible surfaces only",
+    "unknown space not classified free",
+    "no self filtering or complete robot envelope validation",
+    "saved hand-eye baseline used; not independently recalibrated today"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "new_step_number": 1,
+  "target_m": [
+    0.36346435558014395,
+    -0.28152209200886436,
+    0.1303522335853647
+  ],
+  "start_joints_rad": [
+    2.444745106506348,
+    0.8549278505325317,
+    0.6324054697036743,
+    0.06210455026626587,
+    1.4506010116577148,
+    -0.14310745372772218
+  ],
+  "code": 1,
+  "fraction": 1.0,
+  "retime": {
+    "original_duration_s": 0.920163893,
+    "retimed_duration_s": 3.5907518510000003,
+    "original_max_sampled_segment_speed_m_s": 0.024612317415350585,
+    "retimed_max_sampled_segment_speed_m_s": 0.007272727261145526,
+    "stretch": 3.384193644610706,
+    "fk_points": 11,
+    "scope": "sampled segment mean speed; continuous instantaneous speed not guaranteed"
+  },
+  "status": "PASS_PREFLIGHT_AND_DRIVER_SPLINE",
+  "points": 11,
+  "start_m": [
+    0.36346435558014395,
+    -0.28152209200886436,
+    0.1503522335853647
+  ],
+  "observed_voxels": 81,
+  "spline_validation": {
+    "status": "PASS_SAMPLED_DRIVER_SPLINE",
+    "input_sha256": "05a7b88f94ca97585d5678f6a521d39d29866fc3b43a6b26d36abe99c65a6b26",
+    "method": "rm_control global clamped cubic spline, both endpoint first derivatives zero, sampled <=40ms plus original knots; not continuous proof",
+    "spline_stretch": 1.1530947632281348,
+    "original_spline_max_segment_speed_m_s": 0.008386143732568253,
+    "final_spline_max_segment_speed_m_s": 0.0072689329477367585,
+    "spline_min_tcp_z_m": 0.13035226788797694,
+    "spline_min_tool_box_z_m": 0.030910693824379887,
+    "spline_tool_table_clearance_m": 0.08591069382437988,
+    "sample_count": 100,
+    "duration_s": 3.5907518510000003,
+    "joint_limits_sampled": true,
+    "final_sha256": "25ba925b6b3a1f2d80ea3e5a971474a4764f3a8165e9eae07d7c1b588aa52116"
+  },
+  "trajectory_sha256": "25ba925b6b3a1f2d80ea3e5a971474a4764f3a8165e9eae07d7c1b588aa52116",
+  "spline_samples_sha256": "03bf7b246578df63495b641028314ec6a01ff3e447b183d05ac1bd5df3eb162b",
+  "current_nearby_observed_highest_z_m": -0.020291824461422026,
+  "tool_to_current_highest_vertical_clearance_m": 0.05120251828580191,
+  "batch_scope": "new requested four steps; safe prefix only 1..3, not including completed earlier20mm"
+}

@@ -1,0 +1,8 @@
+{
+  "execution_log": "single_apple_grasp_20260914_193825.json",
+  "physical_success": false,
+  "evidence_source": "operator_followup",
+  "operator_observation": "这次还是没抓起来，抓到半路掉了",
+  "interpretation": "发生夹持后滑脱；具体掉落阶段尚未由视频确认。",
+  "next_experiment": "夹取 yaw 相对偏移改为90度；pitch保持0度；入盆yaw与抓取方向一致。"
+}

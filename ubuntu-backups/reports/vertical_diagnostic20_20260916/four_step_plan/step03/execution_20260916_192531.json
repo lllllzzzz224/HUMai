@@ -1,0 +1,32 @@
+{
+  "status": "PASS_VERTICAL20_DIAGNOSTIC_ONLY",
+  "closed": false,
+  "return": false,
+  "start_joint_error_rad": 0.0005061716326895116,
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "current_diag20_obstacles": 55,
+    "previous_obstacles_preserved": {
+      "alignment_observed": 115,
+      "realign_observed": 96
+    },
+    "new_obstacles": 81
+  },
+  "interface_discovery": [
+    {
+      "elapsed_s": 0.00023965299988049082,
+      "action_ready": true,
+      "stop_count": 2,
+      "stop_nodes": [
+        "rm_control",
+        "rm_driver"
+      ]
+    }
+  ],
+  "gripper_commands": false,
+  "final_tcp_m": [
+    0.36335765172087464,
+    -0.28169561758684003,
+    0.09050926185779035
+  ]
+}

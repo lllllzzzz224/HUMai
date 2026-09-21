@@ -1,0 +1,120 @@
+{
+  "completed_new_batch_steps": 3,
+  "commanded_step_mm": 20,
+  "commanded_batch_descent_mm": 60,
+  "requested_steps": 4,
+  "fourth_executed": false,
+  "fourth_block_reason": "collision with conservative open-tool guard and observed fruit obstacle volumes; Cartesian fraction 0.090909",
+  "earlier_separate_step_mm": 20,
+  "gripper_commands": false,
+  "records": [
+    {
+      "step": "step01",
+      "execution_file": "/home/li/桌面/9月机械臂实验（算法）/reports/vertical_diagnostic20_20260916/four_step_plan/step01/execution_20260916_191740.json",
+      "result": {
+        "status": "PASS_VERTICAL20_DIAGNOSTIC_ONLY",
+        "closed": false,
+        "return": false,
+        "start_joint_error_rad": 5.235452651974892e-05,
+        "scene_readback": {
+          "scene_readback_table_top_m": -0.05499999999999999,
+          "current_diag20_obstacles": 55,
+          "previous_obstacles_preserved": {
+            "alignment_observed": 115,
+            "realign_observed": 96
+          },
+          "new_obstacles": 81
+        },
+        "gripper_commands": false,
+        "final_tcp_m": [
+          0.36346312091886596,
+          -0.28177316444270717,
+          0.13061753420879657
+        ]
+      }
+    },
+    {
+      "step": "step02/retry_discovery",
+      "execution_file": "/home/li/桌面/9月机械臂实验（算法）/reports/vertical_diagnostic20_20260916/four_step_plan/step02/retry_discovery/execution_20260916_192507.json",
+      "result": {
+        "status": "PASS_VERTICAL20_DIAGNOSTIC_ONLY",
+        "closed": false,
+        "return": false,
+        "start_joint_error_rad": 0.00047129067430029536,
+        "scene_readback": {
+          "scene_readback_table_top_m": -0.05499999999999999,
+          "current_diag20_obstacles": 55,
+          "previous_obstacles_preserved": {
+            "alignment_observed": 115,
+            "realign_observed": 96
+          },
+          "new_obstacles": 81
+        },
+        "interface_discovery": [
+          {
+            "elapsed_s": 0.0002453260003676405,
+            "action_ready": true,
+            "stop_count": 2,
+            "stop_nodes": [
+              "rm_control",
+              "rm_driver"
+            ]
+          }
+        ],
+        "gripper_commands": false,
+        "final_tcp_m": [
+          0.363431149897054,
+          -0.28174989453248417,
+          0.11049576572772407
+        ]
+      }
+    },
+    {
+      "step": "step03",
+      "execution_file": "/home/li/桌面/9月机械臂实验（算法）/reports/vertical_diagnostic20_20260916/four_step_plan/step03/execution_20260916_192531.json",
+      "result": {
+        "status": "PASS_VERTICAL20_DIAGNOSTIC_ONLY",
+        "closed": false,
+        "return": false,
+        "start_joint_error_rad": 0.0005061716326895116,
+        "scene_readback": {
+          "scene_readback_table_top_m": -0.05499999999999999,
+          "current_diag20_obstacles": 55,
+          "previous_obstacles_preserved": {
+            "alignment_observed": 115,
+            "realign_observed": 96
+          },
+          "new_obstacles": 81
+        },
+        "interface_discovery": [
+          {
+            "elapsed_s": 0.00023965299988049082,
+            "action_ready": true,
+            "stop_count": 2,
+            "stop_nodes": [
+              "rm_control",
+              "rm_driver"
+            ]
+          }
+        ],
+        "gripper_commands": false,
+        "final_tcp_m": [
+          0.36335765172087464,
+          -0.28169561758684003,
+          0.09050926185779035
+        ]
+      }
+    }
+  ],
+  "final_stationarity_file": "/home/li/桌面/9月机械臂实验（算法）/reports/vertical_diagnostic20_20260916/four_step_plan/after_completed_prefix/final_stationarity.json",
+  "stationarity_duration_s": 1.716029167175293,
+  "tcp_axis_span_mm": [
+    0.031986479714474214,
+    0.03952209752189351,
+    0.04685092920078682
+  ],
+  "measurement_status": "User now reports current lowest fingertip vertical clearance 15.06cm; baseline discrepancy unresolved; no calibration or motion applied",
+  "recording_frames": 306,
+  "retry_reason": "step02 initial attempt failed before goal at interface discovery; bounded readiness wait verified, frozen motion unchanged; old failure lock preserved",
+  "current_user_measurement_file": "/home/li/桌面/9月机械臂实验（算法）/reports/vertical_diagnostic20_20260916/four_step_plan/after_completed_prefix/user_measurement.json"
+}

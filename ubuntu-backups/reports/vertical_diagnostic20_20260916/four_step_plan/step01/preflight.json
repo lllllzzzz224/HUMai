@@ -1,0 +1,35 @@
+{
+  "new_step_number": 1,
+  "target_m": [
+    0.36346435558014395,
+    -0.28152209200886436,
+    0.1303522335853647
+  ],
+  "start_joints_rad": [
+    2.444745106506348,
+    0.8549278505325317,
+    0.6324054697036743,
+    0.06210455026626587,
+    1.4506010116577148,
+    -0.14310745372772218
+  ],
+  "code": 1,
+  "fraction": 1.0,
+  "retime": {
+    "original_duration_s": 0.920163893,
+    "retimed_duration_s": 3.114012799,
+    "original_max_sampled_segment_speed_m_s": 0.024612317415350585,
+    "retimed_max_sampled_segment_speed_m_s": 0.007272727261145526,
+    "stretch": 3.384193644610706,
+    "fk_points": 11,
+    "scope": "sampled segment mean speed; continuous instantaneous speed not guaranteed"
+  },
+  "status": "PASS_KNOTS_ONLY_PENDING_DRIVER_SPLINE",
+  "points": 11,
+  "start_m": [
+    0.36346435558014395,
+    -0.28152209200886436,
+    0.1503522335853647
+  ],
+  "observed_voxels": 81
+}

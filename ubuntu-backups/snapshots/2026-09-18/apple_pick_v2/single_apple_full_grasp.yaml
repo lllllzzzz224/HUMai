@@ -1,0 +1,201 @@
+candidate_search:
+  full_planning_attempts: 3
+  full_planning_time_s: 5.0
+  ik_seed_offsets_rad:
+  - - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+    - 0.0
+  - - 0.0
+    - -0.6
+    - 0.8
+    - 0.0
+    - -1.2
+    - 0.0
+  - - 0.0
+    - 0.6
+    - -0.8
+    - 0.0
+    - -2.4
+    - 3.14159
+  - - -0.5
+    - -0.6
+    - 0.8
+    - 0.0
+    - -2.4
+    - -3.14159
+  ik_total_solver_budget_s: 0.2
+  joint_lower_limits_rad:
+  - -3.1
+  - -2.268
+  - -2.355
+  - -3.1
+  - -2.233
+  - -6.28
+  joint_upper_limits_rad:
+  - 3.1
+  - 2.268
+  - 2.355
+  - 3.1
+  - 2.233
+  - 6.28
+  max_abs_pitch_deg: 0
+  pitch_stages_deg:
+  - - 0
+  score_weights:
+    joint_limit_penalty: 0.02
+    max_joint_delta: 1.0
+    pitch_deg: 0.01
+    sum_joint_delta: 0.15
+    yaw_offset_deg: 0.001
+  yaw_offsets_deg:
+  - 0
+  - 180
+cartesian:
+  jump_threshold: 1.5
+  max_step_m: 0.003
+  max_tcp_speed_m_s: 0.015
+  required_fraction: 0.999
+  revolute_jump_threshold_rad: 0.35
+continuous:
+  max_pre_motion_retries: 3
+  max_rounds: 0
+  min_position_change_m: 0.03
+  retry_delay_s: 2.0
+  safety_countdown_s: 3.0
+  stable_time_s: 2.0
+frames:
+  base: base_link
+  tcp: tcp_link
+grasp_cartesian:
+  acceleration_scaling: 0.03
+  max_tcp_speed_m_s: 0.008
+  velocity_scaling: 0.03
+lift_cartesian:
+  acceleration_scaling: 0.03
+  max_tcp_speed_m_s: 0.015
+  velocity_scaling: 0.03
+modbus_gripper:
+  baudrate: 9600
+  close_mm: 0.0
+  close_settle_s: 3.5
+  device_address: 1
+  open_mm: 85.0
+  port: 1
+  position_register: 43
+  result_timeout_s: 10.0
+  steps_per_mm: 2240
+  tool_voltage: 3
+  zero_register: 42
+  zero_settle_s: 3.0
+  zero_speed: 153600
+  zero_speed_register: 36
+  zero_value: 4111
+moveit:
+  acceleration_scaling: 0.08
+  group: rm_group
+  ik_attempts: 12
+  ik_timeout_s: 1.0
+  pipeline: ompl
+  planner: RRTConnectkConfigDefault
+  planning_attempts: 10
+  planning_time_s: 10.0
+  velocity_scaling: 0.1
+place_target:
+  approach_xyz_m:
+  - 0.286
+  - -0.045
+  - 0.082
+  mode: basin
+  pitch_rad: 0.0
+  place_xyz_m:
+  - 0.286
+  - -0.045
+  - -0.018
+  release_open_mm: 85.0
+  release_settle_s: 1.0
+  target_joints_rad:
+  - 2.93409
+  - 0.811061
+  - 1.023813
+  - 0.0
+  - 1.306711
+  - 0.087093
+  transit_z_safe_m: 0.12
+  yaw_rad: 2.847
+safety:
+  max_joint_delta_rad: 5.0
+  max_tcp_final_error_m: 0.005
+  motion_timeout_s: 180.0
+  service_timeout_s: 10.0
+  tcp_stable_time_s: 1.0
+scan:
+  arrival_tolerance_rad: 0.02
+  joints:
+    joint1: 2.510152891
+    joint2: 0.354521179
+    joint3: 0.647129746
+    joint4: 0.06147286
+    joint5: 2.045541343
+    joint6: -0.071433319
+  tolerance_rad: 0.015
+scene:
+  camera_box_xyz_m:
+  - 0.11
+  - 0.05
+  - 0.05
+  camera_quaternion_link6_xyzw:
+  - -0.02054881592
+  - 0.728253776074
+  - -0.001728512288
+  - -0.684997223383
+  camera_translation_link6_m:
+  - -0.064514447085
+  - 0.005428183272
+  - 0.003696935131
+  support_guard_footprint_diameters: 5.0
+  table_center_xy_m:
+  - 0.425
+  - -0.1
+  table_safety_inflation_m: 0.002
+  table_size_xyz_m:
+  - 0.75
+  - 1.2
+  - 0.1
+targets:
+  grasp_above_apple_m: 0.024
+  lift_m: 0.07
+  orientation_tolerance_rad: 0.03
+  position_tolerance_m: 0.003
+  pregrasp_above_apple_m: 0.1
+  verify_above_apple_m: 0.03
+  vertical_yaw_rad: 2.847
+vision:
+  center_topic: /apple_pick_v2/apple_center
+  diagnostics_topic: /apple_pick_v2/apple_diagnostics
+  max_axis_span_m: 0.01
+  max_radius_m: 0.08
+  min_confidence: 0.15
+  min_radius_m: 0.02
+  sample_count: 10
+  timeout_s: 50.0
+visual_xy_correction:
+  enabled: false
+  fit_max_residual_mm: 9.626213316333969
+  fit_point_count: 8
+  fit_rmse_mm: 6.411567017694393
+  max_correction_m: 0.05
+  model: similarity_2d_base_link
+  rotation_deg: 2.2829447233570446
+  scale: 0.9249983311376341
+  translation_xy_m:
+  - 0.01199984868
+  - -0.0062898608
+  valid_visual_x_m:
+  - 0.2
+  - 0.58
+  valid_visual_y_m:
+  - -0.36
+  - 0.0

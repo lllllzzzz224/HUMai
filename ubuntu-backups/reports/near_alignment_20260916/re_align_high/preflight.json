@@ -1,0 +1,43 @@
+{
+  "motion_commands": false,
+  "gripper_commands": false,
+  "status": "PASS_PREFLIGHT_ONLY",
+  "table_top_m": -0.055,
+  "tool_assumption_m": [
+    0.16,
+    0.16,
+    0.22
+  ],
+  "start_m": [
+    0.3160234877078957,
+    -0.23127078159595654,
+    0.17010608942352054
+  ],
+  "start_error_m": 0.0002438383544261495,
+  "target_m": [
+    0.36412277599718146,
+    -0.2788755686869983,
+    0.17010608942352054
+  ],
+  "observed_voxels": 96,
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "previous_obstacles_preserved": 115,
+    "new_obstacles": 96
+  },
+  "retime": {
+    "original_duration_s": 1.671188575,
+    "retimed_duration_s": 12.702613832,
+    "original_max_sampled_segment_speed_m_s": 0.05527960604372715,
+    "retimed_max_sampled_segment_speed_m_s": 0.007272727273696037,
+    "stretch": 7.600945831012484,
+    "fk_points": 18,
+    "scope": "sampled segment mean speed; continuous instantaneous speed not guaranteed"
+  },
+  "target_surface_z_m": -0.027042112071475638,
+  "tool_target_surface_vertical_clearance_m": 0.09775919566399377,
+  "min_camera_box_z_m": 0.25495882797520125,
+  "min_tcp_z_m": 0.17010409676523158,
+  "min_tool_box_z_m": 0.07071708359251813,
+  "tool_table_clearance_m": 0.12571708359251813
+}

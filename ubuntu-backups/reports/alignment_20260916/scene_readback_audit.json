@@ -1,0 +1,232 @@
+{
+  "table": [
+    {
+      "header": {
+        "stamp": {
+          "sec": 0,
+          "nanosec": 0
+        },
+        "frame_id": "base_link"
+      },
+      "pose": {
+        "position": {
+          "x": 0.4,
+          "y": -0.2,
+          "z": -0.105
+        },
+        "orientation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        }
+      },
+      "id": "alignment_table_guard",
+      "type": {
+        "key": "",
+        "db": ""
+      },
+      "primitives": [
+        {
+          "type": 1,
+          "dimensions": [
+            1.0,
+            1.0,
+            0.1
+          ],
+          "polygon": {
+            "points": []
+          }
+        }
+      ],
+      "primitive_poses": [
+        {
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "orientation": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0
+          }
+        }
+      ],
+      "meshes": [],
+      "mesh_poses": [],
+      "planes": [],
+      "plane_poses": [],
+      "subframe_names": [],
+      "subframe_poses": [],
+      "operation": "\u0000"
+    }
+  ],
+  "attached": [
+    {
+      "link_name": "Link6",
+      "object": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": "Link6"
+        },
+        "pose": {
+          "position": {
+            "x": 6.716849298982197e-17,
+            "y": 3.12944115066216e-17,
+            "z": 0.1100000000000001
+          },
+          "orientation": {
+            "x": 1.7347234759768063e-18,
+            "y": 0.0,
+            "z": 0.0,
+            "w": 1.0000000000000004
+          }
+        },
+        "id": "alignment_open_tool_guard",
+        "type": {
+          "key": "",
+          "db": ""
+        },
+        "primitives": [
+          {
+            "type": 1,
+            "dimensions": [
+              0.16,
+              0.16,
+              0.22
+            ],
+            "polygon": {
+              "points": []
+            }
+          }
+        ],
+        "primitive_poses": [
+          {
+            "position": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "orientation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          }
+        ],
+        "meshes": [],
+        "mesh_poses": [],
+        "planes": [],
+        "plane_poses": [],
+        "subframe_names": [],
+        "subframe_poses": [],
+        "operation": "\u0000"
+      },
+      "touch_links": [
+        "Link6",
+        "gripper_body_approx",
+        "tcp_link"
+      ],
+      "detach_posture": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": ""
+        },
+        "joint_names": [],
+        "points": []
+      },
+      "weight": 0.0
+    },
+    {
+      "link_name": "Link6",
+      "object": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": "Link6"
+        },
+        "pose": {
+          "position": {
+            "x": -0.06451444708500008,
+            "y": 0.005428183272000032,
+            "z": 0.003696935130999966
+          },
+          "orientation": {
+            "x": 0.020548815920011242,
+            "y": -0.7282537760744002,
+            "z": 0.0017285122880012222,
+            "w": 0.6849972233833758
+          }
+        },
+        "id": "realsense_camera_guard",
+        "type": {
+          "key": "",
+          "db": ""
+        },
+        "primitives": [
+          {
+            "type": 1,
+            "dimensions": [
+              0.11,
+              0.05,
+              0.05
+            ],
+            "polygon": {
+              "points": []
+            }
+          }
+        ],
+        "primitive_poses": [
+          {
+            "position": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "orientation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          }
+        ],
+        "meshes": [],
+        "mesh_poses": [],
+        "planes": [],
+        "plane_poses": [],
+        "subframe_names": [],
+        "subframe_poses": [],
+        "operation": "\u0000"
+      },
+      "touch_links": [
+        "Link6",
+        "gripper_body_approx",
+        "tcp_link"
+      ],
+      "detach_posture": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": ""
+        },
+        "joint_names": [],
+        "points": []
+      },
+      "weight": 0.0
+    }
+  ]
+}

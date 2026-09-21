@@ -1,0 +1,413 @@
+{
+  "scope": "full color contour plus visible surface; not fruit center; old hand-eye conditional",
+  "frames": [
+    {
+      "index": 0,
+      "objects": [
+        {
+          "id": "left",
+          "bbox_xywh": [
+            205,
+            270,
+            88,
+            87
+          ],
+          "contour_centroid_pixel": [
+            248.4377251672671,
+            312.9739234860182
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 488.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.40749445025354086,
+            -0.17679193142817134,
+            -0.02848016951398924
+          ],
+          "full_mask_depth_valid_fraction": 0.9781622711238032,
+          "mask_pixels": 5953
+        },
+        {
+          "id": "label",
+          "bbox_xywh": [
+            249,
+            139,
+            82,
+            83
+          ],
+          "contour_centroid_pixel": [
+            289.9196270125512,
+            180.23373019714128
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 512.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.4814775362049596,
+            -0.2660761694124193,
+            -0.022740832855926596
+          ],
+          "full_mask_depth_valid_fraction": 0.9907232109049603,
+          "mask_pixels": 5282
+        },
+        {
+          "id": "right_target",
+          "bbox_xywh": [
+            344,
+            243,
+            85,
+            87
+          ],
+          "contour_centroid_pixel": [
+            385.97812636165577,
+            285.44104575163396
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 492.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.36347866259101896,
+            -0.2809220793187791,
+            -0.028519190083333534
+          ],
+          "full_mask_depth_valid_fraction": 0.9822555877836546,
+          "mask_pixels": 5861
+        }
+      ],
+      "timestamps_bracketed": true
+    },
+    {
+      "index": 1,
+      "objects": [
+        {
+          "id": "left",
+          "bbox_xywh": [
+            205,
+            270,
+            88,
+            87
+          ],
+          "contour_centroid_pixel": [
+            248.47914698726206,
+            312.9576356089881
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 488.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.4074880625800743,
+            -0.1768086373172374,
+            -0.028491773346826788
+          ],
+          "full_mask_depth_valid_fraction": 0.9890682811974436,
+          "mask_pixels": 5946
+        },
+        {
+          "id": "label",
+          "bbox_xywh": [
+            249,
+            140,
+            83,
+            82
+          ],
+          "contour_centroid_pixel": [
+            289.94883705926,
+            180.2459434175296
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 511.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.4811318057593738,
+            -0.26592329988889796,
+            -0.021823507105852402
+          ],
+          "full_mask_depth_valid_fraction": 0.989399962142722,
+          "mask_pixels": 5283
+        },
+        {
+          "id": "right_target",
+          "bbox_xywh": [
+            343,
+            243,
+            86,
+            87
+          ],
+          "contour_centroid_pixel": [
+            385.96418109573943,
+            285.43658458772006
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 493.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.3635973688733985,
+            -0.2810813332901671,
+            -0.029520885432399224
+          ],
+          "full_mask_depth_valid_fraction": 0.9836484414920798,
+          "mask_pixels": 5871
+        }
+      ],
+      "timestamps_bracketed": true
+    },
+    {
+      "index": 2,
+      "objects": [
+        {
+          "id": "left",
+          "bbox_xywh": [
+            205,
+            270,
+            88,
+            87
+          ],
+          "contour_centroid_pixel": [
+            248.46600274725276,
+            312.9567307692308
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 489.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.40770292490864757,
+            -0.1767783557555788,
+            -0.029460675448647333
+          ],
+          "full_mask_depth_valid_fraction": 0.9818426361802286,
+          "mask_pixels": 5948
+        },
+        {
+          "id": "label",
+          "bbox_xywh": [
+            250,
+            140,
+            81,
+            82
+          ],
+          "contour_centroid_pixel": [
+            289.9493020550601,
+            180.23381155486624
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 511.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.481152047272355,
+            -0.2659374272124545,
+            -0.021788845110616073
+          ],
+          "full_mask_depth_valid_fraction": 0.9901421800947867,
+          "mask_pixels": 5275
+        },
+        {
+          "id": "right_target",
+          "bbox_xywh": [
+            343,
+            243,
+            86,
+            87
+          ],
+          "contour_centroid_pixel": [
+            385.96430542243905,
+            285.44660335163076
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 492.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.3635001421747442,
+            -0.2809007619990877,
+            -0.02850913451776632
+          ],
+          "full_mask_depth_valid_fraction": 0.9878901586218659,
+          "mask_pixels": 5863
+        }
+      ],
+      "timestamps_bracketed": true
+    },
+    {
+      "index": 3,
+      "objects": [
+        {
+          "id": "left",
+          "bbox_xywh": [
+            205,
+            270,
+            88,
+            87
+          ],
+          "contour_centroid_pixel": [
+            248.44947804947805,
+            312.9804947804948
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 488.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.4074735386479878,
+            -0.17678883665936407,
+            -0.02849359039544397
+          ],
+          "full_mask_depth_valid_fraction": 0.9862208032263485,
+          "mask_pixels": 5951
+        },
+        {
+          "id": "label",
+          "bbox_xywh": [
+            249,
+            140,
+            82,
+            82
+          ],
+          "contour_centroid_pixel": [
+            289.90409809616,
+            180.23101000322683
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 512.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.4814747201909177,
+            -0.2660593174442307,
+            -0.022755800323652486
+          ],
+          "full_mask_depth_valid_fraction": 0.9929950776221128,
+          "mask_pixels": 5282
+        },
+        {
+          "id": "right_target",
+          "bbox_xywh": [
+            344,
+            243,
+            85,
+            87
+          ],
+          "contour_centroid_pixel": [
+            385.9931777274574,
+            285.42660976601053
+          ],
+          "touches_image_boundary": false,
+          "patch_depth_mm": 494.0,
+          "patch_valid_fraction": 1.0,
+          "visible_surface_m": [
+            0.3636751350223656,
+            -0.2812956188959097,
+            -0.030504816682342617
+          ],
+          "full_mask_depth_valid_fraction": 0.98806275579809,
+          "mask_pixels": 5864
+        }
+      ],
+      "timestamps_bracketed": true
+    }
+  ],
+  "capture_errors": [
+    "\"camera_link\" passed to lookupTransform argument target_frame does not exist. "
+  ],
+  "excluded_nonsynchronous_indices": [
+    4
+  ],
+  "right_target_surface_median_m": [
+    0.36354875552407134,
+    -0.2810017063044731,
+    -0.02902003775786638
+  ],
+  "right_target_surface_span_mm": [
+    0.19647243134662817,
+    0.39485689682200453,
+    1.9956821645762957
+  ],
+  "current_tcp_m": [
+    0.27405383578164816,
+    -0.18540572357413995,
+    0.31230755849183284
+  ],
+  "projection_candidates": [
+    {
+      "tcp_m": [
+        0.36354875552407134,
+        -0.2810017063044731,
+        0.27
+      ],
+      "observed_target_projected_bbox_min": [
+        307.69961767899997,
+        389.46737734444235
+      ],
+      "observed_target_projected_bbox_max": [
+        406.14254373414457,
+        505.8796549518533
+      ],
+      "image_margin_px": -26.879654951853297,
+      "assumption": "unchanged camera extrinsic and current tool orientation; projection of currently observed surface only"
+    },
+    {
+      "tcp_m": [
+        0.36354875552407134,
+        -0.2810017063044731,
+        0.25
+      ],
+      "observed_target_projected_bbox_min": [
+        306.6887513346894,
+        388.8492735807814
+      ],
+      "observed_target_projected_bbox_max": [
+        409.57143052015,
+        510.74149213570433
+      ],
+      "image_margin_px": -31.741492135704334,
+      "assumption": "unchanged camera extrinsic and current tool orientation; projection of currently observed surface only"
+    },
+    {
+      "tcp_m": [
+        0.36354875552407134,
+        -0.2810017063044731,
+        0.24
+      ],
+      "observed_target_projected_bbox_min": [
+        306.14801018801506,
+        388.51986350340775
+      ],
+      "observed_target_projected_bbox_max": [
+        411.40420824932653,
+        513.3504082566982
+      ],
+      "image_margin_px": -34.35040825669819,
+      "assumption": "unchanged camera extrinsic and current tool orientation; projection of currently observed surface only"
+    },
+    {
+      "tcp_m": [
+        0.36354875552407134,
+        -0.2810017063044731,
+        0.23
+      ],
+      "observed_target_projected_bbox_min": [
+        305.58148567379595,
+        388.17566248287585
+      ],
+      "observed_target_projected_bbox_max": [
+        413.32330666123386,
+        516.0898644767313
+      ],
+      "image_margin_px": -37.08986447673135,
+      "assumption": "unchanged camera extrinsic and current tool orientation; projection of currently observed surface only"
+    },
+    {
+      "tcp_m": [
+        0.36354875552407134,
+        -0.2810017063044731,
+        0.22
+      ],
+      "observed_target_projected_bbox_min": [
+        304.98728866808176,
+        387.8156514411899
+      ],
+      "observed_target_projected_bbox_max": [
+        415.33497116367676,
+        518.9699097866888
+      ],
+      "image_margin_px": -39.969909786688845,
+      "assumption": "unchanged camera extrinsic and current tool orientation; projection of currently observed surface only"
+    }
+  ]
+}

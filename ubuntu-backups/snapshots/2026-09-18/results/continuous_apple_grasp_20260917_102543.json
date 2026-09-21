@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-09-17 10:25:43",
+  "status": "COMPLETE",
+  "settings": {
+    "max_rounds": 2,
+    "min_position_change_m": 0.03,
+    "stable_time_s": 2.0,
+    "safety_countdown_s": 3.0,
+    "retry_delay_s": 2.0,
+    "max_pre_motion_retries": 3,
+    "max_axis_span_m": 0.01
+  },
+  "completed_rounds": 2,
+  "pre_motion_rejections": 0,
+  "vision_wait_errors": 1,
+  "rounds": [
+    {
+      "log": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260917_102642_round001_attempt01.json",
+      "status": "PASS_PICK_PLACE_BASIN_COMPLETE",
+      "round_index": 1
+    },
+    {
+      "log": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260917_102911_round002_attempt01.json",
+      "status": "PASS_PICK_PLACE_BASIN_COMPLETE",
+      "round_index": 2
+    }
+  ],
+  "last_gate_snapshot": {
+    "state": "READY",
+    "stable_elapsed_s": 27.494205591999844,
+    "distance_from_reference_m": 0.2684951121954793,
+    "center_m": [
+      0.4129130894834941,
+      -0.23306672545900087,
+      -0.06157437015618916
+    ]
+  },
+  "finished_at": "2026-09-17 10:30:17"
+}

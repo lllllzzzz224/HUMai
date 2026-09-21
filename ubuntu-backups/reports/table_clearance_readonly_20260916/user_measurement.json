@@ -1,0 +1,13 @@
+{
+  "user_report_verbatim": "27cm",
+  "reported_distance_cm": 27.0,
+  "requested_measurement": "两根夹指最低端到桌面的竖直距离，注明桌面或纸面零点",
+  "confirmation_needed": "用户只回复一个数，尚需确认上端对应实际指尖最低端及竖直方向；未区分左右指或桌/纸基准",
+  "status": "user_confirmed_fingertip_reference",
+  "motion_authorized_by_measurement": false,
+  "confirmed_reference": "夹指最下端到桌面的竖直距离，用户明确确认",
+  "confirmation_reply": "夹指最下端",
+  "left_right_separately_measured": false,
+  "table_vs_paper_zero_not_explicit": true,
+  "do_not_use_as_calibration_offset": true
+}

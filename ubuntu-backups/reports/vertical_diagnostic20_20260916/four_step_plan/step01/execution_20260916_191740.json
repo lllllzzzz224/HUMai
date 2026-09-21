@@ -1,0 +1,21 @@
+{
+  "status": "PASS_VERTICAL20_DIAGNOSTIC_ONLY",
+  "closed": false,
+  "return": false,
+  "start_joint_error_rad": 5.235452651974892e-05,
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "current_diag20_obstacles": 55,
+    "previous_obstacles_preserved": {
+      "alignment_observed": 115,
+      "realign_observed": 96
+    },
+    "new_obstacles": 81
+  },
+  "gripper_commands": false,
+  "final_tcp_m": [
+    0.36346312091886596,
+    -0.28177316444270717,
+    0.13061753420879657
+  ]
+}

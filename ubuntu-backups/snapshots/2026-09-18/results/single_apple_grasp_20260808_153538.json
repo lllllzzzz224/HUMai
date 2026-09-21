@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-08-08 15:35:38",
+  "status": "STOPPED_BY_OPERATOR",
+  "single_round": true,
+  "single_apple_scene_operator_confirmed": true,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "events": [
+    {
+      "time": "2026-08-08 15:35:39",
+      "step": "夹爪通信配置并保持打开",
+      "result": "PASS",
+      "opening_mm": 100.0,
+      "mechanical_zeroing": false
+    },
+    {
+      "time": "2026-08-08 15:35:39",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 15:35:41",
+      "step": "流程",
+      "result": "STOPPED_BY_OPERATOR"
+    }
+  ],
+  "finished_at": "2026-08-08 15:35:41"
+}

@@ -1,0 +1,203 @@
+{
+  "timestamp": "2026-08-08 18:38:12",
+  "status": "STOPPED_BY_OPERATOR",
+  "single_round": true,
+  "return_after_lift_requested": true,
+  "single_apple_scene_operator_confirmed": true,
+  "gripper_close_commanded": true,
+  "lift_completed": true,
+  "gripper_reopened": true,
+  "returned_to_scan": false,
+  "apple_center_base_m": [
+    0.4083569,
+    -0.1505472,
+    -0.0603065
+  ],
+  "apple_radius_m": 0.0310835,
+  "vision_diagnostics": {
+    "frame": "base_link",
+    "confidence": 0.2571,
+    "radius_m": 0.031055,
+    "valid_depth_pixels": 1225,
+    "sync_error_ms": 0.0,
+    "surface_xyz_m": [
+      0.401805,
+      -0.151876,
+      -0.029958
+    ],
+    "center_xyz_m": [
+      0.408335,
+      -0.150544,
+      -0.060289
+    ],
+    "_received_monotonic": 237799.28486086
+  },
+  "pregrasp_base_m": [
+    0.4083569,
+    -0.1505472,
+    0.0396935
+  ],
+  "verify_base_m": [
+    0.4083569,
+    -0.1505472,
+    -0.0303065
+  ],
+  "grasp_base_m": [
+    0.4083569,
+    -0.1505472,
+    -0.0453065
+  ],
+  "grasp_offset_above_center_m": 0.015,
+  "lift_base_m": [
+    0.4083569,
+    -0.1505472,
+    0.1546935
+  ],
+  "gripper_open_mm": 80.0,
+  "gripper_close_mm": 30.0,
+  "approach_pitch_candidates_deg": [
+    0.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    10.0,
+    -2.0,
+    -4.0,
+    -6.0,
+    -8.0,
+    -10.0
+  ],
+  "table_guard_top_z_m": -0.0863899981694083,
+  "approach_pitch_failures": [
+    {
+      "pitch_deg": 0.0,
+      "reason": "倾角 +0° GRASP -> LIFT 预检 路径比例不足：fraction=0.8507"
+    },
+    {
+      "pitch_deg": 2.0,
+      "reason": "倾角 +2° GRASP -> LIFT 预检 路径比例不足：fraction=0.9701"
+    }
+  ],
+  "selected_approach_pitch_deg": 4.0,
+  "actual_lift_tcp_base_m": [
+    0.4083994,
+    -0.1507829,
+    0.1543767
+  ],
+  "actual_release_tcp_base_m": [
+    0.4084906,
+    -0.1508555,
+    -0.0448906
+  ],
+  "events": [
+    {
+      "time": "2026-08-08 18:38:14",
+      "step": "夹爪通信配置并保持打开",
+      "result": "PASS",
+      "opening_mm": 80.0,
+      "mechanical_zeroing": false
+    },
+    {
+      "time": "2026-08-08 18:38:14",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 18:38:44",
+      "step": "单苹果现场",
+      "result": "PASS",
+      "verification": "operator-confirmed: one visible apple"
+    },
+    {
+      "time": "2026-08-08 18:38:44",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 0.0,
+      "reason": "倾角 +0° GRASP -> LIFT 预检 路径比例不足：fraction=0.8507"
+    },
+    {
+      "time": "2026-08-08 18:38:44",
+      "step": "倾角候选预检",
+      "result": "REJECT",
+      "pitch_deg": 2.0,
+      "reason": "倾角 +2° GRASP -> LIFT 预检 路径比例不足：fraction=0.9701"
+    },
+    {
+      "time": "2026-08-08 18:38:45",
+      "step": "倾角候选预检",
+      "result": "PASS",
+      "pitch_deg": 4.0
+    },
+    {
+      "time": "2026-08-08 18:38:45",
+      "step": "放回与撤离路径预检",
+      "result": "PASS",
+      "pitch_deg": 4.0
+    },
+    {
+      "time": "2026-08-08 18:38:45",
+      "step": "全部路径预检",
+      "result": "PASS",
+      "pitch_deg": 4.0
+    },
+    {
+      "time": "2026-08-08 18:38:45",
+      "step": "自动开始 SCAN -> PREGRASP -> VERIFY",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 18:38:54",
+      "step": "到达 VERIFY",
+      "result": "PASS",
+      "actual_tcp_base_m": [
+        0.4087136,
+        -0.1509646,
+        -0.0296717
+      ]
+    },
+    {
+      "time": "2026-08-08 18:39:04",
+      "step": "到达 GRASP",
+      "result": "PASS",
+      "actual_tcp_base_m": [
+        0.4084277,
+        -0.1508256,
+        -0.0447897
+      ]
+    },
+    {
+      "time": "2026-08-08 18:39:04",
+      "step": "保守闭爪",
+      "result": "PASS",
+      "opening_mm": 30.0
+    },
+    {
+      "time": "2026-08-08 18:39:13",
+      "step": "上抬 0.20 m",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 18:39:31",
+      "step": "到达 RELEASE",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 18:39:31",
+      "step": "释放苹果",
+      "result": "PASS",
+      "opening_mm": 80.0
+    },
+    {
+      "time": "2026-08-08 18:39:36",
+      "step": "释放后直线撤离",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 18:39:36",
+      "step": "流程",
+      "result": "STOPPED_BY_OPERATOR"
+    }
+  ],
+  "finished_at": "2026-08-08 18:39:36"
+}

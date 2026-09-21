@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-09-16T19:53:09.880259+08:00",
+  "user_report_verbatim": "15.06cm",
+  "reported_distance_cm": 15.06,
+  "reference": "夹指最下端到桌面的垂直距离；用户回答该明确问题",
+  "robot_state_evidence": "after_completed_prefix/final_stationarity.json",
+  "pose_association": "latest completed batch endpoint; no new live hardware measurement in this turn",
+  "prior_report_cm": 27.0,
+  "reported_clearance_decrease_mm": 119.4,
+  "same_chain_tcp_total_descent_mm": 79.73566767841699,
+  "predicted_clearance_from_prior_report_mm": 190.26433232158303,
+  "reported_clearance_minus_prediction_mm": -39.66433232158303,
+  "left_right_separately_measured": false,
+  "measurement_uncertainty_mm": null,
+  "motion_authorized_by_measurement": false,
+  "calibration_offset_applied": false,
+  "status": "recorded_with_unresolved_baseline_discrepancy",
+  "caveat": "TCP displacement is joint-feedback FK, not external measurement of physical fingertip; comparison assumes same fingertip, vertical ruler, unchanged opening/orientation and table reference."
+}

@@ -1,0 +1,36 @@
+{
+  "motion_commands": false,
+  "gripper_commands": false,
+  "status": "FAILED",
+  "table_top_m": -0.055,
+  "tool_assumption_m": [
+    0.16,
+    0.16,
+    0.22
+  ],
+  "start_m": [
+    0.3640712818931262,
+    -0.27913386118091066,
+    0.17024410934057765
+  ],
+  "start_error_m": 0.00028182577163790747,
+  "target_m": [
+    0.27405179261412166,
+    -0.18541739459425727,
+    0.3123061188739647
+  ],
+  "observed_voxels": 96,
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "previous_obstacles_preserved": 115,
+    "new_obstacles": 96
+  },
+  "via_up_m": [
+    0.3640712818931262,
+    -0.27913386118091066,
+    0.3123061188739647
+  ],
+  "cartesian_error_code": 1,
+  "cartesian_fraction": 0.10416666666666667,
+  "error": "two-waypoint Cartesian path failed: code=1, fraction=0.10416666666666667"
+}

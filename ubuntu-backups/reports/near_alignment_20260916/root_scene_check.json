@@ -1,0 +1,32 @@
+{
+  "new_K": [
+    607.930419921875,
+    0.0,
+    318.028076171875,
+    0.0,
+    606.4090576171875,
+    233.55087280273438,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "original_K": [
+    607.930419921875,
+    0.0,
+    318.028076171875,
+    0.0,
+    606.4090576171875,
+    233.55087280273438,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "same_intrinsics": true,
+  "current_tcp_m": [
+    0.31603015133728096,
+    -0.23105127490059207,
+    0.17001351408198853
+  ],
+  "status": "SCENE_CHANGED_NO_MOTION",
+  "observation": "Fruit arrangement changed; old target XY must not be used for descent; physical hand-eye mounting confirmation pending."
+}

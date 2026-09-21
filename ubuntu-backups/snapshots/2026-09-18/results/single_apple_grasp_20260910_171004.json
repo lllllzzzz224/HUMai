@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-09-10 17:10:04",
+  "status": "FAILED_STOPPED",
+  "single_round": true,
+  "continuous": false,
+  "round_index": 1,
+  "autonomous_requested": false,
+  "fully_autonomous_requested": false,
+  "preflight_only": true,
+  "verify_only": false,
+  "return_after_lift_requested": false,
+  "visual_xy_correction_disabled_by_cli": false,
+  "single_apple_scene_operator_confirmed": true,
+  "motion_started": false,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "gripper_reopened": false,
+  "returned_to_scan": false,
+  "stale_support_guard_removed_on_start": true,
+  "error": "苹果坐标不稳定，XYZ span=[0.014613, 0.00931, 0.021064] m",
+  "support_guard_removed_on_exit": true,
+  "events": [
+    {
+      "time": "2026-09-10 17:10:06",
+      "step": "夹爪通信与命令",
+      "result": "SKIPPED_PREFLIGHT_ONLY",
+      "no_publish": true
+    },
+    {
+      "time": "2026-09-10 17:10:06",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    }
+  ],
+  "finished_at": "2026-09-10 17:10:08"
+}

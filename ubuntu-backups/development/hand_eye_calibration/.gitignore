@@ -1,0 +1,16 @@
+__pycache__/
+.idea/
+*.py[cod]
+*.orig
+*.pt
+*.onnx
+
+# Local isolated feature worktrees.
+.worktrees/
+*.engine
+
+# Calibration captures and generated/runtime output.
+eye_hand_data/
+picture/
+models/
+apple_pick_v2/results/*

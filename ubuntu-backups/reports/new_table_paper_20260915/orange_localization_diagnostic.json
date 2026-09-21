@@ -1,0 +1,4585 @@
+{
+  "model": "/home/li/hand_eye_calibration/models/yolo11n-seg.pt",
+  "no_ros_publish": true,
+  "historical_xy_correction_applied": false,
+  "detections": [
+    {
+      "id": 0,
+      "confidence": 0.33279749751091003,
+      "bbox_xyxy": [
+        220.8376922607422,
+        443.94439697265625,
+        310.12078857421875,
+        479.76190185546875
+      ],
+      "mask_median_uv": [
+        266.0,
+        464.0
+      ],
+      "mask_pixels": 2672,
+      "mask_type": "segmentation",
+      "edge_truncated": true,
+      "context": "on_paper_cluster",
+      "tracking": "first-frame mask applied to all static-camera frames; no target ID claim across motion",
+      "samples": [
+        {
+          "frame": 0,
+          "depth_valid_fraction": 0.9906437125748503,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013641321617916787,
+          "surface_camera_m": [
+            -0.03585176854320277,
+            0.1960764868713379,
+            0.45186626693300613
+          ],
+          "estimated_center_camera_m": [
+            -0.038561443043369656,
+            0.2108959359012325,
+            0.48601829208396935
+          ],
+          "surface_base_m": [
+            0.2827090726280816,
+            -0.11599754306046661,
+            -0.0298604837074688
+          ],
+          "estimated_center_base_m": [
+            0.28043580293445103,
+            -0.11034021347924523,
+            -0.06668637262094901
+          ],
+          "estimated_radius_m": 0.03732719152787311,
+          "valid_points": 2647,
+          "estimated_center_above_candidate_plane_m": 0.025554630173435178
+        },
+        {
+          "frame": 1,
+          "depth_valid_fraction": 0.9970059880239521,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014028433479240075,
+          "surface_camera_m": [
+            -0.038816203258580206,
+            0.19492776627775468,
+            0.4497701944073554
+          ],
+          "estimated_center_camera_m": [
+            -0.04194614566708938,
+            0.21064575595861934,
+            0.48603738922239226
+          ],
+          "surface_base_m": [
+            0.2847928447144664,
+            -0.1139050848190678,
+            -0.02748097638917152
+          ],
+          "estimated_center_base_m": [
+            0.28253522987708135,
+            -0.1077003507185196,
+            -0.066577851057458
+          ],
+          "estimated_radius_m": 0.039650487498140416,
+          "valid_points": 2664,
+          "estimated_center_above_candidate_plane_m": 0.025685239195123152
+        },
+        {
+          "frame": 2,
+          "depth_valid_fraction": 0.999625748502994,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013597053516953039,
+          "surface_camera_m": [
+            -0.03709188904352098,
+            0.19611932372008847,
+            0.4521104647961791
+          ],
+          "estimated_center_camera_m": [
+            -0.03991272633166775,
+            0.21103419366986761,
+            0.4864934549955202
+          ],
+          "surface_base_m": [
+            0.28342401622928215,
+            -0.11499630940964932,
+            -0.0300813799438287
+          ],
+          "estimated_center_base_m": [
+            0.28119112101384314,
+            -0.1092273631852636,
+            -0.06715338989864528
+          ],
+          "estimated_radius_m": 0.03758457773705872,
+          "valid_points": 2671,
+          "estimated_center_above_candidate_plane_m": 0.025102745252902223
+        },
+        {
+          "frame": 3,
+          "depth_valid_fraction": 0.969311377245509,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013748177035071765,
+          "surface_camera_m": [
+            -0.03991736853659684,
+            0.1939237651693069,
+            0.45042164188648715
+          ],
+          "estimated_center_camera_m": [
+            -0.042923783550019634,
+            0.20852932010537348,
+            0.48434558116862125
+          ],
+          "surface_base_m": [
+            0.28635974327913416,
+            -0.1136305202148003,
+            -0.0278098931592074
+          ],
+          "estimated_center_base_m": [
+            0.28436953120554725,
+            -0.10781479353227694,
+            -0.06435316616119291
+          ],
+          "estimated_radius_m": 0.0370566380374868,
+          "valid_points": 2590,
+          "estimated_center_above_candidate_plane_m": 0.027822559145453285
+        },
+        {
+          "frame": 4,
+          "depth_valid_fraction": 0.9943862275449101,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013410847134701011,
+          "surface_camera_m": [
+            -0.03869519234894979,
+            0.19294515561228814,
+            0.45140316810431524
+          ],
+          "estimated_center_camera_m": [
+            -0.04166561939765289,
+            0.20775654365188073,
+            0.4860550227408182
+          ],
+          "surface_base_m": [
+            0.28671221750108644,
+            -0.11533266935539013,
+            -0.028507621384478432
+          ],
+          "estimated_center_base_m": [
+            0.2847109309844044,
+            -0.10953489342981132,
+            -0.06580818879109174
+          ],
+          "estimated_radius_m": 0.03780147724971057,
+          "valid_points": 2657,
+          "estimated_center_above_candidate_plane_m": 0.02627642924747914
+        },
+        {
+          "frame": 5,
+          "depth_valid_fraction": 0.9985029940119761,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001441390790809662,
+          "surface_camera_m": [
+            -0.038350895994474846,
+            0.19734294170260078,
+            0.4453656486749952
+          ],
+          "estimated_center_camera_m": [
+            -0.041344073710198416,
+            0.2127449937314415,
+            0.4801251634241374
+          ],
+          "surface_base_m": [
+            0.2815964921590694,
+            -0.11237560025417231,
+            -0.02389142236324121
+          ],
+          "estimated_center_base_m": [
+            0.27916222391195994,
+            -0.10625102227153953,
+            -0.06145430387902251
+          ],
+          "estimated_radius_m": 0.038136677688714045,
+          "valid_points": 2668,
+          "estimated_center_above_candidate_plane_m": 0.031024021130512378
+        },
+        {
+          "frame": 6,
+          "depth_valid_fraction": 0.9876497005988024,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013219259033323061,
+          "surface_camera_m": [
+            -0.03754971229916468,
+            0.1989477149521596,
+            0.4468008393805281
+          ],
+          "estimated_center_camera_m": [
+            -0.04040056246960074,
+            0.21405222820543016,
+            0.48072286357476646
+          ],
+          "surface_base_m": [
+            0.28020243605507966,
+            -0.11236953000601982,
+            -0.025727801412039786
+          ],
+          "estimated_center_base_m": [
+            0.2777286223482194,
+            -0.10641064771186626,
+            -0.062406805764600504
+          ],
+          "estimated_radius_m": 0.037242145383248174,
+          "valid_points": 2639,
+          "estimated_center_above_candidate_plane_m": 0.030128825845617033
+        },
+        {
+          "frame": 7,
+          "depth_valid_fraction": 0.9943862275449101,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012681284243640529,
+          "surface_camera_m": [
+            -0.03991538421141743,
+            0.19525567795908186,
+            0.44643148076511585
+          ],
+          "estimated_center_camera_m": [
+            -0.04317288880224057,
+            0.21119054317213068,
+            0.48286486670918405
+          ],
+          "surface_base_m": [
+            0.28434218785790666,
+            -0.11236716631896643,
+            -0.024341034661083005
+          ],
+          "estimated_center_base_m": [
+            0.2820211569211435,
+            -0.10596141113121736,
+            -0.0636539077783192
+          ],
+          "estimated_radius_m": 0.03989890821647498,
+          "valid_points": 2657,
+          "estimated_center_above_candidate_plane_m": 0.02870886930098783
+        },
+        {
+          "frame": 8,
+          "depth_valid_fraction": 0.9805389221556886,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013350029551377693,
+          "surface_camera_m": [
+            -0.03904755001172295,
+            0.19706173825842302,
+            0.44793997149306436
+          ],
+          "estimated_center_camera_m": [
+            -0.042203985953376426,
+            0.21299136132509056,
+            0.4841495115358957
+          ],
+          "surface_base_m": [
+            0.2827972769931464,
+            -0.11228886944367446,
+            -0.026284435144074636
+          ],
+          "estimated_center_base_m": [
+            0.2803734891947931,
+            -0.10593843693215318,
+            -0.06538231269054051
+          ],
+          "estimated_radius_m": 0.03968433909003999,
+          "valid_points": 2620,
+          "estimated_center_above_candidate_plane_m": 0.02705542330102685
+        },
+        {
+          "frame": 9,
+          "depth_valid_fraction": 0.9973802395209581,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012438122145690047,
+          "surface_camera_m": [
+            -0.03770441156408211,
+            0.19793896513806636,
+            0.44559817002796964
+          ],
+          "estimated_center_camera_m": [
+            -0.04068497115543656,
+            0.21358617607629657,
+            0.48082301095433116
+          ],
+          "surface_base_m": [
+            0.28082937611184894,
+            -0.11261838316989314,
+            -0.024284780843643827
+          ],
+          "estimated_center_base_m": [
+            0.27830324353583774,
+            -0.10643420775791929,
+            -0.0623621099594433
+          ],
+          "estimated_radius_m": 0.03865887173613011,
+          "valid_points": 2665,
+          "estimated_center_above_candidate_plane_m": 0.030146694846012068
+        },
+        {
+          "frame": 10,
+          "depth_valid_fraction": 0.9951347305389222,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013376101409831552,
+          "surface_camera_m": [
+            -0.03776294177509872,
+            0.19594171849728878,
+            0.4490021994087186
+          ],
+          "estimated_center_camera_m": [
+            -0.040815768949567455,
+            0.21178201522001575,
+            0.4853003809411498
+          ],
+          "surface_base_m": [
+            0.2832134259846012,
+            -0.11411137429403809,
+            -0.0270339049463581
+          ],
+          "estimated_center_base_m": [
+            0.2808227713101945,
+            -0.10790735609614027,
+            -0.06619495274912285
+          ],
+          "estimated_radius_m": 0.03972143925618179,
+          "valid_points": 2659,
+          "estimated_center_above_candidate_plane_m": 0.026135871601279448
+        },
+        {
+          "frame": 11,
+          "depth_valid_fraction": 0.9936377245508982,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012690539133120753,
+          "surface_camera_m": [
+            -0.03893942534027158,
+            0.19300147012745805,
+            0.4495896173861446
+          ],
+          "estimated_center_camera_m": [
+            -0.041658282996527435,
+            0.20647736300823918,
+            0.4809811996378547
+          ],
+          "surface_base_m": [
+            0.2863575828684636,
+            -0.11483919564824097,
+            -0.026766059604973302
+          ],
+          "estimated_center_base_m": [
+            0.28451297637199835,
+            -0.10953177043496126,
+            -0.06057215338455374
+          ],
+          "estimated_radius_m": 0.03426986011286223,
+          "valid_points": 2655,
+          "estimated_center_above_candidate_plane_m": 0.03152148637659084
+        },
+        {
+          "frame": 12,
+          "depth_valid_fraction": 0.9322604790419161,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014122512605168086,
+          "surface_camera_m": [
+            -0.040525525810988346,
+            0.18852826890344154,
+            0.45177235963604756
+          ],
+          "estimated_center_camera_m": [
+            -0.043154066168129175,
+            0.20075646714042103,
+            0.4810749252605534
+          ],
+          "surface_base_m": [
+            0.29129458865238866,
+            -0.1162451789940466,
+            -0.02764350867082982
+          ],
+          "estimated_center_base_m": [
+            0.28990095489542406,
+            -0.11140645400391092,
+            -0.05910337094217072
+          ],
+          "estimated_radius_m": 0.03186029517613508,
+          "valid_points": 2491,
+          "estimated_center_above_candidate_plane_m": 0.032665862266148774
+        },
+        {
+          "frame": 13,
+          "depth_valid_fraction": 0.9906437125748503,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001405817321238708,
+          "surface_camera_m": [
+            -0.0404126442419869,
+            0.19334441750552012,
+            0.46257526296944834
+          ],
+          "estimated_center_camera_m": [
+            -0.04341314139074479,
+            0.20769956264227019,
+            0.4969198544620223
+          ],
+          "surface_base_m": [
+            0.2899268610009914,
+            -0.1151841315131742,
+            -0.03935106163993107
+          ],
+          "estimated_center_base_m": [
+            0.2882298972734423,
+            -0.10956571471669008,
+            -0.07623165066230186
+          ],
+          "estimated_radius_m": 0.03734466681908741,
+          "valid_points": 2647,
+          "estimated_center_above_candidate_plane_m": 0.015693679566108842
+        },
+        {
+          "frame": 14,
+          "depth_valid_fraction": 0.9655688622754491,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012744360728593831,
+          "surface_camera_m": [
+            -0.038056078998600446,
+            0.19877813773634415,
+            0.44451612200694424
+          ],
+          "estimated_center_camera_m": [
+            -0.04089495809481096,
+            0.21360644151467387,
+            0.47767580529277315
+          ],
+          "surface_base_m": [
+            0.28007942629032534,
+            -0.11172554355186579,
+            -0.0234723831468569
+          ],
+          "estimated_center_base_m": [
+            0.2776399844552231,
+            -0.10582235599847838,
+            -0.05934303860956752
+          ],
+          "estimated_radius_m": 0.0364349066566913,
+          "valid_points": 2580,
+          "estimated_center_above_candidate_plane_m": 0.0332224904073125
+        },
+        {
+          "frame": 15,
+          "depth_valid_fraction": 0.9951347305389222,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012993131448154652,
+          "surface_camera_m": [
+            -0.03813072193017029,
+            0.19409815665326027,
+            0.44740307060817447
+          ],
+          "estimated_center_camera_m": [
+            -0.041059380719243296,
+            0.20900601162297347,
+            0.48176620009191334
+          ],
+          "surface_base_m": [
+            0.2845198181961831,
+            -0.11459125012918003,
+            -0.024979601153944764
+          ],
+          "estimated_center_base_m": [
+            0.2823489808813995,
+            -0.108734822310244,
+            -0.0620286978847876
+          ],
+          "estimated_radius_m": 0.03757187578518034,
+          "valid_points": 2659,
+          "estimated_center_above_candidate_plane_m": 0.03019717367155063
+        },
+        {
+          "frame": 16,
+          "depth_valid_fraction": 0.9973802395209581,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011467796604632586,
+          "surface_camera_m": [
+            -0.038926886829296375,
+            0.1946833426843734,
+            0.45088881476125886
+          ],
+          "estimated_center_camera_m": [
+            -0.041928963000622155,
+            0.2096974954109908,
+            0.4856617616102572
+          ],
+          "surface_base_m": [
+            0.28533422132441044,
+            -0.11410920973869916,
+            -0.028483835851038586
+          ],
+          "estimated_center_base_m": [
+            0.2832167206892462,
+            -0.10819067961796003,
+            -0.06595492161419575
+          ],
+          "estimated_radius_m": 0.037994671679064417,
+          "valid_points": 2665,
+          "estimated_center_above_candidate_plane_m": 0.02625598033381059
+        },
+        {
+          "frame": 17,
+          "depth_valid_fraction": 0.9966317365269461,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014296514188421776,
+          "surface_camera_m": [
+            -0.039278230497742574,
+            0.19315351087145008,
+            0.4612080022629156
+          ],
+          "estimated_center_camera_m": [
+            -0.04217114495138039,
+            0.20737962483559677,
+            0.49517682618833386
+          ],
+          "surface_base_m": [
+            0.2891499825993712,
+            -0.1160573227304494,
+            -0.03799971983189815
+          ],
+          "estimated_center_base_m": [
+            0.2874090850623655,
+            -0.11054832918051709,
+            -0.07448605340031084
+          ],
+          "estimated_radius_m": 0.036940929487940984,
+          "valid_points": 2663,
+          "estimated_center_above_candidate_plane_m": 0.017432821844770116
+        },
+        {
+          "frame": 18,
+          "depth_valid_fraction": 0.9917664670658682,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012629025942923363,
+          "surface_camera_m": [
+            -0.03654715099758802,
+            0.19476413948171897,
+            0.4481919356749493
+          ],
+          "estimated_center_camera_m": [
+            -0.03929707806582583,
+            0.20941882977804796,
+            0.48191536149710934
+          ],
+          "surface_base_m": [
+            0.28327792080566105,
+            -0.11564150848475427,
+            -0.025961607543929843
+          ],
+          "estimated_center_base_m": [
+            0.28105732716241966,
+            -0.10998255753886338,
+            -0.062329680544960075
+          ],
+          "estimated_radius_m": 0.03687263884975791,
+          "valid_points": 2650,
+          "estimated_center_above_candidate_plane_m": 0.029899186337314407
+        },
+        {
+          "frame": 19,
+          "depth_valid_fraction": 0.9940119760479041,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014417641319882221,
+          "surface_camera_m": [
+            -0.03870325174400836,
+            0.19482505147503884,
+            0.44973611350154624
+          ],
+          "estimated_center_camera_m": [
+            -0.04170892838894596,
+            0.20995507494026208,
+            0.4846624122445418
+          ],
+          "surface_base_m": [
+            0.2847936340020726,
+            -0.11405092891067348,
+            -0.027424373795825074
+          ],
+          "estimated_center_base_m": [
+            0.28261955876922606,
+            -0.10808657419697072,
+            -0.06507404731058686
+          ],
+          "estimated_radius_m": 0.03818112159218355,
+          "valid_points": 2656,
+          "estimated_center_above_candidate_plane_m": 0.02716824178667232
+        },
+        {
+          "frame": 20,
+          "depth_valid_fraction": 0.9872754491017964,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001314555274732008,
+          "surface_camera_m": [
+            -0.03764041650369222,
+            0.19916354918937718,
+            0.4473564544427038
+          ],
+          "estimated_center_camera_m": [
+            -0.040685101668200586,
+            0.21527363403576155,
+            0.4835425460592818
+          ],
+          "surface_base_m": [
+            0.28021536898646643,
+            -0.11225742390345726,
+            -0.02631152362236372
+          ],
+          "estimated_center_base_m": [
+            0.2775811665641075,
+            -0.10589998888944091,
+            -0.06543801293117674
+          ],
+          "estimated_radius_m": 0.03972704579995924,
+          "valid_points": 2638,
+          "estimated_center_above_candidate_plane_m": 0.02712673540546387
+        },
+        {
+          "frame": 21,
+          "depth_valid_fraction": 0.9917664670658682,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001242234636012586,
+          "surface_camera_m": [
+            -0.04048885680254104,
+            0.19729346741926382,
+            0.44669930840676497
+          ],
+          "estimated_center_camera_m": [
+            -0.04378627676387876,
+            0.213361083773129,
+            0.4830785824238022
+          ],
+          "surface_base_m": [
+            0.2831478795987733,
+            -0.11079384424489006,
+            -0.025130476494620968
+          ],
+          "estimated_center_base_m": [
+            0.28073346315209313,
+            -0.10427431245717048,
+            -0.06442626698411252
+          ],
+          "estimated_radius_m": 0.03990605031449623,
+          "valid_points": 2650,
+          "estimated_center_above_candidate_plane_m": 0.02806863268520679
+        },
+        {
+          "frame": 22,
+          "depth_valid_fraction": 0.9599550898203593,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011929318758609874,
+          "surface_camera_m": [
+            -0.043913122494456204,
+            0.19211698093506024,
+            0.4474609678889496
+          ],
+          "estimated_center_camera_m": [
+            -0.046892019124684936,
+            0.2051494549339069,
+            0.4778149917817292
+          ],
+          "surface_base_m": [
+            0.28935967146533614,
+            -0.11090413516440793,
+            -0.024391104486300552
+          ],
+          "estimated_center_base_m": [
+            0.28777054039312716,
+            -0.10548126074683917,
+            -0.057073715545306325
+          ],
+          "estimated_radius_m": 0.03316754392697226,
+          "valid_points": 2565,
+          "estimated_center_above_candidate_plane_m": 0.035052186202668895
+        },
+        {
+          "frame": 23,
+          "depth_valid_fraction": 0.9749251497005988,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001246045850508185,
+          "surface_camera_m": [
+            -0.04074730603775674,
+            0.19466038519688328,
+            0.44927679474341825
+          ],
+          "estimated_center_camera_m": [
+            -0.043900667703469134,
+            0.20972480677959793,
+            0.48404552817883306
+          ],
+          "surface_base_m": [
+            0.28598089688717804,
+            -0.11237222278265085,
+            -0.02688788438122247
+          ],
+          "estimated_center_base_m": [
+            0.2839065956522636,
+            -0.10629938985911712,
+            -0.06436538812398995
+          ],
+          "estimated_radius_m": 0.038022957698204844,
+          "valid_points": 2605,
+          "estimated_center_above_candidate_plane_m": 0.02789788027906527
+        },
+        {
+          "frame": 24,
+          "depth_valid_fraction": 0.9726796407185628,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013287639799321076,
+          "surface_camera_m": [
+            -0.03905695923015207,
+            0.19728385938728318,
+            0.43988040118510174
+          ],
+          "estimated_center_camera_m": [
+            -0.0419668442453672,
+            0.2119822219196044,
+            0.47265308531426414
+          ],
+          "surface_base_m": [
+            0.280752047029925,
+            -0.11104605277622698,
+            -0.01858273263962429
+          ],
+          "estimated_center_base_m": [
+            0.27836522589671975,
+            -0.10510136054387495,
+            -0.05404428697814517
+          ],
+          "estimated_radius_m": 0.0360355118870701,
+          "valid_points": 2599,
+          "estimated_center_above_candidate_plane_m": 0.03852045960662709
+        }
+      ],
+      "usable_3d": false,
+      "three_d_status": "diagnostic_only: paper plane and absolute geometry not validated",
+      "center_span_m": [
+        0.012319788331316583,
+        0.007132141546740439,
+        0.02218736368415669
+      ],
+      "surface_span_m": [
+        0.011215162362063325,
+        0.0054513347491565445,
+        0.020768329000306784
+      ],
+      "diagnostic_median_surface_base_m": [
+        0.28434218785790666,
+        -0.1139050848190678,
+        -0.026766059604973302
+      ]
+    },
+    {
+      "id": 1,
+      "confidence": 0.30795562267303467,
+      "bbox_xyxy": [
+        213.67843627929688,
+        302.228759765625,
+        268.2900085449219,
+        368.7320556640625
+      ],
+      "mask_median_uv": [
+        239.0,
+        341.0
+      ],
+      "mask_pixels": 2586,
+      "mask_type": "segmentation",
+      "edge_truncated": false,
+      "context": "on_paper_cluster",
+      "tracking": "first-frame mask applied to all static-camera frames; no target ID claim across motion",
+      "samples": [
+        {
+          "frame": 0,
+          "depth_valid_fraction": 0.7718484145398299,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011824351917181554,
+          "surface_camera_m": [
+            -0.06454865438614583,
+            0.07454333641446755,
+            0.40156387218451467
+          ],
+          "estimated_center_camera_m": [
+            -0.06919995702236065,
+            0.07991484447260111,
+            0.43050010819226864
+          ],
+          "surface_base_m": [
+            0.3835735772175164,
+            -0.15159786995305055,
+            0.05188985129831136
+          ],
+          "estimated_center_base_m": [
+            0.3886743948697139,
+            -0.14876942000738097,
+            0.022670422838593662
+          ],
+          "estimated_radius_m": 0.029795863292220465,
+          "valid_points": 1996,
+          "estimated_center_above_candidate_plane_m": 0.10836057780743362
+        },
+        {
+          "frame": 1,
+          "depth_valid_fraction": 0.7552204176334106,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013668964530710287,
+          "surface_camera_m": [
+            -0.05758110761223416,
+            0.06507921841576228,
+            0.4118309227265853
+          ],
+          "estimated_center_camera_m": [
+            -0.06132741309790318,
+            0.06931336122864248,
+            0.4386252048958108
+          ],
+          "surface_base_m": [
+            0.3895729253266057,
+            -0.16393745749703947,
+            0.044422095478887924
+          ],
+          "estimated_center_base_m": [
+            0.39456847422834346,
+            -0.16218626068957803,
+            0.017554380130764713
+          ],
+          "estimated_radius_m": 0.027384235010602272,
+          "valid_points": 1953,
+          "estimated_center_above_candidate_plane_m": 0.10238888242348218
+        },
+        {
+          "frame": 2,
+          "depth_valid_fraction": 0.7378190255220418,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013379867799423672,
+          "surface_camera_m": [
+            -0.06255886964852679,
+            0.07320493086872518,
+            0.4041910541417831
+          ],
+          "estimated_center_camera_m": [
+            -0.06662898462377691,
+            0.0779676845288365,
+            0.43048794971498083
+          ],
+          "surface_base_m": [
+            0.3841288619918568,
+            -0.15434600770961185,
+            0.04968653511139659
+          ],
+          "estimated_center_base_m": [
+            0.38877053938257855,
+            -0.15197080247103184,
+            0.02316127156508263
+          ],
+          "estimated_radius_m": 0.027032875820495447,
+          "valid_points": 1908,
+          "estimated_center_above_candidate_plane_m": 0.10870606283498087
+        },
+        {
+          "frame": 3,
+          "depth_valid_fraction": 0.8317865429234339,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001150680994121928,
+          "surface_camera_m": [
+            -0.05655278112773492,
+            0.08649151667136638,
+            0.45915607855920326
+          ],
+          "estimated_center_camera_m": [
+            -0.05976499883285025,
+            0.09140426500405245,
+            0.4852363040679689
+          ],
+          "surface_base_m": [
+            0.3830410881655016,
+            -0.15957962757262018,
+            -0.006926587928158978
+          ],
+          "estimated_center_base_m": [
+            0.3870316822930259,
+            -0.15780355960182993,
+            -0.033299914271757214
+          ],
+          "estimated_radius_m": 0.026732594362564928,
+          "valid_points": 2151,
+          "estimated_center_above_candidate_plane_m": 0.05206593250706694
+        },
+        {
+          "frame": 4,
+          "depth_valid_fraction": 0.8236658932714617,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013406373270108095,
+          "surface_camera_m": [
+            -0.05989284928556345,
+            0.07059498314695559,
+            0.407430932393573
+          ],
+          "estimated_center_camera_m": [
+            -0.06387215394854633,
+            0.07528534182868206,
+            0.4345008051489505
+          ],
+          "surface_base_m": [
+            0.38548843031631846,
+            -0.15844334214043607,
+            0.04723663614835871
+          ],
+          "estimated_center_base_m": [
+            0.3903190345802132,
+            -0.15628961957211585,
+            0.019985230997417114
+          ],
+          "estimated_radius_m": 0.027759905280033175,
+          "valid_points": 2130,
+          "estimated_center_above_candidate_plane_m": 0.10527024489933084
+        },
+        {
+          "frame": 5,
+          "depth_valid_fraction": 0.7985305491105955,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013460000474264536,
+          "surface_camera_m": [
+            -0.06383415328322346,
+            0.07395077749470923,
+            0.40156406927224153
+          ],
+          "estimated_center_camera_m": [
+            -0.06836481371271524,
+            0.07919947030400958,
+            0.4300652766194313
+          ],
+          "surface_base_m": [
+            0.3836497802161842,
+            -0.15253066948332705,
+            0.052044720283464796
+          ],
+          "estimated_center_base_m": [
+            0.388679356971082,
+            -0.1498110492908205,
+            0.023274918336694927
+          ],
+          "estimated_radius_m": 0.029332481660801657,
+          "valid_points": 2065,
+          "estimated_center_above_candidate_plane_m": 0.10891895776958954
+        },
+        {
+          "frame": 6,
+          "depth_valid_fraction": 0.7745552977571539,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012710421203474724,
+          "surface_camera_m": [
+            -0.06077705030404824,
+            0.07723890290153605,
+            0.40819688678024124
+          ],
+          "estimated_center_camera_m": [
+            -0.06481209348073169,
+            0.0823668633169924,
+            0.4352974461938055
+          ],
+          "surface_base_m": [
+            0.3808664034456269,
+            -0.15418573855390466,
+            0.04470642102142608
+          ],
+          "estimated_center_base_m": [
+            0.38538631969926823,
+            -0.15175114006070967,
+            0.017308228394442182
+          ],
+          "estimated_radius_m": 0.027875040304693958,
+          "valid_points": 2003,
+          "estimated_center_above_candidate_plane_m": 0.10301458019386349
+        },
+        {
+          "frame": 7,
+          "depth_valid_fraction": 0.6925754060324826,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013525018724719023,
+          "surface_camera_m": [
+            -0.05366786964751813,
+            0.0827315826076889,
+            0.46130346296972263
+          ],
+          "estimated_center_camera_m": [
+            -0.056787401240680734,
+            0.08754048945254933,
+            0.4881174717280508
+          ],
+          "surface_base_m": [
+            0.3848812829012351,
+            -0.16431515074692005,
+            -0.0080537381771566
+          ],
+          "estimated_center_base_m": [
+            0.38907213405713537,
+            -0.1627722346706747,
+            -0.0351074681356251
+          ],
+          "estimated_radius_m": 0.02741984916251338,
+          "valid_points": 1791,
+          "estimated_center_above_candidate_plane_m": 0.04994789055087942
+        },
+        {
+          "frame": 8,
+          "depth_valid_fraction": 0.8062645011600929,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012293755100835787,
+          "surface_camera_m": [
+            -0.06239380784947773,
+            0.07108299660191277,
+            0.4046979103762608
+          ],
+          "estimated_center_camera_m": [
+            -0.06685856816839031,
+            0.07616953569154895,
+            0.43365718107430484
+          ],
+          "surface_base_m": [
+            0.38583719533218486,
+            -0.1556997967975212,
+            0.04976708403192465
+          ],
+          "estimated_center_base_m": [
+            0.39106490318825643,
+            -0.15318462595172314,
+            0.020598756857293232
+          ],
+          "estimated_radius_m": 0.029739642297417178,
+          "valid_points": 2085,
+          "estimated_center_above_candidate_plane_m": 0.10598709846287327
+        },
+        {
+          "frame": 9,
+          "depth_valid_fraction": 0.7675947409126064,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012458340158195884,
+          "surface_camera_m": [
+            -0.06289446918626748,
+            0.06837792105064901,
+            0.4048839749111986
+          ],
+          "estimated_center_camera_m": [
+            -0.06735693107442967,
+            0.07322944250600309,
+            0.4336111321723228
+          ],
+          "surface_base_m": [
+            0.38833451595581436,
+            -0.1567986016633454,
+            0.05034096560513529
+          ],
+          "estimated_center_base_m": [
+            0.39369485670442844,
+            -0.15438267976908265,
+            0.02145964881901924
+          ],
+          "estimated_radius_m": 0.029473723735565217,
+          "valid_points": 1985,
+          "estimated_center_above_candidate_plane_m": 0.10667717441310905
+        },
+        {
+          "frame": 10,
+          "depth_valid_fraction": 0.7625676720804331,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0010265006244081312,
+          "surface_camera_m": [
+            -0.05933834548263007,
+            0.08368341857117097,
+            0.38899381668731464
+          ],
+          "estimated_center_camera_m": [
+            -0.06380196725350948,
+            0.08997835527622682,
+            0.4182551864606131
+          ],
+          "surface_base_m": [
+            0.37045113018452536,
+            -0.1492277145885425,
+            0.06142430866058046
+          ],
+          "estimated_center_base_m": [
+            0.3747889317617975,
+            -0.1460964509969063,
+            0.03163913492867576
+          ],
+          "estimated_radius_m": 0.03026182262263514,
+          "valid_points": 1972,
+          "estimated_center_above_candidate_plane_m": 0.11807023173950912
+        },
+        {
+          "frame": 11,
+          "depth_valid_fraction": 0.7459396751740139,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011250623346537407,
+          "surface_camera_m": [
+            -0.059057869547850875,
+            0.09065305345535783,
+            0.45984437825074403
+          ],
+          "estimated_center_camera_m": [
+            -0.06211017037959416,
+            0.09533829511036986,
+            0.4836106161620182
+          ],
+          "surface_base_m": [
+            0.3813104883850675,
+            -0.15534608313715345,
+            -0.008648440751357234
+          ],
+          "estimated_center_base_m": [
+            0.3848525713636773,
+            -0.15351102128114613,
+            -0.032735538757258154
+          ],
+          "estimated_radius_m": 0.024415202112384966,
+          "valid_points": 1929,
+          "estimated_center_above_candidate_plane_m": 0.0529172293738631
+        },
+        {
+          "frame": 12,
+          "depth_valid_fraction": 0.8267594740912606,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012981010850647448,
+          "surface_camera_m": [
+            -0.07485506866494804,
+            0.07732610077610691,
+            0.42503623369082144
+          ],
+          "estimated_center_camera_m": [
+            -0.078960708777595,
+            0.0815672717049852,
+            0.4483485603173625
+          ],
+          "surface_base_m": [
+            0.3926192832675568,
+            -0.14476932367102882,
+            0.028738576878840405
+          ],
+          "estimated_center_base_m": [
+            0.39699824533157835,
+            -0.14224210406947846,
+            0.00522802102296005
+          ],
+          "estimated_radius_m": 0.024048043253559574,
+          "valid_points": 2138,
+          "estimated_center_above_candidate_plane_m": 0.09083218985584073
+        },
+        {
+          "frame": 13,
+          "depth_valid_fraction": 0.8147718484145399,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012422746363698342,
+          "surface_camera_m": [
+            -0.0672887878029376,
+            0.07095784300496148,
+            0.40422989803986636
+          ],
+          "estimated_center_camera_m": [
+            -0.07199021026441982,
+            0.07591561989193478,
+            0.43247316982851836
+          ],
+          "surface_base_m": [
+            0.3885700454946235,
+            -0.15166105555159734,
+            0.05033694472160022
+          ],
+          "estimated_center_base_m": [
+            0.3938652585375457,
+            -0.1489224879159335,
+            0.02189707319789319
+          ],
+          "estimated_radius_m": 0.029057964934764455,
+          "valid_points": 2107,
+          "estimated_center_above_candidate_plane_m": 0.10734752021224071
+        },
+        {
+          "frame": 14,
+          "depth_valid_fraction": 0.7351121423047177,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011284248495689886,
+          "surface_camera_m": [
+            -0.06310411012508783,
+            0.07090302860533293,
+            0.40366310353074825
+          ],
+          "estimated_center_camera_m": [
+            -0.06777711736722271,
+            0.07615356403805258,
+            0.43355530235017026
+          ],
+          "surface_base_m": [
+            0.3861369523452407,
+            -0.1550888650595719,
+            0.050823242781781464
+          ],
+          "estimated_center_base_m": [
+            0.39156913834193385,
+            -0.15243995430995935,
+            0.02071637817563121
+          ],
+          "estimated_radius_m": 0.030707469275001228,
+          "valid_points": 1901,
+          "estimated_center_above_candidate_plane_m": 0.10611489916913736
+        },
+        {
+          "frame": 15,
+          "depth_valid_fraction": 0.7041763341067285,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0010296171453723832,
+          "surface_camera_m": [
+            -0.06112678652212977,
+            0.0765497140191005,
+            0.40134455507684647
+          ],
+          "estimated_center_camera_m": [
+            -0.0654661292763042,
+            0.08198391833053852,
+            0.4298356910597526
+          ],
+          "surface_base_m": [
+            0.3800115074431317,
+            -0.15331065369030705,
+            0.05150560838370566
+          ],
+          "estimated_center_base_m": [
+            0.3847839489453725,
+            -0.15064639599689178,
+            0.022691881886012344
+          ],
+          "estimated_radius_m": 0.029327551920218412,
+          "valid_points": 1821,
+          "estimated_center_above_candidate_plane_m": 0.10847394144929465
+        },
+        {
+          "frame": 16,
+          "depth_valid_fraction": 0.7567672080433101,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001328861352722055,
+          "surface_camera_m": [
+            -0.061463337766273426,
+            0.06770490593322927,
+            0.4081975962528027
+          ],
+          "estimated_center_camera_m": [
+            -0.0657538473682065,
+            0.07243111442696802,
+            0.4366922366328713
+          ],
+          "surface_base_m": [
+            0.3888388821739833,
+            -0.15880808255291798,
+            0.04729710574966328
+          ],
+          "estimated_center_base_m": [
+            0.39414747192226596,
+            -0.15657117260808692,
+            0.01867010523366186
+          ],
+          "estimated_radius_m": 0.029200857003862116,
+          "valid_points": 1957,
+          "estimated_center_above_candidate_plane_m": 0.10377089546615044
+        },
+        {
+          "frame": 17,
+          "depth_valid_fraction": 0.7842227378190255,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012401416437896014,
+          "surface_camera_m": [
+            -0.06557794177588534,
+            0.07048358817603495,
+            0.4095213589905831
+          ],
+          "estimated_center_camera_m": [
+            -0.07010881183571764,
+            0.07535339608290312,
+            0.4378157521060831
+          ],
+          "surface_base_m": [
+            0.38924548158576044,
+            -0.15406923586827267,
+            0.04534942163004163
+          ],
+          "estimated_center_base_m": [
+            0.3945281148952893,
+            -0.15152765124875867,
+            0.016881007075271737
+          ],
+          "estimated_radius_m": 0.029065727142518434,
+          "valid_points": 2028,
+          "estimated_center_above_candidate_plane_m": 0.10218692522295804
+        },
+        {
+          "frame": 18,
+          "depth_valid_fraction": 0.7710750193348801,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011944538849129169,
+          "surface_camera_m": [
+            -0.05117732585239626,
+            0.0833309585998651,
+            0.45324240641081587
+          ],
+          "estimated_center_camera_m": [
+            -0.05405229100001399,
+            0.08801220361808192,
+            0.47870399706937655
+          ],
+          "surface_base_m": [
+            0.38115074817330885,
+            -0.16492839176844432,
+            -0.0004936694329129021
+          ],
+          "estimated_center_base_m": [
+            0.3849910123043367,
+            -0.16347219183023926,
+            -0.026215332122727752
+          ],
+          "estimated_radius_m": 0.026047496585750816,
+          "valid_points": 1994,
+          "estimated_center_above_candidate_plane_m": 0.05899234654363657
+        },
+        {
+          "frame": 19,
+          "depth_valid_fraction": 0.759860788863109,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012255266182898067,
+          "surface_camera_m": [
+            -0.061497740515523626,
+            0.06861553041291879,
+            0.40820662247871753
+          ],
+          "estimated_center_camera_m": [
+            -0.0659217755852734,
+            0.07355160628061036,
+            0.43757226093000484
+          ],
+          "surface_base_m": [
+            0.38810917589257077,
+            -0.15827538663456614,
+            0.0470284749918472
+          ],
+          "estimated_center_base_m": [
+            0.3935276013030697,
+            -0.15593186697802677,
+            0.017508545543896692
+          ],
+          "estimated_radius_m": 0.030104445733507672,
+          "valid_points": 1965,
+          "estimated_center_above_candidate_plane_m": 0.10266532231224344
+        },
+        {
+          "frame": 20,
+          "depth_valid_fraction": 0.7737819025522041,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012780286057414508,
+          "surface_camera_m": [
+            -0.06516118416841207,
+            0.0708335707502388,
+            0.40469015644174516
+          ],
+          "estimated_center_camera_m": [
+            -0.06984401544926935,
+            0.07592405007588668,
+            0.43377335601562744
+          ],
+          "surface_base_m": [
+            0.3875975842166468,
+            -0.15356938962380978,
+            0.049903765819659995
+          ],
+          "estimated_center_base_m": [
+            0.39297429516415583,
+            -0.15089004380977666,
+            0.020619188455117954
+          ],
+          "estimated_radius_m": 0.029894387199340466,
+          "valid_points": 2001,
+          "estimated_center_above_candidate_plane_m": 0.10602293359828728
+        },
+        {
+          "frame": 21,
+          "depth_valid_fraction": 0.7192575406032483,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011862606999323588,
+          "surface_camera_m": [
+            -0.05796076639314817,
+            0.06377959820751342,
+            0.4110563365283177
+          ],
+          "estimated_center_camera_m": [
+            -0.062228950524279486,
+            0.06847627642451196,
+            0.4413261939120279
+          ],
+          "surface_base_m": [
+            0.3906488341300668,
+            -0.16420475291752135,
+            0.04552687946063044
+          ],
+          "estimated_center_base_m": [
+            0.39638197340509906,
+            -0.16224285013761452,
+            0.015198303832739513
+          ],
+          "estimated_radius_m": 0.030927988102710857,
+          "valid_points": 1860,
+          "estimated_center_above_candidate_plane_m": 0.09994892371660413
+        },
+        {
+          "frame": 22,
+          "depth_valid_fraction": 0.8356535189481825,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011686680658174683,
+          "surface_camera_m": [
+            -0.06387859596695704,
+            0.07425987875157852,
+            0.4062149459393438
+          ],
+          "estimated_center_camera_m": [
+            -0.06839188104113306,
+            0.07950664407736915,
+            0.4349156996842072
+          ],
+          "surface_base_m": [
+            0.38451794627560854,
+            -0.15295604867979606,
+            0.0474885887348252
+          ],
+          "estimated_center_base_m": [
+            0.3895861242270058,
+            -0.15027904402684697,
+            0.018526911082985875
+          ],
+          "estimated_radius_m": 0.029523406884504163,
+          "valid_points": 2161,
+          "estimated_center_above_candidate_plane_m": 0.10410963590482807
+        },
+        {
+          "frame": 23,
+          "depth_valid_fraction": 0.7730085073472545,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012112891644072785,
+          "surface_camera_m": [
+            -0.05102015555737318,
+            0.09598938464741635,
+            0.4510719811597213
+          ],
+          "estimated_center_camera_m": [
+            -0.05432115271853516,
+            0.10219988484603865,
+            0.4802562773074184
+          ],
+          "surface_base_m": [
+            0.3705139370819219,
+            -0.15786751389885617,
+            -0.00180673443469076
+          ],
+          "estimated_center_base_m": [
+            0.3742490088170778,
+            -0.15573390508568513,
+            -0.03151678305762584
+          ],
+          "estimated_radius_m": 0.03001982739143535,
+          "valid_points": 1999,
+          "estimated_center_above_candidate_plane_m": 0.05451393152921406
+        },
+        {
+          "frame": 24,
+          "depth_valid_fraction": 0.7064965197215777,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0010800909988720015,
+          "surface_camera_m": [
+            -0.05756143055137919,
+            0.0758339514429834,
+            0.4081675737549438
+          ],
+          "estimated_center_camera_m": [
+            -0.06092053328962983,
+            0.08025938061498976,
+            0.431986940326133
+          ],
+          "surface_base_m": [
+            0.3801703429628794,
+            -0.1575681686864211,
+            0.04505604631784754
+          ],
+          "estimated_center_base_m": [
+            0.3841025422572826,
+            -0.15562672272174552,
+            0.02099365211671711
+          ],
+          "estimated_radius_m": 0.024458745233867887,
+          "valid_points": 1827,
+          "estimated_center_above_candidate_plane_m": 0.10658686619939892
+        }
+      ],
+      "usable_3d": false,
+      "three_d_status": "diagnostic_only: paper plane and absolute geometry not validated",
+      "center_span_m": [
+        0.02274923651450056,
+        0.021230087760760796,
+        0.06674660306430086
+      ],
+      "surface_span_m": [
+        0.02216815308303144,
+        0.020159068097415495,
+        0.0700727494119377
+      ],
+      "diagnostic_median_surface_base_m": [
+        0.3848812829012351,
+        -0.15534608313715345,
+        0.04723663614835871
+      ]
+    },
+    {
+      "id": 2,
+      "confidence": 0.300733357667923,
+      "bbox_xyxy": [
+        0.4110584259033203,
+        108.63992309570312,
+        63.98838806152344,
+        184.05584716796875
+      ],
+      "mask_median_uv": [
+        27.0,
+        145.0
+      ],
+      "mask_pixels": 3869,
+      "mask_type": "segmentation",
+      "edge_truncated": true,
+      "context": "basin_inside_image_interpretation",
+      "tracking": "first-frame mask applied to all static-camera frames; no target ID claim across motion",
+      "samples": [
+        {
+          "frame": 0,
+          "depth_valid_fraction": 0.9842336521064875,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001427495024481005,
+          "surface_camera_m": [
+            -0.2367878672705667,
+            -0.07764391790580207,
+            0.4723690422860457
+          ],
+          "estimated_center_camera_m": [
+            -0.25338703530612244,
+            -0.08308686755991007,
+            0.5054827875048459
+          ],
+          "surface_base_m": [
+            0.61761508944097,
+            -0.10164199062646107,
+            0.028022308011239005
+          ],
+          "estimated_center_base_m": [
+            0.6389839912465699,
+            -0.09538839516074185,
+            -0.002076542169442974
+          ],
+          "estimated_radius_m": 0.03743899307974749,
+          "valid_points": 3808,
+          "estimated_center_above_candidate_plane_m": 0.07473171253664201
+        },
+        {
+          "frame": 1,
+          "depth_valid_fraction": 0.9839751873869217,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013369974809747526,
+          "surface_camera_m": [
+            -0.2346942511417313,
+            -0.08978524715651053,
+            0.48576622058394775
+          ],
+          "estimated_center_camera_m": [
+            -0.24935005768155388,
+            -0.09539201087592229,
+            0.5161005628945303
+          ],
+          "surface_base_m": [
+            0.6292063894425386,
+            -0.11183629304129608,
+            0.01834973242341781
+          ],
+          "estimated_center_base_m": [
+            0.6489653968061793,
+            -0.10690195222283796,
+            -0.009066224551389834
+          ],
+          "estimated_radius_m": 0.034152610268522926,
+          "valid_points": 3807,
+          "estimated_center_above_candidate_plane_m": 0.06678679605261997
+        },
+        {
+          "frame": 2,
+          "depth_valid_fraction": 0.9932799172912897,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013515216994728965,
+          "surface_camera_m": [
+            -0.23945050516983096,
+            -0.06755489614432397,
+            0.5366694667319248
+          ],
+          "estimated_center_camera_m": [
+            -0.25530768077850013,
+            -0.07202859667223133,
+            0.572209429246279
+          ],
+          "surface_base_m": [
+            0.6261060945519363,
+            -0.10273160094610989,
+            -0.03655429835840529
+          ],
+          "estimated_center_base_m": [
+            0.6468552220396357,
+            -0.09689588038935397,
+            -0.06926470991653044
+          ],
+          "estimated_radius_m": 0.039173370422000635,
+          "valid_points": 3843,
+          "estimated_center_above_candidate_plane_m": 0.007123869106386113
+        },
+        {
+          "frame": 3,
+          "depth_valid_fraction": 0.995347635047816,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013513383872308384,
+          "surface_camera_m": [
+            -0.24546644880371993,
+            -0.06809083528472665,
+            0.5350655553859178
+          ],
+          "estimated_center_camera_m": [
+            -0.2609414092712817,
+            -0.07238349112168369,
+            0.5687977349057837
+          ],
+          "surface_base_m": [
+            0.6295343039144121,
+            -0.09782820210986093,
+            -0.03475071569981941
+          ],
+          "estimated_center_base_m": [
+            0.6495031813896275,
+            -0.09196393275163085,
+            -0.0657767613395972
+          ],
+          "estimated_radius_m": 0.037359887991904095,
+          "valid_points": 3851,
+          "estimated_center_above_candidate_plane_m": 0.010710273510942642
+        },
+        {
+          "frame": 4,
+          "depth_valid_fraction": 0.9803566813130008,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013690838819072687,
+          "surface_camera_m": [
+            -0.24587756134646666,
+            -0.07239822273478172,
+            0.4667369369621774
+          ],
+          "estimated_center_camera_m": [
+            -0.2635379859125878,
+            -0.07759830420755669,
+            0.5002608275616456
+          ],
+          "surface_base_m": [
+            0.6172622101864622,
+            -0.09054433288679471,
+            0.03222958001847964
+          ],
+          "estimated_center_base_m": [
+            0.6391317910211185,
+            -0.08333910779743715,
+            0.0016912622908709096
+          ],
+          "estimated_radius_m": 0.03824634210096783,
+          "valid_points": 3793,
+          "estimated_center_above_candidate_plane_m": 0.0790237598132023
+        },
+        {
+          "frame": 5,
+          "depth_valid_fraction": 0.9751873869216852,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001350939679259591,
+          "surface_camera_m": [
+            -0.24279403139514383,
+            -0.06516446372553238,
+            0.48156076691887995
+          ],
+          "estimated_center_camera_m": [
+            -0.2557438968865345,
+            -0.0686401300556114,
+            0.5072456946812975
+          ],
+          "surface_base_m": [
+            0.6132301332362099,
+            -0.09114856659341342,
+            0.015930195504929245
+          ],
+          "estimated_center_base_m": [
+            0.6292548615683,
+            -0.08583089259035516,
+            -0.007616040116156186
+          ],
+          "estimated_radius_m": 0.0289740364264934,
+          "valid_points": 3773,
+          "estimated_center_above_candidate_plane_m": 0.07004994541625965
+        },
+        {
+          "frame": 6,
+          "depth_valid_fraction": 0.9733781338847247,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001328429084422707,
+          "surface_camera_m": [
+            -0.2264870189624733,
+            -0.08745065265632665,
+            0.48392326061829954
+          ],
+          "estimated_center_camera_m": [
+            -0.23994754857346653,
+            -0.0926480017360821,
+            0.5126836876345617
+          ],
+          "surface_base_m": [
+            0.6223207683654005,
+            -0.1171224677559734,
+            0.019348370303126083
+          ],
+          "estimated_center_base_m": [
+            0.6407169718251277,
+            -0.11274032777426299,
+            -0.006685012198424212
+          ],
+          "estimated_radius_m": 0.03217701752840068,
+          "valid_points": 3766,
+          "estimated_center_above_candidate_plane_m": 0.0692809632969339
+        },
+        {
+          "frame": 7,
+          "depth_valid_fraction": 0.9653657275781856,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013075939325944304,
+          "surface_camera_m": [
+            -0.24286303087542815,
+            -0.07155767129644448,
+            0.4743324851906632
+          ],
+          "estimated_center_camera_m": [
+            -0.25827292370243593,
+            -0.0760980743444245,
+            0.5044293374567687
+          ],
+          "surface_base_m": [
+            0.6166230943059137,
+            -0.09359819463185312,
+            0.02457421436481
+          ],
+          "estimated_center_base_m": [
+            0.6359020644846419,
+            -0.08742688994436834,
+            -0.002887338402790096
+          ],
+          "estimated_radius_m": 0.0341159870604054,
+          "valid_points": 3735,
+          "estimated_center_above_candidate_plane_m": 0.0744100056207051
+        },
+        {
+          "frame": 8,
+          "depth_valid_fraction": 0.9679503747738434,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011410691820313854,
+          "surface_camera_m": [
+            -0.24625180812067665,
+            -0.07574373725595807,
+            0.5315448806030225
+          ],
+          "estimated_center_camera_m": [
+            -0.2590599226816698,
+            -0.07968334067026744,
+            0.5591917343541901
+          ],
+          "surface_base_m": [
+            0.6352266761544634,
+            -0.10085469591013298,
+            -0.029282961247314443
+          ],
+          "estimated_center_base_m": [
+            0.651997785453245,
+            -0.0961739078077982,
+            -0.054595742833646876
+          ],
+          "estimated_radius_m": 0.030723228931998837,
+          "valid_points": 3745,
+          "estimated_center_above_candidate_plane_m": 0.021593849083756472
+        },
+        {
+          "frame": 9,
+          "depth_valid_fraction": 0.9891444817782372,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013469975356237588,
+          "surface_camera_m": [
+            -0.24277410017016796,
+            -0.08769095671983375,
+            0.4859949856233235
+          ],
+          "estimated_center_camera_m": [
+            -0.25648002062458397,
+            -0.0926415889187843,
+            0.5134320499952207
+          ],
+          "surface_base_m": [
+            0.6321545152062711,
+            -0.10404512253262233,
+            0.017751846020584994
+          ],
+          "estimated_center_base_m": [
+            0.6501846508107421,
+            -0.09914457685880759,
+            -0.007068556437935802
+          ],
+          "estimated_radius_m": 0.031066919963519055,
+          "valid_points": 3827,
+          "estimated_center_above_candidate_plane_m": 0.06907152443489278
+        },
+        {
+          "frame": 10,
+          "depth_valid_fraction": 0.9987076764021711,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012979575418220145,
+          "surface_camera_m": [
+            -0.2371903325853994,
+            -0.07331170743867087,
+            0.4715610868989285
+          ],
+          "estimated_center_camera_m": [
+            -0.25319505502040474,
+            -0.07825850908949189,
+            0.5033802771024307
+          ],
+          "surface_base_m": [
+            0.6142066837075448,
+            -0.09885486886888992,
+            0.02763141653460477
+          ],
+          "estimated_center_base_m": [
+            0.6345454714883395,
+            -0.0926471091889564,
+            -0.0013665193120166452
+          ],
+          "estimated_radius_m": 0.03595946123068004,
+          "valid_points": 3864,
+          "estimated_center_above_candidate_plane_m": 0.07576171198064005
+        },
+        {
+          "frame": 11,
+          "depth_valid_fraction": 0.9992246058413027,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012714676387302424,
+          "surface_camera_m": [
+            -0.22653501013310368,
+            -0.08732100055313867,
+            0.46471696601988033
+          ],
+          "estimated_center_camera_m": [
+            -0.2433746194597267,
+            -0.09381205698834798,
+            0.49926196703597164
+          ],
+          "surface_base_m": [
+            0.6177616764515116,
+            -0.11438735579017784,
+            0.03783076907930577
+          ],
+          "estimated_center_base_m": [
+            0.6404329608185242,
+            -0.10870331026655317,
+            0.00664154269012579
+          ],
+          "estimated_radius_m": 0.038975163259697986,
+          "valid_points": 3866,
+          "estimated_center_above_candidate_plane_m": 0.08279813025999633
+        },
+        {
+          "frame": 12,
+          "depth_valid_fraction": 0.9909537348151978,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012502911317220226,
+          "surface_camera_m": [
+            -0.23528429225040934,
+            -0.0897602450513728,
+            0.48031561120048705
+          ],
+          "estimated_center_camera_m": [
+            -0.25183845389233667,
+            -0.09607560759167365,
+            0.5141097170071408
+          ],
+          "surface_base_m": [
+            0.6282384431294441,
+            -0.11058585480228374,
+            0.023610781821694238
+          ],
+          "estimated_center_base_m": [
+            0.65043344158602,
+            -0.10493888525970904,
+            -0.006909038581637661
+          ],
+          "estimated_radius_m": 0.03815711806404936,
+          "valid_points": 3834,
+          "estimated_center_above_candidate_plane_m": 0.06896458692377642
+        },
+        {
+          "frame": 13,
+          "depth_valid_fraction": 0.9932799172912897,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013469195293406273,
+          "surface_camera_m": [
+            -0.24733472147437477,
+            -0.06620223079946376,
+            0.48063584146762073
+          ],
+          "estimated_center_camera_m": [
+            -0.2613758157434807,
+            -0.06996050524608925,
+            0.5079213480027681
+          ],
+          "surface_base_m": [
+            0.6163697532346402,
+            -0.08783079580033469,
+            0.01716642524436829
+          ],
+          "estimated_center_base_m": [
+            0.6336042717903596,
+            -0.08198206065488259,
+            -0.007824362844856936
+          ],
+          "estimated_radius_m": 0.030915624237101324,
+          "valid_points": 3843,
+          "estimated_center_above_candidate_plane_m": 0.06981599737268357
+        },
+        {
+          "frame": 14,
+          "depth_valid_fraction": 0.9069527009563194,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001255781014533177,
+          "surface_camera_m": [
+            -0.24419081464084183,
+            -0.0685403962946834,
+            0.5379748630938893
+          ],
+          "estimated_center_camera_m": [
+            -0.25934967971111,
+            -0.07279524355755845,
+            0.5713712395007203
+          ],
+          "surface_base_m": [
+            0.6298524755604179,
+            -0.09954103899890801,
+            -0.0374586626182275
+          ],
+          "estimated_center_base_m": [
+            0.6495356274945543,
+            -0.09387216662608472,
+            -0.06817755401284115
+          ],
+          "estimated_radius_m": 0.03692171275219682,
+          "valid_points": 3509,
+          "estimated_center_above_candidate_plane_m": 0.00822395035296096
+        },
+        {
+          "frame": 15,
+          "depth_valid_fraction": 0.9899198759369346,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014548218273570876,
+          "surface_camera_m": [
+            -0.2403639642619553,
+            -0.08045977980430857,
+            0.47751799246951687
+          ],
+          "estimated_center_camera_m": [
+            -0.2562682534760622,
+            -0.08578360449675072,
+            0.5091141773655944
+          ],
+          "surface_base_m": [
+            0.6230616458244204,
+            -0.10091634775731836,
+            0.023904765322798727
+          ],
+          "estimated_center_base_m": [
+            0.6435919629219693,
+            -0.09496624861548211,
+            -0.004778170803500237
+          ],
+          "estimated_radius_m": 0.035771614790905515,
+          "valid_points": 3830,
+          "estimated_center_above_candidate_plane_m": 0.071841879122979
+        },
+        {
+          "frame": 16,
+          "depth_valid_fraction": 0.9997415352804342,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013644273749532337,
+          "surface_camera_m": [
+            -0.24139489747342874,
+            -0.061216066088821706,
+            0.5255471585654228
+          ],
+          "estimated_center_camera_m": [
+            -0.255532007382439,
+            -0.06480113877906019,
+            0.5563254311004718
+          ],
+          "surface_base_m": [
+            0.6195928315666324,
+            -0.09616766949395622,
+            -0.027507282304920833
+          ],
+          "estimated_center_base_m": [
+            0.6375604420350441,
+            -0.09062250927030921,
+            -0.05590497332311789
+          ],
+          "estimated_radius_m": 0.03405895892442231,
+          "valid_points": 3868,
+          "estimated_center_above_candidate_plane_m": 0.02117714849528765
+        },
+        {
+          "frame": 17,
+          "depth_valid_fraction": 0.9935383820108555,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013692621700502356,
+          "surface_camera_m": [
+            -0.24951598195813807,
+            -0.07311913272466533,
+            0.5320262318847497
+          ],
+          "estimated_center_camera_m": [
+            -0.26419693604865097,
+            -0.07742129654697723,
+            0.5633294479110442
+          ],
+          "surface_base_m": [
+            0.6351094766452299,
+            -0.09681529676212192,
+            -0.030382146089204087
+          ],
+          "estimated_center_base_m": [
+            0.654074209703861,
+            -0.09128220923496774,
+            -0.05908152243403647
+          ],
+          "estimated_radius_m": 0.03484150341404077,
+          "valid_points": 3844,
+          "estimated_center_above_candidate_plane_m": 0.017230402266407818
+        },
+        {
+          "frame": 18,
+          "depth_valid_fraction": 0.977772034117343,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001341968994794638,
+          "surface_camera_m": [
+            -0.239825794642446,
+            -0.07129644153533331,
+            0.478426574220252
+          ],
+          "estimated_center_camera_m": [
+            -0.25539315536778734,
+            -0.0759243733450391,
+            0.5094817785721436
+          ],
+          "surface_base_m": [
+            0.6156894909418074,
+            -0.09650338085860741,
+            0.020523370801518837
+          ],
+          "estimated_center_base_m": [
+            0.6353510286637688,
+            -0.09037922045350895,
+            -0.007833370616818436
+          ],
+          "estimated_radius_m": 0.03504548744312078,
+          "valid_points": 3783,
+          "estimated_center_above_candidate_plane_m": 0.06935862782106487
+        },
+        {
+          "frame": 19,
+          "depth_valid_fraction": 0.9968984233652106,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012629160876708562,
+          "surface_camera_m": [
+            -0.24431521388877836,
+            -0.06656641900071257,
+            0.5336312938310926
+          ],
+          "estimated_center_camera_m": [
+            -0.2602472082397853,
+            -0.07090726947254979,
+            0.568429825709291
+          ],
+          "surface_base_m": [
+            0.6273336639977467,
+            -0.0977535754420608,
+            -0.03382009248152684
+          ],
+          "estimated_center_base_m": [
+            0.6478454048978595,
+            -0.09168253527485215,
+            -0.06585164261935417
+          ],
+          "estimated_radius_m": 0.038517648522428664,
+          "valid_points": 3857,
+          "estimated_center_above_candidate_plane_m": 0.010722190616288263
+        },
+        {
+          "frame": 20,
+          "depth_valid_fraction": 0.9865598345825795,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014613801550043871,
+          "surface_camera_m": [
+            -0.24597602136296026,
+            -0.06723765449456215,
+            0.5335976407692192
+          ],
+          "estimated_center_camera_m": [
+            -0.26021049259836787,
+            -0.07112865351770206,
+            0.5644765867198206
+          ],
+          "surface_base_m": [
+            0.6288101136197664,
+            -0.09675760266187985,
+            -0.033545288261683126
+          ],
+          "estimated_center_base_m": [
+            0.6470985041433285,
+            -0.0913124070397359,
+            -0.06195574345803906
+          ],
+          "estimated_radius_m": 0.03422381258378271,
+          "valid_points": 3817,
+          "estimated_center_above_candidate_plane_m": 0.014667917769656508
+        },
+        {
+          "frame": 21,
+          "depth_valid_fraction": 0.9676919100542776,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013489031455880766,
+          "surface_camera_m": [
+            -0.2440877742272712,
+            -0.0744907494947161,
+            0.5381000602069337
+          ],
+          "estimated_center_camera_m": [
+            -0.2584314715799493,
+            -0.07886816155359089,
+            0.5697212441580788
+          ],
+          "surface_base_m": [
+            0.6345627741683432,
+            -0.1028406800263186,
+            -0.03597465572929637
+          ],
+          "estimated_center_base_m": [
+            0.6534713347470672,
+            -0.09766904079108849,
+            -0.0649664329947886
+          ],
+          "estimated_radius_m": 0.034997180808610286,
+          "valid_points": 3744,
+          "estimated_center_above_candidate_plane_m": 0.011091152967576776
+        },
+        {
+          "frame": 22,
+          "depth_valid_fraction": 0.9961230292065133,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013716687939498114,
+          "surface_camera_m": [
+            -0.25368568281720355,
+            -0.07625343452657668,
+            0.5361360384497694
+          ],
+          "estimated_center_camera_m": [
+            -0.26814696562165696,
+            -0.08060024065790368,
+            0.5666983263470652
+          ],
+          "surface_base_m": [
+            0.6408925296811214,
+            -0.09561334089842156,
+            -0.03340865979438745
+          ],
+          "estimated_center_base_m": [
+            0.6595961697528849,
+            -0.09018469057017682,
+            -0.06138687398133086
+          ],
+          "estimated_radius_m": 0.03408924853103852,
+          "valid_points": 3854,
+          "estimated_center_above_candidate_plane_m": 0.014725582511993393
+        },
+        {
+          "frame": 23,
+          "depth_valid_fraction": 0.9687257689325407,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012157887490743774,
+          "surface_camera_m": [
+            -0.25081997872416306,
+            -0.0708211334722435,
+            0.4772446994582546
+          ],
+          "estimated_center_camera_m": [
+            -0.2669784999403625,
+            -0.07538362802944559,
+            0.5079901314638751
+          ],
+          "surface_base_m": [
+            0.6212149727674818,
+            -0.08698565379206516,
+            0.021761933112566745
+          ],
+          "estimated_center_base_m": [
+            0.6410849074070593,
+            -0.08029477555137293,
+            -0.006302521264424876
+          ],
+          "estimated_radius_m": 0.03503135386608825,
+          "valid_points": 3748,
+          "estimated_center_above_candidate_plane_m": 0.07107645048033617
+        },
+        {
+          "frame": 24,
+          "depth_valid_fraction": 0.9974153528043422,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001305289141405632,
+          "surface_camera_m": [
+            -0.22957214113931262,
+            -0.08114492437023635,
+            0.47191919013603534
+          ],
+          "estimated_center_camera_m": [
+            -0.2462355997833117,
+            -0.08703481625652289,
+            0.5061733721509573
+          ],
+          "surface_base_m": [
+            0.6162411906044079,
+            -0.10944771651770993,
+            0.02926688621862117
+          ],
+          "estimated_center_base_m": [
+            0.638267268042065,
+            -0.10354010980175252,
+            -0.001808228608579654
+          ],
+          "estimated_radius_m": 0.0385449175109224,
+          "valid_points": 3859,
+          "estimated_center_above_candidate_plane_m": 0.07467303835974885
+        }
+      ],
+      "usable_3d": false,
+      "three_d_status": "diagnostic_only: paper plane and absolute geometry not validated",
+      "center_span_m": [
+        0.030341308184584914,
+        0.032445552222890056,
+        0.07590625260665623
+      ],
+      "surface_span_m": [
+        0.02766239644491153,
+        0.030136813963908243,
+        0.07528943169753327
+      ],
+      "diagnostic_median_surface_base_m": [
+        0.6230616458244204,
+        -0.09885486886888992,
+        0.017751846020584994
+      ]
+    },
+    {
+      "id": 3,
+      "confidence": 0.278872013092041,
+      "bbox_xyxy": [
+        211.06234741210938,
+        161.49960327148438,
+        287.0664367675781,
+        226.37542724609375
+      ],
+      "mask_median_uv": [
+        249.0,
+        193.0
+      ],
+      "mask_pixels": 3837,
+      "mask_type": "segmentation",
+      "edge_truncated": false,
+      "context": "on_paper_cluster",
+      "tracking": "first-frame mask applied to all static-camera frames; no target ID claim across motion",
+      "samples": [
+        {
+          "frame": 0,
+          "depth_valid_fraction": 0.9559551733124837,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014186786588209171,
+          "surface_camera_m": [
+            -0.06848589614737831,
+            -0.023888099389982282,
+            0.5030041309656252
+          ],
+          "estimated_center_camera_m": [
+            -0.07251646212199234,
+            -0.02529397367966472,
+            0.5326071799057677
+          ],
+          "surface_base_m": [
+            0.4876241557959363,
+            -0.21579516663206963,
+            -0.019149290907888195
+          ],
+          "estimated_center_base_m": [
+            0.4979137731271991,
+            -0.21726326333005855,
+            -0.04719444946347673
+          ],
+          "estimated_radius_m": 0.02990923688673069,
+          "valid_points": 3668,
+          "estimated_center_above_candidate_plane_m": 0.030575333767407148
+        },
+        {
+          "frame": 1,
+          "depth_valid_fraction": 0.942402918947094,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013121631726455334,
+          "surface_camera_m": [
+            -0.06881552324227827,
+            -0.030622779735375465,
+            0.5047601782892442
+          ],
+          "estimated_center_camera_m": [
+            -0.07333365368465522,
+            -0.03263333937125135,
+            0.5379005544744119
+          ],
+          "surface_base_m": [
+            0.49356347650501753,
+            -0.21945203484575548,
+            -0.01902101329978423
+          ],
+          "estimated_center_base_m": [
+            0.5054322297154927,
+            -0.22132968894225924,
+            -0.05029956024111276
+          ],
+          "estimated_radius_m": 0.03350731840118174,
+          "valid_points": 3616,
+          "estimated_center_above_candidate_plane_m": 0.026953636075346024
+        },
+        {
+          "frame": 2,
+          "depth_valid_fraction": 0.9246807401615845,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013004637470662654,
+          "surface_camera_m": [
+            -0.07146114335053261,
+            -0.035269400098816614,
+            0.5076841211939279
+          ],
+          "estimated_center_camera_m": [
+            -0.07648113609726082,
+            -0.037747000153562936,
+            0.5433478467730346
+          ],
+          "surface_base_m": [
+            0.4994184474649984,
+            -0.22018904778158094,
+            -0.02052565356901126
+          ],
+          "estimated_center_base_m": [
+            0.5125290550579806,
+            -0.2222497993747348,
+            -0.05409804435078991
+          ],
+          "estimated_radius_m": 0.036100417606868655,
+          "valid_points": 3548,
+          "estimated_center_above_candidate_plane_m": 0.022796110277254325
+        },
+        {
+          "frame": 3,
+          "depth_valid_fraction": 0.8673442793849362,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011935359836732814,
+          "surface_camera_m": [
+            -0.06683299180060301,
+            -0.02052330364572706,
+            0.5008566710385903
+          ],
+          "estimated_center_camera_m": [
+            -0.07075238303217676,
+            -0.021726883706784005,
+            0.5302291888902625
+          ],
+          "surface_base_m": [
+            0.4835204351571878,
+            -0.2150572717570884,
+            -0.01801377584828112
+          ],
+          "estimated_center_base_m": [
+            0.49353316377709905,
+            -0.21647699984441865,
+            -0.0458936014445499
+          ],
+          "estimated_radius_m": 0.02965729315929407,
+          "valid_points": 3328,
+          "estimated_center_above_candidate_plane_m": 0.03210742361425466
+        },
+        {
+          "frame": 4,
+          "depth_valid_fraction": 0.8746416471201459,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.00127849296788795,
+          "surface_camera_m": [
+            -0.06099913154807189,
+            -0.02557688879161752,
+            0.5031531756151998
+          ],
+          "estimated_center_camera_m": [
+            -0.06521955216624177,
+            -0.027346507900370104,
+            0.5379654423241208
+          ],
+          "surface_base_m": [
+            0.48482362041120974,
+            -0.22297987246017603,
+            -0.018949139688258787
+          ],
+          "estimated_center_base_m": [
+            0.49672683042475124,
+            -0.22520224411715967,
+            -0.05190687126962146
+          ],
+          "estimated_radius_m": 0.03511178456583186,
+          "valid_points": 3356,
+          "estimated_center_above_candidate_plane_m": 0.025566400273527967
+        },
+        {
+          "frame": 5,
+          "depth_valid_fraction": 0.9885327078446703,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012854905671081396,
+          "surface_camera_m": [
+            -0.05970473729265539,
+            -0.027691823796867604,
+            0.5138925845423025
+          ],
+          "estimated_center_camera_m": [
+            -0.06376499061511952,
+            -0.029575021423635394,
+            0.5488401308910951
+          ],
+          "surface_base_m": [
+            0.4882660694640722,
+            -0.22664097812872971,
+            -0.02875787864134255
+          ],
+          "estimated_center_base_m": [
+            0.5001996733080641,
+            -0.22907507158266122,
+            -0.061818843153849445
+          ],
+          "estimated_radius_m": 0.03523298292999124,
+          "valid_points": 3793,
+          "estimated_center_above_candidate_plane_m": 0.015327936757949759
+        },
+        {
+          "frame": 6,
+          "depth_valid_fraction": 0.9197289549126922,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001321844349204659,
+          "surface_camera_m": [
+            -0.06757339220299162,
+            -0.025819183535662,
+            0.5062492939424919
+          ],
+          "estimated_center_camera_m": [
+            -0.07192430640140464,
+            -0.027481628598347043,
+            0.5388456631514574
+          ],
+          "surface_base_m": [
+            0.48940280293641186,
+            -0.21808237082610177,
+            -0.02176541033189555
+          ],
+          "estimated_center_base_m": [
+            0.5007747990104128,
+            -0.21983539587527276,
+            -0.05261702409885244
+          ],
+          "estimated_radius_m": 0.03292745759325491,
+          "valid_points": 3529,
+          "estimated_center_above_candidate_plane_m": 0.02491103254971208
+        },
+        {
+          "frame": 7,
+          "depth_valid_fraction": 0.9958300755798801,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011750655822879757,
+          "surface_camera_m": [
+            -0.061703303093033554,
+            -0.017805383950918834,
+            0.49972090734753016
+          ],
+          "estimated_center_camera_m": [
+            -0.06570540841729358,
+            -0.018960249547060826,
+            0.5321330409560695
+          ],
+          "surface_base_m": [
+            0.47818886532286975,
+            -0.21767553677183898,
+            -0.017775576166308538
+          ],
+          "estimated_center_base_m": [
+            0.4889171922970582,
+            -0.21941485662876198,
+            -0.04859399165769357
+          ],
+          "estimated_radius_m": 0.03267869285374535,
+          "valid_points": 3821,
+          "estimated_center_above_candidate_plane_m": 0.029484758270198627
+        },
+        {
+          "frame": 8,
+          "depth_valid_fraction": 0.9622100599426635,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012892616559627107,
+          "surface_camera_m": [
+            -0.06433703606262008,
+            -0.01715726624030503,
+            0.5058987043167976
+          ],
+          "estimated_center_camera_m": [
+            -0.06913570008369642,
+            -0.01843696392683266,
+            0.543631836883727
+          ],
+          "surface_base_m": [
+            0.4806203054683575,
+            -0.21596415647506625,
+            -0.0238270040602358
+          ],
+          "estimated_center_base_m": [
+            0.4931387947935669,
+            -0.21783743215123658,
+            -0.05971895802105032
+          ],
+          "estimated_radius_m": 0.038058561400420014,
+          "valid_points": 3692,
+          "estimated_center_above_candidate_plane_m": 0.018239827279713086
+        },
+        {
+          "frame": 9,
+          "depth_valid_fraction": 0.7735209799322388,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012835700008947126,
+          "surface_camera_m": [
+            -0.06167040376094383,
+            -0.027511607907034788,
+            0.5005566810592833
+          ],
+          "estimated_center_camera_m": [
+            -0.06555770412244734,
+            -0.029245760382785053,
+            0.5321085122225332
+          ],
+          "surface_base_m": [
+            0.48612596061004576,
+            -0.22309968001177954,
+            -0.015920389375448152
+          ],
+          "estimated_center_base_m": [
+            0.4970522303188295,
+            -0.22513255948574906,
+            -0.045755276168582715
+          ],
+          "estimated_radius_m": 0.031837657556169595,
+          "valid_points": 2968,
+          "estimated_center_above_candidate_plane_m": 0.03170646176621346
+        },
+        {
+          "frame": 10,
+          "depth_valid_fraction": 0.9676830857440709,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013940201492574978,
+          "surface_camera_m": [
+            -0.06523196840379629,
+            -0.02183895478943763,
+            0.5014314491934477
+          ],
+          "estimated_center_camera_m": [
+            -0.0697046414690119,
+            -0.023336357171265715,
+            0.5358124282093905
+          ],
+          "surface_base_m": [
+            0.4837956625100568,
+            -0.21717186332885144,
+            -0.01825339787166197
+          ],
+          "estimated_center_base_m": [
+            0.49552109366875235,
+            -0.21897636493008898,
+            -0.05086561604905565
+          ],
+          "estimated_radius_m": 0.034703007597845247,
+          "valid_points": 3713,
+          "estimated_center_above_candidate_plane_m": 0.026936072682469142
+        },
+        {
+          "frame": 11,
+          "depth_valid_fraction": 0.8991399530883503,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001387359606213432,
+          "surface_camera_m": [
+            -0.060543104486017504,
+            -0.02918293530839854,
+            0.4988404413604065
+          ],
+          "estimated_center_camera_m": [
+            -0.06401406513330231,
+            -0.030856004783240274,
+            0.5274391654584751
+          ],
+          "surface_base_m": [
+            0.4864015774020155,
+            -0.2247184694859587,
+            -0.013834777162106515
+          ],
+          "estimated_center_base_m": [
+            0.4963556018945344,
+            -0.22666004591206312,
+            -0.04085109494791933
+          ],
+          "estimated_radius_m": 0.028857126491043713,
+          "valid_points": 3450,
+          "estimated_center_above_candidate_plane_m": 0.0365746083287916
+        },
+        {
+          "frame": 12,
+          "depth_valid_fraction": 0.910086004691165,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014927279452158007,
+          "surface_camera_m": [
+            -0.06178848074595885,
+            -0.022072110122178797,
+            0.5096609824502645
+          ],
+          "estimated_center_camera_m": [
+            -0.06617644481519137,
+            -0.023639580708589007,
+            0.5458550116848767
+          ],
+          "surface_base_m": [
+            0.48396755283679094,
+            -0.2212722300690377,
+            -0.026169410805899962
+          ],
+          "estimated_center_base_m": [
+            0.49612452285161857,
+            -0.22343295956773038,
+            -0.06050974093011635
+          ],
+          "estimated_radius_m": 0.03649272454816304,
+          "valid_points": 3492,
+          "estimated_center_above_candidate_plane_m": 0.017068514335481955
+        },
+        {
+          "frame": 13,
+          "depth_valid_fraction": 0.8879332812092781,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012988177040562862,
+          "surface_camera_m": [
+            -0.06244495355745389,
+            -0.021879758163014944,
+            0.4987180015756961
+          ],
+          "estimated_center_camera_m": [
+            -0.0667016421733157,
+            -0.023371236852395727,
+            0.5327141392760694
+          ],
+          "surface_base_m": [
+            0.4816241189258934,
+            -0.2191323314370712,
+            -0.015684650070208195
+          ],
+          "estimated_center_base_m": [
+            0.49313354331012943,
+            -0.22105980358159225,
+            -0.04793211953172827
+          ],
+          "estimated_radius_m": 0.03429404154071118,
+          "valid_points": 3407,
+          "estimated_center_above_candidate_plane_m": 0.029884927936991615
+        },
+        {
+          "frame": 14,
+          "depth_valid_fraction": 0.9945269741985927,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014000650343777192,
+          "surface_camera_m": [
+            -0.06448317666191364,
+            -0.024430615578839694,
+            0.5055376131685486
+          ],
+          "estimated_center_camera_m": [
+            -0.06900332639928589,
+            -0.026143155908102955,
+            0.54097485164978
+          ],
+          "surface_base_m": [
+            0.48639127440493,
+            -0.21977995132313655,
+            -0.021515927231993304
+          ],
+          "estimated_center_base_m": [
+            0.4985610345140702,
+            -0.22180720992349634,
+            -0.055085996946793336
+          ],
+          "estimated_radius_m": 0.0357653801769712,
+          "valid_points": 3816,
+          "estimated_center_above_candidate_plane_m": 0.02245453703140575
+        },
+        {
+          "frame": 15,
+          "depth_valid_fraction": 0.9812353401094606,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013666850473179292,
+          "surface_camera_m": [
+            -0.06320204716331199,
+            -0.024223908775401787,
+            0.5072953629930461
+          ],
+          "estimated_center_camera_m": [
+            -0.06795669217979924,
+            -0.02604625618831382,
+            0.5454588320229247
+          ],
+          "surface_base_m": [
+            0.4859334424988756,
+            -0.22093893047276986,
+            -0.02327515992897128
+          ],
+          "estimated_center_base_m": [
+            0.4989593659378282,
+            -0.22320316812252922,
+            -0.05943558738978283
+          ],
+          "estimated_radius_m": 0.03850166188258178,
+          "valid_points": 3765,
+          "estimated_center_above_candidate_plane_m": 0.01802556551375585
+        },
+        {
+          "frame": 16,
+          "depth_valid_fraction": 0.9710711493354183,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013776810473059367,
+          "surface_camera_m": [
+            -0.06455192339068846,
+            -0.01825868772573405,
+            0.5067265258508156
+          ],
+          "estimated_center_camera_m": [
+            -0.06938363294123276,
+            -0.019625349960271907,
+            0.5446549912762266
+          ],
+          "surface_base_m": [
+            0.481835196740771,
+            -0.21652385580285846,
+            -0.02431157919014937
+          ],
+          "estimated_center_base_m": [
+            0.49448814071138625,
+            -0.21844533734335084,
+            -0.06036698918555433
+          ],
+          "estimated_radius_m": 0.03825939979104141,
+          "valid_points": 3726,
+          "estimated_center_above_candidate_plane_m": 0.017504454469008404
+        },
+        {
+          "frame": 17,
+          "depth_valid_fraction": 0.9616888193901486,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001302180168613415,
+          "surface_camera_m": [
+            -0.061463447423490775,
+            -0.028517988855097546,
+            0.5068066426739952
+          ],
+          "estimated_center_camera_m": [
+            -0.06548139991547518,
+            -0.030382250122403708,
+            0.5399373097329986
+          ],
+          "surface_base_m": [
+            0.4882606012784659,
+            -0.22467753398723234,
+            -0.021681482054545786
+          ],
+          "estimated_center_base_m": [
+            0.4997315699592648,
+            -0.22688855552174128,
+            -0.052999029426158695
+          ],
+          "estimated_radius_m": 0.03342544707367651,
+          "valid_points": 3690,
+          "estimated_center_above_candidate_plane_m": 0.024265093854363526
+        },
+        {
+          "frame": 18,
+          "depth_valid_fraction": 0.9489184258535314,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013379332641326005,
+          "surface_camera_m": [
+            -0.060064248793899794,
+            -0.027301783516130457,
+            0.516987415732261
+          ],
+          "estimated_center_camera_m": [
+            -0.06401529701237539,
+            -0.02909770480522796,
+            0.5509950367201174
+          ],
+          "surface_base_m": [
+            0.4888663384250835,
+            -0.22653683879687236,
+            -0.031858587929871895
+          ],
+          "estimated_center_base_m": [
+            0.5004486969478043,
+            -0.22888431610204749,
+            -0.0640407681218334
+          ],
+          "estimated_radius_m": 0.03428344207565862,
+          "valid_points": 3641,
+          "estimated_center_above_candidate_plane_m": 0.013103240143753442
+        },
+        {
+          "frame": 19,
+          "depth_valid_fraction": 0.892624446181913,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001250380737404646,
+          "surface_camera_m": [
+            -0.06335627407425087,
+            -0.02228060510601466,
+            0.5045869992734536
+          ],
+          "estimated_center_camera_m": [
+            -0.06708316166043647,
+            -0.02359124579307579,
+            0.5342689692317716
+          ],
+          "surface_base_m": [
+            0.48382699372370574,
+            -0.21939975498252262,
+            -0.02121117311736781
+          ],
+          "estimated_center_base_m": [
+            0.4938882057872904,
+            -0.2210790418762512,
+            -0.04936394949976497
+          ],
+          "estimated_radius_m": 0.029943727401529917,
+          "valid_points": 3425,
+          "estimated_center_above_candidate_plane_m": 0.028418381390601655
+        },
+        {
+          "frame": 20,
+          "depth_valid_fraction": 0.8967943706020328,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001446880137707371,
+          "surface_camera_m": [
+            -0.06186387921207378,
+            -0.021106101667704442,
+            0.5017791509487141
+          ],
+          "estimated_center_camera_m": [
+            -0.06644991952851084,
+            -0.022670721190497338,
+            0.5389766148890168
+          ],
+          "surface_base_m": [
+            0.4814190654400732,
+            -0.21962769553040815,
+            -0.018826710102310518
+          ],
+          "estimated_center_base_m": [
+            0.4939203893205846,
+            -0.221760852290095,
+            -0.05412965144008536
+          ],
+          "estimated_radius_m": 0.037511746475273826,
+          "valid_points": 3441,
+          "estimated_center_above_candidate_plane_m": 0.02362119538077584
+        },
+        {
+          "frame": 21,
+          "depth_valid_fraction": 0.9575188949700286,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011623786396341366,
+          "surface_camera_m": [
+            -0.0635124487024839,
+            -0.018473756491961632,
+            0.5000452794657488
+          ],
+          "estimated_center_camera_m": [
+            -0.06826971979397538,
+            -0.01985749573530504,
+            0.5375001564392791
+          ],
+          "surface_base_m": [
+            0.4798542984712666,
+            -0.21655324750661673,
+            -0.017856775741867892
+          ],
+          "estimated_center_base_m": [
+            0.4923675826786109,
+            -0.21847873282548091,
+            -0.053453466546869055
+          ],
+          "estimated_radius_m": 0.037781135128974,
+          "valid_points": 3674,
+          "estimated_center_above_candidate_plane_m": 0.024511675581209313
+        },
+        {
+          "frame": 22,
+          "depth_valid_fraction": 0.961949439666406,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001349295638592996,
+          "surface_camera_m": [
+            -0.06416509982352833,
+            -0.021548886404439905,
+            0.5076740002503497
+          ],
+          "estimated_center_camera_m": [
+            -0.06880860400575829,
+            -0.0231083376390926,
+            0.5444133858330944
+          ],
+          "surface_base_m": [
+            0.4844447562265717,
+            -0.21874968066545747,
+            -0.02433878703530845
+          ],
+          "estimated_center_base_m": [
+            0.4968673903895272,
+            -0.2207690938881866,
+            -0.05920103886921152
+          ],
+          "estimated_radius_m": 0.03706449071876252,
+          "valid_points": 3691,
+          "estimated_center_above_candidate_plane_m": 0.018461243260524715
+        },
+        {
+          "frame": 23,
+          "depth_valid_fraction": 0.962991920771436,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013500820442404631,
+          "surface_camera_m": [
+            -0.06087893597221959,
+            -0.028480737617857563,
+            0.5231901542189914
+          ],
+          "estimated_center_camera_m": [
+            -0.06521793551776897,
+            -0.030510633600881746,
+            0.5604792724523984
+          ],
+          "surface_base_m": [
+            0.4917185659067772,
+            -0.22735177082919555,
+            -0.03747764364198236
+          ],
+          "estimated_center_base_m": [
+            0.5044716439640694,
+            -0.22995373613089748,
+            -0.0727482335153673
+          ],
+          "estimated_radius_m": 0.03759555470242704,
+          "valid_points": 3695,
+          "estimated_center_above_candidate_plane_m": 0.004168109160359326
+        },
+        {
+          "frame": 24,
+          "depth_valid_fraction": 0.9687255668491008,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.00133359161099933,
+          "surface_camera_m": [
+            -0.056959970254745744,
+            -0.027588566135016198,
+            0.5086648620967897
+          ],
+          "estimated_center_camera_m": [
+            -0.060323440908831905,
+            -0.02921766341453437,
+            0.538701382986384
+          ],
+          "surface_base_m": [
+            0.4854172133220214,
+            -0.2281111292021384,
+            -0.02381390984598397
+          ],
+          "estimated_center_base_m": [
+            0.4956109000942762,
+            -0.23031217417787192,
+            -0.052228758621615856
+          ],
+          "estimated_radius_m": 0.030268126468912207,
+          "valid_points": 3717,
+          "estimated_center_above_candidate_plane_m": 0.025069458540861733
+        }
+      ],
+      "usable_3d": false,
+      "three_d_status": "diagnostic_only: paper plane and absolute geometry not validated",
+      "center_span_m": [
+        0.02361186276092242,
+        0.01383517433345327,
+        0.03189713856744797
+      ],
+      "surface_span_m": [
+        0.021229582142128667,
+        0.013053857445050027,
+        0.023642866479875846
+      ],
+      "diagnostic_median_surface_base_m": [
+        0.4854172133220214,
+        -0.21962769553040815,
+        -0.02121117311736781
+      ]
+    },
+    {
+      "id": 4,
+      "confidence": 0.22680318355560303,
+      "bbox_xyxy": [
+        181.6177978515625,
+        375.0892028808594,
+        244.4483642578125,
+        457.4584655761719
+      ],
+      "mask_median_uv": [
+        210.0,
+        421.0
+      ],
+      "mask_pixels": 3572,
+      "mask_type": "segmentation",
+      "edge_truncated": false,
+      "context": "on_paper_cluster",
+      "tracking": "first-frame mask applied to all static-camera frames; no target ID claim across motion",
+      "samples": [
+        {
+          "frame": 0,
+          "depth_valid_fraction": 0.9834826427771557,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013214045889747919,
+          "surface_camera_m": [
+            -0.07441954971261981,
+            0.1378010365166899,
+            0.46441281755510944
+          ],
+          "estimated_center_camera_m": [
+            -0.07870113113861739,
+            0.14572914627698078,
+            0.49113188937585667
+          ],
+          "surface_base_m": [
+            0.35355723138217277,
+            -0.11754199554892054,
+            -0.025493464295090806
+          ],
+          "estimated_center_base_m": [
+            0.35590287979535007,
+            -0.11332437578567774,
+            -0.05327484798804927
+          ],
+          "estimated_radius_m": 0.028197440714378984,
+          "valid_points": 3513,
+          "estimated_center_above_candidate_plane_m": 0.03544774286604713
+        },
+        {
+          "frame": 1,
+          "depth_valid_fraction": 0.9767637178051511,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012647707451681472,
+          "surface_camera_m": [
+            -0.07069198818950935,
+            0.13005098291350642,
+            0.4613146122753813
+          ],
+          "estimated_center_camera_m": [
+            -0.07487655741860365,
+            0.1377492717189426,
+            0.4886218500670834
+          ],
+          "surface_base_m": [
+            0.35689295521326514,
+            -0.12444629794400222,
+            -0.02049576626478955
+          ],
+          "estimated_center_base_m": [
+            0.35950355453456273,
+            -0.12051536190354899,
+            -0.048783431757139006
+          ],
+          "estimated_radius_m": 0.02867855480977992,
+          "valid_points": 3489,
+          "estimated_center_above_candidate_plane_m": 0.03946073664299468
+        },
+        {
+          "frame": 2,
+          "depth_valid_fraction": 0.9440089585666294,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001349061273481407,
+          "surface_camera_m": [
+            -0.07615800582086789,
+            0.14034859901749483,
+            0.46290916622609907
+          ],
+          "estimated_center_camera_m": [
+            -0.08050822934150502,
+            0.14836545515695904,
+            0.48935101329299685
+          ],
+          "surface_base_m": [
+            0.352154998697351,
+            -0.11452635319474073,
+            -0.02469822504949143
+          ],
+          "estimated_center_base_m": [
+            0.3544038586522918,
+            -0.11016646165784416,
+            -0.05223546670582191
+          ],
+          "estimated_radius_m": 0.027970800906473515,
+          "valid_points": 3372,
+          "estimated_center_above_candidate_plane_m": 0.036693533256365235
+        },
+        {
+          "frame": 3,
+          "depth_valid_fraction": 0.9512877939529675,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013698433595525639,
+          "surface_camera_m": [
+            -0.0777318875636877,
+            0.13334692610323912,
+            0.466535400598588
+          ],
+          "estimated_center_camera_m": [
+            -0.08252720194787333,
+            0.1415731567129859,
+            0.49531617496726954
+          ],
+          "surface_base_m": [
+            0.3594453487842646,
+            -0.11753814599012712,
+            -0.026270663135219863
+          ],
+          "estimated_center_base_m": [
+            0.3623238721035362,
+            -0.11301561413696672,
+            -0.0561078830540801
+          ],
+          "estimated_radius_m": 0.03031499436498164,
+          "valid_points": 3398,
+          "estimated_center_above_candidate_plane_m": 0.0323401397544401
+        },
+        {
+          "frame": 4,
+          "depth_valid_fraction": 0.958006718924972,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013273406543462692,
+          "surface_camera_m": [
+            -0.07326196409506375,
+            0.1335420708690708,
+            0.4645251649481538
+          ],
+          "estimated_center_camera_m": [
+            -0.07875283438333469,
+            0.1435508414258864,
+            0.4993406037351661
+          ],
+          "surface_base_m": [
+            0.3563441546919659,
+            -0.12088193800321306,
+            -0.0244611503729405
+          ],
+          "estimated_center_base_m": [
+            0.3596090255454435,
+            -0.1156372509005149,
+            -0.06057588141193204
+          ],
+          "estimated_radius_m": 0.03663932208043418,
+          "valid_points": 3422,
+          "estimated_center_above_candidate_plane_m": 0.02787847674973226
+        },
+        {
+          "frame": 5,
+          "depth_valid_fraction": 0.93505039193729,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012587306648196512,
+          "surface_camera_m": [
+            -0.07630930202588655,
+            0.1367360871728365,
+            0.46408050436983855
+          ],
+          "estimated_center_camera_m": [
+            -0.08042659507500716,
+            0.14411372694065522,
+            0.4891201179444213
+          ],
+          "surface_base_m": [
+            0.35539393865851876,
+            -0.11653569939785982,
+            -0.024844151806431236
+          ],
+          "estimated_center_base_m": [
+            0.3576928524270039,
+            -0.11252613330408692,
+            -0.050863419547572564
+          ],
+          "estimated_radius_m": 0.02642657599009877,
+          "valid_points": 3340,
+          "estimated_center_above_candidate_plane_m": 0.037814007549007
+        },
+        {
+          "frame": 6,
+          "depth_valid_fraction": 0.9837625979843225,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.00127463708552005,
+          "surface_camera_m": [
+            -0.08225079994655825,
+            0.14280501266798087,
+            0.46786037492720495
+          ],
+          "estimated_center_camera_m": [
+            -0.08686801328380311,
+            0.15082148435633452,
+            0.49412408500036964
+          ],
+          "surface_base_m": [
+            0.35478696403538235,
+            -0.10884063315921626,
+            -0.030016083943741834
+          ],
+          "estimated_center_base_m": [
+            0.3571447185396721,
+            -0.1042366134115841,
+            -0.05737680286704455
+          ],
+          "estimated_radius_m": 0.02784537563293159,
+          "valid_points": 3514,
+          "estimated_center_above_candidate_plane_m": 0.031690449791983696
+        },
+        {
+          "frame": 7,
+          "depth_valid_fraction": 0.9792833146696529,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013546758071209621,
+          "surface_camera_m": [
+            -0.07860235362860768,
+            0.14013986230591455,
+            0.4672946387033843
+          ],
+          "estimated_center_camera_m": [
+            -0.08323581350271435,
+            0.14840084176494386,
+            0.4948407726022205
+          ],
+          "surface_base_m": [
+            0.354689692355036,
+            -0.11322752070370842,
+            -0.028834863576016334
+          ],
+          "estimated_center_base_m": [
+            0.35716003483823366,
+            -0.10865127989153807,
+            -0.05749594612439196
+          ],
+          "estimated_radius_m": 0.029129061515951276,
+          "valid_points": 3498,
+          "estimated_center_above_candidate_plane_m": 0.03137611465090728
+        },
+        {
+          "frame": 8,
+          "depth_valid_fraction": 0.9795632698768197,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013663009322679714,
+          "surface_camera_m": [
+            -0.06303567933448939,
+            0.12733249796091303,
+            0.45598157320371696
+          ],
+          "estimated_center_camera_m": [
+            -0.06795363950809598,
+            0.1372668107245574,
+            0.491556651327566
+          ],
+          "surface_base_m": [
+            0.35350571042917334,
+            -0.13152194986915497,
+            -0.014766157611545372
+          ],
+          "estimated_center_base_m": [
+            0.3566829668753143,
+            -0.1268933614102506,
+            -0.05160288244189093
+          ],
+          "estimated_radius_m": 0.037262086440147855,
+          "valid_points": 3499,
+          "estimated_center_above_candidate_plane_m": 0.036486866448590796
+        },
+        {
+          "frame": 9,
+          "depth_valid_fraction": 0.9462486002239642,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001120823661577068,
+          "surface_camera_m": [
+            -0.083568210422157,
+            0.14430897468805995,
+            0.4674239464366175
+          ],
+          "estimated_center_camera_m": [
+            -0.08799411761166923,
+            0.15195181070616476,
+            0.49217947242710225
+          ],
+          "surface_base_m": [
+            0.35425039140288883,
+            -0.10686183443810467,
+            -0.029963257534926735
+          ],
+          "estimated_center_base_m": [
+            0.3564464529437107,
+            -0.10241374440219159,
+            -0.055774678895570806
+          ],
+          "estimated_radius_m": 0.02628379089696503,
+          "valid_points": 3380,
+          "estimated_center_above_candidate_plane_m": 0.03340422490733774
+        },
+        {
+          "frame": 10,
+          "depth_valid_fraction": 0.9400895856662934,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012835245453133323,
+          "surface_camera_m": [
+            -0.07975099485577324,
+            0.13709181191368164,
+            0.46195219979301155
+          ],
+          "estimated_center_camera_m": [
+            -0.0845464829997847,
+            0.1453352471192491,
+            0.48972973788157925
+          ],
+          "surface_base_m": [
+            0.3565315970477029,
+            -0.11319469092157174,
+            -0.02283675115903777
+          ],
+          "estimated_center_base_m": [
+            0.35916208870026367,
+            -0.10852497734438678,
+            -0.05171263801230058
+          ],
+          "estimated_radius_m": 0.029369074769041895,
+          "valid_points": 3358,
+          "estimated_center_above_candidate_plane_m": 0.03707513607653819
+        },
+        {
+          "frame": 11,
+          "depth_valid_fraction": 0.9815229563269877,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012250891474429267,
+          "surface_camera_m": [
+            -0.07469168341203238,
+            0.13352347875582227,
+            0.46484080526497706
+          ],
+          "estimated_center_camera_m": [
+            -0.08034586297397016,
+            0.1436312402914042,
+            0.5000293732637073
+          ],
+          "surface_base_m": [
+            0.35721168357966815,
+            -0.11973839839426845,
+            -0.02472930448729216
+          ],
+          "estimated_center_base_m": [
+            0.3605754761708182,
+            -0.11435507795878794,
+            -0.061226930000094326
+          ],
+          "estimated_radius_m": 0.03704553829518595,
+          "valid_points": 3506,
+          "estimated_center_above_candidate_plane_m": 0.02724054510745895
+        },
+        {
+          "frame": 12,
+          "depth_valid_fraction": 0.9515677491601344,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001409382898110352,
+          "surface_camera_m": [
+            -0.0762894236148281,
+            0.13635189704765377,
+            0.4602274572148591
+          ],
+          "estimated_center_camera_m": [
+            -0.08087452283941043,
+            0.14454683348576328,
+            0.4878877600094027
+          ],
+          "surface_base_m": [
+            0.354771027006126,
+            -0.11622927842475254,
+            -0.021035909839163425
+          ],
+          "estimated_center_base_m": [
+            0.3572946889731778,
+            -0.11174469704065619,
+            -0.049789903107842204
+          ],
+          "estimated_radius_m": 0.029210827937765766,
+          "valid_points": 3399,
+          "estimated_center_above_candidate_plane_m": 0.03893982248346206
+        },
+        {
+          "frame": 13,
+          "depth_valid_fraction": 0.9476483762597985,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001334002834239412,
+          "surface_camera_m": [
+            -0.07073037952550912,
+            0.1353775536881538,
+            0.4626784909558955
+          ],
+          "estimated_center_camera_m": [
+            -0.07594452577822372,
+            0.14535740066480093,
+            0.4967865126576491
+          ],
+          "surface_base_m": [
+            0.35299476953904835,
+            -0.12169159274231858,
+            -0.023244389403045185
+          ],
+          "estimated_center_base_m": [
+            0.3559591501434552,
+            -0.11659284227055072,
+            -0.0586754069228419
+          ],
+          "estimated_radius_m": 0.035918544113442044,
+          "valid_points": 3385,
+          "estimated_center_above_candidate_plane_m": 0.029900654134418142
+        },
+        {
+          "frame": 14,
+          "depth_valid_fraction": 0.9526875699888018,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001238329900177854,
+          "surface_camera_m": [
+            -0.06913618362250447,
+            0.13406664304364174,
+            0.4595297553031791
+          ],
+          "estimated_center_camera_m": [
+            -0.07346619745773555,
+            0.1424632653158754,
+            0.4883102012853816
+          ],
+          "surface_base_m": [
+            0.3524112921050421,
+            -0.12330994566570011,
+            -0.019885957492101536
+          ],
+          "estimated_center_base_m": [
+            0.3548933506160554,
+            -0.11907929311567197,
+            -0.049777550304783647
+          ],
+          "estimated_radius_m": 0.030291357782878257,
+          "valid_points": 3403,
+          "estimated_center_above_candidate_plane_m": 0.03873679362088124
+        },
+        {
+          "frame": 15,
+          "depth_valid_fraction": 0.9806830907054871,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012982557283283355,
+          "surface_camera_m": [
+            -0.08107050895031437,
+            0.14132829721644896,
+            0.46448927538030543
+          ],
+          "estimated_center_camera_m": [
+            -0.08577397950820365,
+            0.14952774598716764,
+            0.49143756594235843
+          ],
+          "surface_base_m": [
+            0.3545097963089088,
+            -0.11013580210209738,
+            -0.026384490647641368
+          ],
+          "estimated_center_base_m": [
+            0.3569306141996028,
+            -0.10545351945832042,
+            -0.05445190644662945
+          ],
+          "estimated_radius_m": 0.02855808046156827,
+          "valid_points": 3503,
+          "estimated_center_above_candidate_plane_m": 0.03457133982729936
+        },
+        {
+          "frame": 16,
+          "depth_valid_fraction": 0.9773236282194849,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014229697799121677,
+          "surface_camera_m": [
+            -0.07383856740484687,
+            0.1341186708165902,
+            0.4610965375310773
+          ],
+          "estimated_center_camera_m": [
+            -0.07803295745623093,
+            0.14173726416623628,
+            0.4872890653349285
+          ],
+          "surface_base_m": [
+            0.35540181673925525,
+            -0.11960733258108747,
+            -0.021314091002119506
+          ],
+          "estimated_center_base_m": [
+            0.35782231160959593,
+            -0.11556024609643642,
+            -0.048506859909576316
+          ],
+          "estimated_radius_m": 0.02759863013422834,
+          "valid_points": 3491,
+          "estimated_center_above_candidate_plane_m": 0.040031078023727754
+        },
+        {
+          "frame": 17,
+          "depth_valid_fraction": 0.9938409854423292,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013278583549852989,
+          "surface_camera_m": [
+            -0.0719425045448085,
+            0.1271351162446801,
+            0.4654192716510674
+          ],
+          "estimated_center_camera_m": [
+            -0.07701993499413054,
+            0.13610783292285444,
+            0.4982668072843392
+          ],
+          "surface_base_m": [
+            0.36088648668959766,
+            -0.12556820686624615,
+            -0.023628391367010004
+          ],
+          "estimated_center_base_m": [
+            0.3642811789908107,
+            -0.12096050563183286,
+            -0.057576818359258486
+          ],
+          "estimated_radius_m": 0.03442746783795684,
+          "valid_points": 3550,
+          "estimated_center_above_candidate_plane_m": 0.03043331962172202
+        },
+        {
+          "frame": 18,
+          "depth_valid_fraction": 0.973124300111982,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011026372435444594,
+          "surface_camera_m": [
+            -0.07274223501177421,
+            0.13320192217878152,
+            0.4640656152002198
+          ],
+          "estimated_center_camera_m": [
+            -0.07806382524151285,
+            0.14294655055780062,
+            0.4980151775611703
+          ],
+          "surface_base_m": [
+            0.3561810013258426,
+            -0.12139378610745716,
+            -0.02395747168567347
+          ],
+          "estimated_center_base_m": [
+            0.35935534064829383,
+            -0.11631257294249739,
+            -0.05917046264010223
+          ],
+          "estimated_radius_m": 0.035719040991024645,
+          "valid_points": 3476,
+          "estimated_center_above_candidate_plane_m": 0.029265526987391433
+        },
+        {
+          "frame": 19,
+          "depth_valid_fraction": 0.9759238521836506,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013751719888089402,
+          "surface_camera_m": [
+            -0.07702534593440688,
+            0.14701327876448148,
+            0.46322534771652796
+          ],
+          "estimated_center_camera_m": [
+            -0.0824869949750174,
+            0.1574375738219136,
+            0.49607134464456404
+          ],
+          "surface_base_m": [
+            0.3474153976849559,
+            -0.11022667739899657,
+            -0.02679368671734611
+          ],
+          "estimated_center_base_m": [
+            0.3498706866112393,
+            -0.10450974684293288,
+            -0.06112506177267085
+          ],
+          "estimated_radius_m": 0.03489061552744177,
+          "valid_points": 3486,
+          "estimated_center_above_candidate_plane_m": 0.028256612757717084
+        },
+        {
+          "frame": 20,
+          "depth_valid_fraction": 0.9344904815229563,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012654975995812648,
+          "surface_camera_m": [
+            -0.07819539427722776,
+            0.13866304389659767,
+            0.46808796818994947
+          ],
+          "estimated_center_camera_m": [
+            -0.0827246375150261,
+            0.14669470176732344,
+            0.4952006170130082
+          ],
+          "surface_base_m": [
+            0.3558565614801429,
+            -0.11448607613116181,
+            -0.029184872283485153
+          ],
+          "estimated_center_base_m": [
+            0.35835158216559115,
+            -0.11006278520746625,
+            -0.057368673798638914
+          ],
+          "estimated_radius_m": 0.028637690176793993,
+          "valid_points": 3338,
+          "estimated_center_above_candidate_plane_m": 0.03138772168909819
+        },
+        {
+          "frame": 21,
+          "depth_valid_fraction": 0.9566069428891377,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012171051819252893,
+          "surface_camera_m": [
+            -0.07413911038975678,
+            0.13591210167188908,
+            0.46392159457746446
+          ],
+          "estimated_center_camera_m": [
+            -0.07898045828528318,
+            0.14478727921241538,
+            0.4942160750991403
+          ],
+          "surface_base_m": [
+            0.3547941116729151,
+            -0.11873507316982557,
+            -0.024519672776265877
+          ],
+          "estimated_center_base_m": [
+            0.3575367304083945,
+            -0.11402611171078444,
+            -0.05598817608272516
+          ],
+          "estimated_radius_m": 0.03193685920530659,
+          "valid_points": 3417,
+          "estimated_center_above_candidate_plane_m": 0.03263017060231056
+        },
+        {
+          "frame": 22,
+          "depth_valid_fraction": 0.9686450167973124,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013127369927980036,
+          "surface_camera_m": [
+            -0.07926757697873943,
+            0.13594999093845175,
+            0.4649215580746606
+          ],
+          "estimated_center_camera_m": [
+            -0.08374929386218483,
+            0.1436364800796113,
+            0.4912078011480399
+          ],
+          "surface_base_m": [
+            0.35787750193049955,
+            -0.11462766794057357,
+            -0.025382385882102176
+          ],
+          "estimated_center_base_m": [
+            0.3604269516904935,
+            -0.11031841339469182,
+            -0.05267826666351988
+          ],
+          "estimated_radius_m": 0.027751296842729766,
+          "valid_points": 3460,
+          "estimated_center_above_candidate_plane_m": 0.03597372438471222
+        },
+        {
+          "frame": 23,
+          "depth_valid_fraction": 0.9412094064949608,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012120397541682802,
+          "surface_camera_m": [
+            -0.07935951381220697,
+            0.14136838209091748,
+            0.4670745084592556
+          ],
+          "estimated_center_camera_m": [
+            -0.08368295330469737,
+            0.14907001251632127,
+            0.49252033440757015
+          ],
+          "surface_base_m": [
+            0.3541229036914234,
+            -0.11188142092316636,
+            -0.028918849668810864
+          ],
+          "estimated_center_base_m": [
+            0.35637497245988975,
+            -0.10757957694610822,
+            -0.05541261540918452
+          ],
+          "estimated_radius_m": 0.026935057052968187,
+          "valid_points": 3362,
+          "estimated_center_above_candidate_plane_m": 0.03354189651142887
+        },
+        {
+          "frame": 24,
+          "depth_valid_fraction": 0.9829227323628219,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013751140123903043,
+          "surface_camera_m": [
+            -0.07132919672140214,
+            0.13085616824652713,
+            0.46287182247801834
+          ],
+          "estimated_center_camera_m": [
+            -0.07616969076519138,
+            0.13973624165411597,
+            0.49428291923400425
+          ],
+          "surface_base_m": [
+            0.35697864536547014,
+            -0.12366442968188232,
+            -0.022191497873052413
+          ],
+          "estimated_center_base_m": [
+            0.3599774570981442,
+            -0.11910603033880647,
+            -0.05473640852505851
+          ],
+          "estimated_radius_m": 0.0329991376512483,
+          "valid_points": 3511,
+          "estimated_center_above_candidate_plane_m": 0.03354858463444148
+        }
+      ],
+      "usable_3d": false,
+      "three_d_status": "diagnostic_only: paper plane and absolute geometry not validated",
+      "center_span_m": [
+        0.014410492379571371,
+        0.024479617008059007,
+        0.01272007009051801
+      ],
+      "surface_span_m": [
+        0.013471089004641779,
+        0.024660115431050303,
+        0.015249926332196462
+      ],
+      "diagnostic_median_surface_base_m": [
+        0.3547941116729151,
+        -0.11753814599012712,
+        -0.02469822504949143
+      ]
+    },
+    {
+      "id": 5,
+      "confidence": 0.2237038016319275,
+      "bbox_xyxy": [
+        283.2391357421875,
+        209.424072265625,
+        335.313720703125,
+        254.60968017578125
+      ],
+      "mask_median_uv": [
+        310.0,
+        229.0
+      ],
+      "mask_pixels": 1534,
+      "mask_type": "segmentation",
+      "edge_truncated": false,
+      "context": "on_paper_cluster",
+      "tracking": "first-frame mask applied to all static-camera frames; no target ID claim across motion",
+      "samples": [
+        {
+          "frame": 0,
+          "depth_valid_fraction": 0.9817470664928292,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.00136984754589347,
+          "surface_camera_m": [
+            -0.012366743832336175,
+            0.008894468969901047,
+            0.5055706875361575
+          ],
+          "estimated_center_camera_m": [
+            -0.012965742616877864,
+            0.009325283756262482,
+            0.5300586393721305
+          ],
+          "surface_base_m": [
+            0.43069604565359226,
+            -0.24472171960300595,
+            -0.03152216714180489
+          ],
+          "estimated_center_base_m": [
+            0.43640713019991895,
+            -0.24733107341857713,
+            -0.05520293934236542
+          ],
+          "estimated_radius_m": 0.02449906500348456,
+          "valid_points": 1506,
+          "estimated_center_above_candidate_plane_m": 0.024002489735298213
+        },
+        {
+          "frame": 1,
+          "depth_valid_fraction": 0.9986962190352021,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001422860418363161,
+          "surface_camera_m": [
+            -0.010615110355623344,
+            0.007254948133173446,
+            0.5064462058740065
+          ],
+          "estimated_center_camera_m": [
+            -0.011068560178962747,
+            0.007564860591839624,
+            0.5280802666506638
+          ],
+          "surface_base_m": [
+            0.43121558816215133,
+            -0.24720511021839475,
+            -0.03195780750173488
+          ],
+          "estimated_center_base_m": [
+            0.4362743855180985,
+            -0.24961230247605906,
+            -0.052861114486720095
+          ],
+          "estimated_radius_m": 0.021641031587297875,
+          "valid_points": 1532,
+          "estimated_center_above_candidate_plane_m": 0.02624976412043356
+        },
+        {
+          "frame": 2,
+          "depth_valid_fraction": 1.0,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0010794271738022224,
+          "surface_camera_m": [
+            -0.010142519281240117,
+            0.014286180946284881,
+            0.5066311638262477
+          ],
+          "estimated_center_camera_m": [
+            -0.01065636747111621,
+            0.015009958541962593,
+            0.5322985053661797
+          ],
+          "surface_base_m": [
+            0.42540831047033956,
+            -0.24378643514269974,
+            -0.03403494375939958
+          ],
+          "estimated_center_base_m": [
+            0.43111412470634,
+            -0.24646815884425113,
+            -0.05893177804793026
+          ],
+          "estimated_radius_m": 0.02568268513410857,
+          "valid_points": 1534,
+          "estimated_center_above_candidate_plane_m": 0.02054921799618986
+        },
+        {
+          "frame": 3,
+          "depth_valid_fraction": 0.9178617992177314,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013610923954032134,
+          "surface_camera_m": [
+            -0.016768681564932067,
+            0.009218136235607365,
+            0.493001460024962
+          ],
+          "estimated_center_camera_m": [
+            -0.017700457666776262,
+            0.00973035533969277,
+            0.5203958008887195
+          ],
+          "surface_base_m": [
+            0.42997234686771246,
+            -0.23920940046724729,
+            -0.01941722337762808
+          ],
+          "estimated_center_base_m": [
+            0.4364840549739723,
+            -0.24189665858617537,
+            -0.04591169049465871
+          ],
+          "estimated_radius_m": 0.027414968292418157,
+          "valid_points": 1408,
+          "estimated_center_above_candidate_plane_m": 0.03352971951581259
+        },
+        {
+          "frame": 4,
+          "depth_valid_fraction": 0.9980443285528031,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012134457119877143,
+          "surface_camera_m": [
+            -0.01025805892031519,
+            0.009143628046482201,
+            0.5110520386374009
+          ],
+          "estimated_center_camera_m": [
+            -0.010758951853002633,
+            0.009590104197885013,
+            0.5360063069231906
+          ],
+          "surface_base_m": [
+            0.43062054379093306,
+            -0.24712789590304943,
+            -0.03687850740333426
+          ],
+          "estimated_center_base_m": [
+            0.43637447776132393,
+            -0.24987545189447058,
+            -0.061013728974750325
+          ],
+          "estimated_radius_m": 0.024963287851622395,
+          "valid_points": 1531,
+          "estimated_center_above_candidate_plane_m": 0.01808106350777168
+        },
+        {
+          "frame": 5,
+          "depth_valid_fraction": 0.9986962190352021,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014584020657953782,
+          "surface_camera_m": [
+            -0.007095710718866659,
+            0.011848530774362454,
+            0.49953021368510747
+          ],
+          "estimated_center_camera_m": [
+            -0.0074406708784065904,
+            0.012424550743069787,
+            0.5238150287001359
+          ],
+          "surface_base_m": [
+            0.42398973844380794,
+            -0.24667284635422482,
+            -0.026588883650656703
+          ],
+          "estimated_center_base_m": [
+            0.42939593219058214,
+            -0.2493867686996985,
+            -0.050117817572644
+          ],
+          "estimated_radius_m": 0.024294094690483277,
+          "valid_points": 1532,
+          "estimated_center_above_candidate_plane_m": 0.029311700121295498
+        },
+        {
+          "frame": 6,
+          "depth_valid_fraction": 1.0,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0009807314852524605,
+          "surface_camera_m": [
+            -0.00834178864025505,
+            0.01165922970194315,
+            0.5000466912961509
+          ],
+          "estimated_center_camera_m": [
+            -0.008730123347915144,
+            0.012202001013121749,
+            0.5233253302134456
+          ],
+          "surface_base_m": [
+            0.42495111742100505,
+            -0.24582870127426368,
+            -0.02701973996513901
+          ],
+          "estimated_center_base_m": [
+            0.4301727301576089,
+            -0.24838782285235528,
+            -0.049570263053544006
+          ],
+          "estimated_radius_m": 0.02328820376034188,
+          "valid_points": 1534,
+          "estimated_center_above_candidate_plane_m": 0.029868404505832044
+        },
+        {
+          "frame": 7,
+          "depth_valid_fraction": 0.9269882659713168,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013397262005775575,
+          "surface_camera_m": [
+            -0.0017576189610103224,
+            0.008129217597343759,
+            0.5028025528725303
+          ],
+          "estimated_center_camera_m": [
+            -0.0018535713541272833,
+            0.008573009966416332,
+            0.5302516810872737
+          ],
+          "surface_base_m": [
+            0.4246696066897449,
+            -0.25356834227112734,
+            -0.028865238533402504
+          ],
+          "estimated_center_base_m": [
+            0.43077777021739827,
+            -0.25699177580965177,
+            -0.055410129556060006
+          ],
+          "estimated_radius_m": 0.02745288324161995,
+          "valid_points": 1422,
+          "estimated_center_above_candidate_plane_m": 0.023622304999494234
+        },
+        {
+          "frame": 8,
+          "depth_valid_fraction": 0.9967405475880052,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001181905838067793,
+          "surface_camera_m": [
+            -0.010358618651852206,
+            0.01370964259396757,
+            0.5003586132081416
+          ],
+          "estimated_center_camera_m": [
+            -0.01090960927607527,
+            0.014438879260033522,
+            0.526973446120988
+          ],
+          "surface_base_m": [
+            0.42452216169784884,
+            -0.2430573866359365,
+            -0.02783741072291357
+          ],
+          "estimated_center_base_m": [
+            0.43046582195407085,
+            -0.24583444987077824,
+            -0.05364720596251493
+          ],
+          "estimated_radius_m": 0.02663052210832238,
+          "valid_points": 1529,
+          "estimated_center_above_candidate_plane_m": 0.025890806059296154
+        },
+        {
+          "frame": 9,
+          "depth_valid_fraction": 0.8422425032594524,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012462916887585134,
+          "surface_camera_m": [
+            -0.014026469114716935,
+            0.008976368604171938,
+            0.49929862509084516
+          ],
+          "estimated_center_camera_m": [
+            -0.014713717823188232,
+            0.00941617976972798,
+            0.5237625391684902
+          ],
+          "surface_base_m": [
+            0.4301196446901951,
+            -0.2424733007021738,
+            -0.025452180482403886
+          ],
+          "estimated_center_base_m": [
+            0.4358686268980796,
+            -0.2450027190164359,
+            -0.04911016186738143
+          ],
+          "estimated_radius_m": 0.024477516962450357,
+          "valid_points": 1292,
+          "estimated_center_above_candidate_plane_m": 0.030222019315857093
+        },
+        {
+          "frame": 10,
+          "depth_valid_fraction": 0.9908735332464146,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012666220060434624,
+          "surface_camera_m": [
+            -0.014120991514751179,
+            0.010645211038925274,
+            0.49824759521201883
+          ],
+          "estimated_center_camera_m": [
+            -0.014840580621649512,
+            0.01118767846383963,
+            0.5236377062164993
+          ],
+          "surface_base_m": [
+            0.4285723899698668,
+            -0.24133214023764255,
+            -0.024913811067145963
+          ],
+          "estimated_center_base_m": [
+            0.4344727582377743,
+            -0.24390444677050818,
+            -0.04949101004534001
+          ],
+          "estimated_radius_m": 0.025406098012282392,
+          "valid_points": 1520,
+          "estimated_center_above_candidate_plane_m": 0.029952205645057794
+        },
+        {
+          "frame": 11,
+          "depth_valid_fraction": 1.0,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011974193047295043,
+          "surface_camera_m": [
+            -0.012311485420807355,
+            0.011382664743156757,
+            0.4963740027935376
+          ],
+          "estimated_center_camera_m": [
+            -0.012967636650874513,
+            0.011989313674409327,
+            0.522828683230058
+          ],
+          "surface_base_m": [
+            0.4265452433502596,
+            -0.24219190769333115,
+            -0.023313096395819022
+          ],
+          "estimated_center_base_m": [
+            0.432608673237943,
+            -0.24492811051922084,
+            -0.04893333617716494
+          ],
+          "estimated_radius_m": 0.026469769065122665,
+          "valid_points": 1534,
+          "estimated_center_above_candidate_plane_m": 0.03054843763613624
+        },
+        {
+          "frame": 12,
+          "depth_valid_fraction": 0.9908735332464146,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011304725369661501,
+          "surface_camera_m": [
+            -0.007838087388145436,
+            0.0029653802910141473,
+            0.532337948118098
+          ],
+          "estimated_center_camera_m": [
+            -0.008239799032507083,
+            0.003117359687756082,
+            0.5596209244240337
+          ],
+          "surface_base_m": [
+            0.4391011168489244,
+            -0.2553670167872849,
+            -0.05577201342691168
+          ],
+          "estimated_center_base_m": [
+            0.4455751817037762,
+            -0.25867378665153784,
+            -0.08207214695152582
+          ],
+          "estimated_radius_m": 0.02728635677573133,
+          "valid_points": 1520,
+          "estimated_center_above_candidate_plane_m": -0.003777921798209752
+        },
+        {
+          "frame": 13,
+          "depth_valid_fraction": 1.0,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013774692260707978,
+          "surface_camera_m": [
+            -0.01361433477895396,
+            0.014841481032470688,
+            0.4974046818361651
+          ],
+          "estimated_center_camera_m": [
+            -0.014378499350808434,
+            0.01567452459890307,
+            0.5253237129093049
+          ],
+          "surface_base_m": [
+            0.4247525947106252,
+            -0.2393517213213266,
+            -0.0252454844073427
+          ],
+          "estimated_center_base_m": [
+            0.43103740043479155,
+            -0.24207372284822112,
+            -0.05233500507191835
+          ],
+          "estimated_radius_m": 0.027941907686115472,
+          "valid_points": 1534,
+          "estimated_center_above_candidate_plane_m": 0.027343047493373088
+        },
+        {
+          "frame": 14,
+          "depth_valid_fraction": 0.9621903520208605,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001216319585330923,
+          "surface_camera_m": [
+            -0.015743958202444956,
+            0.012193992151883876,
+            0.49849480008380914
+          ],
+          "estimated_center_camera_m": [
+            -0.016543559990094794,
+            0.012813298796239693,
+            0.5238122792180755
+          ],
+          "surface_base_m": [
+            0.4283104180009852,
+            -0.2391951383109353,
+            -0.025533284227445274
+          ],
+          "estimated_center_base_m": [
+            0.4341779127398552,
+            -0.24164999363928263,
+            -0.05005967499858782
+          ],
+          "estimated_radius_m": 0.02533767261317756,
+          "valid_points": 1476,
+          "estimated_center_above_candidate_plane_m": 0.02949610153373594
+        },
+        {
+          "frame": 15,
+          "depth_valid_fraction": 0.9973924380704041,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012893645132624218,
+          "surface_camera_m": [
+            -0.013057783666700941,
+            0.017028187970181807,
+            0.4993522509754039
+          ],
+          "estimated_center_camera_m": [
+            -0.01375684781519435,
+            0.017939812486838267,
+            0.5260856741225943
+          ],
+          "surface_base_m": [
+            0.4231806520726322,
+            -0.23887683465801005,
+            -0.027701734587833426
+          ],
+          "estimated_center_base_m": [
+            0.42909087963794645,
+            -0.2414484849622532,
+            -0.05367193843664242
+          ],
+          "estimated_radius_m": 0.026758095281798618,
+          "valid_points": 1530,
+          "estimated_center_above_candidate_plane_m": 0.026121020411593254
+        },
+        {
+          "frame": 16,
+          "depth_valid_fraction": 0.9947848761408083,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013513342877594608,
+          "surface_camera_m": [
+            -0.016023886255578573,
+            0.011302154234355884,
+            0.4998162265623629
+          ],
+          "estimated_center_camera_m": [
+            -0.016919789488541816,
+            0.01193406314562162,
+            0.5277611936023541
+          ],
+          "surface_base_m": [
+            0.4295130751897828,
+            -0.23963136893081982,
+            -0.026548638705833516
+          ],
+          "estimated_center_base_m": [
+            0.4360390560569908,
+            -0.24235860513901944,
+            -0.05360592775567513
+          ],
+          "estimated_radius_m": 0.02796646445908317,
+          "valid_points": 1526,
+          "estimated_center_above_candidate_plane_m": 0.025835100868844926
+        },
+        {
+          "frame": 17,
+          "depth_valid_fraction": 0.8370273794002607,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.001406268584992087,
+          "surface_camera_m": [
+            -0.0027448743998386917,
+            -0.007009298492418488,
+            0.49605246707196415
+          ],
+          "estimated_center_camera_m": [
+            -0.0028969255515378747,
+            -0.007397575605731291,
+            0.5235310828242717
+          ],
+          "surface_base_m": [
+            0.43571494328403115,
+            -0.260078704977012,
+            -0.018237967800885713
+          ],
+          "estimated_center_base_m": [
+            0.44252449396758914,
+            -0.2639133181824259,
+            -0.04458514911853978
+          ],
+          "estimated_radius_m": 0.027481779460806793,
+          "valid_points": 1284,
+          "estimated_center_above_candidate_plane_m": 0.03361514275500645
+        },
+        {
+          "frame": 18,
+          "depth_valid_fraction": 1.0,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012959878643037611,
+          "surface_camera_m": [
+            -0.00949595200370243,
+            0.006497076749231172,
+            0.5087651806520829
+          ],
+          "estimated_center_camera_m": [
+            -0.009958649310306805,
+            0.0068136516341399285,
+            0.533555141541736
+          ],
+          "surface_base_m": [
+            0.4317277281471905,
+            -0.24884515471743815,
+            -0.034012422072031034
+          ],
+          "estimated_center_base_m": [
+            0.4375230517754146,
+            -0.2516709998202196,
+            -0.057955798877842246
+          ],
+          "estimated_radius_m": 0.02479629950952011,
+          "valid_points": 1534,
+          "estimated_center_above_candidate_plane_m": 0.021008336522443577
+        },
+        {
+          "frame": 19,
+          "depth_valid_fraction": 0.9869621903520208,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011707526920697055,
+          "surface_camera_m": [
+            -0.023084495094099215,
+            0.006466755288113417,
+            0.5179219360881805
+          ],
+          "estimated_center_camera_m": [
+            -0.024210015296230663,
+            0.006782051927236034,
+            0.5431740197841018
+          ],
+          "surface_base_m": [
+            0.4415108074295361,
+            -0.23888156298030822,
+            -0.042561746560799474
+          ],
+          "estimated_center_base_m": [
+            0.4477868579659067,
+            -0.2412233065400746,
+            -0.06693717200215488
+          ],
+          "estimated_radius_m": 0.025279120607368203,
+          "valid_points": 1514,
+          "estimated_center_above_candidate_plane_m": 0.012026639543525217
+        },
+        {
+          "frame": 20,
+          "depth_valid_fraction": 0.9628422425032594,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0011918169822390978,
+          "surface_camera_m": [
+            -0.012516450612507318,
+            0.005801137343688163,
+            0.5080387999772881
+          ],
+          "estimated_center_camera_m": [
+            -0.01311677952940094,
+            0.006079378404680918,
+            0.5324059622002216
+          ],
+          "surface_base_m": [
+            0.43381939101632333,
+            -0.24665641950149028,
+            -0.03304186053466657
+          ],
+          "estimated_center_base_m": [
+            0.43962477250748044,
+            -0.24933296555392045,
+            -0.056564829196521116
+          ],
+          "estimated_radius_m": 0.024376144233558338,
+          "valid_points": 1477,
+          "estimated_center_above_candidate_plane_m": 0.022407992544561744
+        },
+        {
+          "frame": 21,
+          "depth_valid_fraction": 0.9928292046936115,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0014891982205497186,
+          "surface_camera_m": [
+            -0.01259319240808781,
+            0.011430014754068404,
+            0.506123451155692
+          ],
+          "estimated_center_camera_m": [
+            -0.013281329069244473,
+            0.012054591266119833,
+            0.5337798301361073
+          ],
+          "surface_base_m": [
+            0.428951074233917,
+            -0.2432257308884682,
+            -0.032735981362084166
+          ],
+          "estimated_center_base_m": [
+            0.4352982876522292,
+            -0.24608789839851275,
+            -0.0595176879014187
+          ],
+          "estimated_radius_m": 0.027671988114195745,
+          "valid_points": 1523,
+          "estimated_center_above_candidate_plane_m": 0.019792278289781584
+        },
+        {
+          "frame": 22,
+          "depth_valid_fraction": 0.9980443285528031,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013326110196938525,
+          "surface_camera_m": [
+            -0.012421890060127614,
+            0.012382748494064984,
+            0.5064668942184124
+          ],
+          "estimated_center_camera_m": [
+            -0.013031217625290602,
+            0.012990156058726424,
+            0.5313104758308708
+          ],
+          "surface_base_m": [
+            0.4281799516612502,
+            -0.24291642095465474,
+            -0.03330612440476893
+          ],
+          "estimated_center_base_m": [
+            0.4338403543946019,
+            -0.24547066977448545,
+            -0.05737642613176869
+          ],
+          "estimated_radius_m": 0.02485847483990429,
+          "valid_points": 1531,
+          "estimated_center_above_candidate_plane_m": 0.022026165842352244
+        },
+        {
+          "frame": 23,
+          "depth_valid_fraction": 0.9876140808344198,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0012814336348894676,
+          "surface_camera_m": [
+            -0.013529884370640868,
+            0.009810595622587582,
+            0.5013338650847515
+          ],
+          "estimated_center_camera_m": [
+            -0.014265614880508265,
+            0.010344077973343795,
+            0.5285954890623352
+          ],
+          "surface_base_m": [
+            0.42963654037306526,
+            -0.24268966023048977,
+            -0.027657892221275515
+          ],
+          "estimated_center_base_m": [
+            0.43599072921479576,
+            -0.2455089038590228,
+            -0.05403398355838396
+          ],
+          "estimated_radius_m": 0.02727676748987832,
+          "valid_points": 1515,
+          "estimated_center_above_candidate_plane_m": 0.02527041587013666
+        },
+        {
+          "frame": 24,
+          "depth_valid_fraction": 0.9960886571056062,
+          "method": "legacy_ransac_sphere",
+          "sphere_rmse_m": 0.0013657196390571178,
+          "surface_camera_m": [
+            -0.009741297618122539,
+            0.017429881700136457,
+            0.5024252323341314
+          ],
+          "estimated_center_camera_m": [
+            -0.010232008602889314,
+            0.01830789967564009,
+            0.5277345484227486
+          ],
+          "surface_base_m": [
+            0.4217129089509041,
+            -0.24180727946288968,
+            -0.030840555080586862
+          ],
+          "estimated_center_base_m": [
+            0.42719990634005073,
+            -0.24437488650339453,
+            -0.05543473015206385
+          ],
+          "estimated_radius_m": 0.025329295168034494,
+          "valid_points": 1528,
+          "estimated_center_above_candidate_plane_m": 0.024314161389964353
+        }
+      ],
+      "usable_3d": false,
+      "three_d_status": "diagnostic_only: paper plane and absolute geometry not validated",
+      "center_span_m": [
+        0.020586951625855998,
+        0.02269001164235132,
+        0.037486997832986035
+      ],
+      "surface_span_m": [
+        0.019797898478632003,
+        0.021201870319001975,
+        0.03753404562602597
+      ],
+      "diagnostic_median_surface_base_m": [
+        0.428951074233917,
+        -0.2430573866359365,
+        -0.02783741072291357
+      ]
+    }
+  ]
+}

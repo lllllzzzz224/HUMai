@@ -1,0 +1,19 @@
+{
+  "hash": "90dc084d04ee0f7a1f5f4b8de52f356d4be22c8dbca86ff38393ba6b9dd9b300",
+  "points": 39,
+  "duration_s": 119.934679083,
+  "samples": 6035,
+  "spline_min_tcp_z_m": 0.1699330847608816,
+  "spline_min_tool_z_m": 0.0705664131513205,
+  "table_clearance_m": 0.1255664131513205,
+  "max_20ms_tcp_segment_speed_m_s": 0.007272993775863246,
+  "array_lengths_valid": true,
+  "strict_times": true,
+  "finite": true,
+  "final_tcp_m": [
+    0.3635470945586804,
+    -0.28100102904817,
+    0.17010546314270863
+  ],
+  "scope": "Independent offline URDF FK of clamped cubic interpolation; does not replace scene collision check; sampled speed not continuous guarantee"
+}

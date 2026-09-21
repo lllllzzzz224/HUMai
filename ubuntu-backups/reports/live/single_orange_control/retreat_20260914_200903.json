@@ -1,0 +1,8 @@
+{
+  "source": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260914_194844.json",
+  "execute_requested": false,
+  "gripper_commands": false,
+  "status": "FAILED_STOPPED",
+  "error": "必要 MoveIt 接口不可用：/move_action",
+  "finished_at": "2026-09-14 20:09:13"
+}

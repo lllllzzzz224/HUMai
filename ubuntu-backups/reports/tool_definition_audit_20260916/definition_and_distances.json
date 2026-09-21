@@ -1,0 +1,25 @@
+{
+  "source_saved_controller_read": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/table_clearance_readonly_20260916/final_stationarity.json",
+  "no_hardware_access": true,
+  "table_coefficients": [
+    0.020247195319255354,
+    -0.010386545597566368,
+    -0.09221502298681956
+  ],
+  "link6_base_m": [
+    0.3368253674167167,
+    -0.2697565361311256,
+    0.3050224037833577
+  ],
+  "link6_vertical_to_paper_mm": 387.61581920484355,
+  "tcp_vertical_to_paper_mm": 252.0399452976112,
+  "urdf_box_lowest_vertical_to_paper_mm": 211.9477736856806,
+  "additional_box_lowest_vertical_to_paper_mm": 154.1717924336763,
+  "definitions": {
+    "tcp": "Link6 +Z 138mm, identity rotation; historical grasp-center definition, not fingertips",
+    "urdf_box": "same orientation as Link6, center z85mm; dimensions80x80x170mm, extends local z0..170mm",
+    "additional_box": "same orientation as Link6, center z110mm; dimensions160x160x220mm, extends local z0..220mm; protective assumption, not measured physical geometry"
+  },
+  "evidence_scope": "Historical documentation asserts physical grasp center at138mm and tool overall length170mm, but reviewed records do not establish independent current real-fingertip calibration; current extra protective box explicitly assumed",
+  "conditional": "Old hand-eye-based local paper plane; corner projection partly extrapolates ROI; vertical model distances, not measured real finger-tip distances"
+}

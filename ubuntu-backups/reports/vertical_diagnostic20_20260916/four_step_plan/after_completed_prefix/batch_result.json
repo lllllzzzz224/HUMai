@@ -1,0 +1,65 @@
+{
+  "requested_new_steps": 4,
+  "completed_new_steps": 3,
+  "fourth_step_executed": false,
+  "before_source": "reports/vertical_diagnostic20_20260916/step02/final_stationarity.json",
+  "after_source": "reports/vertical_diagnostic20_20260916/four_step_plan/after_completed_prefix/final_stationarity.json",
+  "same_chain_joint_fk": true,
+  "before_tcp_mean_m": [
+    0.3635128938270075,
+    -0.28127623866282087,
+    0.15024902276643534
+  ],
+  "after_tcp_mean_m": [
+    0.3634619500076887,
+    -0.28154679382011577,
+    0.09037646590733965
+  ],
+  "delta_mm": [
+    -0.050943819318804984,
+    -0.270555157294905,
+    -59.87255685909569
+  ],
+  "downward_displacement_mm": 59.87255685909569,
+  "stationary_sampled": true,
+  "controller_errors": [
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ]
+  ],
+  "no_gripper_commands": true,
+  "state": "STOPPED_WAITING_FOR_OPERATOR_MEASUREMENT"
+}

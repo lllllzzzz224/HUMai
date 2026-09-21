@@ -1,0 +1,309 @@
+{
+  "method": "deterministic multistart robust sphere fit to eroded visible mask; geometric approximation, not proof of true fruit center",
+  "erosion_pixels": 7,
+  "loss": "soft_l1",
+  "loss_scale_m": 0.002,
+  "frames": [
+    {
+      "index": 0,
+      "points": 2418,
+      "eroded_valid_fraction": 0.9938335046248715,
+      "fits": [
+        {
+          "initial_radius_m": 0.025,
+          "center_base_m": [
+            0.36492125059296066,
+            -0.2838727297274406,
+            -0.07113131617724078
+          ],
+          "radius_m": 0.0429141950259951,
+          "rmse_mm": 1.3380057121124136,
+          "median_abs_residual_mm": 0.8008831664747112,
+          "p95_abs_residual_mm": 2.8881175478273087,
+          "fraction_within_3mm": 0.955748552522746,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.035,
+          "center_base_m": [
+            0.36492125196643266,
+            -0.28387273091155885,
+            -0.07113130076581137
+          ],
+          "radius_m": 0.04291418211095669,
+          "rmse_mm": 1.338005742317191,
+          "median_abs_residual_mm": 0.8008812256458595,
+          "p95_abs_residual_mm": 2.888120242338311,
+          "fraction_within_3mm": 0.955748552522746,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.045,
+          "center_base_m": [
+            0.3649212451165743,
+            -0.2838727260906013,
+            -0.07113132623360585
+          ],
+          "radius_m": 0.042914203218183226,
+          "rmse_mm": 1.338005677850082,
+          "median_abs_residual_mm": 0.8008860717592727,
+          "p95_abs_residual_mm": 2.8881127762918597,
+          "fraction_within_3mm": 0.955748552522746,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.06,
+          "center_base_m": [
+            0.36492125051483904,
+            -0.2838727296633636,
+            -0.07113131717571053
+          ],
+          "radius_m": 0.04291419586332401,
+          "rmse_mm": 1.3380057101540468,
+          "median_abs_residual_mm": 0.8008832898198579,
+          "p95_abs_residual_mm": 2.888117382832419,
+          "fraction_within_3mm": 0.955748552522746,
+          "success": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "points": 2432,
+      "eroded_valid_fraction": 0.9981530884465422,
+      "fits": [
+        {
+          "initial_radius_m": 0.025,
+          "center_base_m": [
+            0.36348423032071575,
+            -0.2838022795692744,
+            -0.07266155546173514
+          ],
+          "radius_m": 0.043881147170098375,
+          "rmse_mm": 1.4101970270970565,
+          "median_abs_residual_mm": 0.8097241802045608,
+          "p95_abs_residual_mm": 2.887961359620588,
+          "fraction_within_3mm": 0.9605263157894737,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.035,
+          "center_base_m": [
+            0.36348422983539563,
+            -0.2838022790777696,
+            -0.07266155899969762
+          ],
+          "radius_m": 0.04388115016278654,
+          "rmse_mm": 1.4101970104961294,
+          "median_abs_residual_mm": 0.8097247222179569,
+          "p95_abs_residual_mm": 2.887961329623642,
+          "fraction_within_3mm": 0.9605263157894737,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.045,
+          "center_base_m": [
+            0.36348422615133913,
+            -0.2838022752901628,
+            -0.07266158470062312
+          ],
+          "radius_m": 0.04388117189499908,
+          "rmse_mm": 1.4101968886758645,
+          "median_abs_residual_mm": 0.8097287639262235,
+          "p95_abs_residual_mm": 2.887961195630488,
+          "fraction_within_3mm": 0.9605263157894737,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.06,
+          "center_base_m": [
+            0.363484226224403,
+            -0.28380227571424765,
+            -0.07266158982408905
+          ],
+          "radius_m": 0.043881176244041996,
+          "rmse_mm": 1.4101968702555971,
+          "median_abs_residual_mm": 0.8097290174251225,
+          "p95_abs_residual_mm": 2.887960771564204,
+          "fraction_within_3mm": 0.9605263157894737,
+          "success": true
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "points": 2427,
+      "eroded_valid_fraction": 0.9975334018499487,
+      "fits": [
+        {
+          "initial_radius_m": 0.025,
+          "center_base_m": [
+            0.36421676381236245,
+            -0.28444445861162704,
+            -0.07027731846021262
+          ],
+          "radius_m": 0.04177868334500944,
+          "rmse_mm": 1.5557408217963595,
+          "median_abs_residual_mm": 0.9792490167344556,
+          "p95_abs_residual_mm": 3.1065119051193713,
+          "fraction_within_3mm": 0.9431396786155748,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.035,
+          "center_base_m": [
+            0.36421676639119344,
+            -0.2844444611438717,
+            -0.07027730562317469
+          ],
+          "radius_m": 0.041778672890231155,
+          "rmse_mm": 1.5557409567594893,
+          "median_abs_residual_mm": 0.9792509312356451,
+          "p95_abs_residual_mm": 3.1065114939812637,
+          "fraction_within_3mm": 0.9431396786155748,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.045,
+          "center_base_m": [
+            0.36421675668564346,
+            -0.2844444516512372,
+            -0.07027735060733326
+          ],
+          "radius_m": 0.04177870948392387,
+          "rmse_mm": 1.5557404758707396,
+          "median_abs_residual_mm": 0.9792441627001908,
+          "p95_abs_residual_mm": 3.1065133692573395,
+          "fraction_within_3mm": 0.9431396786155748,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.06,
+          "center_base_m": [
+            0.36421676352065335,
+            -0.2844444583373534,
+            -0.07027732007990967
+          ],
+          "radius_m": 0.041778684666607,
+          "rmse_mm": 1.5557408053622244,
+          "median_abs_residual_mm": 0.979248775838007,
+          "p95_abs_residual_mm": 3.1065119300334696,
+          "fraction_within_3mm": 0.9431396786155748,
+          "success": true
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "points": 2430,
+      "eroded_valid_fraction": 0.9983566146261298,
+      "fits": [
+        {
+          "initial_radius_m": 0.025,
+          "center_base_m": [
+            0.36338639330679273,
+            -0.28402002491343004,
+            -0.07408220545212096
+          ],
+          "radius_m": 0.04518296005903216,
+          "rmse_mm": 1.3026164517255556,
+          "median_abs_residual_mm": 0.8005323684232117,
+          "p95_abs_residual_mm": 2.653037489344247,
+          "fraction_within_3mm": 0.9691358024691358,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.035,
+          "center_base_m": [
+            0.36338639251410354,
+            -0.28402002423690687,
+            -0.07408220993239906
+          ],
+          "radius_m": 0.0451829638813106,
+          "rmse_mm": 1.3026164471190467,
+          "median_abs_residual_mm": 0.800532522416953,
+          "p95_abs_residual_mm": 2.6530379171691725,
+          "fraction_within_3mm": 0.9691358024691358,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.045,
+          "center_base_m": [
+            0.36338639187478666,
+            -0.28402002367448387,
+            -0.07408221307201862
+          ],
+          "radius_m": 0.04518296655739943,
+          "rmse_mm": 1.3026164445441364,
+          "median_abs_residual_mm": 0.8005326568278175,
+          "p95_abs_residual_mm": 2.6530382615040917,
+          "fraction_within_3mm": 0.9691358024691358,
+          "success": true
+        },
+        {
+          "initial_radius_m": 0.06,
+          "center_base_m": [
+            0.36338639274805684,
+            -0.2840200243798431,
+            -0.07408220800375809
+          ],
+          "radius_m": 0.04518296223179096,
+          "rmse_mm": 1.30261645019595,
+          "median_abs_residual_mm": 0.8005325060203363,
+          "p95_abs_residual_mm": 2.653037803535568,
+          "fraction_within_3mm": 0.9691358024691358,
+          "success": true
+        }
+      ]
+    }
+  ],
+  "local_table": {
+    "rois": [
+      [
+        300,
+        270,
+        320,
+        290
+      ],
+      [
+        290,
+        360,
+        320,
+        380
+      ],
+      [
+        170,
+        200,
+        190,
+        230
+      ]
+    ],
+    "coefficients_z_ax_by_c": [
+      0.020247195319255354,
+      -0.010386545597566368,
+      -0.09221502298681956
+    ],
+    "rmse_mm": 1.5703632239937404
+  },
+  "center_median_m": [
+    0.3638504970665391,
+    -0.2839463773204353,
+    -0.07189643581948796
+  ],
+  "center_span_mm": [
+    1.5348572861679233,
+    0.6421790423526419,
+    3.8048869919083406
+  ],
+  "radius_range_mm": [
+    41.77868334500944,
+    45.18296005903216
+  ],
+  "multistart_max_center_span_mm": 4.6988108400070656e-05,
+  "sphere_center_minus_surface_mm": [
+    0.3017415424677594,
+    -2.9446710159622413,
+    -42.87639806162158
+  ],
+  "sphere_bottom_minus_local_table_mm": -33.39525800713197
+}

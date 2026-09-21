@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-08-08 15:31:01",
+  "status": "FAILED_STOPPED",
+  "single_round": true,
+  "single_apple_scene_operator_confirmed": true,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "error": "苹果有效样本不足：center=2/10, diagnostics=2/10",
+  "events": [
+    {
+      "time": "2026-08-08 15:31:07",
+      "step": "夹爪初始化并保持打开",
+      "result": "PASS",
+      "opening_mm": 100.0
+    },
+    {
+      "time": "2026-08-08 15:31:14",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    }
+  ],
+  "finished_at": "2026-08-08 15:31:44"
+}

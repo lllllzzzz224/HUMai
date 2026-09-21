@@ -1,0 +1,16 @@
+{
+  "conditional_on_unchanged_hand_eye": true,
+  "tcp_xy": [
+    0.31603015133728096,
+    -0.23105127490059207
+  ],
+  "paper_z_prediction_m": -0.08133530885950807,
+  "tcp_vertical_projection_on_paper_pixel": [
+    358.1188244503426,
+    463.39647910466044
+  ],
+  "nearest_fruit": "right",
+  "horizontal_distance_m": 0.06782249931656778,
+  "all_timestamps_bracketed": true,
+  "note": "current TCP projection uses plane extrapolation outside 3 ROI convex region; new rigid hand-eye validity awaiting user confirmation; no executable target"
+}

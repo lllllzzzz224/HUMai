@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-08-08 16:05:34",
+  "status": "FAILED_STOPPED",
+  "single_round": true,
+  "return_after_lift_requested": true,
+  "single_apple_scene_operator_confirmed": true,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "gripper_reopened": false,
+  "returned_to_scan": false,
+  "apple_center_base_m": [
+    0.4268537,
+    -0.1788974,
+    -0.060127
+  ],
+  "apple_radius_m": 0.0309215,
+  "vision_diagnostics": {
+    "frame": "base_link",
+    "confidence": 0.3712,
+    "radius_m": 0.030923,
+    "valid_depth_pixels": 1089,
+    "sync_error_ms": 0.0,
+    "surface_xyz_m": [
+      0.419216,
+      -0.178679,
+      -0.030193
+    ],
+    "center_xyz_m": [
+      0.426886,
+      -0.178885,
+      -0.060149
+    ],
+    "_received_monotonic": 228621.507847502
+  },
+  "pregrasp_base_m": [
+    0.4268537,
+    -0.1788974,
+    0.039873
+  ],
+  "verify_base_m": [
+    0.4268537,
+    -0.1788974,
+    -0.030127
+  ],
+  "grasp_base_m": [
+    0.4268537,
+    -0.1788974,
+    -0.045127
+  ],
+  "grasp_offset_above_center_m": 0.015,
+  "lift_base_m": [
+    0.4268537,
+    -0.1788974,
+    0.154873
+  ],
+  "gripper_open_mm": 80.0,
+  "gripper_close_mm": 30.0,
+  "table_guard_top_z_m": -0.08604847858316149,
+  "error": "PREGRASP IK 不可达或碰撞：error_code=-31",
+  "events": [
+    {
+      "time": "2026-08-08 16:05:36",
+      "step": "夹爪通信配置并保持打开",
+      "result": "PASS",
+      "opening_mm": 80.0,
+      "mechanical_zeroing": false
+    },
+    {
+      "time": "2026-08-08 16:05:41",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    },
+    {
+      "time": "2026-08-08 16:05:47",
+      "step": "单苹果现场",
+      "result": "PASS",
+      "verification": "operator-confirmed: one visible apple"
+    }
+  ],
+  "finished_at": "2026-08-08 16:05:52"
+}

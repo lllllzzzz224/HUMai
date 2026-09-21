@@ -1,0 +1,17 @@
+{
+  "no_goals_or_stop_commands_sent": true,
+  "execute_action_available": true,
+  "hard_stop_subscribers": 2,
+  "observed_action_status_arrays": {},
+  "active_status_seen": false,
+  "joint_feedback_age_s": 0.0002987940001730749,
+  "joint_values_rad": [
+    2.4452161308288574,
+    0.8756410053253174,
+    0.49652230825424193,
+    0.06172064896821976,
+    1.5661723808288575,
+    -0.1359878538608551
+  ],
+  "note": "freshly restarted control and move_group; absent status publication is reported as absent, not fabricated empty state"
+}

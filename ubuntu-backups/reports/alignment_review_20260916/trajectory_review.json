@@ -1,0 +1,16 @@
+{
+  "sha256": "b7e758e579535293b3b03ccf78aa0f3ffc88fcd2bb3b85e72ac87586b25954c8",
+  "points": 18,
+  "duration_s": 27.662318863,
+  "strictly_increasing_times": true,
+  "finite_positions": true,
+  "max_joint_step_rad": 0.039200001676418905,
+  "joint_total_change_rad": [
+    -0.03501699090707788,
+    0.13473052057280882,
+    0.4996509725430983,
+    0.006457861341195768,
+    -0.6316710614208945,
+    -0.06912164397667712
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "motion_commands": false,
+  "status": "PASS_NEW_SCENE_SPLINE_COLLISION",
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "current_diag20_obstacles": 55,
+    "previous_obstacles_preserved": {
+      "alignment_observed": 115,
+      "realign_observed": 96
+    },
+    "new_obstacles": 81
+  },
+  "trajectory_sha256": "2622b0ecae3e1b27e39c3c08b1a46a9da2defc36b23c4bff3ad9d7324d4a6185",
+  "samples": 98
+}

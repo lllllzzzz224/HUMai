@@ -1,0 +1,70 @@
+{
+  "time": "2026-09-16 21:07:05+0800",
+  "read_only": true,
+  "queries": [
+    {
+      "command": "get_arm_software_info",
+      "response": {
+        "Product_version": "RM65-BI",
+        "algorithm_info": {
+          "version": "1.5.5-c0d52d18"
+        },
+        "command": "arm_software_info",
+        "ctrl_info": {
+          "build_time": "2025/06/16 16:43:55",
+          "commit_id": "f95e896",
+          "version": "V1.7.1"
+        },
+        "dynamic_info": {
+          "model_version": "2"
+        },
+        "plan_info": {
+          "build_time": "2025/06/16 16:44:12",
+          "commit_id": "39d1b2f",
+          "version": "V1.7.1"
+        }
+      }
+    },
+    {
+      "command": "get_collision_stage",
+      "response": {
+        "collision_stage": 4,
+        "state": "get_collision_stage"
+      }
+    },
+    {
+      "command": "get_collision_detection",
+      "response": {
+        "command": "get_collision_detection",
+        "mode": 0
+      }
+    },
+    {
+      "command": "get_current_arm_state",
+      "response": {
+        "arm_state": {
+          "err": [
+            0
+          ],
+          "joint": [
+            143482,
+            21512,
+            37099,
+            3039,
+            109594,
+            -3499
+          ],
+          "pose": [
+            250702,
+            -175608,
+            430425,
+            3108,
+            208,
+            2584
+          ]
+        },
+        "state": "current_arm_state"
+      }
+    }
+  ]
+}

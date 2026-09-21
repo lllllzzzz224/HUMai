@@ -1,0 +1,34 @@
+{
+  "hardware_motion": false,
+  "geometry_sources": [
+    {
+      "source": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/alignment_20260916/preflight_alignment.py",
+      "expected": 115,
+      "restored": 115
+    },
+    {
+      "source": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/near_alignment_20260916/re_align_high/preflight_alignment.py",
+      "expected": 96,
+      "restored": 96
+    },
+    {
+      "source": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/birdview_alignment_20260916/preflight_alignment.py",
+      "expected": 81,
+      "restored": 81
+    },
+    {
+      "source": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/vertical_diagnostic20_20260916/current_obstacles.json",
+      "expected": 55,
+      "restored": 55
+    }
+  ],
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "current_diag20_obstacles": 55,
+    "previous_obstacles_preserved": {
+      "alignment_observed": 115,
+      "realign_observed": 96
+    },
+    "new_obstacles": 81
+  }
+}

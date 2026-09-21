@@ -1,0 +1,57 @@
+{
+  "scope": "Independent exploratory sphere approximation from eroded target mask; no execution or calibration validation",
+  "frames": [
+    {
+      "index": 0,
+      "points": 4401,
+      "center_m": [
+        0.3650917874863525,
+        -0.283968652390235,
+        -0.07154390394304111
+      ],
+      "radius_mm": 43.27529918434261,
+      "rmse_mm": 1.3321112739394023,
+      "median_abs_residual_mm": 0.8097396691800831,
+      "fit_success": true
+    },
+    {
+      "index": 1,
+      "points": 4492,
+      "center_m": [
+        0.3636012973045777,
+        -0.28397672976067795,
+        -0.07338017451126616
+      ],
+      "radius_mm": 44.50384572302775,
+      "rmse_mm": 1.3926644922487526,
+      "median_abs_residual_mm": 0.8108607565032976,
+      "fit_success": true
+    },
+    {
+      "index": 2,
+      "points": 4405,
+      "center_m": [
+        0.36438629218045593,
+        -0.2846355292814087,
+        -0.0707348609984117
+      ],
+      "radius_mm": 42.15849518897706,
+      "rmse_mm": 1.5422276649055193,
+      "median_abs_residual_mm": 1.021110321945927,
+      "fit_success": true
+    },
+    {
+      "index": 3,
+      "points": 4496,
+      "center_m": [
+        0.3635051738588442,
+        -0.28419680552056165,
+        -0.07509724318131311
+      ],
+      "radius_mm": 46.09004787916579,
+      "rmse_mm": 1.2752874524562736,
+      "median_abs_residual_mm": 0.7876552077365623,
+      "fit_success": true
+    }
+  ]
+}

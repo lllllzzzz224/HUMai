@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-08-08 16:24:29",
+  "status": "FAILED_STOPPED",
+  "single_round": true,
+  "return_after_lift_requested": true,
+  "single_apple_scene_operator_confirmed": true,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "gripper_reopened": false,
+  "returned_to_scan": false,
+  "error": "苹果有效样本不足：center=6/10, diagnostics=6/10",
+  "events": [
+    {
+      "time": "2026-08-08 16:24:33",
+      "step": "夹爪通信配置并保持打开",
+      "result": "PASS",
+      "opening_mm": 80.0,
+      "mechanical_zeroing": false
+    },
+    {
+      "time": "2026-08-08 16:24:33",
+      "step": "固定鸟瞰位",
+      "result": "PASS"
+    }
+  ],
+  "finished_at": "2026-08-08 16:25:03"
+}

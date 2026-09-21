@@ -1,0 +1,86 @@
+{
+  "no_motion_no_gripper_no_scan_no_new_fit": true,
+  "joint_deg": [
+    140.129,
+    50.181,
+    28.456,
+    3.539,
+    89.751,
+    -7.794
+  ],
+  "controller_errors": [
+    0
+  ],
+  "tcp_base_m": [
+    0.3635639696567526,
+    -0.2809920110017054,
+    0.17010460935029678
+  ],
+  "table_plane_source": "/home/li/\u684c\u9762/9\u6708\u673a\u68b0\u81c2\u5b9e\u9a8c\uff08\u7b97\u6cd5\uff09/reports/birdview_return_20260916/after_return/sphere_diagnostic.json",
+  "table_plane_coefficients_z_ax_by_c": [
+    0.020247195319255354,
+    -0.010386545597566368,
+    -0.09221502298681956
+  ],
+  "table_plane_fit_rmse_mm": 1.5703632239937404,
+  "table_z_at_tcp_m": -0.08193533594731439,
+  "tcp_vertical_to_paper_mm": 252.0399452976112,
+  "tcp_vertical_to_guard_mm": 225.10460935029678,
+  "guard_top_m": -0.055,
+  "boxes": {
+    "conservative_attachment_160x160x220": {
+      "lowest_corner_base_m": [
+        0.27121812213640767,
+        -0.31442468481180597,
+        0.07071396206567249
+      ],
+      "paper_plane_z_at_lowest_corner_m": -0.0834578303680038,
+      "lowest_corner_vertical_to_paper_mm": 154.1717924336763,
+      "minimum_all_corners_vertical_to_paper_mm": 154.1717924336763,
+      "lowest_corner_vertical_to_guard_mm": 125.71396206567248,
+      "dimensions_m": [
+        0.16,
+        0.16,
+        0.22
+      ]
+    },
+    "urdf_approx_80x80x170": {
+      "lowest_corner_base_m": [
+        0.31564722401136036,
+        -0.2969755995456309,
+        0.1292082723014451
+      ],
+      "paper_plane_z_at_lowest_corner_m": -0.0827395013842355,
+      "lowest_corner_vertical_to_paper_mm": 211.9477736856806,
+      "minimum_all_corners_vertical_to_paper_mm": 211.9477736856806,
+      "lowest_corner_vertical_to_guard_mm": 184.2082723014451,
+      "dimensions_m": [
+        0.08,
+        0.08,
+        0.17
+      ]
+    }
+  },
+  "urdf_source": "/home/li/ros2_ws/install/rm_description/share/rm_description/urdf/rm_65.urdf",
+  "urdf_sha256": "068a385ea6e54e4c7344ba81e26e437c80d9ca3c5ea836c4f5f173e81d4402eb",
+  "limitations": [
+    "tool box lowest corner is not a measured physical finger tip",
+    "paper plane is previous local RGBD estimate in base frame conditional on unchanged unverified hand-eye",
+    "projecting plane beneath tool corners may extrapolate beyond sampled paper ROIs",
+    "all distances are vertical, not normal distances or true contact clearance; ruler measurement of each fingertip remains needed"
+  ],
+  "stationary_sampled": true,
+  "joint_span_deg": [
+    0.006000000000000227,
+    0.003999999999997783,
+    0.0010000000000012221,
+    0.0009999999999998899,
+    0.006000000000000227,
+    0.004000000000000448
+  ],
+  "tcp_axis_span_mm": [
+    0.045895457712108456,
+    0.032285162783141086,
+    0.0386183228979764
+  ]
+}

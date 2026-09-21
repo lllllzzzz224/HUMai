@@ -1,0 +1,6 @@
+{
+  "physical_success": false,
+  "evidence": "结束画面橘子仍在纸上，盆内只有苹果",
+  "variable_changed": "XY开启不变，grasp_above_apple_m 15mm→10mm",
+  "next": "停止重复闭爪，实际GRASP高度开爪对位，需外部图像确认真实接触几何"
+}

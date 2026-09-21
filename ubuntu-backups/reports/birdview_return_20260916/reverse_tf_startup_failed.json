@@ -1,0 +1,12 @@
+{
+  "motion_commands": false,
+  "gripper_commands": false,
+  "status": "FAILED",
+  "table_top_m": -0.055,
+  "tool_assumption_m": [
+    0.16,
+    0.16,
+    0.22
+  ],
+  "error": "\"base_link\" passed to lookupTransform argument target_frame does not exist. "
+}

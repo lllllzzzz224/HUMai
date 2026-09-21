@@ -1,0 +1,647 @@
+{
+  "diagnostic_only_not_executable": true,
+  "requested_new_step": 4,
+  "fk_position_error_m": 1.3092278833360675e-16,
+  "orientation_error_rad": 3.7125108876709035e-16,
+  "hypothetical_joints_rad": [
+    2.4447572227668544,
+    0.8946416044509152,
+    0.9397460026885261,
+    0.06904125019290255,
+    1.1042748729902436,
+    -0.16673233140527785
+  ],
+  "state_valid": false,
+  "contacts": [
+    {
+      "body1": "alignment_observed_1",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.012910037300063293,
+      "position_m": [
+        0.3046460465231065,
+        -0.2666553981489196,
+        -0.01134762249805578
+      ]
+    },
+    {
+      "body1": "alignment_observed_11",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.008772945534229679,
+      "position_m": [
+        0.3263617500744668,
+        -0.22772719402808628,
+        -0.010915769528883384
+      ]
+    },
+    {
+      "body1": "alignment_observed_14",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.016656067951736585,
+      "position_m": [
+        0.31051431519245337,
+        -0.2501355955865935,
+        -0.018312137498021942
+      ]
+    },
+    {
+      "body1": "alignment_observed_16",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.01660708996742128,
+      "position_m": [
+        0.3115005564151554,
+        -0.24968419140294063,
+        -0.018297537238634448
+      ]
+    },
+    {
+      "body1": "alignment_observed_18",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.015846430278868746,
+      "position_m": [
+        0.32378511155716344,
+        -0.22969865648198529,
+        -0.017917482568967788
+      ]
+    },
+    {
+      "body1": "alignment_observed_21",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.015614945467001443,
+      "position_m": [
+        0.3315186945921929,
+        -0.2137121068818584,
+        -0.017631239292216504
+      ]
+    },
+    {
+      "body1": "alignment_observed_3",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0025472419855554207,
+      "position_m": [
+        0.3089436269804591,
+        -0.24934008631717922,
+        -0.010265895483331398
+      ]
+    },
+    {
+      "body1": "alignment_observed_8",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0173677496559738,
+      "position_m": [
+        0.2992160012731474,
+        -0.26966972632389596,
+        -0.018677591908301115
+      ]
+    },
+    {
+      "body1": "alignment_observed_9",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.01660708996742128,
+      "position_m": [
+        0.3115005564151554,
+        -0.24968419140294063,
+        -0.018297537238634448
+      ]
+    },
+    {
+      "body1": "birdalign_observed_10",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.014218932134009266,
+      "position_m": [
+        0.331382919676813,
+        -0.23058617601370676,
+        -0.01694898831531099
+      ]
+    },
+    {
+      "body1": "birdalign_observed_12",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.005381566041180147,
+      "position_m": [
+        0.3505234059421815,
+        -0.29022185526309485,
+        -0.012630045574856448
+      ]
+    },
+    {
+      "body1": "birdalign_observed_13",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.007030567550385586,
+      "position_m": [
+        0.3506837862444913,
+        -0.2702898354125289,
+        -0.013435935364005317
+      ]
+    },
+    {
+      "body1": "birdalign_observed_14",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.008679569059591025,
+      "position_m": [
+        0.35084416654680106,
+        -0.25035781556196296,
+        -0.014241825153154185
+      ]
+    },
+    {
+      "body1": "birdalign_observed_16",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.010328570568796464,
+      "position_m": [
+        0.3510045468491108,
+        -0.230425795711397,
+        -0.015047714942303054
+      ]
+    },
+    {
+      "body1": "birdalign_observed_19",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.001491204475967331,
+      "position_m": [
+        0.37014503311447944,
+        -0.2900614749607851,
+        -0.010728772201848504
+      ]
+    },
+    {
+      "body1": "birdalign_observed_2",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.01481129068081119,
+      "position_m": [
+        0.31144053189989557,
+        -0.27061059601714843,
+        -0.017238482110021193
+      ]
+    },
+    {
+      "body1": "birdalign_observed_21",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.00314020598517277,
+      "position_m": [
+        0.3703054134167892,
+        -0.27012945511021913,
+        -0.011534661990997373
+      ]
+    },
+    {
+      "body1": "birdalign_observed_23",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.004789207494378209,
+      "position_m": [
+        0.37046579371909893,
+        -0.2501974352596532,
+        -0.012340551780146241
+      ]
+    },
+    {
+      "body1": "birdalign_observed_26",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.009813022869477675,
+      "position_m": [
+        0.37119764235031083,
+        -0.18962269393720388,
+        -0.01475809912254499
+      ]
+    },
+    {
+      "body1": "birdalign_observed_28",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0015890549416871511,
+      "position_m": [
+        0.37042095217135074,
+        -0.18932615048314924,
+        -0.019907193483917836
+      ]
+    },
+    {
+      "body1": "birdalign_observed_32",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0049311740600310825,
+      "position_m": [
+        0.3906018311553535,
+        -0.2013722421620816,
+        -0.012391007875985762
+      ]
+    },
+    {
+      "body1": "birdalign_observed_33",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0049311740600310825,
+      "position_m": [
+        0.3906018311553535,
+        -0.20137224216208158,
+        -0.012391007875985762
+      ]
+    },
+    {
+      "body1": "birdalign_observed_4",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.01646029219001663,
+      "position_m": [
+        0.3116009122022053,
+        -0.2506785761665825,
+        -0.01804437189917006
+      ]
+    },
+    {
+      "body1": "birdalign_observed_6",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.009271927606392935,
+      "position_m": [
+        0.3309017787698837,
+        -0.2903822355654046,
+        -0.01453131894786438
+      ]
+    },
+    {
+      "body1": "birdalign_observed_7",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.010920929115598388,
+      "position_m": [
+        0.33106215907219344,
+        -0.2704502157148386,
+        -0.015337208737013256
+      ]
+    },
+    {
+      "body1": "birdalign_observed_8",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.012569930624803827,
+      "position_m": [
+        0.33122253937450324,
+        -0.2505181958642727,
+        -0.016143098526162122
+      ]
+    },
+    {
+      "body1": "diag20_observed_1",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.009271927606392935,
+      "position_m": [
+        0.3309017787698837,
+        -0.2903822355654046,
+        -0.01453131894786438
+      ]
+    },
+    {
+      "body1": "diag20_observed_10",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.00314020598517277,
+      "position_m": [
+        0.3703054134167892,
+        -0.27012945511021913,
+        -0.011534661990997373
+      ]
+    },
+    {
+      "body1": "diag20_observed_12",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.004789207494378209,
+      "position_m": [
+        0.37046579371909893,
+        -0.2501974352596532,
+        -0.012340551780146241
+      ]
+    },
+    {
+      "body1": "diag20_observed_13",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0064382090035836614,
+      "position_m": [
+        0.37062617402140874,
+        -0.23026541540908724,
+        -0.013146441569295115
+      ]
+    },
+    {
+      "body1": "diag20_observed_2",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.010920929115598388,
+      "position_m": [
+        0.33106215907219344,
+        -0.2704502157148386,
+        -0.015337208737013256
+      ]
+    },
+    {
+      "body1": "diag20_observed_30",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.004821272177729832,
+      "position_m": [
+        0.47046891229939175,
+        -0.25098322431123654,
+        0.0076437777666970436
+      ]
+    },
+    {
+      "body1": "diag20_observed_32",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0047988181932206294,
+      "position_m": [
+        0.47058567762208336,
+        -0.25132786747077795,
+        0.00767316830520851
+      ]
+    },
+    {
+      "body1": "diag20_observed_4",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.005381566041180147,
+      "position_m": [
+        0.3505234059421815,
+        -0.29022185526309485,
+        -0.012630045574856448
+      ]
+    },
+    {
+      "body1": "diag20_observed_5",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.007030567550385586,
+      "position_m": [
+        0.3506837862444913,
+        -0.2702898354125289,
+        -0.013435935364005317
+      ]
+    },
+    {
+      "body1": "diag20_observed_6",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.008679569059591025,
+      "position_m": [
+        0.35084416654680106,
+        -0.25035781556196296,
+        -0.014241825153154185
+      ]
+    },
+    {
+      "body1": "diag20_observed_7",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.010328570568796464,
+      "position_m": [
+        0.3510045468491108,
+        -0.230425795711397,
+        -0.015047714942303054
+      ]
+    },
+    {
+      "body1": "diag20_observed_8",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.001491204475967331,
+      "position_m": [
+        0.37014503311447944,
+        -0.2900614749607851,
+        -0.010728772201848504
+      ]
+    },
+    {
+      "body1": "realign_observed_10",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.012569930624803827,
+      "position_m": [
+        0.33122253937450324,
+        -0.2505181958642727,
+        -0.016143098526162122
+      ]
+    },
+    {
+      "body1": "realign_observed_12",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.014218932134009266,
+      "position_m": [
+        0.331382919676813,
+        -0.23058617601370676,
+        -0.01694898831531099
+      ]
+    },
+    {
+      "body1": "realign_observed_13",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.005381566041180147,
+      "position_m": [
+        0.3505234059421815,
+        -0.29022185526309485,
+        -0.012630045574856448
+      ]
+    },
+    {
+      "body1": "realign_observed_14",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.007030567550385586,
+      "position_m": [
+        0.3506837862444913,
+        -0.2702898354125289,
+        -0.013435935364005317
+      ]
+    },
+    {
+      "body1": "realign_observed_15",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.008679569059591025,
+      "position_m": [
+        0.35084416654680106,
+        -0.25035781556196296,
+        -0.014241825153154185
+      ]
+    },
+    {
+      "body1": "realign_observed_16",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.010328570568796464,
+      "position_m": [
+        0.3510045468491108,
+        -0.230425795711397,
+        -0.015047714942303054
+      ]
+    },
+    {
+      "body1": "realign_observed_2",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.01481129068081119,
+      "position_m": [
+        0.31144053189989557,
+        -0.27061059601714843,
+        -0.017238482110021193
+      ]
+    },
+    {
+      "body1": "realign_observed_20",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.001491204475967331,
+      "position_m": [
+        0.37014503311447944,
+        -0.2900614749607851,
+        -0.010728772201848504
+      ]
+    },
+    {
+      "body1": "realign_observed_21",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.00314020598517277,
+      "position_m": [
+        0.3703054134167892,
+        -0.27012945511021913,
+        -0.011534661990997373
+      ]
+    },
+    {
+      "body1": "realign_observed_22",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.004789207494378209,
+      "position_m": [
+        0.37046579371909893,
+        -0.2501974352596532,
+        -0.012340551780146241
+      ]
+    },
+    {
+      "body1": "realign_observed_25",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.009813022869477675,
+      "position_m": [
+        0.37119764235031083,
+        -0.18962269393720388,
+        -0.01475809912254499
+      ]
+    },
+    {
+      "body1": "realign_observed_26",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0015890549416871511,
+      "position_m": [
+        0.37042095217135074,
+        -0.18932615048314924,
+        -0.019907193483917836
+      ]
+    },
+    {
+      "body1": "realign_observed_30",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0049311740600310825,
+      "position_m": [
+        0.3906018311553535,
+        -0.2013722421620816,
+        -0.012391007875985762
+      ]
+    },
+    {
+      "body1": "realign_observed_31",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0049311740600310825,
+      "position_m": [
+        0.3906018311553535,
+        -0.20137224216208158,
+        -0.012391007875985762
+      ]
+    },
+    {
+      "body1": "realign_observed_35",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 4.9325250584505775e-05,
+      "position_m": [
+        0.41000601996039615,
+        -0.21312179038695928,
+        -0.010023916629426543
+      ]
+    },
+    {
+      "body1": "realign_observed_4",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.01646029219001663,
+      "position_m": [
+        0.3116009122022053,
+        -0.2506785761665825,
+        -0.01804437189917006
+      ]
+    },
+    {
+      "body1": "realign_observed_48",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.007127311612237799,
+      "position_m": [
+        0.4506931954789887,
+        -0.2702938236901289,
+        0.0065167844781705425
+      ]
+    },
+    {
+      "body1": "realign_observed_50",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.008776313121443238,
+      "position_m": [
+        0.4508535757812984,
+        -0.25036180383956297,
+        0.005710894689021674
+      ]
+    },
+    {
+      "body1": "realign_observed_53",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.009680667002667205,
+      "position_m": [
+        0.4511814888170408,
+        -0.23957831924590028,
+        0.005306077058649292
+      ]
+    },
+    {
+      "body1": "realign_observed_57",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.003236950047025011,
+      "position_m": [
+        0.4703148226512865,
+        -0.27013344338781914,
+        0.008418057851178475
+      ]
+    },
+    {
+      "body1": "realign_observed_58",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.004821272177729832,
+      "position_m": [
+        0.47046891229939175,
+        -0.25098322431123654,
+        0.0076437777666970436
+      ]
+    },
+    {
+      "body1": "realign_observed_6",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.016656067951736585,
+      "position_m": [
+        0.31051431519245337,
+        -0.2501355955865935,
+        -0.018312137498021942
+      ]
+    },
+    {
+      "body1": "realign_observed_60",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.0047988181932206294,
+      "position_m": [
+        0.47058567762208336,
+        -0.25132786747077795,
+        0.00767316830520851
+      ]
+    },
+    {
+      "body1": "realign_observed_8",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.009271927606392935,
+      "position_m": [
+        0.3309017787698837,
+        -0.2903822355654046,
+        -0.01453131894786438
+      ]
+    },
+    {
+      "body1": "realign_observed_9",
+      "body2": "alignment_open_tool_guard",
+      "depth_m": 0.010920929115598388,
+      "position_m": [
+        0.33106215907219344,
+        -0.2704502157148386,
+        -0.015337208737013256
+      ]
+    }
+  ]
+}

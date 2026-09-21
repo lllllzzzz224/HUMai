@@ -1,0 +1,65 @@
+{
+  "scope": "fresh visible points only, robot stationary; old handeye conditional; not complete obstacle coverage",
+  "records": [
+    {
+      "index": 0,
+      "sync_error_s": 0.0,
+      "paper_plane_coefs": [
+        0.0408012464512457,
+        -0.04467338085074334,
+        -0.10821884111361753
+      ],
+      "plane_fit_rmse_mm": 0.9177978227784279,
+      "plane_z_at_tcp": -0.08082543333336069,
+      "nearby_observed_max_z": -0.020291824461422026
+    },
+    {
+      "index": 1,
+      "sync_error_s": 0.0,
+      "paper_plane_coefs": [
+        0.04193850762151403,
+        -0.03826874315822303,
+        -0.10732715402921013
+      ],
+      "plane_fit_rmse_mm": 0.6590318307782145,
+      "plane_z_at_tcp": -0.08132133593269747,
+      "nearby_observed_max_z": -0.020741039983629583
+    },
+    {
+      "index": 2,
+      "sync_error_s": 0.0,
+      "paper_plane_coefs": [
+        0.027111836373135363,
+        -0.03484205298196327,
+        -0.09960594584284976
+      ],
+      "plane_fit_rmse_mm": 0.9351212800582793,
+      "plane_z_at_tcp": -0.07995320802268699,
+      "nearby_observed_max_z": -0.020728686469641655
+    },
+    {
+      "index": 3,
+      "sync_error_s": 0.0,
+      "paper_plane_coefs": [
+        0.040105244673282275,
+        -0.0417413978862643,
+        -0.10728644317037528
+      ],
+      "plane_fit_rmse_mm": 0.9641147006192674,
+      "plane_z_at_tcp": -0.08097050564601964,
+      "nearby_observed_max_z": -0.020728567590531488
+    },
+    {
+      "index": 4,
+      "sync_error_s": 0.0,
+      "paper_plane_coefs": [
+        0.033683203183439994,
+        -0.04699679174899857,
+        -0.10589326537114069
+      ],
+      "plane_fit_rmse_mm": 0.960674018990156,
+      "plane_z_at_tcp": -0.08043392317414184,
+      "nearby_observed_max_z": -0.020832867479492645
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": "DISPATCHED_SUBJECT_TO_LIVE_EXECUTION_GATES",
+  "trajectory_sha256": "b0b20cb7b1f5471c38f64dcae2972a15f4bb1b848f1da14b38cee0ced30f4ec3",
+  "spline_samples_sha256": "c88c31808ce78fb18e43390e658a6e6f581727c712a5d224901c1dd7ca27a6e4",
+  "duration_s": 149.532912685,
+  "root_fk_samples": 7549,
+  "scene_collision_samples": 3811,
+  "no_motion_sent": true,
+  "gripper_commands": false,
+  "target_is_original_observation_pose_not_strict_vertical": true,
+  "tool_tilt_from_down_deg": 12.10147303860389,
+  "required_before_motion": "User to confirm hand and ruler removed after latest measurement; then fresh start/scene/interface gates must all pass",
+  "capture_source": "before/capture.json",
+  "visual_note": "Latest RGB showed no visible hand/ruler in partial camera FOV; not a full workspace clearance check",
+  "operator_clearance_reply": "确认",
+  "operator_clearance_context": "用户确认刚才测量用手和尺子已撤开",
+  "root_dispatch_time": "2026-09-16T20:16:59.552189+08:00"
+}

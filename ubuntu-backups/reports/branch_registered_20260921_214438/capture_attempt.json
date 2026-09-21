@@ -1,0 +1,23 @@
+{
+  "time_local": "2026-09-21T21:44:38.692175+08:00",
+  "status": "NO_CAMERA_DEVICE",
+  "capture_attempted": false,
+  "accepted_frames": 0,
+  "device_check": {
+    "privilege": "require_escalated approved",
+    "video_devices": [],
+    "dev_bus_usb_exists": false,
+    "relevant_camera_processes": [],
+    "enumerate_command": "timeout 12s rs-enumerate-devices",
+    "enumerate_exit_code": 1,
+    "enumerate_output": "No device detected. Is it plugged in?"
+  },
+  "camera_started": false,
+  "owned_camera_processes_remaining": 0,
+  "robot_read_commands_sent": 0,
+  "robot_motion_commands_sent": 0,
+  "gripper_commands_sent": 0,
+  "source_script": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/capture_readonly.py",
+  "source_script_sha256": "e4771d24fa4d1efd5d90f88bf1c1cdce33bdb0443b1f86542e3cbb44d990992c",
+  "note": "Fresh synchronized capture unavailable. Historical images were not used as current observations."
+}

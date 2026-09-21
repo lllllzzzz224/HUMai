@@ -1,0 +1,10 @@
+{
+  "scene_readback_table_top_m": -0.05499999999999999,
+  "return_observation_count": 50,
+  "current_diag20_obstacles": 55,
+  "previous_obstacles_preserved": {
+    "alignment_observed": 115,
+    "realign_observed": 96
+  },
+  "new_obstacles": 81
+}

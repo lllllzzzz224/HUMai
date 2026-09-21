@@ -1,0 +1,54 @@
+{
+  "safe_prefix_steps": [
+    {
+      "new_step_number": 1,
+      "hash": "25ba925b6b3a1f2d80ea3e5a971474a4764f3a8165e9eae07d7c1b588aa52116",
+      "duration_s": 3.5907518510000003,
+      "target_m": [
+        0.36346435558014395,
+        -0.28152209200886436,
+        0.1303522335853647
+      ],
+      "tool_table_gap_mm": 85.91069382437988,
+      "tool_highest_observed_gap_mm": 51.202518285801915
+    },
+    {
+      "new_step_number": 2,
+      "hash": "a8729beb034dcde76f05f6d1cc3dc5c3bcc7271195a850632aa14d4ac2a018b5",
+      "duration_s": 3.38155895,
+      "target_m": [
+        0.36346435558014395,
+        -0.28152209200886436,
+        0.1103522335853647
+      ],
+      "tool_table_gap_mm": 65.91115364590414,
+      "tool_highest_observed_gap_mm": 31.202978107326167
+    },
+    {
+      "new_step_number": 3,
+      "hash": "f3551f40ac3909bf9860485cd6719fd69c280737e2831559a6b1b7e5b176e440",
+      "duration_s": 3.292165943,
+      "target_m": [
+        0.36346435558014395,
+        -0.28152209200886436,
+        0.0903522335853647
+      ],
+      "tool_table_gap_mm": 45.91135034647454,
+      "tool_highest_observed_gap_mm": 11.203174807896566
+    }
+  ],
+  "fourth_step_rejected": true,
+  "step4_contact_counts": {
+    "alignment_observed": 9,
+    "birdalign_observed": 17,
+    "diag20_observed": 12,
+    "realign_observed": 25
+  },
+  "step4_max_contact_depth_m": {
+    "alignment_observed": 0.0173677496559738,
+    "birdalign_observed": 0.01646029219001663,
+    "diag20_observed": 0.010920929115598388,
+    "realign_observed": 0.016656067951736585
+  },
+  "motion_executed": false
+}

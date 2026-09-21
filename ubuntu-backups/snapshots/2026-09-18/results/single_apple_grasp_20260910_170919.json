@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-09-10 17:09:19",
+  "status": "FAILED_STOPPED",
+  "single_round": true,
+  "continuous": false,
+  "round_index": 1,
+  "autonomous_requested": false,
+  "fully_autonomous_requested": false,
+  "preflight_only": true,
+  "verify_only": false,
+  "return_after_lift_requested": false,
+  "visual_xy_correction_disabled_by_cli": false,
+  "single_apple_scene_operator_confirmed": true,
+  "motion_started": false,
+  "gripper_close_commanded": false,
+  "lift_completed": false,
+  "gripper_reopened": false,
+  "returned_to_scan": false,
+  "stale_support_guard_removed_on_start": true,
+  "error": "plan-only 要求机械臂已在固定 SCAN；当前最大关节误差 0.2529 rad",
+  "support_guard_removed_on_exit": true,
+  "events": [
+    {
+      "time": "2026-09-10 17:09:22",
+      "step": "夹爪通信与命令",
+      "result": "SKIPPED_PREFLIGHT_ONLY",
+      "no_publish": true
+    }
+  ],
+  "finished_at": "2026-09-10 17:09:22"
+}

@@ -1,0 +1,12 @@
+{
+  "source_execution_log": "single_apple_grasp_20260914_204246.json",
+  "program_status": "PASS_PICK_PLACE_BASIN_COMPLETE",
+  "finished_at": "2026-09-14 20:43:30",
+  "returned_to_scan": true,
+  "physical_success": "UNCONFIRMED",
+  "user_requested_save": true,
+  "no_new_trials": true,
+  "final_scan_error_rad_from_process": 0.01993,
+  "gripper_open_mm_commanded": 80.0,
+  "note": "Existing approved single run completed, process exited 0. No new action was started after save request. Root to verify physical outcome from recording and after image."
+}

@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-09-17 16:43:42",
+  "status": "STOPPED_BY_OPERATOR",
+  "settings": {
+    "max_rounds": 3,
+    "min_position_change_m": 0.03,
+    "stable_time_s": 2.0,
+    "safety_countdown_s": 3.0,
+    "retry_delay_s": 2.0,
+    "max_pre_motion_retries": 3,
+    "max_axis_span_m": 0.01
+  },
+  "completed_rounds": 0,
+  "pre_motion_rejections": 3,
+  "vision_wait_errors": 0,
+  "rounds": [
+    {
+      "log": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260917_164353_round001_attempt01.json",
+      "status": "FAILED_STOPPED",
+      "round_index": 1,
+      "attempt": 1,
+      "motion_started": false,
+      "error": "苹果坐标不稳定，XYZ span=[0.105512, 0.095981, 0.006096] m"
+    },
+    {
+      "log": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260917_164400_round001_attempt02.json",
+      "status": "FAILED_STOPPED",
+      "round_index": 1,
+      "attempt": 2,
+      "motion_started": false,
+      "error": "苹果坐标不稳定，XYZ span=[0.020265, 0.041432, 0.00319] m"
+    },
+    {
+      "log": "/home/li/hand_eye_calibration/apple_pick_v2/results/single_apple_grasp_20260917_164428_round001_attempt03.json",
+      "status": "FAILED_STOPPED",
+      "round_index": 1,
+      "attempt": 3,
+      "motion_started": false,
+      "error": "规划后苹果位置变化 183.0mm 超过 10.0mm"
+    }
+  ],
+  "last_gate_snapshot": {
+    "state": "READY",
+    "stable_elapsed_s": 5.141861844000232,
+    "distance_from_reference_m": null,
+    "center_m": [
+      0.3517245412774651,
+      -0.23112653041952524,
+      -0.06483324201878721
+    ]
+  },
+  "finished_at": "2026-09-17 16:45:03"
+}

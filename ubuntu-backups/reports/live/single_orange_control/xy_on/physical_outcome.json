@@ -1,0 +1,6 @@
+{
+  "physical_success": false,
+  "evidence": "结束画面盆内只有苹果，橘子仍在纸上",
+  "variable_changed": "visual_xy_correction.enabled=true",
+  "conclusion": "旧XY补偿没有单独解决单果失败；不能确定绝对定位误差。"
+}

@@ -1,0 +1,9 @@
+[
+  {
+    "node": "//move_group",
+    "action": "/move_action",
+    "types": [
+      "moveit_msgs/action/MoveGroup"
+    ]
+  }
+]

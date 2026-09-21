@@ -1,0 +1,1586 @@
+{
+  "status": "ORANGE_DETECTED_TILED_DIAGNOSTIC_ONLY",
+  "generated_at": "2026-09-21T21:51:47.614789+08:00",
+  "historical_frame": true,
+  "is_current_observation": false,
+  "source_rgb": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/rgb_02.jpg",
+  "source_depth": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/depth_02.npy",
+  "source_capture_received_at": "2026-09-21T15:10:16.868872+08:00",
+  "coordinate_scope": "camera_frame_only",
+  "synchronized_robot_pose_available": false,
+  "camera_to_base_available": false,
+  "source_localizer": "/home/li/hand_eye_calibration/apple_pick_v2/apple_center_localizer_v2.py",
+  "source_localizer_sha256": "90a789a043c0a131b8c5187db474be433a6b840332dcbddfb31baa494c990be8",
+  "pure_methods_extracted_without_importing_or_initializing_ros": [
+    "inference_rois",
+    "detection_mask"
+  ],
+  "source_method_lines": {
+    "inference_rois": [
+      478,
+      508
+    ],
+    "detection_mask": [
+      650,
+      666
+    ]
+  },
+  "constants": {
+    "APPLE_CLASS_ID": 47,
+    "ORANGE_CLASS_ID": 49,
+    "MIN_CONFIDENCE": 0.15,
+    "INFERENCE_TILE_WIDTH_PX": 480,
+    "INFERENCE_TILE_STRIDE_PX": 160,
+    "ROI_EDGE_MARGIN_PX": 4
+  },
+  "model": "/home/li/hand_eye_calibration/models/yolo11n-seg.pt",
+  "model_sha256": "55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152",
+  "device": "cpu",
+  "ultralytics_version": "8.4.102",
+  "torch_version": "2.13.0+cu130",
+  "model_inference_imgsz": 640,
+  "model_retina_masks": false,
+  "classes": [
+    47,
+    49
+  ],
+  "confidence_threshold": 0.15,
+  "roi_count": 56,
+  "rois_xyxy": [
+    [
+      0,
+      0,
+      240,
+      240
+    ],
+    [
+      120,
+      0,
+      360,
+      240
+    ],
+    [
+      240,
+      0,
+      480,
+      240
+    ],
+    [
+      360,
+      0,
+      600,
+      240
+    ],
+    [
+      480,
+      0,
+      720,
+      240
+    ],
+    [
+      600,
+      0,
+      840,
+      240
+    ],
+    [
+      720,
+      0,
+      960,
+      240
+    ],
+    [
+      840,
+      0,
+      1080,
+      240
+    ],
+    [
+      960,
+      0,
+      1200,
+      240
+    ],
+    [
+      0,
+      120,
+      240,
+      360
+    ],
+    [
+      120,
+      120,
+      360,
+      360
+    ],
+    [
+      240,
+      120,
+      480,
+      360
+    ],
+    [
+      360,
+      120,
+      600,
+      360
+    ],
+    [
+      480,
+      120,
+      720,
+      360
+    ],
+    [
+      600,
+      120,
+      840,
+      360
+    ],
+    [
+      720,
+      120,
+      960,
+      360
+    ],
+    [
+      840,
+      120,
+      1080,
+      360
+    ],
+    [
+      960,
+      120,
+      1200,
+      360
+    ],
+    [
+      0,
+      240,
+      240,
+      480
+    ],
+    [
+      120,
+      240,
+      360,
+      480
+    ],
+    [
+      240,
+      240,
+      480,
+      480
+    ],
+    [
+      360,
+      240,
+      600,
+      480
+    ],
+    [
+      480,
+      240,
+      720,
+      480
+    ],
+    [
+      600,
+      240,
+      840,
+      480
+    ],
+    [
+      720,
+      240,
+      960,
+      480
+    ],
+    [
+      840,
+      240,
+      1080,
+      480
+    ],
+    [
+      960,
+      240,
+      1200,
+      480
+    ],
+    [
+      0,
+      360,
+      240,
+      600
+    ],
+    [
+      120,
+      360,
+      360,
+      600
+    ],
+    [
+      240,
+      360,
+      480,
+      600
+    ],
+    [
+      360,
+      360,
+      600,
+      600
+    ],
+    [
+      480,
+      360,
+      720,
+      600
+    ],
+    [
+      600,
+      360,
+      840,
+      600
+    ],
+    [
+      720,
+      360,
+      960,
+      600
+    ],
+    [
+      840,
+      360,
+      1080,
+      600
+    ],
+    [
+      960,
+      360,
+      1200,
+      600
+    ],
+    [
+      0,
+      480,
+      240,
+      720
+    ],
+    [
+      120,
+      480,
+      360,
+      720
+    ],
+    [
+      240,
+      480,
+      480,
+      720
+    ],
+    [
+      360,
+      480,
+      600,
+      720
+    ],
+    [
+      480,
+      480,
+      720,
+      720
+    ],
+    [
+      600,
+      480,
+      840,
+      720
+    ],
+    [
+      720,
+      480,
+      960,
+      720
+    ],
+    [
+      840,
+      480,
+      1080,
+      720
+    ],
+    [
+      960,
+      480,
+      1200,
+      720
+    ],
+    [
+      1040,
+      0,
+      1280,
+      240
+    ],
+    [
+      1040,
+      120,
+      1280,
+      360
+    ],
+    [
+      1040,
+      240,
+      1280,
+      480
+    ],
+    [
+      1040,
+      360,
+      1280,
+      600
+    ],
+    [
+      1040,
+      480,
+      1280,
+      720
+    ],
+    [
+      0,
+      0,
+      480,
+      720
+    ],
+    [
+      160,
+      0,
+      640,
+      720
+    ],
+    [
+      320,
+      0,
+      800,
+      720
+    ],
+    [
+      480,
+      0,
+      960,
+      720
+    ],
+    [
+      640,
+      0,
+      1120,
+      720
+    ],
+    [
+      800,
+      0,
+      1280,
+      720
+    ]
+  ],
+  "inference_elapsed_s": 3.3973388250014978,
+  "detections": [
+    {
+      "index": 0,
+      "class_id": 47,
+      "class_name": "apple",
+      "confidence": 0.3962128758430481,
+      "roi_index": 2,
+      "roi_xyxy": [
+        240,
+        0,
+        480,
+        240
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        154.93807983398438,
+        217.19215393066406,
+        219.85537719726562,
+        239.8692169189453
+      ],
+      "global_xyxy_px": [
+        394.9380798339844,
+        217.19215393066406,
+        459.8553771972656,
+        239.8692169189453
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1201,
+      "mask_valid_depth_pixels": 1119,
+      "mask_valid_depth_fraction": 0.9317235636969192
+    },
+    {
+      "index": 1,
+      "class_id": 47,
+      "class_name": "apple",
+      "confidence": 0.1976589411497116,
+      "roi_index": 2,
+      "roi_xyxy": [
+        240,
+        0,
+        480,
+        240
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 1,
+      "local_xyxy_px": [
+        48.42118835449219,
+        225.4493408203125,
+        101.71873474121094,
+        239.8919677734375
+      ],
+      "global_xyxy_px": [
+        288.4211883544922,
+        225.4493408203125,
+        341.71873474121094,
+        239.8919677734375
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 636,
+      "mask_valid_depth_pixels": 611,
+      "mask_valid_depth_fraction": 0.960691823899371
+    },
+    {
+      "index": 2,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.1680884063243866,
+      "roi_index": 2,
+      "roi_xyxy": [
+        240,
+        0,
+        480,
+        240
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 2,
+      "local_xyxy_px": [
+        155.9980010986328,
+        217.1188201904297,
+        219.37216186523438,
+        239.89535522460938
+      ],
+      "global_xyxy_px": [
+        395.9980010986328,
+        217.1188201904297,
+        459.3721618652344,
+        239.89535522460938
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1203,
+      "mask_valid_depth_pixels": 1121,
+      "mask_valid_depth_fraction": 0.9318370739817123
+    },
+    {
+      "index": 3,
+      "class_id": 47,
+      "class_name": "apple",
+      "confidence": 0.26782020926475525,
+      "roi_index": 3,
+      "roi_xyxy": [
+        360,
+        0,
+        600,
+        240
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        193.79443359375,
+        183.50770568847656,
+        239.79940795898438,
+        239.8985137939453
+      ],
+      "global_xyxy_px": [
+        553.79443359375,
+        183.50770568847656,
+        599.7994079589844,
+        239.8985137939453
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 2191,
+      "mask_valid_depth_pixels": 2187,
+      "mask_valid_depth_fraction": 0.9981743496120493
+    },
+    {
+      "index": 4,
+      "class_id": 47,
+      "class_name": "apple",
+      "confidence": 0.22865286469459534,
+      "roi_index": 3,
+      "roi_xyxy": [
+        360,
+        0,
+        600,
+        240
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 1,
+      "local_xyxy_px": [
+        34.88975143432617,
+        217.15435791015625,
+        100.7468032836914,
+        239.86300659179688
+      ],
+      "global_xyxy_px": [
+        394.8897514343262,
+        217.15435791015625,
+        460.7468032836914,
+        239.86300659179688
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1207,
+      "mask_valid_depth_pixels": 1124,
+      "mask_valid_depth_fraction": 0.9312344656172328
+    },
+    {
+      "index": 5,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.18691085278987885,
+      "roi_index": 3,
+      "roi_xyxy": [
+        360,
+        0,
+        600,
+        240
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 2,
+      "local_xyxy_px": [
+        36.271568298339844,
+        217.154296875,
+        99.82945251464844,
+        239.90061950683594
+      ],
+      "global_xyxy_px": [
+        396.27156829833984,
+        217.154296875,
+        459.82945251464844,
+        239.90061950683594
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1203,
+      "mask_valid_depth_pixels": 1122,
+      "mask_valid_depth_fraction": 0.9326683291770573
+    },
+    {
+      "index": 6,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.1639619767665863,
+      "roi_index": 9,
+      "roi_xyxy": [
+        0,
+        120,
+        240,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        154.4055633544922,
+        167.0006103515625,
+        169.23239135742188,
+        182.47471618652344
+      ],
+      "global_xyxy_px": [
+        154.4055633544922,
+        287.0006103515625,
+        169.23239135742188,
+        302.47471618652344
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 189,
+      "mask_valid_depth_pixels": 170,
+      "mask_valid_depth_fraction": 0.8994708994708994
+    },
+    {
+      "index": 7,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.37614867091178894,
+      "roi_index": 13,
+      "roi_xyxy": [
+        480,
+        120,
+        720,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        180.17442321777344,
+        206.90347290039062,
+        239.82171630859375,
+        239.8929901123047
+      ],
+      "global_xyxy_px": [
+        660.1744232177734,
+        326.9034729003906,
+        719.8217163085938,
+        359.8929901123047
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1263,
+      "mask_valid_depth_pixels": 1167,
+      "mask_valid_depth_fraction": 0.9239904988123515
+    },
+    {
+      "index": 8,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.16168394684791565,
+      "roi_index": 13,
+      "roi_xyxy": [
+        480,
+        120,
+        720,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 1,
+      "local_xyxy_px": [
+        188.41632080078125,
+        144.2450714111328,
+        239.7537384033203,
+        174.59271240234375
+      ],
+      "global_xyxy_px": [
+        668.4163208007812,
+        264.2450714111328,
+        719.7537384033203,
+        294.59271240234375
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 837,
+      "mask_valid_depth_pixels": 639,
+      "mask_valid_depth_fraction": 0.7634408602150538
+    },
+    {
+      "index": 9,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.3802894949913025,
+      "roi_index": 14,
+      "roi_xyxy": [
+        600,
+        120,
+        840,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        59.99839782714844,
+        207.4762725830078,
+        153.22988891601562,
+        239.91720581054688
+      ],
+      "global_xyxy_px": [
+        659.9983978271484,
+        327.4762725830078,
+        753.2298889160156,
+        359.9172058105469
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1383,
+      "mask_valid_depth_pixels": 1291,
+      "mask_valid_depth_fraction": 0.9334779464931309
+    },
+    {
+      "index": 10,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.3505818247795105,
+      "roi_index": 14,
+      "roi_xyxy": [
+        600,
+        120,
+        840,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 1,
+      "local_xyxy_px": [
+        145.73329162597656,
+        177.099609375,
+        176.41534423828125,
+        229.77438354492188
+      ],
+      "global_xyxy_px": [
+        745.7332916259766,
+        297.099609375,
+        776.4153442382812,
+        349.7743835449219
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1054,
+      "mask_valid_depth_pixels": 994,
+      "mask_valid_depth_fraction": 0.9430740037950665
+    },
+    {
+      "index": 11,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.3411750793457031,
+      "roi_index": 14,
+      "roi_xyxy": [
+        600,
+        120,
+        840,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 2,
+      "local_xyxy_px": [
+        69.57221984863281,
+        143.00282287597656,
+        158.47454833984375,
+        172.21986389160156
+      ],
+      "global_xyxy_px": [
+        669.5722198486328,
+        263.00282287597656,
+        758.4745483398438,
+        292.21986389160156
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1386,
+      "mask_valid_depth_pixels": 1116,
+      "mask_valid_depth_fraction": 0.8051948051948052
+    },
+    {
+      "index": 12,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.15027309954166412,
+      "roi_index": 14,
+      "roi_xyxy": [
+        600,
+        120,
+        840,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 3,
+      "local_xyxy_px": [
+        57.52360153198242,
+        176.0952911376953,
+        73.38739013671875,
+        213.80819702148438
+      ],
+      "global_xyxy_px": [
+        657.5236015319824,
+        296.0952911376953,
+        673.3873901367188,
+        333.8081970214844
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 503,
+      "mask_valid_depth_pixels": 400,
+      "mask_valid_depth_fraction": 0.7952286282306164
+    },
+    {
+      "index": 13,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.5143494009971619,
+      "roi_index": 15,
+      "roi_xyxy": [
+        720,
+        120,
+        960,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        25.715286254882812,
+        176.8923797607422,
+        56.350284576416016,
+        229.6853485107422
+      ],
+      "global_xyxy_px": [
+        745.7152862548828,
+        296.8923797607422,
+        776.350284576416,
+        349.6853485107422
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1037,
+      "mask_valid_depth_pixels": 981,
+      "mask_valid_depth_fraction": 0.9459980713596914
+    },
+    {
+      "index": 14,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.460070937871933,
+      "roi_index": 15,
+      "roi_xyxy": [
+        720,
+        120,
+        960,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 1,
+      "local_xyxy_px": [
+        0.0244903564453125,
+        142.5140838623047,
+        38.30155563354492,
+        164.1761016845703
+      ],
+      "global_xyxy_px": [
+        720.0244903564453,
+        262.5140838623047,
+        758.3015556335449,
+        284.1761016845703
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 606,
+      "mask_valid_depth_pixels": 512,
+      "mask_valid_depth_fraction": 0.8448844884488449
+    },
+    {
+      "index": 15,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.2697906494140625,
+      "roi_index": 15,
+      "roi_xyxy": [
+        720,
+        120,
+        960,
+        360
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 2,
+      "local_xyxy_px": [
+        0.03760814666748047,
+        231.22503662109375,
+        33.22539138793945,
+        239.90826416015625
+      ],
+      "global_xyxy_px": [
+        720.0376081466675,
+        351.22503662109375,
+        753.2253913879395,
+        359.90826416015625
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 197,
+      "mask_valid_depth_pixels": 197,
+      "mask_valid_depth_fraction": 1.0
+    },
+    {
+      "index": 16,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.4269586205482483,
+      "roi_index": 22,
+      "roi_xyxy": [
+        480,
+        240,
+        720,
+        480
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        180.45501708984375,
+        86.76885986328125,
+        239.82943725585938,
+        135.56272888183594
+      ],
+      "global_xyxy_px": [
+        660.4550170898438,
+        326.76885986328125,
+        719.8294372558594,
+        375.56272888183594
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1781,
+      "mask_valid_depth_pixels": 1691,
+      "mask_valid_depth_fraction": 0.9494665918023583
+    },
+    {
+      "index": 17,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.2976689636707306,
+      "roi_index": 22,
+      "roi_xyxy": [
+        480,
+        240,
+        720,
+        480
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 1,
+      "local_xyxy_px": [
+        188.44459533691406,
+        24.475072860717773,
+        239.7488250732422,
+        54.173118591308594
+      ],
+      "global_xyxy_px": [
+        668.4445953369141,
+        264.4750728607178,
+        719.7488250732422,
+        294.1731185913086
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 801,
+      "mask_valid_depth_pixels": 605,
+      "mask_valid_depth_fraction": 0.7553058676654182
+    },
+    {
+      "index": 18,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.2891027331352234,
+      "roi_index": 23,
+      "roi_xyxy": [
+        600,
+        240,
+        840,
+        480
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        60.859474182128906,
+        87.3179931640625,
+        152.6693572998047,
+        135.5746612548828
+      ],
+      "global_xyxy_px": [
+        660.8594741821289,
+        327.3179931640625,
+        752.6693572998047,
+        375.5746612548828
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 2230,
+      "mask_valid_depth_pixels": 2128,
+      "mask_valid_depth_fraction": 0.9542600896860987
+    },
+    {
+      "index": 19,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.2600972354412079,
+      "roi_index": 23,
+      "roi_xyxy": [
+        600,
+        240,
+        840,
+        480
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 1,
+      "local_xyxy_px": [
+        145.96495056152344,
+        57.17515182495117,
+        176.096923828125,
+        109.91001892089844
+      ],
+      "global_xyxy_px": [
+        745.9649505615234,
+        297.1751518249512,
+        776.096923828125,
+        349.91001892089844
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1016,
+      "mask_valid_depth_pixels": 962,
+      "mask_valid_depth_fraction": 0.9468503937007874
+    },
+    {
+      "index": 20,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.18239742517471313,
+      "roi_index": 23,
+      "roi_xyxy": [
+        600,
+        240,
+        840,
+        480
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 2,
+      "local_xyxy_px": [
+        69.93399810791016,
+        23.231855392456055,
+        158.2169647216797,
+        51.58282470703125
+      ],
+      "global_xyxy_px": [
+        669.9339981079102,
+        263.23185539245605,
+        758.2169647216797,
+        291.58282470703125
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1380,
+      "mask_valid_depth_pixels": 1114,
+      "mask_valid_depth_fraction": 0.8072463768115942
+    },
+    {
+      "index": 21,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.38314300775527954,
+      "roi_index": 24,
+      "roi_xyxy": [
+        720,
+        240,
+        960,
+        480
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 0,
+      "local_xyxy_px": [
+        25.76088523864746,
+        57.02273941040039,
+        56.262123107910156,
+        109.69326782226562
+      ],
+      "global_xyxy_px": [
+        745.7608852386475,
+        297.0227394104004,
+        776.2621231079102,
+        349.6932678222656
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1032,
+      "mask_valid_depth_pixels": 976,
+      "mask_valid_depth_fraction": 0.9457364341085271
+    },
+    {
+      "index": 22,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.29810285568237305,
+      "roi_index": 24,
+      "roi_xyxy": [
+        720,
+        240,
+        960,
+        480
+      ],
+      "roi_size": [
+        240,
+        240
+      ],
+      "roi_family": "fine_240_stride120",
+      "box_index": 1,
+      "local_xyxy_px": [
+        0.09527206420898438,
+        22.487667083740234,
+        38.32975769042969,
+        44.19689178466797
+      ],
+      "global_xyxy_px": [
+        720.095272064209,
+        262.48766708374023,
+        758.3297576904297,
+        284.19689178466797
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 604,
+      "mask_valid_depth_pixels": 509,
+      "mask_valid_depth_fraction": 0.8427152317880795
+    },
+    {
+      "index": 23,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.29440373182296753,
+      "roi_index": 50,
+      "roi_xyxy": [
+        0,
+        0,
+        480,
+        720
+      ],
+      "roi_size": [
+        480,
+        720
+      ],
+      "roi_family": "full_height_480_stride160",
+      "box_index": 0,
+      "local_xyxy_px": [
+        0.9736289978027344,
+        599.1273193359375,
+        39.98601150512695,
+        719.7991943359375
+      ],
+      "global_xyxy_px": [
+        0.9736289978027344,
+        599.1273193359375,
+        39.98601150512695,
+        719.7991943359375
+      ],
+      "touches_roi_edge": true,
+      "excluded_by_existing_2d_basin_rule": true,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 3167,
+      "mask_valid_depth_pixels": 835,
+      "mask_valid_depth_fraction": 0.26365645721503
+    },
+    {
+      "index": 24,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.22382616996765137,
+      "roi_index": 52,
+      "roi_xyxy": [
+        320,
+        0,
+        800,
+        720
+      ],
+      "roi_size": [
+        480,
+        720
+      ],
+      "roi_family": "full_height_480_stride160",
+      "box_index": 0,
+      "local_xyxy_px": [
+        341.5124816894531,
+        328.9885559082031,
+        431.0574951171875,
+        376.0298156738281
+      ],
+      "global_xyxy_px": [
+        661.5124816894531,
+        328.9885559082031,
+        751.0574951171875,
+        376.0298156738281
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 2325,
+      "mask_valid_depth_pixels": 2232,
+      "mask_valid_depth_fraction": 0.96
+    },
+    {
+      "index": 25,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.22317293286323547,
+      "roi_index": 52,
+      "roi_xyxy": [
+        320,
+        0,
+        800,
+        720
+      ],
+      "roi_size": [
+        480,
+        720
+      ],
+      "roi_family": "full_height_480_stride160",
+      "box_index": 1,
+      "local_xyxy_px": [
+        335.9224853515625,
+        260.8509521484375,
+        454.2012939453125,
+        375.7539367675781
+      ],
+      "global_xyxy_px": [
+        655.9224853515625,
+        260.8509521484375,
+        774.2012939453125,
+        375.7539367675781
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 7834,
+      "mask_valid_depth_pixels": 7065,
+      "mask_valid_depth_fraction": 0.9018381414347715
+    },
+    {
+      "index": 26,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.2231399267911911,
+      "roi_index": 52,
+      "roi_xyxy": [
+        320,
+        0,
+        800,
+        720
+      ],
+      "roi_size": [
+        480,
+        720
+      ],
+      "roi_family": "full_height_480_stride160",
+      "box_index": 2,
+      "local_xyxy_px": [
+        375.6266784667969,
+        263.02716064453125,
+        438.2598571777344,
+        284.4720458984375
+      ],
+      "global_xyxy_px": [
+        695.6266784667969,
+        263.02716064453125,
+        758.2598571777344,
+        284.4720458984375
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1049,
+      "mask_valid_depth_pixels": 908,
+      "mask_valid_depth_fraction": 0.86558627264061
+    },
+    {
+      "index": 27,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.20001375675201416,
+      "roi_index": 52,
+      "roi_xyxy": [
+        320,
+        0,
+        800,
+        720
+      ],
+      "roi_size": [
+        480,
+        720
+      ],
+      "roi_family": "full_height_480_stride160",
+      "box_index": 3,
+      "local_xyxy_px": [
+        349.3694763183594,
+        262.92437744140625,
+        437.5688171386719,
+        289.97705078125
+      ],
+      "global_xyxy_px": [
+        669.3694763183594,
+        262.92437744140625,
+        757.5688171386719,
+        289.97705078125
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 1472,
+      "mask_valid_depth_pixels": 1175,
+      "mask_valid_depth_fraction": 0.798233695652174
+    },
+    {
+      "index": 28,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.3524688184261322,
+      "roi_index": 53,
+      "roi_xyxy": [
+        480,
+        0,
+        960,
+        720
+      ],
+      "roi_size": [
+        480,
+        720
+      ],
+      "roi_family": "full_height_480_stride160",
+      "box_index": 0,
+      "local_xyxy_px": [
+        182.21600341796875,
+        329.05926513671875,
+        274.7726745605469,
+        376.741455078125
+      ],
+      "global_xyxy_px": [
+        662.2160034179688,
+        329.05926513671875,
+        754.7726745605469,
+        376.741455078125
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 2392,
+      "mask_valid_depth_pixels": 2293,
+      "mask_valid_depth_fraction": 0.9586120401337793
+    },
+    {
+      "index": 29,
+      "class_id": 49,
+      "class_name": "orange",
+      "confidence": 0.2916916012763977,
+      "roi_index": 53,
+      "roi_xyxy": [
+        480,
+        0,
+        960,
+        720
+      ],
+      "roi_size": [
+        480,
+        720
+      ],
+      "roi_family": "full_height_480_stride160",
+      "box_index": 1,
+      "local_xyxy_px": [
+        229.7756805419922,
+        263.2516784667969,
+        277.059326171875,
+        284.63922119140625
+      ],
+      "global_xyxy_px": [
+        709.7756805419922,
+        263.2516784667969,
+        757.059326171875,
+        284.63922119140625
+      ],
+      "touches_roi_edge": false,
+      "excluded_by_existing_2d_basin_rule": false,
+      "mask_source": "segmentation_polygon",
+      "mask_pixels": 834,
+      "mask_valid_depth_pixels": 747,
+      "mask_valid_depth_fraction": 0.89568345323741
+    }
+  ],
+  "family_summary": {
+    "fine_240_stride120": {
+      "raw_detection_count": 23,
+      "complete_after_2d_basin_count": 9,
+      "max_confidence": 0.5143494009971619,
+      "max_complete_confidence": 0.5143494009971619
+    },
+    "full_height_480_stride160": {
+      "raw_detection_count": 7,
+      "complete_after_2d_basin_count": 6,
+      "max_confidence": 0.3524688184261322,
+      "max_complete_confidence": 0.3524688184261322
+    }
+  },
+  "selection_policy": "highest-confidence non-edge orange with nonempty mask, applying existing 2D basin exclusion only; single-frame diagnostic without temporal locking or 3D basin/reach check",
+  "selected_detection_index": 13,
+  "selected_detection": {
+    "index": 13,
+    "class_id": 49,
+    "class_name": "orange",
+    "confidence": 0.5143494009971619,
+    "roi_index": 15,
+    "roi_xyxy": [
+      720,
+      120,
+      960,
+      360
+    ],
+    "roi_size": [
+      240,
+      240
+    ],
+    "roi_family": "fine_240_stride120",
+    "box_index": 0,
+    "local_xyxy_px": [
+      25.715286254882812,
+      176.8923797607422,
+      56.350284576416016,
+      229.6853485107422
+    ],
+    "global_xyxy_px": [
+      745.7152862548828,
+      296.8923797607422,
+      776.350284576416,
+      349.6853485107422
+    ],
+    "touches_roi_edge": false,
+    "excluded_by_existing_2d_basin_rule": false,
+    "mask_source": "segmentation_polygon",
+    "mask_pixels": 1037,
+    "mask_valid_depth_pixels": 981,
+    "mask_valid_depth_fraction": 0.9459980713596914
+  },
+  "target_mask_path": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/tiled_target_mask.npy",
+  "target_mask_shape": [
+    720,
+    1280
+  ],
+  "target_mask_pixels": 1037,
+  "annotated_image": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/annotated_tiled.jpg",
+  "not_run": [
+    "ROS",
+    "hardware",
+    "temporal_tracking",
+    "3D_basin_and_reach_filter",
+    "sphere_fit",
+    "base_transform",
+    "collision_planning",
+    "grasp_execution"
+  ],
+  "full_frame_previous_detection_count": 0,
+  "full_frame_original_artifacts_sha256": {
+    "diagnostic.json": "fcce1753bbf10e1681b410bcfc00b616befe5490097718839137933010c98b30",
+    "target_mask.npy": "69615b889fefadf59b837d6cb5985e8c6df46877d30d5b89b86e1f8decd85da7",
+    "annotated.jpg": "2b5cce6aa0553aa1559f7bd265b1be54126f608d055add41e96a0dcda091f529"
+  },
+  "full_frame_fallback_note": "The prior independently saved full-frame pass had zero detections; no repeat full-frame pass was run. Current localizer fallback/temporal selection may differ from this offline image-only diagnosis.",
+  "robot_or_gripper_commands_sent": 0,
+  "visual_review": {
+    "reviewer": "assistant_image_review",
+    "whole_target_mask_verified": false,
+    "observed_issue": "The highest-confidence selected mask covers only a small right-side fragment of the visible orange, not the whole fruit.",
+    "bbox_not_touching_roi_edge_is_not_proof_of_complete_fruit": true,
+    "cannot_exclude_occluding_leaf_contamination": true,
+    "allowed_use": "offline diagnostic comparison only; not validated target geometry, localization or execution input"
+  }
+}

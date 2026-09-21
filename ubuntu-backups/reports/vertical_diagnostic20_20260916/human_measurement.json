@@ -1,0 +1,7 @@
+{
+  "reported_lowest_finger_to_table_m": 0.27,
+  "reference": "user confirmed physical lowest finger vertically to table",
+  "requested_relative_descent_m": 0.02,
+  "expected_if_true_vertical_displacement_m": 0.25,
+  "not_used_as_absolute_model_correction": true
+}

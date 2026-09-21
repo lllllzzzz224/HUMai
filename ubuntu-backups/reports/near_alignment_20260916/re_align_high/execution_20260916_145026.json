@@ -1,0 +1,17 @@
+{
+  "status": "PASS_HIGH_ALIGNMENT_ONLY",
+  "closed": false,
+  "return": false,
+  "start_joint_error_rad": 6.97616577149951e-05,
+  "scene_readback": {
+    "scene_readback_table_top_m": -0.05499999999999999,
+    "previous_obstacles_preserved": 115,
+    "new_obstacles": 96
+  },
+  "gripper_commands": false,
+  "final_tcp_m": [
+    0.3640058165538328,
+    -0.27906456865396645,
+    0.17019784682967587
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS_HIGH_ALIGNMENT_ONLY",
+  "closed": false,
+  "return": false,
+  "start_joint_error_rad": 5.235036611556804e-05,
+  "scene_readback_table_top_m": -0.05499999999999999,
+  "open_command_mm": 80.0,
+  "final_tcp_m": [
+    0.316041425392458,
+    -0.23126467265616202,
+    0.17008548680783503
+  ]
+}

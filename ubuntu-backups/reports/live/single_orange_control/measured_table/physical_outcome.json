@@ -1,0 +1,10 @@
+{
+  "success": false,
+  "outcome": "orange_remains_outside_basin",
+  "evidence": "after.jpg",
+  "observation": "橘子在盆外纸面上，盆内可见苹果。",
+  "failure_phase": "unknown_from_final_image",
+  "robot_last_confirmed_state": "SCAN",
+  "execution_end_local": "2026-09-14 20:43:30",
+  "new_trials_paused": true
+}
