@@ -3,3 +3,12 @@ ubuntu-backups/snapshots/*/hand_eye_calibration/
 ubuntu-backups/snapshots/*/rm_rl_grasp/
 ubuntu-backups/snapshots/*/home-probes/
 .DS_Store
+
+# Host local workspace symlinks
+apple_pick_v2
+best.pt
+hand_eye_calibration
+models
+ros2_ws
+vertical-grasp
+
