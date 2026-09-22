@@ -1,0 +1,62 @@
+{
+  "status": "NO_ORANGE_MASK_DETECTED_DIAGNOSTIC_ONLY",
+  "diagnostic_scope": "full_frame_offline_diagnostic_not_validated_grasp_candidate",
+  "generated_at": "2026-09-21T21:45:59.164793+08:00",
+  "historical_frame": true,
+  "is_current_observation": false,
+  "source_capture": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/capture.json",
+  "source_rgb": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/rgb_02.jpg",
+  "source_depth": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/depth_02.npy",
+  "source_capture_received_at": "2026-09-21T15:10:16.868872+08:00",
+  "source_color_frame_number": 82,
+  "source_color_timestamp_ms": 1789974616819.0547,
+  "source_depth_timestamp_ms": 1789974616819.0369,
+  "source_rgb_depth_difference_ms": 0.017822265625,
+  "source_intrinsics": {
+    "width": 1280,
+    "height": 720,
+    "fx": 911.8956909179688,
+    "fy": 909.613525390625,
+    "ppx": 637.0421142578125,
+    "ppy": 350.3262939453125,
+    "distortion_model": "distortion.inverse_brown_conrady",
+    "coeffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "source_depth_scale_m": 0.0010000000474974513,
+  "coordinate_scope": "camera_frame_only",
+  "synchronized_robot_pose_available": false,
+  "camera_to_base_available": false,
+  "model": "/home/li/hand_eye_calibration/models/yolo11n-seg.pt",
+  "model_sha256": "55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152",
+  "ultralytics_version": "8.4.102",
+  "torch_version": "2.13.0+cu130",
+  "classes": [
+    47,
+    49
+  ],
+  "confidence_threshold": 0.15,
+  "device": "cpu",
+  "retina_masks": true,
+  "inference_elapsed_s": 0.8084319549961947,
+  "detections": [],
+  "selected_detection_index": null,
+  "selection_policy": "highest-confidence orange with nonempty segmentation mask for diagnostic visualization only",
+  "target_mask_path": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/target_mask.npy",
+  "target_mask_shape": [
+    720,
+    1280
+  ],
+  "target_mask_dtype": "bool",
+  "target_mask_pixels": 0,
+  "annotated_image": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/annotated.jpg",
+  "current_capture_status": "NO_CAMERA_DEVICE",
+  "current_capture_evidence": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/current_capture_attempt.json",
+  "robot_or_gripper_commands_sent": 0,
+  "camera_started_this_run": false
+}

@@ -1,0 +1,15 @@
+# Preview tuning only. These numbers are not validated safety margins.
+voxel_size_m: 0.012
+padding_m: 0.004
+surface_tolerance_m: 0.012
+pixel_guard: 1
+min_depth_m: 0.10
+max_depth_m: 2.0
+max_cells: 30000
+# Base frame region retained as geometry. Everything outside stays unknown.
+bounds_m: [[0.03, -0.55, -0.12], [0.80, 0.35, 0.55]]
+max_capture_age_s: 3.0
+robot_envelope_verified: false
+calibration_error_bound_m: null
+leaf_contact_allowed: false
+movable_branch_handling_enabled: false

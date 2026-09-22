@@ -1,0 +1,27 @@
+{
+  "status": "NOT_RELEASED_FOR_MOTION",
+  "phase": "fresh_rgbd_and_offline_perception_precheck",
+  "observation_directory": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225",
+  "selected_target_rule": "Highest-confidence orange with a complete image box; corresponds to the middle-right orange in these observations",
+  "target_detections": 3,
+  "confidence_min_max": [
+    0.8283156752586365,
+    0.8541037440299988
+  ],
+  "target_mask_valid_depth_min_max": [
+    0.9172096908939015,
+    0.9328551171907582
+  ],
+  "obstacle_policy": "Branches and leaves treated as non-traversable until permitted interaction is verified; connectivity unknown",
+  "blocking_facts": [
+    "No camera/move_group graph endpoints discovered in ROS domains 0 and 42 at check time; process inspection found no camera/move_group/rviz process",
+    "Automatic obstacle integration remains a design, not a deployed module",
+    "Capture contains no synchronized robot joint state or camera-to-base transform",
+    "Branch geometry was not submitted to or read back from a MoveIt collision scene",
+    "No all-link approach, closure or retreat path validation was performed"
+  ],
+  "planning_attempted": false,
+  "motion_commands_sent": 0,
+  "gripper_commands_sent": 0,
+  "interpretation": "This is insufficient-information refusal, not a computed proof that no collision-free path exists."
+}

@@ -1,0 +1,64 @@
+{
+  "started_at": "2026-09-20T17:26:04.384798+08:00",
+  "ended_at": "2026-09-20T17:26:07.885352+08:00",
+  "source": "Newly started local RealSense RGB-D stream; robot not accessed",
+  "records": [
+    {
+      "received_at": "2026-09-20T17:26:06.372064+08:00",
+      "color_frame_number": 43,
+      "color_timestamp_ms": 1789896366338.8625,
+      "timestamp_domain": "timestamp_domain.global_time",
+      "depth_timestamp_ms": 1789896366338.846,
+      "depth_scale_m": 0.0010000000474974513,
+      "depth_valid_fraction": 0.8570106336805555,
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 911.8956909179688,
+        "fy": 909.613525390625,
+        "ppx": 637.0421142578125,
+        "ppy": 350.3262939453125
+      },
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/rgb_00.jpg",
+      "depth_path": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/depth_00.npy"
+    },
+    {
+      "received_at": "2026-09-20T17:26:07.027631+08:00",
+      "color_frame_number": 63,
+      "color_timestamp_ms": 1789896366994.2026,
+      "timestamp_domain": "timestamp_domain.global_time",
+      "depth_timestamp_ms": 1789896366994.1858,
+      "depth_scale_m": 0.0010000000474974513,
+      "depth_valid_fraction": 0.8660286458333334,
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 911.8956909179688,
+        "fy": 909.613525390625,
+        "ppx": 637.0421142578125,
+        "ppy": 350.3262939453125
+      },
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/rgb_01.jpg",
+      "depth_path": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/depth_01.npy"
+    },
+    {
+      "received_at": "2026-09-20T17:26:07.690856+08:00",
+      "color_frame_number": 83,
+      "color_timestamp_ms": 1789896367645.4712,
+      "timestamp_domain": "timestamp_domain.global_time",
+      "depth_timestamp_ms": 1789896367645.4548,
+      "depth_scale_m": 0.0010000000474974513,
+      "depth_valid_fraction": 0.8681141493055555,
+      "intrinsics": {
+        "width": 1280,
+        "height": 720,
+        "fx": 911.8956909179688,
+        "fy": 909.613525390625,
+        "ppx": 637.0421142578125,
+        "ppy": 350.3262939453125
+      },
+      "rgb_path": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/rgb_02.jpg",
+      "depth_path": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/depth_02.npy"
+    }
+  ]
+}

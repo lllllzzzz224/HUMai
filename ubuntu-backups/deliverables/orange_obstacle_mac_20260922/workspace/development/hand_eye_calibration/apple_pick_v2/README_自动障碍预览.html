@@ -1,0 +1,50 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README_自动障碍预览</title><style>body{max-width:1040px;margin:42px auto;padding:0 24px 70px;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;color:#172d3d;background:#fafbfc}h1,h2,h3{line-height:1.3;margin-top:1.5em}a{color:#066c99}img{max-width:100%;height:auto;border:1px solid #dbe3e8;border-radius:6px}pre{background:#eef2f5;padding:16px;overflow:auto;font-size:13px}code{font-size:.87em}table{border-collapse:collapse;width:100%;font-size:15px}td,th{padding:10px;border:1px solid #d2dde4;text-align:left;vertical-align:top}.note{padding:16px 20px;background:#fff1d8;border-left:4px solid #c08224}li{margin:7px 0}nav{font-size:14px;border-bottom:1px solid #d2dde4;padding-bottom:12px}</style><body><nav><a href="../../../../START_HERE.html">资料包首页</a></nav><h1>静态障碍预览（禁止用于执行）</h1>
+<p>本模块把已保存的 RGB-D 转成三维表面体素，在独立 MoveIt 中写入并读回核对。树枝、树叶、目标果实和桌面有效表面均保留为碰撞几何。当前没有树干/树枝/树叶语义分类，也没有穿叶或移枝动作。所有输出固定 <code>executable=false</code>。</p>
+<h2>使用范围</h2>
+<ul>
+<li><code>obstacle_geometry.py</code>：无 ROS/硬件依赖，投影、三态空间查询、体素与增量计算。</li>
+<li><code>obstacle_preview.py</code>：离线重放和 PLY/NPZ/JSON 导出，不接触相机或机器人。</li>
+<li><code>obstacle_scene_ros.py</code>：场景服务、读回、录制姿态显示；只有显式提供有效候选时才创建仅规划动作客户端。</li>
+<li><code>obstacle_preview.launch.py</code>：仅模型发布、MoveIt、可选 RViz，硬编码禁用轨迹执行和控制器管理。只允许 localhost、ROS 域 87，不启动任何驱动或控制器。</li>
+</ul>
+<p>当前实现只适合静态观察预览。看到的表面进入碰撞检测，不代表未看到的背面已经建模。深度为零、视野外、物体背后和指定范围外均是未知。12 mm 体素、4 mm 膨胀是预览参数，尚无实测误差预算。模型中的夹爪盒宽80 mm，现有开爪设置85 mm，真实张开包络仍未验收。相机盒沿用基线近似尺寸110×50×50 mm，支架未测量；当前桌面保留为观测体素，没有另造一个“已测准”的桌面平面。</p>
+<h2>离线生成</h2>
+<p>在本目录运行，输入采集目录与输出目录必须不同，非空输出目录拒绝覆盖：</p>
+<pre><code class="language-bash">/home/li/anaconda3/envs/yolo11/bin/python obstacle_preview.py \
+  --capture /absolute/path/to/capture.json \
+  --output /absolute/path/to/new_preview \
+  --config obstacle_preview.yaml
+</code></pre>
+<p>输出 <code>scene.json</code>、<code>quality.json</code>、<code>observation.ply</code>、<code>observation.npz</code>。支持已保存的 SDK RGB-D 数据和带控制器前后读取、URDF FK、手眼、光学变换的注册采集。后者必须满足时间夹持、静止阈值和变换链一致性。只有矩阵但缺少同步证据的输入会拒绝；仅 RGB-D 的输入保留相机坐标系，禁止写为基座场景。</p>
+<p>可用 <code>--target-mask /absolute/path/mask.npy</code> 标记同帧诊断片段；该掩膜只标注，不删除任何几何，也不代表完整果体或已验证抓取候选。源采集/深度哈希、时间和变换来源均随结果保存。</p>
+<h2>隔离 MoveIt 预览</h2>
+<p>两个终端都设置：</p>
+<pre><code class="language-bash">source /opt/ros/jazzy/setup.bash
+source /home/li/ros2_ws/install/setup.bash
+export ROS_DOMAIN_ID=87
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+export ROS_LOG_DIR=/tmp/obstacle_preview_ros_logs
+unset ROS_STATIC_PEERS
+</code></pre>
+<p>先确认域 87 没有其他实验节点。终端一：</p>
+<pre><code class="language-bash">ros2 launch ./obstacle_preview.launch.py rviz:=true
+</code></pre>
+<p>终端二：</p>
+<pre><code class="language-bash">/home/li/ros_yolo_env/bin/python obstacle_scene_ros.py \
+  --scene /absolute/path/to/base_preview/scene.json \
+  --output /absolute/path/to/new_result.json \
+  --recorded-replay --hold-seconds 180
+</code></pre>
+<p>脚本读取 MoveIt 的 <code>allow_trajectory_execution=false</code> 后才写入。每个体素使用 <code>auto_obstacle_*</code> ID，增量场景不清空其他模块几何、附着体或 ACM。写入后比对几何、附着体、ACM、Octomap、固定变换及模型缩放/膨胀；不一致则失败。单次写入只新增/更新、保留旧占据，不自动删除；纯几何模块已经提供整格有效自由观测证据，后续连续更新仍需单独接入与验证。</p>
+<p><code>/offline_preview/joint_states</code> 的时间戳是显示回放时间，值来自记录的控制器姿态；标记为 <code>RECORDED_SNAPSHOT_NOT_LIVE</code>。RViz 同时显示原采集时间、点云和实际监控场景。绝不能将这个话题接给真机执行程序。结果文件在显示循环结束后写入，原始场景读回提前存为 <code>.readback.json</code>。用 Ctrl-C 停止两终端；没有后台硬件控制进程需要恢复。</p>
+<h2>仅规划候选</h2>
+<p>可选 <code>--candidate /absolute/path/pregrasp.json</code>。候选必须来自同一快照的已审核预抓取求解，含 <code>kind: pregrasp</code>、<code>validated: true</code>、<code>scene_version</code>、<code>source</code>、六轴 <code>joint_positions_rad</code>。这些字段记录上游验收结论，本模块不从检测框制造抓取姿态。没有候选时输出 <code>NO_VALIDATED_PREGRASP_CANDIDATE</code>。</p>
+<p>规划目标强制 <code>plan_only=true</code>，显式采用记录的起始关节状态；检查起点有效性、实际轨迹起终点、每0.01 rad以内的插值状态、规划前后场景摘要。另对各连杆原点和 TCP 查询观测覆盖，给出自由/占用/未知样本数。该采样不覆盖全部连杆表面或连续扫掠体，<code>full_robot_swept_volume_certified=false</code>，因此 <code>PLAN_PREVIEW</code> 也不等于真机可执行。</p>
+<h2>验证</h2>
+<pre><code class="language-bash">source /opt/ros/jazzy/setup.bash
+source /home/li/ros2_ws/install/setup.bash
+ROS_LOG_DIR=/tmp/obstacle_preview_ros_logs PYTHONPATH=&quot;$PWD:$PYTHONPATH&quot; \
+  /home/li/ros_yolo_env/bin/python -m unittest discover -s tests -q
+</code></pre>
+<p>使用仓库原有的 unittest 风格，不需要额外安装 pytest。纯几何和导出测试也可用 yolo11 环境单独运行。现场相机不可用时只能验证已保存数据，不能将旧帧、旧姿态或合成规划当作当前实物成功。</p>
+</body></html>

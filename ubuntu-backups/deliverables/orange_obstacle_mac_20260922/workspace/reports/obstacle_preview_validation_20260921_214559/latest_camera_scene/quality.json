@@ -1,0 +1,17 @@
+{
+  "valid_depth_fraction": 0.8611469184027778,
+  "point_count": 793633,
+  "cell_count": 6924,
+  "limitations": [
+    "single_view_unknown_space",
+    "calibration_error_unmeasured",
+    "robot_envelope_unverified",
+    "surface_model_no_semantic_contact_permission",
+    "missing_camera_to_base"
+  ],
+  "processing_s": 0.5021730419975938,
+  "source_capture_errors": [],
+  "output_kind": "recorded_surface_preview",
+  "source_rgb": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/rgb_02.jpg",
+  "executable": false
+}

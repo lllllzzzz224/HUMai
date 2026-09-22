@@ -1,0 +1,24 @@
+{
+  "status": "SCENE_PREVIEW",
+  "scene_digest": "1101fe65ce79cd4343c1182ad9bedecbe01e8e03b8b1b1aaff1996dfe86f8384",
+  "capture_stamp_s": 1789973799.2170036,
+  "age_at_replay_s": 24963.938450813293,
+  "state_source": "recorded_controller_bracket",
+  "mode": "isolated_recorded_replay",
+  "observed_cells": 3071,
+  "retained_previous_objects": 0,
+  "camera_guard_present": true,
+  "support_model": "observed_surface_voxels_only_no_certified_plane",
+  "limitations": [
+    "single_view_unknown_space",
+    "calibration_error_unmeasured",
+    "robot_envelope_unverified",
+    "surface_model_no_semantic_contact_permission"
+  ],
+  "executable": false,
+  "start_state_valid_in_observed_model": true,
+  "planning": {
+    "status": "NO_VALIDATED_PREGRASP_CANDIDATE",
+    "executable": false
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "request": {
+    "workspace_parameters": {
+      "header": {
+        "stamp": {
+          "sec": 0,
+          "nanosec": 0
+        },
+        "frame_id": "base_link"
+      },
+      "min_corner": {
+        "x": -2.0,
+        "y": -2.0,
+        "z": -2.0
+      },
+      "max_corner": {
+        "x": 2.0,
+        "y": 2.0,
+        "z": 2.0
+      }
+    },
+    "start_state": {
+      "joint_state": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": "base_link"
+        },
+        "name": [
+          "joint1",
+          "joint2",
+          "joint3",
+          "joint4",
+          "joint5",
+          "joint6"
+        ],
+        "position": [
+          2.4988227966653214,
+          0.353656066331611,
+          0.65251752079686,
+          0.0659559924328657,
+          2.0510323971273965,
+          -0.05781403147231216
+        ],
+        "velocity": [],
+        "effort": []
+      },
+      "multi_dof_joint_state": {
+        "header": {
+          "stamp": {
+            "sec": 0,
+            "nanosec": 0
+          },
+          "frame_id": "base_link"
+        },
+        "joint_names": [],
+        "transforms": [],
+        "twist": [],
+        "wrench": []
+      },
+      "attached_collision_objects": [
+        {
+          "link_name": "Link6",
+          "object": {
+            "header": {
+              "stamp": {
+                "sec": 0,
+                "nanosec": 0
+              },
+              "frame_id": "Link6"
+            },
+            "pose": {
+              "position": {
+                "x": -0.06451444708500005,
+                "y": 0.005428183272000007,
+                "z": 0.0036969351309999745
+              },
+              "orientation": {
+                "x": 0.020548815920011322,
+                "y": -0.7282537760744001,
+                "z": 0.0017285122880009792,
+                "w": 0.6849972233833758
+              }
+            },
+            "id": "auto_obstacle_camera_guard",
+            "type": {
+              "key": "",
+              "db": ""
+            },
+            "primitives": [
+              {
+                "type": 1,
+                "dimensions": [
+                  0.11,
+                  0.05,
+                  0.05
+                ],
+                "polygon": {
+                  "points": []
+                }
+              }
+            ],
+            "primitive_poses": [
+              {
+                "position": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0
+                },
+                "orientation": {
+                  "x": 0.0,
+                  "y": 0.0,
+                  "z": 0.0,
+                  "w": 1.0
+                }
+              }
+            ],
+            "meshes": [],
+            "mesh_poses": [],
+            "planes": [],
+            "plane_poses": [],
+            "subframe_names": [],
+            "subframe_poses": [],
+            "operation": "\u0000"
+          },
+          "touch_links": [
+            "Link6",
+            "gripper_body_approx",
+            "tcp_link"
+          ],
+          "detach_posture": {
+            "header": {
+              "stamp": {
+                "sec": 0,
+                "nanosec": 0
+              },
+              "frame_id": ""
+            },
+            "joint_names": [],
+            "points": []
+          },
+          "weight": 0.0
+        }
+      ],
+      "is_diff": false
+    },
+    "goal_constraints": [
+      {
+        "name": "",
+        "joint_constraints": [
+          {
+            "joint_name": "joint1",
+            "position": 1.8988227966653213,
+            "tolerance_above": 0.001,
+            "tolerance_below": 0.001,
+            "weight": 1.0
+          },
+          {
+            "joint_name": "joint2",
+            "position": 0.353656066331611,
+            "tolerance_above": 0.001,
+            "tolerance_below": 0.001,
+            "weight": 1.0
+          },
+          {
+            "joint_name": "joint3",
+            "position": 0.65251752079686,
+            "tolerance_above": 0.001,
+            "tolerance_below": 0.001,
+            "weight": 1.0
+          },
+          {
+            "joint_name": "joint4",
+            "position": 0.0659559924328657,
+            "tolerance_above": 0.001,
+            "tolerance_below": 0.001,
+            "weight": 1.0
+          },
+          {
+            "joint_name": "joint5",
+            "position": 2.0510323971273965,
+            "tolerance_above": 0.001,
+            "tolerance_below": 0.001,
+            "weight": 1.0
+          },
+          {
+            "joint_name": "joint6",
+            "position": -0.05781403147231216,
+            "tolerance_above": 0.001,
+            "tolerance_below": 0.001,
+            "weight": 1.0
+          }
+        ],
+        "position_constraints": [],
+        "orientation_constraints": [],
+        "visibility_constraints": []
+      }
+    ],
+    "path_constraints": {
+      "name": "",
+      "joint_constraints": [],
+      "position_constraints": [],
+      "orientation_constraints": [],
+      "visibility_constraints": []
+    },
+    "trajectory_constraints": {
+      "constraints": []
+    },
+    "reference_trajectories": [],
+    "pipeline_id": "ompl",
+    "planner_id": "RRTConnect",
+    "group_name": "rm_group",
+    "num_planning_attempts": 1,
+    "allowed_planning_time": 10.0,
+    "max_velocity_scaling_factor": 0.1,
+    "max_acceleration_scaling_factor": 0.1,
+    "cartesian_speed_limited_link": "",
+    "max_cartesian_speed": 0.0
+  },
+  "planning_options": {
+    "planning_scene_diff": {
+      "name": "",
+      "robot_state": {
+        "joint_state": {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": ""
+          },
+          "name": [],
+          "position": [],
+          "velocity": [],
+          "effort": []
+        },
+        "multi_dof_joint_state": {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": ""
+          },
+          "joint_names": [],
+          "transforms": [],
+          "twist": [],
+          "wrench": []
+        },
+        "attached_collision_objects": [],
+        "is_diff": true
+      },
+      "robot_model_name": "",
+      "fixed_frame_transforms": [],
+      "allowed_collision_matrix": {
+        "entry_names": [],
+        "entry_values": [],
+        "default_entry_names": [],
+        "default_entry_values": []
+      },
+      "link_padding": [],
+      "link_scale": [],
+      "object_colors": [],
+      "world": {
+        "collision_objects": [],
+        "octomap": {
+          "header": {
+            "stamp": {
+              "sec": 0,
+              "nanosec": 0
+            },
+            "frame_id": ""
+          },
+          "origin": {
+            "position": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "orientation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            }
+          },
+          "octomap": {
+            "header": {
+              "stamp": {
+                "sec": 0,
+                "nanosec": 0
+              },
+              "frame_id": ""
+            },
+            "binary": false,
+            "id": "",
+            "resolution": 0.0,
+            "data": []
+          }
+        }
+      },
+      "is_diff": true
+    },
+    "plan_only": true,
+    "look_around": false,
+    "look_around_attempts": 0,
+    "max_safe_execution_cost": 0.0,
+    "replan": false,
+    "replan_attempts": 0,
+    "replan_delay": 0.0
+  }
+}

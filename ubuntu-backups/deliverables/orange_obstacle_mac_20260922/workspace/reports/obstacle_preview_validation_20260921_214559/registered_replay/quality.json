@@ -1,0 +1,16 @@
+{
+  "valid_depth_fraction": 0.8480533854166666,
+  "point_count": 647562,
+  "cell_count": 3071,
+  "limitations": [
+    "single_view_unknown_space",
+    "calibration_error_unmeasured",
+    "robot_envelope_unverified",
+    "surface_model_no_semantic_contact_permission"
+  ],
+  "processing_s": 0.501620972994715,
+  "source_capture_errors": [],
+  "output_kind": "recorded_surface_preview",
+  "source_rgb": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/rgb_05.jpg",
+  "executable": false
+}

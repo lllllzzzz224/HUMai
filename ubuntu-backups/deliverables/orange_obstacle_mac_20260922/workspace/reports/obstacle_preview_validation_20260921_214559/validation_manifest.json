@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-09-21T22:10:43.602035+08:00",
+  "code_sha256": {
+    "obstacle_geometry.py": "6e99e1e4a3abf0024b7b9659e657d9ef13203935c7bcdf7d5bc5e3c52caec462",
+    "obstacle_preview.py": "ca0095eaf7542cb6d84719336297ac9a5ab80903dee4150f63520409a9d36b07",
+    "obstacle_scene_ros.py": "e064c16362f66fb98bcca0c3109697d3eb6b8f4dcd2fd3e5dd51fa7968f62797",
+    "obstacle_preview.launch.py": "09455a7646cc16ecbede1d3b554c5e8bb6bae5f88ac20dd62366864672e0d9c0",
+    "obstacle_preview.yaml": "f276d7e470336a2eefa8441c37b4b1d383844c8d418dc3252c9664696067f426",
+    "obstacle_preview.rviz": "f45fd8c095586843ae86a094f4b315fa12eacf594eae80ee07184134329036bc"
+  },
+  "unit_tests": 95,
+  "new_tests": 23,
+  "old_baseline_tests": 72,
+  "executable": false,
+  "live_camera": "NO_CAMERA_DEVICE",
+  "motion_commands_sent": 0,
+  "gripper_commands_sent": 0,
+  "actual_runtime_updated": false,
+  "review": "Two P2 findings fixed and regressions independently verified; out-of-range depth regression additionally passed",
+  "development_commit": "9d3333f",
+  "started_preview_processes_stopped": true
+}

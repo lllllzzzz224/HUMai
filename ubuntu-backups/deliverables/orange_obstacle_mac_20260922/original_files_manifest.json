@@ -1,0 +1,534 @@
+{
+  "workspace/reports/obstacle_preview_validation_20260921_214559/action_servers.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/action_servers.json",
+    "sha256": "4b4fcce406da30010e41a68957af06cc9430e57b86f3771fdd5a5da13c1341af"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/bottle_camera_replay/observation.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/bottle_camera_replay/observation.npz",
+    "sha256": "e91843746cb661a85f40b1b4e0cac5535601cc446328cec8cae731933bbedf10"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/bottle_camera_replay/observation.ply": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/bottle_camera_replay/observation.ply",
+    "sha256": "8c7518b5c908019bb2cac0b65aeabc262790c8fd6e7b006f0b156157000ea93c"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/bottle_camera_replay/quality.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/bottle_camera_replay/quality.json",
+    "sha256": "699981b82b4eaec711a30ed0e72bb0f29b602dcc5689d58469cb26896b0495fc"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/bottle_camera_replay/scene.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/bottle_camera_replay/scene.json",
+    "sha256": "3a5abab2ea7ee5f885d459a7937185b7f85bb93feb5ab1f591b4d7f138ef5ea3"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/current_capture_attempt.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/current_capture_attempt.json",
+    "sha256": "96065f45bb718cf3a5fa64a506206d26a7402ddc779ba6082f62ed5d375f6616"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/annotated.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/annotated.jpg",
+    "sha256": "2b5cce6aa0553aa1559f7bd265b1be54126f608d055add41e96a0dcda091f529"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/annotated_tiled.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/annotated_tiled.jpg",
+    "sha256": "42045698ea91da77a2dc8fe7f993bab9474e50f410fbf7b94e9da84d24318d42"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/detection_masks.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/detection_masks.npy",
+    "sha256": "1a5f1accd71547342c562eca31282de73390e07235e6520bfdc4710836a74627"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/diagnostic.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/diagnostic.json",
+    "sha256": "fcce1753bbf10e1681b410bcfc00b616befe5490097718839137933010c98b30"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/target_mask.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/target_mask.npy",
+    "sha256": "69615b889fefadf59b837d6cb5985e8c6df46877d30d5b89b86e1f8decd85da7"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/tiled_diagnostic.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/tiled_diagnostic.json",
+    "sha256": "b0e3126b19050d95c87ba5ff6740308f20c9d0bb5460dcb62954d12103d2d76a"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/tiled_target_mask.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/tiled_target_mask.npy",
+    "sha256": "ba1b614c93997c375037e9327faa6c4a6391a53fd977e3fd318922746cfb447a"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/平铺诊断说明.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/平铺诊断说明.md",
+    "sha256": "2c612d02e12d688ac34878ecc5bc7760cacbf002c841c91aeaeb3b73e3df9091"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/说明.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_detection/说明.md",
+    "sha256": "835950955c8cf4039d677f31e985e6738820522ab25019fbdb47721132eb0bf4"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_scene/observation.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_scene/observation.npz",
+    "sha256": "223005e34ed1f84421dd8fdd01b4a146f431fa04ca602d57ce7065bf6cf2ebee"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_scene/observation.ply": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_scene/observation.ply",
+    "sha256": "5b0d4ba1ceef81b0de54f5db93494fbe70438973df476bb99d81deb5d99d525f"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_scene/quality.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_scene/quality.json",
+    "sha256": "8b6cd283fed61f8c563d8308fec0194b045c396b4c11a58b16583397c14db699"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/latest_camera_scene/scene.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/latest_camera_scene/scene.json",
+    "sha256": "9bde888497408c270210dee7185814adc3b6285ef4c00d1746783f629782b3f4"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/moveit_readback_01.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/moveit_readback_01.json",
+    "sha256": "ff8a6cfa0c7f73e758ca4502587131c16c8f86a5bac666006459fc9827ad0c68"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/moveit_readback_01.readback.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/moveit_readback_01.readback.json",
+    "sha256": "5aa2f553e86b6cd519e69f10e2248b8f959b3e2fd9cbea2bf40ac798c66b935f"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/registered_replay/observation.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/registered_replay/observation.npz",
+    "sha256": "f753017ec91663ea7b12f9247e00555913e84152190736d71cda02ce4c6ed7eb"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/registered_replay/observation.ply": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/registered_replay/observation.ply",
+    "sha256": "506e5ca0e563cc5d20fccb0acfe7262bade0cb32aed717cb38e5a3e6083b4ea3"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/registered_replay/quality.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/registered_replay/quality.json",
+    "sha256": "6462305b8ae670367bd936fcd57b7d058241e00e194093c6b752b4b373c3425a"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/registered_replay/scene.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/registered_replay/scene.json",
+    "sha256": "1b69879bb8ba46ecf0fbfbfe8489b52663bb8114d1ecbbe5b4a2965a5620e325"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/rviz_recorded_scene.png": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/rviz_recorded_scene.png",
+    "sha256": "b6de5fb169ddd2889a355c6097655445299c60552d233251b406df1a7084e6ff"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/RESULT.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/RESULT.md",
+    "sha256": "636bd4bd2b8a58355ed8bf4ba500575ca8f4467055cc00eaaf9a16fd8a5b4c83"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/baseline_scene.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/baseline_scene.json",
+    "sha256": "5aa2f553e86b6cd519e69f10e2248b8f959b3e2fd9cbea2bf40ac798c66b935f"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/blocked_scene.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/blocked_scene.json",
+    "sha256": "01877cc0ea1d86e556ab5d59a6912b8d4b2280a05dae204f75075f337b42bc66"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_baseline.action_result.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_baseline.action_result.json",
+    "sha256": "8930e190c22af84843bd2b1cc4d37e2ff2880af8f73203b446d340aaa2439eeb"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_baseline.goal.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_baseline.goal.json",
+    "sha256": "9015d3805ced563863c03d06c9b0b3ba4135ecfb775a6eacf6b5098ae6151aa5"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_baseline.samples.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_baseline.samples.json",
+    "sha256": "a0174940056f18ad78d6cbec7276f9af31b082731ba1c8cc3ed688bd4afdd5ba"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_detour_tcp_link_0.025.action_result.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_detour_tcp_link_0.025.action_result.json",
+    "sha256": "c3d9d4b28df5fc47f16bf751167e0d7cef90eab7a3d37460a64d8ae2067a8085"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_detour_tcp_link_0.025.goal.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_detour_tcp_link_0.025.goal.json",
+    "sha256": "9015d3805ced563863c03d06c9b0b3ba4135ecfb775a6eacf6b5098ae6151aa5"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_detour_tcp_link_0.025.samples.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/candidate_0_detour_tcp_link_0.025.samples.json",
+    "sha256": "dc7113a745bbea954abcdc9f26d586325353a2673cc2d197c59ae1227249a1ae"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/detour_scene.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/detour_scene.json",
+    "sha256": "69c0aa0badf67c7fb30f82a19d0e8fcbaf6b1944e36d565218f8b85e68860602"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/full_block.action_result.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/full_block.action_result.json",
+    "sha256": "fb80373f6cba64b7c3a5722f79e808f9caa694d52c399e509b156d44382426de"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/full_block.goal.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/full_block.goal.json",
+    "sha256": "9015d3805ced563863c03d06c9b0b3ba4135ecfb775a6eacf6b5098ae6151aa5"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/graph_after.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/graph_after.json",
+    "sha256": "b4d2266e97a141674a9beef20a0a3563d4b7d7f4c09cad68e09fc12565bdfbbc"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/graph_before.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/graph_before.json",
+    "sha256": "b4d2266e97a141674a9beef20a0a3563d4b7d7f4c09cad68e09fc12565bdfbbc"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/render_path.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/render_path.py",
+    "sha256": "588d997a10092af46753cc3d10b8a41817dbed55ce6d66946769c016acb88470"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/report.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/report.json",
+    "sha256": "0e7844b158aebbb507a75c87e13690ce808419818bb4745b298174b6b832b86b"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/restored_scene.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/restored_scene.json",
+    "sha256": "5aa2f553e86b6cd519e69f10e2248b8f959b3e2fd9cbea2bf40ac798c66b935f"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/run_synthetic.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/run_synthetic.py",
+    "sha256": "540a9d19103a4883a2b7ef1efeaf70bc2a4a7483e4681c6454c38a83b6b3b498"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/synthetic_detour.png": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/synthetic_planning/synthetic_detour.png",
+    "sha256": "0e4d5792016159e8a74c40aff39614802dc20abeaafeffceedfa1a4c88a8e3c8"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/tests_final.log": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/tests_final.log",
+    "sha256": "b9cec2029f25e97165e4b932c6e8a35b2daf04d970086b9d0ebe49a881e41fff"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/validation_manifest.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/validation_manifest.json",
+    "sha256": "999abfb56ca66fca93da63fdb5d171d42fb7c99dfa8b8e1d0047ea754dcccaa2"
+  },
+  "workspace/reports/obstacle_preview_validation_20260921_214559/验证结论.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_preview_validation_20260921_214559/验证结论.md",
+    "sha256": "8ed50f777b9c988ca88868f3ff2111fba37a5c1c84df170e0b4bd71bde8ac1dc"
+  },
+  "workspace/reports/branch_observation_20260921_151013/capture.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/capture.json",
+    "sha256": "f70b9779c76bd61432c03c58aa6d3ad30fafe6ee75bd6544440e461879c5a592"
+  },
+  "workspace/reports/branch_observation_20260921_151013/depth_00.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/depth_00.npy",
+    "sha256": "8348ea7bf0f35d0480494dc9d89b620141e62ef836e5628a9e0f2d388b131fdb"
+  },
+  "workspace/reports/branch_observation_20260921_151013/depth_01.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/depth_01.npy",
+    "sha256": "f53d0d07c07a59eb4e038112cf0fca05b120fe35fd8bdc7bb9135d2ff50e83fc"
+  },
+  "workspace/reports/branch_observation_20260921_151013/depth_02.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/depth_02.npy",
+    "sha256": "5fc53b75f7ade6f0ad44215e9323c3d91603351e4a2349338b9c20cd5c55e312"
+  },
+  "workspace/reports/branch_observation_20260921_151013/rgb_00.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/rgb_00.jpg",
+    "sha256": "06ac49de2cb4d457787a5ca6f7388c75ff606ef7836e8e728ed6713b3b01da44"
+  },
+  "workspace/reports/branch_observation_20260921_151013/rgb_01.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/rgb_01.jpg",
+    "sha256": "d47c0fa458e53cf39f22b2676ecb0cc13ccbba2c7cd8c98f75d28fc2ba14ff16"
+  },
+  "workspace/reports/branch_observation_20260921_151013/rgb_02.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_151013/rgb_02.jpg",
+    "sha256": "ba3122c1c6382ccfda28eaaa3497f34c3d0ad61259122cf5e95c50b5573836f0"
+  },
+  "workspace/reports/branch_registered_20260921_145529/capture.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/capture.json",
+    "sha256": "67f9749cd27a766651cbcd3ca3ac276eb4f5300b51040d96302b0d9fd80d6d02"
+  },
+  "workspace/reports/branch_registered_20260921_145529/capture_readonly.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/capture_readonly.py",
+    "sha256": "e4771d24fa4d1efd5d90f88bf1c1cdce33bdb0443b1f86542e3cbb44d990992c"
+  },
+  "workspace/reports/branch_registered_20260921_145529/depth_00.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/depth_00.npy",
+    "sha256": "27e55fb9e46f179896e51e275237ffcac700aa34ad31e7715ab165298b698832"
+  },
+  "workspace/reports/branch_registered_20260921_145529/depth_01.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/depth_01.npy",
+    "sha256": "cf01b327fb27da7d5e15568d46150e54908b9a438d8114804602512cae28fbf4"
+  },
+  "workspace/reports/branch_registered_20260921_145529/depth_02.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/depth_02.npy",
+    "sha256": "ece46aab149a8744a4dcd07313cdaddf0fd5756a200fe20164c51e76a98fabfd"
+  },
+  "workspace/reports/branch_registered_20260921_145529/depth_03.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/depth_03.npy",
+    "sha256": "a769c3f47c3edbd3ea1b42ea700aa8d7af4642489bb391bb68a5c5110cd264f5"
+  },
+  "workspace/reports/branch_registered_20260921_145529/depth_04.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/depth_04.npy",
+    "sha256": "d2e3c6e0023714e0ca2d888cf7e9bcaf77a63118c0c25759d52e65ba9510f257"
+  },
+  "workspace/reports/branch_registered_20260921_145529/depth_05.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/depth_05.npy",
+    "sha256": "43dcf84987ad1c63505941b841ae2e060a4f5efeb501274de07c874b2a58e825"
+  },
+  "workspace/reports/branch_registered_20260921_145529/observed_pointcloud_preview.png": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/observed_pointcloud_preview.png",
+    "sha256": "04f0b20ef65e010a68df08f5cf32ae1d1c9220c5940ec476853c97fb4a581de2"
+  },
+  "workspace/reports/branch_registered_20260921_145529/observed_points_base.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/observed_points_base.npz",
+    "sha256": "da4a0f0233074c26441cdc11784aced0b8073a18b355a52fc4baed61b3c1fa69"
+  },
+  "workspace/reports/branch_registered_20260921_145529/observed_points_base.ply": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/observed_points_base.ply",
+    "sha256": "45c34f24f09e7c918f57d19936b6a0b0edee254794a80254130a355e1c04ebb7"
+  },
+  "workspace/reports/branch_registered_20260921_145529/pointcloud_preview.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/pointcloud_preview.json",
+    "sha256": "8d5a14f0c53b9532e373585b1075ae4378f9f574c8547d5c6e0e4e3d617079f5"
+  },
+  "workspace/reports/branch_registered_20260921_145529/rgb_00.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/rgb_00.jpg",
+    "sha256": "ce6f9667e8b0f70e1fafcb7837c032c3db6f7b1956ab4b5d31bb17f51be8a56e"
+  },
+  "workspace/reports/branch_registered_20260921_145529/rgb_01.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/rgb_01.jpg",
+    "sha256": "9bef379ac5de42b2a58c2e507ad32e66d674876b0333a2d7b992fab7c1fdb8cb"
+  },
+  "workspace/reports/branch_registered_20260921_145529/rgb_02.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/rgb_02.jpg",
+    "sha256": "c8331f18dcc28274bdf1326b9f2e53de0e1e0ff80393819057967116bbc15e85"
+  },
+  "workspace/reports/branch_registered_20260921_145529/rgb_03.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/rgb_03.jpg",
+    "sha256": "2372c76380b7596d49eb3734780a7e97d198ff117568a1848a6b0cc8396a9496"
+  },
+  "workspace/reports/branch_registered_20260921_145529/rgb_04.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/rgb_04.jpg",
+    "sha256": "381fb293470194df391fe40b72ff68c6aca26156eac236023e5b2b618b4b967a"
+  },
+  "workspace/reports/branch_registered_20260921_145529/rgb_05.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/rgb_05.jpg",
+    "sha256": "3bb6f02f1b3a4cfb739b8509fba064d2620ec0c4c98407f5f26fa52d7a3993ab"
+  },
+  "workspace/reports/branch_registered_20260921_145529/坐标采集与点云预览.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_registered_20260921_145529/坐标采集与点云预览.md",
+    "sha256": "f256e4da6fe95040d34b1454b4bcc66911e30a7c53ef5856a3ba35bc874b54e4"
+  },
+  "workspace/reports/obstacle_observation_20260920_172604/capture.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/capture.json",
+    "sha256": "aaf192d6fbd476e4d3c593413a5fea190fbf4530fb0490a3a51df5bd53065ece"
+  },
+  "workspace/reports/obstacle_observation_20260920_172604/depth_00.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/depth_00.npy",
+    "sha256": "17fa47b4e53c55c25ea267e2f1cb1247f1fd264f32dc26ee1b4685af52b67cb4"
+  },
+  "workspace/reports/obstacle_observation_20260920_172604/depth_01.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/depth_01.npy",
+    "sha256": "c9d882e52d40ce056a17f82f680f040dcaf21c63b1b3ddca0165b1bcbe0f8c54"
+  },
+  "workspace/reports/obstacle_observation_20260920_172604/depth_02.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/depth_02.npy",
+    "sha256": "9488af4b2897a51368302c9a3a6926c8365a721f241d4d5f713270cc27246b5e"
+  },
+  "workspace/reports/obstacle_observation_20260920_172604/rgb_00.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/rgb_00.jpg",
+    "sha256": "beedaf3b4af5dc825f7f1d0ffe11bedcc2ff583d36cec8201b5542762cc05299"
+  },
+  "workspace/reports/obstacle_observation_20260920_172604/rgb_01.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/rgb_01.jpg",
+    "sha256": "ce1ab4cdd6dad5a63ce54df518c56ab821a6769d70db7f8879ca98d900bc620d"
+  },
+  "workspace/reports/obstacle_observation_20260920_172604/rgb_02.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/obstacle_observation_20260920_172604/rgb_02.jpg",
+    "sha256": "f833fbec58104a53198c97d84afa061fc0f179a0b3eb7c79729d644ec0e17431"
+  },
+  "workspace/reports/branch_observation_20260921_122225/capture.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/capture.json",
+    "sha256": "dba42f6568856430e81c5273523c1b89962e37cdcc5cdafcf50f8ea36e519c21"
+  },
+  "workspace/reports/branch_observation_20260921_122225/capture_rgbd.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/capture_rgbd.py",
+    "sha256": "57c69b8e370853d9e48d615bbcb87da5968cd73dab6853787963bf8bb3f36f24"
+  },
+  "workspace/reports/branch_observation_20260921_122225/depth_00.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/depth_00.npy",
+    "sha256": "8e7d4de5eabd4a655778ddd361c30fde0e290f18cd385786dedcaf79135e7a78"
+  },
+  "workspace/reports/branch_observation_20260921_122225/depth_01.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/depth_01.npy",
+    "sha256": "74941f1b5ea020beb7c4398a0e2736f3621e13eef99214252cdb31134b47274a"
+  },
+  "workspace/reports/branch_observation_20260921_122225/depth_02.npy": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/depth_02.npy",
+    "sha256": "e27f0d0f12522f0b4d4101eb1503946ff326a9c04c7154d8985211a1277f5a7b"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_00_00.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_00_00.npz",
+    "sha256": "232347c7332d2ec3a4e41ad5f8c167960068499b5d7f1af5326033b227bb0d3a"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_00_01.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_00_01.npz",
+    "sha256": "ed5057f121cd0645d7747414b0cd26cd811dd71cec54188a7af9e91d99b6f509"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_00_02.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_00_02.npz",
+    "sha256": "2e9b7352372598b621bff11dec2a2000dcc6c8b8d00f1dffb754d5e4f352224b"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_00_03.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_00_03.npz",
+    "sha256": "7248156e247c33f8d6aa40b972902db199de0cff0a51e5fed556f91cebeba9d6"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_01_00.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_01_00.npz",
+    "sha256": "13bc124b11193034e7387125143d2cff66bba0d7f9f635c3f7f89991014632df"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_01_01.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_01_01.npz",
+    "sha256": "3673984397c57710eb1231236695abcd2e4970d5d3cba358537b3a81d267b00d"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_01_02.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_01_02.npz",
+    "sha256": "d959f909d7a8d12d68fda2e918772e8b628b56b9c9d180f7365958e4473b783b"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_01_03.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_01_03.npz",
+    "sha256": "573a4a097a6f445f1632f17f9a2a87aa832894736434c6904c18704867d02999"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_02_00.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_02_00.npz",
+    "sha256": "d201d34db4b1a1965444d24972393a9125b54907387aa542f8f8ac4842830dff"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_02_01.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_02_01.npz",
+    "sha256": "b8d60ccf8bd782d000da046723859c59f7c93b8cd51152a506c09c20291c64e2"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_02_02.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_02_02.npz",
+    "sha256": "bcc32a606835ebc940065c4be06eed89b2692bd1a26ed39e3c24d4ecb3b4c15b"
+  },
+  "workspace/reports/branch_observation_20260921_122225/mask_02_03.npz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/mask_02_03.npz",
+    "sha256": "41e1cbcd3ed56e769fe42635e7abad2046c8c412e765104fe92189aacf2d126f"
+  },
+  "workspace/reports/branch_observation_20260921_122225/perception_diagnostic.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/perception_diagnostic.json",
+    "sha256": "20548389bc5541bf50be05d521e9070be03cbfaf5187b21684952bb02e6e51c1"
+  },
+  "workspace/reports/branch_observation_20260921_122225/precheck_result.json": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/precheck_result.json",
+    "sha256": "3f3a948bc099c4920d79b750f21443b83a961932b60f94ba3d1ae918981904c6"
+  },
+  "workspace/reports/branch_observation_20260921_122225/rgb_00.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_00.jpg",
+    "sha256": "99f435cb3ab62a11f4ae59f346ddb69ce4e9a2ed2e48ef8bc11c75f94a25b23b"
+  },
+  "workspace/reports/branch_observation_20260921_122225/rgb_01.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_01.jpg",
+    "sha256": "89c14e9ad7d13d45f5a969739bf3c4ce903489ea5af70ab58e14c22296a59dd7"
+  },
+  "workspace/reports/branch_observation_20260921_122225/rgb_02.jpg": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/rgb_02.jpg",
+    "sha256": "7e766fafebb1db3f4023177d2d947cb861f699de08a1e4f07533570028dee451"
+  },
+  "workspace/reports/branch_observation_20260921_122225/预检结论.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/reports/branch_observation_20260921_122225/预检结论.md",
+    "sha256": "36b287abba9a0029d1e0d0bc88963fed0ee192628b76ab40218212f3cefea6de"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/obstacle_geometry.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/obstacle_geometry.py",
+    "sha256": "6e99e1e4a3abf0024b7b9659e657d9ef13203935c7bcdf7d5bc5e3c52caec462"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/obstacle_preview.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/obstacle_preview.py",
+    "sha256": "ca0095eaf7542cb6d84719336297ac9a5ab80903dee4150f63520409a9d36b07"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/obstacle_scene_ros.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/obstacle_scene_ros.py",
+    "sha256": "e064c16362f66fb98bcca0c3109697d3eb6b8f4dcd2fd3e5dd51fa7968f62797"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/obstacle_preview.launch.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/obstacle_preview.launch.py",
+    "sha256": "09455a7646cc16ecbede1d3b554c5e8bb6bae5f88ac20dd62366864672e0d9c0"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/obstacle_preview.yaml": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/obstacle_preview.yaml",
+    "sha256": "f276d7e470336a2eefa8441c37b4b1d383844c8d418dc3252c9664696067f426"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/obstacle_preview.rviz": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/obstacle_preview.rviz",
+    "sha256": "f45fd8c095586843ae86a094f4b315fa12eacf594eae80ee07184134329036bc"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/README_自动障碍预览.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/README_自动障碍预览.md",
+    "sha256": "4c1756e806f2ff6a1e2d6e98589dd4450d60417b0d7f913cd319592910f9ef0e"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/tests/test_obstacle_geometry.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/tests/test_obstacle_geometry.py",
+    "sha256": "4c95922a0d149cbd0a71df360b1c0a9ff6e03a78e996a4d93286d748ecffa201"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/tests/test_obstacle_preview.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/tests/test_obstacle_preview.py",
+    "sha256": "a279f759f0425a41147f2a84200044f2b079afe8475d8b40daa5835419826302"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/tests/test_obstacle_scene_ros.py": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/tests/test_obstacle_scene_ros.py",
+    "sha256": "27eec0f92f8ce3e9fdcc76c47a8a4f4964a2660d4ff36f89eede0e64a6b3a82d"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/docs/superpowers/plans/2026-09-21-static-obstacle-preview.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/docs/superpowers/plans/2026-09-21-static-obstacle-preview.md",
+    "sha256": "b3bb6da59f19d8020330297065ed2b380e4ffc4bbf9f01efeb1a2583ed50cbc0"
+  },
+  "workspace/development/hand_eye_calibration/apple_pick_v2/docs/superpowers/specs/2026-09-20-automatic-static-obstacle-scene-design.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/development/hand_eye_calibration/apple_pick_v2/docs/superpowers/specs/2026-09-20-automatic-static-obstacle-scene-design.md",
+    "sha256": "9eb45502222a854b8b9a2596084959bfc011f9da627a91de9102913c637c1611"
+  },
+  "workspace/每日记录/2026-09-20.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/每日记录/2026-09-20.md",
+    "sha256": "b9bc9d0cfa051420029905b4b9e8f1f3fa50e21f588954b734e119202ac27007"
+  },
+  "workspace/每日记录/2026-09-21.md": {
+    "source": "/home/li/桌面/9月机械臂实验（算法）/每日记录/2026-09-21.md",
+    "sha256": "6709acb9141064119da00e087d60f73157875e0da45f9386962de321005fc47c"
+  },
+  "reference/rm_description/urdf/rm_65.urdf": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/urdf/rm_65.urdf",
+    "sha256": "068a385ea6e54e4c7344ba81e26e437c80d9ca3c5ea836c4f5f173e81d4402eb"
+  },
+  "reference/rm_description/meshes/rm_65_arm/base_link.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/base_link.STL",
+    "sha256": "cab60b1d90f964f4fdb89e55809e5aae844ab3b7f585babc6aa232b080e2b445"
+  },
+  "reference/rm_description/meshes/rm_65_arm/link1.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/link1.STL",
+    "sha256": "14756351009a3a6be8916068d67ff8b1ac0ed046ace47ceebe28ed8a8f2d7995"
+  },
+  "reference/rm_description/meshes/rm_65_arm/link2.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/link2.STL",
+    "sha256": "fe6457ac59723c6e35e0c12c809c171d21b9165bf2f1782ddc8998c492706383"
+  },
+  "reference/rm_description/meshes/rm_65_arm/link3.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/link3.STL",
+    "sha256": "caa28db987ecec82f4b5584f53c0a4c10460177912bef8bdc70dff6f7e8e9219"
+  },
+  "reference/rm_description/meshes/rm_65_arm/link4.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/link4.STL",
+    "sha256": "7fc66e41318399ee534fbfc59fd49b830a36ece4a558de133f31a7644bac0580"
+  },
+  "reference/rm_description/meshes/rm_65_arm/link5.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/link5.STL",
+    "sha256": "482832743269f83b98599dfbb3b3fb59c876df6ba61b7954c9a1e2928996d219"
+  },
+  "reference/rm_description/meshes/rm_65_arm/link6.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/link6.STL",
+    "sha256": "e1334db72ddbf360c16309350b76b5190b255c55cda24fcb6c8fadfa7f84474b"
+  },
+  "reference/rm_description/meshes/rm_65_arm/link6_6f.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/link6_6f.STL",
+    "sha256": "9fe3c26de282d9e3ca4e9202cf70b2c2cf73678e007471a87ae810b325fdc328"
+  },
+  "reference/rm_description/meshes/rm_65_arm/link6_6fb.STL": {
+    "source": "/home/li/ros2_ws/install/rm_description/share/rm_description/meshes/rm_65_arm/link6_6fb.STL",
+    "sha256": "f8d4799dbfc9ec34b6c6e6f1551bb0c7e2dd95296fd7b70fc0a9780217788c37"
+  },
+  "reference/rm_65_description.srdf": {
+    "source": "/home/li/ros2_ws/install/rm_65_config/share/rm_65_config/config/rm_65_description.srdf",
+    "sha256": "4e08948f043bc5a2f4003d15695e9e10b8d6db659f6d3eca0d7db551d469f984"
+  },
+  "reference/hand_eye_static_tf.launch.py": {
+    "source": "/home/li/hand_eye_calibration/hand_eye_static_tf.launch.py",
+    "sha256": "276c94ae1aeadbf3a3b40c96d45f644db18cde05a7a8746aacdecda4e2e620da"
+  },
+  "reference/apple_center_localizer_v2.py": {
+    "source": "/home/li/hand_eye_calibration/apple_pick_v2/apple_center_localizer_v2.py",
+    "sha256": "90a789a043c0a131b8c5187db474be433a6b840332dcbddfb31baa494c990be8"
+  },
+  "reference/yolo11n-seg.pt": {
+    "source": "/home/li/hand_eye_calibration/models/yolo11n-seg.pt",
+    "sha256": "55ed65c56c91713d23e8402371c6c49a6fd84f257f7dce452e8d70e41dcbe152"
+  },
+  "reference/obstacle_synthetic_plan_validation.log": {
+    "source": "/tmp/obstacle_synthetic_plan_validation.log",
+    "sha256": "d8242adc44082908af9be6e8773219baeebd1763baa21d8acd81122ebb651e86"
+  }
+}

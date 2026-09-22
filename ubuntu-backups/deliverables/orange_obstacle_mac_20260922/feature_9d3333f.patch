@@ -1,0 +1,1602 @@
+commit 9d3333f554c2db5aff891858d6ea5706ec538f7d
+Author: Codex <codex@localhost>
+Date:   Mon Sep 21 22:12:05 2026 +0800
+
+    Add isolated static obstacle scene and plan previews
+
+diff --git "a/apple_pick_v2/README_\350\207\252\345\212\250\351\232\234\347\242\215\351\242\204\350\247\210.md" "b/apple_pick_v2/README_\350\207\252\345\212\250\351\232\234\347\242\215\351\242\204\350\247\210.md"
+new file mode 100644
+index 0000000..6ff2166
+--- /dev/null
++++ "b/apple_pick_v2/README_\350\207\252\345\212\250\351\232\234\347\242\215\351\242\204\350\247\210.md"
+@@ -0,0 +1,76 @@
++# 静态障碍预览（禁止用于执行）
++
++本模块把已保存的 RGB-D 转成三维表面体素，在独立 MoveIt 中写入并读回核对。树枝、树叶、目标果实和桌面有效表面均保留为碰撞几何。当前没有树干/树枝/树叶语义分类，也没有穿叶或移枝动作。所有输出固定 `executable=false`。
++
++## 使用范围
++
++- `obstacle_geometry.py`：无 ROS/硬件依赖，投影、三态空间查询、体素与增量计算。
++- `obstacle_preview.py`：离线重放和 PLY/NPZ/JSON 导出，不接触相机或机器人。
++- `obstacle_scene_ros.py`：场景服务、读回、录制姿态显示；只有显式提供有效候选时才创建仅规划动作客户端。
++- `obstacle_preview.launch.py`：仅模型发布、MoveIt、可选 RViz，硬编码禁用轨迹执行和控制器管理。只允许 localhost、ROS 域 87，不启动任何驱动或控制器。
++
++当前实现只适合静态观察预览。看到的表面进入碰撞检测，不代表未看到的背面已经建模。深度为零、视野外、物体背后和指定范围外均是未知。12 mm 体素、4 mm 膨胀是预览参数，尚无实测误差预算。模型中的夹爪盒宽80 mm，现有开爪设置85 mm，真实张开包络仍未验收。相机盒沿用基线近似尺寸110×50×50 mm，支架未测量；当前桌面保留为观测体素，没有另造一个“已测准”的桌面平面。
++
++## 离线生成
++
++在本目录运行，输入采集目录与输出目录必须不同，非空输出目录拒绝覆盖：
++
++```bash
++/home/li/anaconda3/envs/yolo11/bin/python obstacle_preview.py \
++  --capture /absolute/path/to/capture.json \
++  --output /absolute/path/to/new_preview \
++  --config obstacle_preview.yaml
++```
++
++输出 `scene.json`、`quality.json`、`observation.ply`、`observation.npz`。支持已保存的 SDK RGB-D 数据和带控制器前后读取、URDF FK、手眼、光学变换的注册采集。后者必须满足时间夹持、静止阈值和变换链一致性。只有矩阵但缺少同步证据的输入会拒绝；仅 RGB-D 的输入保留相机坐标系，禁止写为基座场景。
++
++可用 `--target-mask /absolute/path/mask.npy` 标记同帧诊断片段；该掩膜只标注，不删除任何几何，也不代表完整果体或已验证抓取候选。源采集/深度哈希、时间和变换来源均随结果保存。
++
++## 隔离 MoveIt 预览
++
++两个终端都设置：
++
++```bash
++source /opt/ros/jazzy/setup.bash
++source /home/li/ros2_ws/install/setup.bash
++export ROS_DOMAIN_ID=87
++export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
++export ROS_LOG_DIR=/tmp/obstacle_preview_ros_logs
++unset ROS_STATIC_PEERS
++```
++
++先确认域 87 没有其他实验节点。终端一：
++
++```bash
++ros2 launch ./obstacle_preview.launch.py rviz:=true
++```
++
++终端二：
++
++```bash
++/home/li/ros_yolo_env/bin/python obstacle_scene_ros.py \
++  --scene /absolute/path/to/base_preview/scene.json \
++  --output /absolute/path/to/new_result.json \
++  --recorded-replay --hold-seconds 180
++```
++
++脚本读取 MoveIt 的 `allow_trajectory_execution=false` 后才写入。每个体素使用 `auto_obstacle_*` ID，增量场景不清空其他模块几何、附着体或 ACM。写入后比对几何、附着体、ACM、Octomap、固定变换及模型缩放/膨胀；不一致则失败。单次写入只新增/更新、保留旧占据，不自动删除；纯几何模块已经提供整格有效自由观测证据，后续连续更新仍需单独接入与验证。
++
++`/offline_preview/joint_states` 的时间戳是显示回放时间，值来自记录的控制器姿态；标记为 `RECORDED_SNAPSHOT_NOT_LIVE`。RViz 同时显示原采集时间、点云和实际监控场景。绝不能将这个话题接给真机执行程序。结果文件在显示循环结束后写入，原始场景读回提前存为 `.readback.json`。用 Ctrl-C 停止两终端；没有后台硬件控制进程需要恢复。
++
++## 仅规划候选
++
++可选 `--candidate /absolute/path/pregrasp.json`。候选必须来自同一快照的已审核预抓取求解，含 `kind: pregrasp`、`validated: true`、`scene_version`、`source`、六轴 `joint_positions_rad`。这些字段记录上游验收结论，本模块不从检测框制造抓取姿态。没有候选时输出 `NO_VALIDATED_PREGRASP_CANDIDATE`。
++
++规划目标强制 `plan_only=true`，显式采用记录的起始关节状态；检查起点有效性、实际轨迹起终点、每0.01 rad以内的插值状态、规划前后场景摘要。另对各连杆原点和 TCP 查询观测覆盖，给出自由/占用/未知样本数。该采样不覆盖全部连杆表面或连续扫掠体，`full_robot_swept_volume_certified=false`，因此 `PLAN_PREVIEW` 也不等于真机可执行。
++
++## 验证
++
++```bash
++source /opt/ros/jazzy/setup.bash
++source /home/li/ros2_ws/install/setup.bash
++ROS_LOG_DIR=/tmp/obstacle_preview_ros_logs PYTHONPATH="$PWD:$PYTHONPATH" \
++  /home/li/ros_yolo_env/bin/python -m unittest discover -s tests -q
++```
++
++使用仓库原有的 unittest 风格，不需要额外安装 pytest。纯几何和导出测试也可用 yolo11 环境单独运行。现场相机不可用时只能验证已保存数据，不能将旧帧、旧姿态或合成规划当作当前实物成功。
+diff --git a/apple_pick_v2/docs/superpowers/plans/2026-09-21-static-obstacle-preview.md b/apple_pick_v2/docs/superpowers/plans/2026-09-21-static-obstacle-preview.md
+new file mode 100644
+index 0000000..f726b99
+--- /dev/null
++++ b/apple_pick_v2/docs/superpowers/plans/2026-09-21-static-obstacle-preview.md
+@@ -0,0 +1,164 @@
++# Static Obstacle Preview Implementation Plan
++
++> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
++
++**Goal:** 将当前静止 RGB-D 观察转换为可检查的三维障碍模型，并在不控制机械臂的条件下完成 MoveIt 场景写入、读回及仅规划验证。
++
++**Architecture:** 纯 Python 几何模块负责输入校验和三态空间（占用、自由、未知），ROS 适配器只负责场景和规划请求。采集、几何、场景状态和规划结果分别保存证据；所有结果固定标记为不可直接执行。第一批验收到预抓取规划，闭爪、持果、释放和入盆的阶段模型不在本批接入实际执行。
++
++**Tech Stack:** Python 3.12、NumPy、现有 RGB-D/YOLO 数据、ROS 2 Jazzy、MoveIt 2、RViz、pytest。
++
++**Spec:** `../specs/2026-09-20-automatic-static-obstacle-scene-design.md`。用户 2026-09-21 的“ok继续”承接当前无动作建模及预检范围。
++
++## Global Constraints
++
++- “建模节点不创建运动动作客户端。”
++- “新模块仅拥有 `auto_obstacle_*` 命名空间。”
++- “桌面可从聚类输入中分离，但仍以支撑面碰撞模型保留。”
++- “深度为零、视野外或物体背后的区域不自动标为自由。”
++- “第一版不自动移动机械臂寻找新视角。”
++- “不得删除现有支撑面、相机附着体、邻果或其他模块维护的对象。”
++- 所有新增功能默认 `executable=false`；不创建 `/execute_trajectory` 客户端，不调用夹爪，不修改实际目录中的抓取脚本、标定、速度或 TCP。
++- 开发在工作区 `development/hand_eye_calibration/apple_pick_v2` 新增独立文件；实际目录单果脚本已有更新，禁止整文件覆盖。
++- 当前相机到基座链必须含拍摄时姿态及相机内部光学变换，历史 RGB-D 无同步姿态时只允许相机坐标系预览。
++- 已安装 URDF 只有 80×80×170 mm 的夹爪整体盒，而现有配置开爪 85 mm；在测量确认实际张开包络前，仅允许模型/路径预览，不允许宣称全夹爪通道已验收。相机碰撞体原由抓取脚本动态加入，独立场景必须显式核对其存在。
++
++## Review Focus
++
++1. 毫米深度、米坐标和角度单位混用：几何模块拒绝无单位记录；用已知点测试转换。
++2. 失去视野或无效深度使旧障碍消失：删除旧体素必须具有同一空间的有效自由观测。
++3. 目标掩膜误删邻近枝条：按同帧掩膜和深度一致性区分，不能删除整个检测框；预抓取预览保留目标作为障碍。
++4. 静止快照被误认为实时状态：输出记录真实采集时间、模型版本和状态来源；不发布伪装成实时的关节状态。
++5. MoveIt 显示成功但实际使用旧几何：写入后读回核对；规划绑定相同场景摘要，任意不同均使结果无效。
++
++## 文件与接口
++
++所有路径相对 `apple_pick_v2/`。新增：
++
++- `obstacle_geometry.py`：纯几何、数据校验和自由/占用/未知查询，无 ROS 或硬件导入。
++- `obstacle_preview.py`：离线命令入口，输出点云、场景 JSON、质量报告；不能向机械臂发命令。
++- `obstacle_scene_ros.py`：MoveIt 场景增量写入、读回、状态检查及 `plan_only=True` 规划。
++- `obstacle_preview.launch.py`：仅启动模型、MoveIt、可选 RViz；轨迹执行固定关闭，不包含机器人驱动或控制器。
++- `obstacle_preview.yaml`：显式空间范围、采集有效期、分辨率、误差包络及模型来源。没有实测误差依据时只输出观察预览，不能宣称几何验收通过。
++- `tests/test_obstacle_geometry.py`、`tests/test_obstacle_preview.py`、`tests/test_obstacle_scene_ros.py`：纯离线和伪造接口测试。
++- `README_自动障碍预览.md`：启动、限制、结果解释及恢复方式。
++
++核心接口：
++
++```python
++def validate_observation(record: dict, now_s: float, max_age_s: float) -> None: ...
++def depth_points(depth, intrinsics: dict, scale_m: float, transform=None): ...
++def build_snapshot(depth, record: dict, config: dict, target_mask=None) -> dict: ...
++def classify_points(points, depth, record: dict, config: dict): ...
++def scene_delta(previous: dict, current: dict, cleared_ids: set[str]) -> dict: ...
++def canonical_scene(objects: list[dict]) -> str: ...
++```
++
++快照包含 `schema_version`、`frame_id`、`capture_stamp_s`、`transform_provenance`、`robot_model_sha256`、`occupied_cells`、`unknown_policy`、`target_geometry`、`quality`、`executable=false`。自由空间通过与原始深度的投影比较查询，遮挡后方和视野外返回 `unknown`，不需要把整个环境枚举为自由体素。
++
++## Task 1：纯几何与有效性
++
++**Files:** Create `obstacle_geometry.py`; Test `tests/test_obstacle_geometry.py`。
++
++**Interfaces:** consumes RGB-D metadata/NumPy arrays; produces the six pure functions above.
++
++- [x] 先编写以下最小失败用例，并补齐零深度、无 TF、非正交旋转、过期/未来时间、机器人移动及单位异常的拒绝测试：
++
++```python
++def test_depth_units_and_translation():
++    depth = np.array([[1000]], dtype=np.uint16)
++    intr = {"fx": 100.0, "fy": 100.0, "ppx": 0.0, "ppy": 0.0}
++    transform = np.eye(4)
++    transform[0, 3] = 0.2
++    np.testing.assert_allclose(depth_points(depth, intr, .001, transform), [[.2, 0., 1.]])
++
++def test_old_occupied_cell_needs_positive_clear_evidence():
++    old = {"occupied_cells": {"auto_obstacle_0_0_1": [0., 0., 1.]}}
++    new = {"occupied_cells": {}}
++    assert scene_delta(old, new, set())["remove"] == []
++```
++
++- [x] 运行 `python -m pytest tests/test_obstacle_geometry.py -q`，确认失败源于尚未实现功能。
++- [x] 实现投影 `x=(u-cx)*z/fx, y=(v-cy)*z/fy`、齐次坐标变换、网格索引、确定性 ID、空间分类及验证。目标和桌面仍作为独立几何保留；任意整体框删除行为由测试禁止。
++- [x] 复跑测试，增加“点在表面前/表面上/表面后”和“点在视野外”的分类用例，确保为自由/占用/未知/未知。
++
++## Task 2：当前数据离线重放与模型导出
++
++**Files:** Create `obstacle_preview.py`, `obstacle_preview.yaml`; Test `tests/test_obstacle_preview.py`。
++
++**Interfaces:** consumes Task 1; produces `observation.ply`、`scene.json`、`quality.json` and CLI return code.
++
++- [x] 编写输入缺同步姿态只能生成相机系预览的失败测试：
++
++```python
++def test_camera_only_capture_is_not_a_base_scene(tmp_path):
++    result = run_preview_fixture(tmp_path, has_transform=False)
++    assert result["frame_id"] == "camera_color_optical_frame"
++    assert result["executable"] is False
++    assert "missing_camera_to_base" in result["quality"]["limitations"]
++```
++
++`run_preview_fixture` 在该测试文件中创建 3×3 深度矩阵、合法内参和快照 JSON，调用 CLI 的 `run_preview(input_path, output_path, config)`，返回导出的 `scene.json`。
++
++- [x] 运行 `python -m pytest tests/test_obstacle_preview.py -q` 验证失败。
++- [x] 实现上述 `run_preview` 及 `--capture`、`--output`、`--config` 参数；文件路径必须显式给定，不覆盖原采集证据。
++- [x] 重放 9/21 枝叶样本和 9/20 瓶盒样本，保存质量报告；仅对具有完整同步变换的新采集生成基座系模型。记录参数与处理耗时，不把成功输出 PLY 当成通过抓取验收。
++- [x] 测试完整/缺失/损坏文件，校验输出文件中的单位、坐标、时间和 `executable=false`。
++
++## Task 3：MoveIt 场景写入与读回
++
++**Files:** Create `obstacle_scene_ros.py`; Test `tests/test_obstacle_scene_ros.py`。
++
++**Interfaces:** consumes `scene.json`; uses `/apply_planning_scene` and `/get_planning_scene`; returns canonical scene digest and readback result.
++
++- [x] 用伪造服务编写“其他模块对象不变”“读回不一致拒绝”“旧障碍不能因未观察到而消失”的测试：
++
++```python
++def test_foreign_objects_are_never_removed():
++    delta = scene_delta({"occupied_cells": {}}, {"occupied_cells": {}}, {"apple_test_table_guard"})
++    assert "apple_test_table_guard" not in delta["remove"]
++```
++
++- [x] 运行三个障碍测试文件，确认新接口测试先失败。
++- [x] 为每个自有体素生成 `CollisionObject`，所有消息使用 `is_diff=True`；仅受验证自由观测支持的自有 ID 可删除。提交后读回几何与摘要，拒绝缺项或不一致。
++- [x] 场景适配器在非 `base_link`、变换证据缺失、过期或质量不足时只输出诊断，不写入在线规划场景。目标模型保持存在，第一批不修改 Allowed Collision Matrix。
++- [x] 独立预览场景启动后，核查支撑面、相机/支架包络和夹爪几何；仅在隔离预览域中可按有来源的配置新增 `auto_obstacle_support`、`auto_obstacle_camera_guard` 等自有模型。缺少经过核对的外形时标记 `robot_envelope_unverified`，不得输出完整碰撞验收通过。
++- [x] 用伪造服务测试失败及超时；验证没有运动客户端、夹爪发布者或清空全场操作。
++
++## Task 4：仅规划进程与可视化
++
++**Files:** Create `obstacle_preview.launch.py`; update new ROS adapter and config; add launch/config inspection tests.
++
++**Interfaces:** consumes installed `rm_65_config` and verified observation; displays actual monitored scene; accepts explicit current and candidate goal robot states for planning.
++
++- [x] 用 AST/配置测试固定禁止轨迹执行，测试 launch 不包含 `rm_driver`、`rm_control`、`ros2_control_node` 或关节状态 GUI。
++- [x] 仅启动 `move_group`、机器人模型发布和可选 RViz，`allow_trajectory_execution=false`。与现有 ROS 节点共存前检查冲突；优先使用独立预览域并记录域号。
++- [x] 优先向场景显式提交采集时真实 `RobotState`，规划请求设置 `start_state`。若为展示发布快照关节，话题和界面必须注明“录制快照”，禁止伪装成刚采集的实时状态。
++- [x] 所有 `/move_action` 请求强制 `planning_options.plan_only=True`，无执行后备路径。目标来自经验证的预抓取候选；候选不足时展示模型并报告缺口，不编造抓取姿态。
++- [x] 规划前后检查场景摘要和真实状态有效性。以 `/check_state_validity` 核对轨迹中的机器人状态，并另行检查相关空间的未知覆盖；输出 `PLAN_PREVIEW` 或具体失败原因，始终不可直接执行。
++- [x] 在图中显示点云、实际碰撞体、目标和可用轨迹；没有有效轨迹就显示相应状态。检查保存的 RViz 配置引用当前场景和坐标系。
++
++## Task 5：现场证据、回归与交付
++
++**Files:** Create `README_自动障碍预览.md`; reports under workspace `reports/`; update daily record.
++
++- [x] 运行 `python -m pytest tests/test_obstacle_geometry.py tests/test_obstacle_preview.py tests/test_obstacle_scene_ros.py -q`，再运行现有纯离线测试套件；已有失败单独记录，不修改无关代码。
++- [x] 以保存数据验证可见障碍、遮挡后未知空间、物体移走后有效清空证据；使用人工构造但标明来源的场景验证可绕行与完全阻塞两类规划。
++- [ ] 对当前真场景记录同帧 RGB-D、真实姿态、变换来源、模型及配置哈希、场景读回、RViz 画面和规划结果。坐标或轮廓误差未经独立测量时明确保留未验收标志。
++- [x] 独立审查新增模块及禁止动作边界，修复确认的问题，复跑受影响检查。仅提交本功能文件，保留既有未跟踪改动。
++- [x] 交付时分别说明“代码可用”“模型显示/场景读回”“路径预览”“实物抓取”的状态，列出本次启动的进程和停止方法。
++
++## 自检与执行方式
++
++本计划对应设计允许的首批“无动作建模及预抓取规划”交付。实际闭爪、携果及入盆动作继续使用已验证基线，在完整阶段模型和场景刷新机制验收前不接入执行。树叶受控接触、移枝与动态重规划不在本批。
++
++建议由主代理在本会话顺序实现，几何与 ROS 接口保持单一实现者，完成后安排独立审查。用户后续“继续”已确认本会话在当前开发副本实现，保持无真机动作范围。
++
++## 2026-09-21 执行结果与差异
++
++- 以原仓库 unittest 替代未安装的 pytest：新增23项+原72项，共95项通过。独立审查2项P2已补回归并修复。
++- 当前one-shot ROS writer只新增/保持自有几何，不接自动删除；同ID几何变化拒绝，避免改变分辨率/膨胀时丢失旧占据。整格自由证据与scene_delta已实现纯函数，连续场景更新不在本轮部署。
++- 历史基座快照3071体素和相机盒已写入/读回一致；RGB-D单独的最新15:10橘子帧仅做相机系模型，不混用更早姿态。
++- 仅规划服务已实际验证合成绕行与碰撞输入拒绝，结果不代表橘子预抓取通过。覆盖检查只抽查连杆/TCP原点；完整机器人扫掠体和实际张开夹爪仍保持未验收。
++- 当前相机枚举返回NO_CAMERA_DEVICE，无法补采同帧橘子+机器人姿态。因此现场当前真场景验收项保留未完成；已有历史RViz截图和完整读回报告。
++- 证据目录：工作区reports/obstacle_preview_validation_20260921_214559。无运动/夹爪命令，未部署至实际运行目录。
+diff --git a/apple_pick_v2/docs/superpowers/specs/2026-09-20-automatic-static-obstacle-scene-design.md b/apple_pick_v2/docs/superpowers/specs/2026-09-20-automatic-static-obstacle-scene-design.md
+index c5ca18b..5ba742a 100644
+--- a/apple_pick_v2/docs/superpowers/specs/2026-09-20-automatic-static-obstacle-scene-design.md
++++ b/apple_pick_v2/docs/superpowers/specs/2026-09-20-automatic-static-obstacle-scene-design.md
+@@ -1,6 +1,6 @@
+ # 自动静态障碍建模与抓取避障：第一版设计
+ 
+-日期：2026-09-20。状态：设计已整理，等待书面审阅；功能尚未实现或部署。
++日期：2026-09-20；执行记录更新：2026-09-21。状态：用户确认继续后，开发副本已实现静态表面建模、隔离场景读回和仅规划接口；历史数据及合成绕行验证通过。尚未部署到真机执行链，当前橘子完整定位和现场抓取验收未完成。
+ 
+ ## 1. 用户目标与第一版范围
+ 
+diff --git a/apple_pick_v2/obstacle_geometry.py b/apple_pick_v2/obstacle_geometry.py
+new file mode 100644
+index 0000000..f463c3c
+--- /dev/null
++++ b/apple_pick_v2/obstacle_geometry.py
+@@ -0,0 +1,241 @@
++"""Conservative observed-surface geometry. No ROS, hardware or execution imports.
++
++Free means observed free along a depth ray, never certified robot clearance.
++All distances are metres; depth values use the explicitly recorded scale.
++"""
++import hashlib
++import json
++import itertools
++
++import numpy as np
++
++PREFIX = 'auto_obstacle_'
++
++
++def _positive(value, name):
++    value = float(value)
++    if not np.isfinite(value) or value <= 0:
++        raise ValueError(f'invalid {name}')
++    return value
++
++
++def rigid_transform(value):
++    t = np.asarray(value, dtype=float)
++    if (t.shape != (4, 4) or not np.isfinite(t).all()
++            or not np.allclose(t[3], [0, 0, 0, 1], atol=1e-8)
++            or not np.allclose(t[:3, :3].T @ t[:3, :3], np.eye(3), atol=1e-5)
++            or not np.isclose(np.linalg.det(t[:3, :3]), 1., atol=1e-5)):
++        raise ValueError('invalid rigid camera_to_base')
++    return t
++
++
++def _intrinsics(intr):
++    fx, fy = _positive(intr['fx'], 'fx'), _positive(intr['fy'], 'fy')
++    cx, cy = float(intr['ppx']), float(intr['ppy'])
++    if not np.isfinite([cx, cy]).all():
++        raise ValueError('invalid principal point')
++    # Pinhole projection is valid only for rectified / zero-distortion data.
++    if np.any(np.asarray(intr.get('coeffs', [0.]), float) != 0):
++        raise ValueError('nonzero distortion requires explicit rectification')
++    return fx, fy, cx, cy
++
++
++def validate_observation(record, now_s, max_age_s):
++    stamp = float(record['capture_stamp_s'])
++    if not np.isfinite([stamp, now_s, max_age_s]).all() or max_age_s < 0:
++        raise ValueError('invalid capture clock')
++    if stamp > now_s + .05 or now_s - stamp > max_age_s:
++        raise ValueError('stale_or_future_capture')
++    scale = _positive(record['depth_scale_m'], 'depth_scale_m')
++    if scale > 1:
++        raise ValueError('implausible depth unit scale')
++    _intrinsics(record['intrinsics'])
++    ds = float(record['depth_stamp_s'])
++    if not np.isfinite(ds) or abs(ds - stamp) > .035:
++        raise ValueError('unsynchronized_rgbd')
++    if record.get('color_frame') != record.get('depth_frame') or not record.get('color_frame'):
++        raise ValueError('depth_not_aligned_to_color')
++    if record.get('frame_id') == 'base_link':
++        rigid_transform(record.get('camera_to_base'))
++        span, bracket = float(record.get('joint_span_deg', np.nan)), float(record.get('bracket_s', np.nan))
++        if (record.get('stationary') is not True or not np.isfinite([span, bracket]).all()
++                or not 0 <= span <= .02 or not 0 < bracket <= .6):
++            raise ValueError('robot_not_stationary_or_unbracketed')
++        prov = record.get('transform_provenance', {})
++        if prov.get('synchronized') is not True or not prov.get('source'):
++            raise ValueError('missing_transform_provenance')
++        if len(record.get('robot_model_sha256', '')) != 64:
++            raise ValueError('missing_robot_model_hash')
++        joints = np.asarray(record.get('joint_positions_rad', []), float)
++        if joints.shape != (6,) or not np.isfinite(joints).all():
++            raise ValueError('invalid_recorded_joints')
++    elif record.get('frame_id') != record.get('color_frame'):
++        raise ValueError('unsupported_frame')
++
++
++def depth_points(depth, intrinsics, scale_m, transform=None):
++    depth = np.asarray(depth)
++    if depth.ndim != 2:
++        raise ValueError('depth must be H x W')
++    scale = _positive(scale_m, 'depth_scale_m')
++    fx, fy, cx, cy = _intrinsics(intrinsics)
++    v, u = np.nonzero(np.isfinite(depth) & (depth > 0))
++    z = depth[v, u].astype(float) * scale
++    p = np.column_stack(((u-cx)*z/fx, (v-cy)*z/fy, z))
++    if transform is not None:
++        t = rigid_transform(transform)
++        p = p @ t[:3, :3].T + t[:3, 3]
++    return p
++
++
++def _limits(points, config):
++    keep = np.ones(len(points), bool)
++    if config.get('bounds_m') is not None:
++        bounds = np.asarray(config['bounds_m'], float)
++        if bounds.shape != (2, 3) or not np.isfinite(bounds).all() or np.any(bounds[0] >= bounds[1]):
++            raise ValueError('invalid bounds_m')
++        keep &= np.all((points >= bounds[0]) & (points <= bounds[1]), axis=1)
++    return keep
++
++
++def build_snapshot(depth, record, config, target_mask=None):
++    # Replay validates internal consistency at observation time. Online age is
++    # checked again at the ROS boundary, against the actual wall clock.
++    validate_observation(record, record['capture_stamp_s'], 0.)
++    depth = np.asarray(depth)
++    intr = record['intrinsics']
++    if depth.shape != (intr['height'], intr['width']):
++        raise ValueError('depth_intrinsics_size_mismatch')
++    t = record.get('camera_to_base') if record['frame_id'] == 'base_link' else None
++    points = depth_points(depth, intr, record['depth_scale_m'], t)
++    valid = np.isfinite(depth) & (depth > 0)
++    z = depth[valid].astype(float)*record['depth_scale_m']
++    near = _positive(config.get('min_depth_m', .1), 'min_depth_m')
++    far = _positive(config.get('max_depth_m', 2.), 'max_depth_m')
++    if near >= far:
++        raise ValueError('invalid depth range')
++    keep = (z >= near) & (z <= far) & _limits(points, config)
++    points = points[keep]
++    resolution = _positive(config.get('voxel_size_m', .012), 'voxel_size_m')
++    padding = float(config.get('padding_m', .004))
++    if not np.isfinite(padding) or padding < 0:
++        raise ValueError('invalid padding_m')
++    indices = np.floor(points / resolution).astype(np.int64)
++    cells = np.unique(indices, axis=0)
++    if len(cells) > int(config.get('max_cells', 30000)):
++        raise ValueError('too_many_cells_no_truncation_permitted')
++    def cell_id(idx):
++        return PREFIX + '_'.join(str(int(v)) for v in idx)
++    occupied = {cell_id(i): ((i+.5)*resolution).tolist() for i in cells}
++    target_ids = []
++    if target_mask is not None:
++        mask = np.asarray(target_mask, bool)
++        if mask.shape != depth.shape:
++            raise ValueError('target_mask_size_mismatch')
++        target_ids = sorted({cell_id(i) for i in indices[mask[valid][keep]]})
++    limitations = ['single_view_unknown_space', 'calibration_error_unmeasured',
++                   'robot_envelope_unverified', 'surface_model_no_semantic_contact_permission']
++    if t is None:
++        limitations.append('missing_camera_to_base')
++    if not occupied:
++        limitations.append('no_valid_observed_geometry')
++    return dict(schema_version=1, frame_id=record['frame_id'], units='m',
++                capture_stamp_s=record['capture_stamp_s'], observation=record,
++                transform_provenance=record.get('transform_provenance', {}),
++                robot_model_sha256=record.get('robot_model_sha256'),
++                occupied_cells=occupied, voxel_size_m=resolution, box_size_m=resolution+2*padding,
++                unknown_policy='zero_depth_outside_frustum_behind_surface_and_outside_roi_are_unknown',
++                target_geometry={'observed_cell_ids': target_ids, 'retained_as_collision': True,
++                                 'mask_is_semantic_only': True},
++                quality={'valid_depth_fraction': float(valid.mean()), 'point_count': len(points),
++                         'cell_count': len(cells), 'limitations': limitations},
++                config=config, executable=False)
++
++
++def _camera_points(points, record):
++    p = np.asarray(points, float).reshape(-1, 3)
++    if record['frame_id'] == 'base_link':
++        t = rigid_transform(record['camera_to_base'])
++        p = (p-t[:3, 3]) @ t[:3, :3]
++    return p
++
++
++def classify_points(points, depth, record, config):
++    """Conservative nearest-pixel ray test; invalid neighbors stay unknown."""
++    original = np.asarray(points, float).reshape(-1, 3)
++    p = _camera_points(original, record)
++    fx, fy, cx, cy = _intrinsics(record['intrinsics'])
++    out = np.full(len(p), 'unknown', dtype='<U8')
++    tol = _positive(config.get('surface_tolerance_m', .012), 'surface_tolerance_m')
++    margin = int(config.get('pixel_guard', 1))
++    if margin < 0:
++        raise ValueError('negative pixel_guard')
++    allowed = _limits(original, config)
++    h, w = depth.shape
++    for i, (x, y, z) in enumerate(p):
++        if (not allowed[i] or not np.isfinite([x, y, z]).all()
++                or z < config.get('min_depth_m', .1) or z > config.get('max_depth_m', 2.)):
++            continue
++        u, v = int(np.rint(fx*x/z+cx)), int(np.rint(fy*y/z+cy))
++        if u-margin < 0 or v-margin < 0 or u+margin >= w or v+margin >= h:
++            continue
++        patch = depth[v-margin:v+margin+1, u-margin:u+margin+1]*record['depth_scale_m']
++        if (not np.isfinite(patch).all() or np.any(patch < config.get('min_depth_m', .1))
++                or np.any(patch > config.get('max_depth_m', 2.))):
++            continue
++        closest = float(patch.min())
++        if abs(z-closest) <= tol:
++            out[i] = 'occupied'
++        elif z < closest-tol:
++            out[i] = 'free'
++    return out
++
++
++def cleared_cells(previous, depth, record, config):
++    """An entire old AABB must project into valid rays strictly in front of depth.
++
++    Checking just its center or corners could erase a thin branch inside it.
++    The full projected pixel rectangle deliberately over-approximates the box.
++    """
++    if previous.get('frame_id') != record['frame_id']:
++        return set()
++    half = _positive(previous['box_size_m'], 'box_size_m')/2
++    offsets = np.array(list(itertools.product([-half, half], repeat=3)))
++    fx, fy, cx, cy = _intrinsics(record['intrinsics'])
++    tol = _positive(config.get('surface_tolerance_m', .012), 'surface_tolerance_m')
++    h, w = depth.shape; result = set()
++    for ident, center in previous['occupied_cells'].items():
++        if not ident.startswith(PREFIX):
++            continue
++        corners = np.asarray(center)+offsets
++        if not _limits(corners, config).all():
++            continue
++        p = _camera_points(corners, record)
++        if not np.isfinite(p).all() or p[:, 2].min() < config.get('min_depth_m', .1):
++            continue
++        uv = p[:, :2]/p[:, 2, None]*[fx, fy]+[cx, cy]
++        lo = np.floor(uv.min(axis=0)).astype(int); hi = np.ceil(uv.max(axis=0)).astype(int)
++        if lo[0] < 0 or lo[1] < 0 or hi[0] >= w or hi[1] >= h:
++            continue
++        patch = depth[lo[1]:hi[1]+1, lo[0]:hi[0]+1]*record['depth_scale_m']
++        if (np.isfinite(patch).all() and np.all(patch > 0)
++                and patch.max() <= config.get('max_depth_m', 2.)
++                and patch.min() > p[:, 2].max()+tol):
++            result.add(ident)
++    return result
++
++
++def scene_delta(previous, current, cleared_ids):
++    for field in ('frame_id', 'voxel_size_m', 'box_size_m'):
++        if field in previous and field in current and previous[field] != current[field]:
++            raise ValueError(f'incompatible_scene_{field}')
++    old, new = previous['occupied_cells'], current['occupied_cells']
++    remove = sorted(i for i in old if i.startswith(PREFIX) and i not in new and i in cleared_ids)
++    add = {i: c for i, c in new.items() if i.startswith(PREFIX) and (i not in old or old[i] != c)}
++    return {'add': add, 'remove': remove}
++
++
++def canonical_scene(objects):
++    """Stable digest of complete caller-supplied object geometry, order independent."""
++    encoded = sorted(json.dumps(obj, sort_keys=True, separators=(',', ':'), allow_nan=False) for obj in objects)
++    return hashlib.sha256(('['+','.join(encoded)+']').encode()).hexdigest()
+diff --git a/apple_pick_v2/obstacle_preview.launch.py b/apple_pick_v2/obstacle_preview.launch.py
+new file mode 100644
+index 0000000..c2ec8b4
+--- /dev/null
++++ b/apple_pick_v2/obstacle_preview.launch.py
+@@ -0,0 +1,43 @@
++"""Recorded-state display and MoveIt planning only, isolated on localhost domain 87."""
++import os
++from pathlib import Path
++
++from ament_index_python.packages import get_package_share_directory
++from launch import LaunchDescription
++from launch.actions import DeclareLaunchArgument
++from launch.conditions import IfCondition
++from launch.substitutions import LaunchConfiguration
++from launch_ros.actions import Node
++from moveit_configs_utils import MoveItConfigsBuilder
++
++
++def generate_launch_description():
++    if (os.environ.get('ROS_DOMAIN_ID') != '87'
++            or os.environ.get('ROS_AUTOMATIC_DISCOVERY_RANGE') != 'LOCALHOST'
++            or os.environ.get('ROS_STATIC_PEERS')):
++        raise RuntimeError('Use ROS_DOMAIN_ID=87 and ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST without static peers')
++    urdf = str(Path(get_package_share_directory('rm_description'))/'urdf/rm_65.urdf')
++    c = (MoveItConfigsBuilder('rm_65_description', package_name='rm_65_config')
++         .robot_description(file_path=urdf)
++         .planning_pipelines(pipelines=['ompl'], default_planning_pipeline='ompl')
++         .planning_scene_monitor(publish_robot_description=True, publish_robot_description_semantic=True)
++         .to_moveit_configs())
++    c.planning_pipelines['ompl']['rm_group'] = {
++        'planner_configs':['RRTConnect'], 'default_planner_config':'RRTConnect',
++        'projection_evaluator':'joints(joint1,joint2)', 'longest_valid_segment_fraction':.005}
++    model = {**c.robot_description, **c.robot_description_semantic,
++             **c.robot_description_kinematics, **c.joint_limits, **c.planning_pipelines}
++    gate = {**c.planning_scene_monitor, 'allow_trajectory_execution':False,
++            'moveit_manage_controllers':False, 'monitor_dynamics':False, 'use_sim_time':False,
++            'disable_capabilities': 'move_group/MoveGroupExecuteTrajectoryAction move_group/MoveGroupExecuteService'}
++    remaps = [('/joint_states', '/offline_preview/joint_states')]
++    return LaunchDescription([
++        DeclareLaunchArgument('rviz', default_value='false'),
++        Node(package='robot_state_publisher', executable='robot_state_publisher',
++             parameters=[c.robot_description], remappings=remaps, output='screen'),
++        Node(package='moveit_ros_move_group', executable='move_group',
++             parameters=[model, gate], remappings=remaps, output='screen'),
++        Node(package='rviz2', executable='rviz2', condition=IfCondition(LaunchConfiguration('rviz')),
++             arguments=['-d', str(Path(__file__).with_name('obstacle_preview.rviz'))],
++             parameters=[model], remappings=remaps, output='screen'),
++    ])
+diff --git a/apple_pick_v2/obstacle_preview.py b/apple_pick_v2/obstacle_preview.py
+new file mode 100644
+index 0000000..c1fc86b
+--- /dev/null
++++ b/apple_pick_v2/obstacle_preview.py
+@@ -0,0 +1,141 @@
++#!/usr/bin/env python3
++"""Offline RGB-D replay and surface export. Never opens hardware or ROS."""
++import argparse
++import hashlib
++import json
++import time
++from pathlib import Path
++
++import numpy as np
++import yaml
++
++from obstacle_geometry import build_snapshot, depth_points, rigid_transform, _limits
++
++
++def sha256(path):
++    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
++
++
++def normalize_record(capture, index, depth_shape):
++    raw = capture['records'][index]
++    if 'intrinsics' in raw:
++        intr = dict(raw['intrinsics'])
++    else:
++        k = raw['K']
++        intr = dict(fx=k[0], fy=k[4], ppx=k[2], ppy=k[5], width=depth_shape[1],
++                    height=depth_shape[0], coeffs=raw.get('D', []))
++    color_stamp = raw.get('rgb_stamp', raw.get('color_timestamp_ms', 0)/1000.)
++    depth_stamp = raw.get('depth_stamp', raw.get('depth_timestamp_ms', 0)/1000.)
++    if not color_stamp or not depth_stamp:
++        raise ValueError('capture timestamp missing')
++    scale = raw.get('depth_scale_m')
++    if scale is None:
++        if raw.get('depth_encoding') != '16UC1':
++            raise ValueError('depth units missing')
++        scale = .001  # realsense2_camera aligned 16UC1 publishes millimetres
++    color_frame = raw.get('color_frame', 'camera_color_optical_frame')
++    out = dict(capture_stamp_s=color_stamp, depth_stamp_s=depth_stamp, depth_scale_m=scale,
++               intrinsics=intr, frame_id=color_frame, color_frame=color_frame,
++               depth_frame=raw.get('depth_frame', color_frame),
++               depth_scale_source='SDK metadata' if 'depth_scale_m' in raw else 'realsense2_camera 16UC1 mm contract',
++               source_record_index=index)
++    if raw.get('camera_to_base') is not None:
++        pre, post = raw['pre_arm'], raw['post_arm']
++        qa = np.asarray(pre['data']['arm_state']['joint'], float)
++        qb = np.asarray(post['data']['arm_state']['joint'], float)
++        if qa.shape != (6,) or qb.shape != (6,) or not np.isfinite([qa, qb]).all():
++            raise ValueError('invalid controller joints')
++        for sample in (pre, post):
++            if sample['data'].get('state') != 'current_arm_state' or sample['data']['arm_state'].get('err') != [0]:
++                raise ValueError('controller read error')
++        times = [pre['start_wall'], pre['end_wall'], min(color_stamp, depth_stamp),
++                 max(color_stamp, depth_stamp), post['start_wall'], post['end_wall']]
++        if not np.isfinite(times).all() or any(a > b for a, b in zip(times, times[1:])):
++            raise ValueError('capture not bracketed by controller reads')
++        if not capture.get('hand_eye_source_sha256') or not capture.get('urdf_sha256'):
++            raise ValueError('missing_transform_source_hashes')
++        t = rigid_transform(raw['camera_to_base'])
++        composed = (rigid_transform(raw['base_to_Link6']) @ rigid_transform(capture['hand_eye'])
++                    @ rigid_transform(raw['camera_link_to_optical']))
++        if not np.allclose(t, composed, atol=1e-7):
++            raise ValueError('transform_chain_mismatch')
++        span = float(np.abs(qa-qb).max()/1000)
++        out.update(frame_id='base_link', camera_to_base=t.tolist(), stationary=span <= .02,
++                   joint_span_deg=span, bracket_s=times[-1]-times[0],
++                   joint_positions_rad=np.deg2rad((qa+qb)/2000).tolist(),
++                   robot_model_sha256=capture['urdf_sha256'],
++                   transform_provenance=dict(synchronized=True,
++                       source='controller bracket + URDF FK + recorded handeye + camera optical TF',
++                       hand_eye_source_sha256=capture['hand_eye_source_sha256'],
++                       pre_read=pre, post_read=post,
++                       base_to_Link6=raw['base_to_Link6'], hand_eye=capture['hand_eye'],
++                       camera_link_to_optical=raw['camera_link_to_optical']))
++    return out
++
++
++def write_ply(path, points):
++    with Path(path).open('wb') as f:
++        f.write(('ply\nformat binary_little_endian 1.0\n'
++                 f'element vertex {len(points)}\nproperty float x\nproperty float y\nproperty float z\nend_header\n').encode())
++        f.write(np.asarray(points, dtype='<f4').tobytes())
++
++
++def run_preview(input_path, output_path, config):
++    start = time.monotonic()
++    source, output = Path(input_path).resolve(), Path(output_path).resolve()
++    if output == source.parent or output in source.parents:
++        raise ValueError('output must be separate from source evidence')
++    if output.exists() and any(output.iterdir()):
++        raise ValueError('refusing to overwrite preview evidence')
++    capture = json.loads(source.read_text())
++    if capture.get('error') or not capture.get('records'):
++        raise ValueError('failed_or_empty_capture')
++    index = int(config.get('record_index', len(capture['records'])-1))
++    if not 0 <= index < len(capture['records']):
++        raise ValueError('record_index out of bounds')
++    raw = capture['records'][index]
++    depth_path = Path(raw.get('depth_path', f'depth_{index:02d}.npy'))
++    if not depth_path.is_absolute():
++        depth_path = source.parent/depth_path
++    depth = np.load(depth_path, allow_pickle=False)
++    record = normalize_record(capture, index, depth.shape)
++    record.update(capture_file=str(source), capture_sha256=sha256(source),
++                  depth_file=str(depth_path), depth_sha256=sha256(depth_path))
++    effective = dict(config)
++    if record['frame_id'] != 'base_link':
++        effective['bounds_m'] = effective.pop('camera_bounds_m', None)
++    mask = np.load(config['target_mask'], allow_pickle=False) if config.get('target_mask') else None
++    snapshot = build_snapshot(depth, record, effective, mask)
++    points = depth_points(depth, record['intrinsics'], record['depth_scale_m'], record.get('camera_to_base'))
++    z = depth[np.isfinite(depth) & (depth > 0)]*record['depth_scale_m']
++    keep = (z >= effective.get('min_depth_m', .1)) & (z <= effective.get('max_depth_m', 2.)) & _limits(points, effective)
++    snapshot['quality'].update(processing_s=time.monotonic()-start,
++                               source_capture_errors=capture.get('errors', []),
++                               output_kind='recorded_surface_preview',
++                               source_rgb=str(source.parent/f'rgb_{index:02d}.jpg'))
++    snapshot['scene_version'] = hashlib.sha256(json.dumps(snapshot, sort_keys=True, allow_nan=False).encode()).hexdigest()
++    output.mkdir(parents=True, exist_ok=False)
++    write_ply(output/'observation.ply', points[keep])
++    np.savez_compressed(output/'observation.npz', xyz_m=points[keep])
++    (output/'scene.json').write_text(json.dumps(snapshot, ensure_ascii=False, indent=2, allow_nan=False))
++    (output/'quality.json').write_text(json.dumps(snapshot['quality'] | {'executable': False}, ensure_ascii=False, indent=2))
++    return snapshot
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--capture', required=True, type=Path)
++    parser.add_argument('--output', required=True, type=Path)
++    parser.add_argument('--config', type=Path, default=Path(__file__).with_suffix('.yaml'))
++    parser.add_argument('--target-mask', type=Path)
++    args = parser.parse_args()
++    config = yaml.safe_load(args.config.read_text())
++    if args.target_mask:
++        config['target_mask'] = str(args.target_mask.resolve())
++    s = run_preview(args.capture, args.output, config)
++    print(json.dumps({'frame_id': s['frame_id'], 'cells': len(s['occupied_cells']),
++                      'output': str(args.output), 'executable': False}, ensure_ascii=False))
++
++
++if __name__ == '__main__':
++    main()
+diff --git a/apple_pick_v2/obstacle_preview.rviz b/apple_pick_v2/obstacle_preview.rviz
+new file mode 100644
+index 0000000..7a17394
+--- /dev/null
++++ b/apple_pick_v2/obstacle_preview.rviz
+@@ -0,0 +1,64 @@
++Panels:
++  - Class: rviz_common/Displays
++    Name: Displays
++  - Class: rviz_common/Views
++    Name: Views
++Visualization Manager:
++  Displays:
++    - Class: rviz_default_plugins/Grid
++      Name: Grid
++      Value: true
++    - Class: moveit_rviz_plugin/PlanningScene
++      Name: Recorded scene - execution disabled
++      Robot Description: robot_description
++      Planning Scene Topic: /monitored_planning_scene
++      Scene Geometry:
++        Scene Alpha: 0.75
++      Scene Robot:
++        Robot Alpha: 0.5
++        Show Robot Visual: true
++        Show Robot Collision: true
++      Value: true
++    - Class: moveit_rviz_plugin/Trajectory
++      Name: Preview trajectory - not executable
++      Robot Description: robot_description
++      Trajectory Topic: /display_planned_path
++      Loop Animation: true
++      State Display Time: 0.05 s
++      Show Robot Visual: true
++      Show Robot Collision: true
++      Value: true
++    - Class: rviz_default_plugins/PointCloud2
++      Name: Observed points - hidden space unknown
++      Topic:
++        Value: /offline_preview/observed_points
++        Durability Policy: Transient Local
++        Reliability Policy: Reliable
++      Style: Points
++      Size (Pixels): 2
++      Color Transformer: FlatColor
++      Color: 80; 180; 220
++      Value: true
++    - Class: rviz_default_plugins/Marker
++      Name: Recorded capture timestamp - not live
++      Topic:
++        Value: /offline_preview/status
++        Durability Policy: Transient Local
++      Value: true
++  Global Options:
++    Fixed Frame: base_link
++    Background Color: 35; 40; 48
++  Tools:
++    - Class: rviz_default_plugins/Interact
++    - Class: rviz_default_plugins/MoveCamera
++    - Class: rviz_default_plugins/Select
++  Views:
++    Current:
++      Class: rviz_default_plugins/Orbit
++      Distance: 1.7
++      Focal Point: {X: 0.25, Y: -0.15, Z: 0.2}
++      Pitch: 0.65
++      Yaw: -0.6
++Window Geometry:
++  Height: 900
++  Width: 1350
+diff --git a/apple_pick_v2/obstacle_preview.yaml b/apple_pick_v2/obstacle_preview.yaml
+new file mode 100644
+index 0000000..b0ddf82
+--- /dev/null
++++ b/apple_pick_v2/obstacle_preview.yaml
+@@ -0,0 +1,15 @@
++# Preview tuning only. These numbers are not validated safety margins.
++voxel_size_m: 0.012
++padding_m: 0.004
++surface_tolerance_m: 0.012
++pixel_guard: 1
++min_depth_m: 0.10
++max_depth_m: 2.0
++max_cells: 30000
++# Base frame region retained as geometry. Everything outside stays unknown.
++bounds_m: [[0.03, -0.55, -0.12], [0.80, 0.35, 0.55]]
++max_capture_age_s: 3.0
++robot_envelope_verified: false
++calibration_error_bound_m: null
++leaf_contact_allowed: false
++movable_branch_handling_enabled: false
+diff --git a/apple_pick_v2/obstacle_scene_ros.py b/apple_pick_v2/obstacle_scene_ros.py
+new file mode 100644
+index 0000000..8de30d6
+--- /dev/null
++++ b/apple_pick_v2/obstacle_scene_ros.py
+@@ -0,0 +1,457 @@
++#!/usr/bin/env python3
++"""Isolated recorded-scene preview. No trajectory execution or gripper client.
++
++RosSceneTransport only owns scene services. The optional planner creates a
++MoveGroup action client whose goals are always plan_only. None of these outputs
++authorize physical motion.
++"""
++import argparse
++import copy
++import hashlib
++import json
++import math
++import os
++import time
++from pathlib import Path
++
++import numpy as np
++from scipy.spatial.transform import Rotation
++from geometry_msgs.msg import Pose
++from moveit_msgs.msg import (PlanningScene, CollisionObject, AttachedCollisionObject,
++                            Constraints, JointConstraint, DisplayTrajectory)
++from moveit_msgs.srv import ApplyPlanningScene, GetPlanningScene, GetStateValidity, GetPositionFK
++from moveit_msgs.action import MoveGroup
++from shape_msgs.msg import SolidPrimitive
++from rosidl_runtime_py.convert import message_to_ordereddict
++
++from obstacle_geometry import PREFIX, canonical_scene, validate_observation, classify_points
++
++JOINTS = [f'joint{i}' for i in range(1, 7)]
++PREVIEW_DOMAIN = '87'
++
++
++def raw_message(msg):
++    return json.loads(json.dumps(message_to_ordereddict(msg)))
++
++
++def _clean(value):
++    if isinstance(value, dict):
++        return {k: _clean(v) for k, v in value.items() if k != 'stamp'}
++    if isinstance(value, list):
++        return [_clean(v) for v in value]
++    if isinstance(value, float):
++        if not math.isfinite(value):
++            raise ValueError('nonfinite_scene')
++        return round(value, 8)
++    return value
++
++
++def _matrix(pose):
++    q = pose.orientation
++    quat = np.array([q.x, q.y, q.z, q.w], float)
++    # A default empty scene may have zero poses; actual objects must not.
++    if not np.isfinite(quat).all() or not np.isclose(np.linalg.norm(quat), 1., atol=1e-4):
++        raise ValueError('invalid_object_quaternion')
++    t = np.eye(4); t[:3, :3] = Rotation.from_quat(quat).as_matrix()
++    t[:3, 3] = [pose.position.x, pose.position.y, pose.position.z]
++    return t
++
++
++def object_geometry(obj):
++    root = _matrix(obj.pose)
++    parts = []
++    for field in ('primitive', 'mesh', 'plane'):
++        shapes, poses = getattr(obj, 'meshes' if field == 'mesh' else field+'s'), getattr(obj, field+'_poses')
++        if len(shapes) != len(poses):
++            raise ValueError('shape_pose_count_mismatch')
++        for shape, pose in zip(shapes, poses):
++            parts.append(dict(kind=field, shape=raw_message(shape), pose=(root @ _matrix(pose)).tolist()))
++    if len(obj.subframe_names) != len(obj.subframe_poses):
++        raise ValueError('invalid_subframes')
++    return _clean(dict(id=obj.id, frame=obj.header.frame_id, type=raw_message(obj.type),
++                       parts=sorted(parts, key=lambda p: json.dumps(_clean(p), sort_keys=True)),
++                       subframes={n:(root @ _matrix(p)).tolist() for n, p in zip(obj.subframe_names, obj.subframe_poses)}))
++
++
++def scene_components(scene):
++    acm = scene.allowed_collision_matrix
++    n = len(acm.entry_names)
++    if len(acm.entry_values) != n or any(len(r.enabled) != n for r in acm.entry_values):
++        raise ValueError('invalid_acm_shape')
++    entries = {a:{b:bool(acm.entry_values[i].enabled[j]) for j, b in enumerate(acm.entry_names)}
++               for i, a in enumerate(acm.entry_names)}
++    if any(entries[a][b] != entries[b][a] for a in entries for b in entries):
++        raise ValueError('asymmetric_acm')
++    if len(acm.default_entry_names) != len(acm.default_entry_values):
++        raise ValueError('invalid_acm_defaults')
++    octo = raw_message(scene.world.octomap)
++    data = octo['octomap'].pop('data')
++    octo['octomap']['data_sha256'] = hashlib.sha256(bytes(v & 255 for v in data)).hexdigest()
++    return _clean(dict(
++        world=sorted([object_geometry(o) for o in scene.world.collision_objects], key=lambda o:o['id']),
++        attached=sorted([dict(object=object_geometry(o.object), link=o.link_name,
++                              touch_links=sorted(o.touch_links), weight=o.weight)
++                         for o in scene.robot_state.attached_collision_objects], key=lambda o:o['object']['id']),
++        acm=dict(entries=entries, defaults=dict(zip(acm.default_entry_names, acm.default_entry_values))),
++        octomap=octo, transforms=sorted([raw_message(t) for t in scene.fixed_frame_transforms], key=lambda t:t['child_frame_id']),
++        padding=sorted([raw_message(p) for p in scene.link_padding], key=lambda p:p['link_name']),
++        scale=sorted([raw_message(p) for p in scene.link_scale], key=lambda p:p['link_name']),
++        colors=sorted([raw_message(c) for c in scene.object_colors], key=lambda c:c['id'])))
++
++
++def scene_digest(scene):
++    return canonical_scene([scene_components(scene)])
++
++
++def box_object(ident, center, dimensions, frame='base_link'):
++    xyz, size = np.asarray(center, float), np.asarray(dimensions, float)
++    if xyz.shape != (3,) or size.shape != (3,) or not np.isfinite([xyz, size]).all() or np.any(size <= 0):
++        raise ValueError('invalid_box')
++    obj = CollisionObject(); obj.id = ident; obj.header.frame_id = frame
++    obj.pose.orientation.w = 1.; obj.operation = CollisionObject.ADD
++    pose = Pose(); pose.position.x, pose.position.y, pose.position.z = xyz.tolist(); pose.orientation.w = 1.
++    obj.primitives = [SolidPrimitive(type=SolidPrimitive.BOX, dimensions=size.tolist())]
++    obj.primitive_poses = [pose]
++    return obj
++
++
++def recorded_state(scene, q):
++    q = np.asarray(q, float)
++    if q.shape != (6,) or not np.isfinite(q).all():
++        raise ValueError('invalid_six_joint_state')
++    state = copy.deepcopy(scene.robot_state)
++    state.is_diff = False
++    state.joint_state.name = JOINTS
++    state.joint_state.position = q.tolist()
++    state.joint_state.velocity = []; state.joint_state.effort = []
++    return state
++
++
++def ensure_isolated(transport):
++    if (os.environ.get('ROS_DOMAIN_ID') != PREVIEW_DOMAIN
++            or os.environ.get('ROS_AUTOMATIC_DISCOVERY_RANGE') != 'LOCALHOST'
++            or os.environ.get('ROS_STATIC_PEERS')):
++        raise ValueError('requires_isolated_preview_domain_87_localhost')
++    if not transport.execution_disabled():
++        raise ValueError('trajectory_execution_not_confirmed_disabled')
++
++
++def publish_snapshot(snapshot, transport, replay=False, now_s=None):
++    now_s = time.time() if now_s is None else now_s
++    rec = snapshot['observation']
++    if snapshot.get('executable') is not False or snapshot.get('frame_id') != 'base_link' or rec.get('frame_id') != 'base_link':
++        raise ValueError('requires_nonexecutable_base_snapshot')
++    validate_observation(rec, rec['capture_stamp_s'] if replay else now_s,
++                         0. if replay else min(3., snapshot.get('config', {}).get('max_capture_age_s', 3.)))
++    if not replay and snapshot['quality']['limitations']:
++        raise ValueError('unverified_geometry_cannot_write_online_scene')
++    if not snapshot['occupied_cells']:
++        raise ValueError('empty_geometry')
++    ensure_isolated(transport)
++    before = transport.read()
++    expected = copy.deepcopy(before)
++    old = {o.id:o for o in before.world.collision_objects}
++    side = float(snapshot['box_size_m'])
++    changes = []
++    for ident, center in snapshot['occupied_cells'].items():
++        if not ident.startswith(PREFIX):
++            raise ValueError('foreign_object_id')
++        obj = box_object(ident, center, [side]*3)
++        if ident in old and object_geometry(old[ident]) != object_geometry(obj):
++            raise ValueError('existing_occupied_geometry_changed_without_free_evidence')
++        changes.append(obj); old[ident] = obj
++    # Retain every previously occupied object. Deletion is intentionally absent
++    # from this one-shot writer; cleared_cells/scene_delta are for reviewed future
++    # updates with an actual positive observation of the entire old volume.
++    diff = PlanningScene(); diff.is_diff = True; diff.robot_state.is_diff = True
++    diff.world.collision_objects = changes
++    diff.robot_state.joint_state = recorded_state(before, rec['joint_positions_rad']).joint_state
++    expected.world.collision_objects = list(old.values())
++    if not transport.apply(diff):
++        raise RuntimeError('planning_scene_write_rejected')
++    after = transport.read()
++    if scene_digest(after) != scene_digest(expected):
++        raise RuntimeError('planning_scene_readback_mismatch')
++    names = {o.object.id for o in after.robot_state.attached_collision_objects}
++    return dict(status='SCENE_PREVIEW', scene_digest=scene_digest(after),
++                capture_stamp_s=rec['capture_stamp_s'], age_at_replay_s=now_s-rec['capture_stamp_s'],
++                state_source='recorded_controller_bracket', mode='isolated_recorded_replay' if replay else 'isolated_online_preview',
++                observed_cells=len(changes), retained_previous_objects=len(old)-len(changes),
++                camera_guard_present=bool(names & {'auto_obstacle_camera_guard', 'realsense_camera_guard'}),
++                support_model='observed_surface_voxels_only_no_certified_plane',
++                limitations=snapshot['quality']['limitations'], executable=False)
++
++
++def add_recorded_camera_guard(transport, snapshot):
++    """Explicit approximate body from existing baseline, never certified envelope."""
++    hand = np.asarray(snapshot['observation']['transform_provenance']['hand_eye'], float)
++    obj = box_object('auto_obstacle_camera_guard', [0., 0., 0.], [.110, .050, .050], 'Link6')
++    obj.pose.position.x, obj.pose.position.y, obj.pose.position.z = hand[:3, 3].tolist()
++    q = Rotation.from_matrix(hand[:3, :3]).as_quat()
++    obj.pose.orientation.x, obj.pose.orientation.y, obj.pose.orientation.z, obj.pose.orientation.w = q.tolist()
++    attach = AttachedCollisionObject(link_name='Link6', object=obj,
++                                     touch_links=['Link6', 'gripper_body_approx', 'tcp_link'])
++    before = transport.read(); expected = copy.deepcopy(before)
++    attachments = {a.object.id:a for a in expected.robot_state.attached_collision_objects}
++    attachments[obj.id] = attach
++    expected.robot_state.attached_collision_objects = list(attachments.values())
++    diff = PlanningScene(); diff.is_diff = True; diff.robot_state.is_diff = True
++    diff.robot_state.attached_collision_objects = [attach]
++    if not transport.apply(diff) or scene_digest(transport.read()) != scene_digest(expected):
++        raise RuntimeError('camera_guard_readback_mismatch')
++
++
++def make_plan_goal(scene, q_start, q_goal):
++    q_goal = np.asarray(q_goal, float)
++    if q_goal.shape != (6,) or not np.isfinite(q_goal).all():
++        raise ValueError('invalid_goal_joints')
++    goal = MoveGroup.Goal(); req = goal.request
++    req.group_name = 'rm_group'; req.pipeline_id = 'ompl'; req.planner_id = 'RRTConnect'
++    req.start_state = recorded_state(scene, q_start)
++    req.num_planning_attempts = 1; req.allowed_planning_time = 10.
++    req.max_velocity_scaling_factor = .1; req.max_acceleration_scaling_factor = .1
++    req.workspace_parameters.header.frame_id = 'base_link'
++    req.workspace_parameters.min_corner.x = req.workspace_parameters.min_corner.y = req.workspace_parameters.min_corner.z = -2.
++    req.workspace_parameters.max_corner.x = req.workspace_parameters.max_corner.y = req.workspace_parameters.max_corner.z = 2.
++    req.goal_constraints = [Constraints(joint_constraints=[
++        JointConstraint(joint_name=n, position=float(q), tolerance_above=.001, tolerance_below=.001, weight=1.)
++        for n, q in zip(JOINTS, q_goal)])]
++    goal.planning_options.plan_only = True
++    goal.planning_options.look_around = False; goal.planning_options.replan = False
++    goal.planning_options.planning_scene_diff.is_diff = True
++    goal.planning_options.planning_scene_diff.robot_state.is_diff = True
++    return goal
++
++
++def verify_trajectory(trajectory, start, validity, step_rad=.01):
++    jt = trajectory.joint_trajectory
++    if list(jt.joint_names) != JOINTS or not jt.points:
++        raise RuntimeError('empty_or_unexpected_joint_trajectory')
++    if not math.isfinite(step_rad) or step_rad <= 0:
++        raise ValueError('invalid_interpolation_step')
++    values = np.array([p.positions for p in jt.points], float)
++    if values.ndim != 2 or values.shape[1] != 6 or not np.isfinite(values).all():
++        raise RuntimeError('invalid_trajectory_values')
++    samples = [values[0]]
++    for a, b in zip(values, values[1:]):
++        n = max(1, int(np.ceil(np.max(np.abs(b-a))/step_rad)))
++        samples.extend(a+(b-a)*(i/n) for i in range(1, n+1))
++    for q in samples:
++        state = copy.deepcopy(start); state.joint_state.name = JOINTS; state.joint_state.position = q.tolist()
++        if not validity(state):
++            raise RuntimeError('trajectory_sample_in_collision')
++    return np.asarray(samples)
++
++
++def plan_preview(snapshot, candidate, transport):
++    ensure_isolated(transport)
++    if (candidate.get('kind') != 'pregrasp' or candidate.get('validated') is not True
++            or candidate.get('scene_version') != snapshot.get('scene_version')
++            or not candidate.get('source')):
++        raise ValueError('missing_validated_pregrasp_candidate_for_this_scene')
++    before = transport.read(); digest = scene_digest(before)
++    observed = {o.id:object_geometry(o) for o in before.world.collision_objects}
++    for ident, center in snapshot['occupied_cells'].items():
++        wanted = object_geometry(box_object(ident, center, [snapshot['box_size_m']]*3))
++        if observed.get(ident) != wanted:
++            raise ValueError('snapshot_geometry_not_present_in_planning_scene')
++    q_start = snapshot['observation']['joint_positions_rad']
++    goal = make_plan_goal(before, q_start, candidate['joint_positions_rad'])
++    if not transport.valid(goal.request.start_state):
++        return {'status':'START_STATE_INVALID', 'executable':False}
++    result = transport.plan(goal)
++    if result.error_code.val != 1:
++        return {'status':'PLANNING_FAILED', 'moveit_error':result.error_code.val, 'executable':False}
++    # Prevent MoveIt's start-state repair adapters silently changing the bracketed start.
++    actual = dict(zip(result.trajectory_start.joint_state.name, result.trajectory_start.joint_state.position))
++    if any(n not in actual or abs(actual[n]-q) > .001 for n, q in zip(JOINTS, q_start)):
++        raise RuntimeError('planner_changed_recorded_start')
++    samples = verify_trajectory(result.planned_trajectory, result.trajectory_start, transport.valid)
++    if not np.allclose(samples[0], q_start, atol=.001, rtol=0):
++        raise RuntimeError('trajectory_does_not_start_at_recorded_state')
++    if not np.allclose(samples[-1], candidate['joint_positions_rad'], atol=.002, rtol=0):
++        raise RuntimeError('trajectory_does_not_reach_candidate')
++    rec = snapshot['observation']
++    depth_file = Path(rec['depth_file'])
++    if hashlib.sha256(depth_file.read_bytes()).hexdigest() != rec['depth_sha256']:
++        raise ValueError('coverage_depth_evidence_changed')
++    points = transport.fk_link_origins(samples, result.trajectory_start)
++    coverage = observation_coverage(points, np.load(depth_file, allow_pickle=False), rec, snapshot['config'])
++    if scene_digest(transport.read()) != digest:
++        raise RuntimeError('scene_changed_during_planning')
++    transport.display(result)
++    return dict(status='PLAN_PREVIEW', scene_digest=digest, checked_state_count=len(samples),
++                unknown_coverage=coverage,
++                limitations=snapshot['quality']['limitations'], executable=False,
++                trajectory=raw_message(result.planned_trajectory),
++                trajectory_start=raw_message(result.trajectory_start))
++
++
++def observation_coverage(points, depth, record, config):
++    states = classify_points(points, depth, record, config)
++    return dict(free=int(np.sum(states == 'free')), occupied=int(np.sum(states == 'occupied')),
++                unknown=int(np.sum(states == 'unknown')), sample_count=len(states),
++                scope='Link1..Link6_and_tcp_origins_only_not_link_surfaces',
++                full_robot_swept_volume_certified=False)
++
++
++class RosSceneTransport:
++    def __init__(self, node):
++        self.node = node
++        self.apply_client = node.create_client(ApplyPlanningScene, '/apply_planning_scene')
++        self.get_client = node.create_client(GetPlanningScene, '/get_planning_scene')
++        self.valid_client = node.create_client(GetStateValidity, '/check_state_validity')
++
++    def wait(self, future, timeout=20.):
++        import rclpy
++        rclpy.spin_until_future_complete(self.node, future, timeout_sec=timeout)
++        if not future.done():
++            future.cancel()
++            raise TimeoutError('preview_service_timeout')
++        return future.result()
++
++    def call(self, client, request):
++        if not client.wait_for_service(timeout_sec=10.):
++            raise TimeoutError('preview_service_unavailable')
++        return self.wait(client.call_async(request))
++
++    def execution_disabled(self):
++        from rcl_interfaces.srv import GetParameters
++        from rcl_interfaces.msg import ParameterType
++        client = self.node.create_client(GetParameters, '/move_group/get_parameters')
++        try:
++            response = self.call(client, GetParameters.Request(names=['allow_trajectory_execution']))
++            return (len(response.values) == 1 and response.values[0].type == ParameterType.PARAMETER_BOOL
++                    and response.values[0].bool_value is False)
++        finally:
++            self.node.destroy_client(client)
++
++    def read(self):
++        req = GetPlanningScene.Request(); req.components.components = 1023
++        return self.call(self.get_client, req).scene
++
++    def apply(self, diff):
++        return self.call(self.apply_client, ApplyPlanningScene.Request(scene=diff)).success
++
++    def valid(self, state):
++        return self.call(self.valid_client, GetStateValidity.Request(robot_state=state, group_name='rm_group')).valid
++
++
++class RosPlanTransport(RosSceneTransport):
++    def fk_link_origins(self, samples, start):
++        client = self.node.create_client(GetPositionFK, '/compute_fk')
++        points = []
++        try:
++            for q in samples:
++                req = GetPositionFK.Request(); req.header.frame_id = 'base_link'
++                req.fk_link_names = [f'Link{i}' for i in range(1, 7)]+['tcp_link']
++                req.robot_state = recorded_state(PlanningScene(robot_state=start), q)
++                result = self.call(client, req)
++                if result.error_code.val != 1 or len(result.pose_stamped) != 7:
++                    raise RuntimeError('coverage_fk_failed')
++                points.extend([p.pose.position.x, p.pose.position.y, p.pose.position.z] for p in result.pose_stamped)
++            return points
++        finally:
++            self.node.destroy_client(client)
++
++    def plan(self, goal):
++        from rclpy.action import ActionClient
++        if goal.planning_options.plan_only is not True:
++            raise ValueError('plan_only_required')
++        ensure_isolated(self)
++        client = ActionClient(self.node, MoveGroup, '/move_action')
++        try:
++            if not client.wait_for_server(timeout_sec=10.):
++                raise TimeoutError('planner_unavailable')
++            handle = self.wait(client.send_goal_async(goal))
++            if not handle.accepted:
++                raise RuntimeError('planning_goal_rejected')
++            outcome = self.wait(handle.get_result_async(), timeout=30.)
++            if outcome.status != 4:
++                raise RuntimeError(f'planning_action_status_{outcome.status}')
++            return outcome.result
++        finally:
++            client.destroy()
++
++    def display(self, result):
++        pub = self.node.create_publisher(DisplayTrajectory, '/display_planned_path', 1)
++        msg = DisplayTrajectory(model_id='rm_65_description', trajectory_start=result.trajectory_start,
++                                trajectory=[result.planned_trajectory])
++        pub.publish(msg)
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--scene', required=True, type=Path)
++    parser.add_argument('--output', required=True, type=Path)
++    parser.add_argument('--recorded-replay', action='store_true', required=True)
++    parser.add_argument('--candidate', type=Path)
++    parser.add_argument('--hold-seconds', type=float, default=0., help='Publish explicitly labeled recorded-state display only')
++    args = parser.parse_args()
++    if args.output.exists():
++        raise ValueError('refusing_to_overwrite_result')
++    snapshot = json.loads(args.scene.read_text())
++    from ament_index_python.packages import get_package_share_directory
++    urdf = Path(get_package_share_directory('rm_description'))/'urdf/rm_65.urdf'
++    if hashlib.sha256(urdf.read_bytes()).hexdigest() != snapshot['robot_model_sha256']:
++        raise ValueError('robot_model_hash_mismatch')
++    import rclpy
++    rclpy.init(); node = rclpy.create_node('recorded_obstacle_preview')
++    report = {'executable':False, 'status':'NOT_STARTED'}
++    try:
++        transport = RosPlanTransport(node) if args.candidate else RosSceneTransport(node)
++        ensure_isolated(transport)
++        report = publish_snapshot(snapshot, transport, replay=True)
++        add_recorded_camera_guard(transport, snapshot)
++        report['scene_digest'] = scene_digest(transport.read())
++        report['camera_guard_present'] = True
++        state = recorded_state(transport.read(), snapshot['observation']['joint_positions_rad'])
++        report['start_state_valid_in_observed_model'] = transport.valid(state)
++        report['planning'] = (plan_preview(snapshot, json.loads(args.candidate.read_text()), transport)
++                              if args.candidate else {'status':'NO_VALIDATED_PREGRASP_CANDIDATE', 'executable':False})
++        args.output.parent.mkdir(parents=True, exist_ok=True)
++        args.output.with_suffix('.readback.json').write_text(json.dumps(raw_message(transport.read()), indent=2))
++        if args.hold_seconds > 0:
++            publish_recorded_display(node, snapshot, args.scene, args.hold_seconds)
++    except Exception as exc:
++        report.update(status='PREVIEW_FAILED', error=str(exc))
++        raise
++    finally:
++        args.output.parent.mkdir(parents=True, exist_ok=True)
++        args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2))
++        node.destroy_node(); rclpy.shutdown()
++    print(json.dumps({k:v for k,v in report.items() if k not in ('trajectory', 'trajectory_start')}, ensure_ascii=False))
++
++
++def publish_recorded_display(node, snapshot, scene_path, duration):
++    import rclpy
++    from sensor_msgs.msg import JointState
++    from sensor_msgs_py import point_cloud2
++    from std_msgs.msg import Header
++    from visualization_msgs.msg import Marker
++    from rclpy.qos import QoSProfile, DurabilityPolicy
++    qos = QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL)
++    joint_pub = node.create_publisher(JointState, '/offline_preview/joint_states', 1)
++    cloud_pub = node.create_publisher(point_cloud2.PointCloud2, '/offline_preview/observed_points', qos)
++    label_pub = node.create_publisher(Marker, '/offline_preview/status', qos)
++    cloud = np.load(scene_path.parent/'observation.npz')['xyz_m']
++    label = Marker(); label.header.frame_id = 'base_link'; label.ns = 'recorded_snapshot'; label.id = 0
++    label.type = Marker.TEXT_VIEW_FACING; label.action = Marker.ADD; label.pose.orientation.w = 1.
++    label.pose.position.x = .3; label.pose.position.y = -.15
++    label.pose.position.z = .65; label.scale.z = .025
++    label.color.r = 1.; label.color.g = .7; label.color.a = 1.
++    label.text = f'RECORDED PREVIEW / NO EXECUTION\nCapture epoch {snapshot["capture_stamp_s"]:.3f}\nUnknown space & robot envelope UNVERIFIED'
++    label_pub.publish(label)
++    header = Header(frame_id='base_link', stamp=node.get_clock().now().to_msg())
++    cloud_pub.publish(point_cloud2.create_cloud_xyz32(header, cloud[::4].astype(np.float32)))
++    until = time.monotonic()+min(duration, 3600.)
++    while rclpy.ok() and time.monotonic() < until:
++        joints = JointState(); joints.header.stamp = node.get_clock().now().to_msg()
++        joints.header.frame_id = 'RECORDED_SNAPSHOT_NOT_LIVE'
++        joints.name = JOINTS; joints.position = snapshot['observation']['joint_positions_rad']
++        joint_pub.publish(joints)
++        rclpy.spin_once(node, timeout_sec=.1)
++
++
++if __name__ == '__main__':
++    main()
+diff --git a/apple_pick_v2/tests/test_obstacle_geometry.py b/apple_pick_v2/tests/test_obstacle_geometry.py
+new file mode 100644
+index 0000000..eef3f9c
+--- /dev/null
++++ b/apple_pick_v2/tests/test_obstacle_geometry.py
+@@ -0,0 +1,91 @@
++import copy
++import sys
++import unittest
++from pathlib import Path
++
++import numpy as np
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++from obstacle_geometry import (depth_points, validate_observation, build_snapshot,
++                               classify_points, scene_delta, cleared_cells, canonical_scene)
++
++
++def record():
++    return dict(capture_stamp_s=100., depth_stamp_s=100., depth_scale_m=.001,
++                intrinsics=dict(fx=100., fy=100., ppx=1., ppy=1., width=3, height=3),
++                frame_id='base_link', color_frame='camera_color_optical_frame',
++                depth_frame='camera_color_optical_frame', camera_to_base=np.eye(4).tolist(),
++                stationary=True, joint_span_deg=.002, bracket_s=.1,
++                transform_provenance={'synchronized': True, 'source': 'controller bracket + FK + handeye + optical TF'},
++                robot_model_sha256='a'*64, joint_positions_rad=[0.]*6)
++
++
++class GeometryTests(unittest.TestCase):
++    def test_depth_units_and_translation(self):
++        t = np.eye(4); t[0, 3] = .2
++        p = depth_points(np.array([[1000]], np.uint16),
++                         dict(fx=100., fy=100., ppx=0., ppy=0.), .001, t)
++        np.testing.assert_allclose(p, [[.2, 0., 1.]])
++
++    def test_invalid_observations_are_rejected(self):
++        for change in [dict(depth_scale_m=0), dict(depth_scale_m=float('nan')),
++                       dict(capture_stamp_s=90.), dict(capture_stamp_s=101.),
++                       dict(stationary=False), dict(joint_span_deg=.5),
++                       dict(camera_to_base=None), dict(depth_frame='other'),
++                       dict(transform_provenance={}), dict(bracket_s=float('nan'))]:
++            with self.subTest(change=change), self.assertRaises(ValueError):
++                validate_observation(record() | change, now_s=100., max_age_s=2.)
++        r = record(); r['camera_to_base'][0][0] = 2.
++        with self.assertRaises(ValueError):
++            validate_observation(r, 100., 2.)
++
++    def test_nonfinite_and_zero_depth_are_not_points(self):
++        p = depth_points(np.array([[0., np.nan, np.inf, 1000.]]),
++                         dict(fx=100., fy=100., ppx=0., ppy=0.), .001)
++        np.testing.assert_allclose(p, [[.03, 0., 1.]])
++
++    def test_surface_front_back_and_outside_have_distinct_states(self):
++        d = np.full((3, 3), 1000, np.uint16)
++        states = classify_points([[0, 0, .5], [0, 0, 1.], [0, 0, 1.1], [3, 0, 1.]], d, record(), {})
++        self.assertEqual(states.tolist(), ['free', 'occupied', 'unknown', 'unknown'])
++        d[1, 1] = 0
++        self.assertEqual(classify_points([[0, 0, .5]], d, record(), {})[0], 'unknown')
++
++    def test_out_of_range_depth_cannot_certify_a_free_ray(self):
++        for raw in (50, 5000):
++            d = np.full((3, 3), raw, np.uint16)
++            self.assertEqual(classify_points([[0, 0, .5]], d, record(), {})[0], 'unknown')
++
++    def test_target_mask_never_erases_branch_or_target_geometry(self):
++        d = np.full((3, 3), 1000, np.uint16); d[1, 1] = 800
++        mask = np.ones_like(d, bool)
++        a = build_snapshot(d, record(), {}, mask)
++        b = build_snapshot(d, record(), {})
++        self.assertEqual(a['occupied_cells'], b['occupied_cells'])
++        self.assertFalse(a['executable'])
++        self.assertGreater(len(a['target_geometry']['observed_cell_ids']), 0)
++
++    def test_absence_needs_positive_clear_evidence_and_foreign_ids_survive(self):
++        old = {'occupied_cells': {'auto_obstacle_0_0_1': [0, 0, 1], 'foreign': [0, 0, 2]}}
++        self.assertEqual(scene_delta(old, {'occupied_cells': {}}, set())['remove'], [])
++        delta = scene_delta(old, {'occupied_cells': {}}, {'auto_obstacle_0_0_1', 'foreign'})
++        self.assertEqual(delta['remove'], ['auto_obstacle_0_0_1'])
++
++    def test_clearance_checks_entire_box_and_requires_valid_depth(self):
++        r = record(); r['intrinsics'].update(fx=1., fy=1.)
++        old = dict(occupied_cells={'auto_obstacle_0_0_1': [0., 0., .5]},
++                   frame_id='base_link', box_size_m=.02)
++        d = np.full((3, 3), 1000, np.uint16)
++        self.assertEqual(cleared_cells(old, d, r, {}), {'auto_obstacle_0_0_1'})
++        d[1, 1] = 0
++        self.assertEqual(cleared_cells(old, d, r, {}), set())
++
++    def test_digest_is_order_independent_and_detects_geometry_changes(self):
++        a = [{'id':'a', 'size':.01}, {'id':'b', 'size':.02}]
++        self.assertEqual(canonical_scene(a), canonical_scene(a[::-1]))
++        b = copy.deepcopy(a); b[0]['size'] = .03
++        self.assertNotEqual(canonical_scene(a), canonical_scene(b))
++
++
++if __name__ == '__main__':
++    unittest.main()
+diff --git a/apple_pick_v2/tests/test_obstacle_preview.py b/apple_pick_v2/tests/test_obstacle_preview.py
+new file mode 100644
+index 0000000..e84d29d
+--- /dev/null
++++ b/apple_pick_v2/tests/test_obstacle_preview.py
+@@ -0,0 +1,57 @@
++import json
++import sys
++import tempfile
++import unittest
++from pathlib import Path
++
++import numpy as np
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++from obstacle_preview import run_preview, normalize_record
++
++
++class PreviewTests(unittest.TestCase):
++    def fixture(self, root):
++        np.save(root/'depth_00.npy', np.full((3, 3), 1000, np.uint16))
++        data = {'records': [dict(color_timestamp_ms=100000., depth_timestamp_ms=100000.,
++                               depth_scale_m=.001, intrinsics=dict(fx=100., fy=100., ppx=1., ppy=1., width=3, height=3))]}
++        (root/'capture.json').write_text(json.dumps(data))
++        return data
++
++    def test_camera_only_capture_cannot_claim_base_scene(self):
++        with tempfile.TemporaryDirectory() as td:
++            root = Path(td); self.fixture(root)
++            s = run_preview(root/'capture.json', root/'preview', {})
++            self.assertEqual(s['frame_id'], 'camera_color_optical_frame')
++            self.assertIn('missing_camera_to_base', s['quality']['limitations'])
++            self.assertFalse(json.loads((root/'preview/scene.json').read_text())['executable'])
++            self.assertTrue((root/'preview/observation.ply').exists())
++
++    def test_refuses_overwrite_or_missing_depth(self):
++        with tempfile.TemporaryDirectory() as td:
++            root = Path(td); self.fixture(root)
++            with self.assertRaises(ValueError):
++                run_preview(root/'capture.json', root, {})
++            (root/'depth_00.npy').unlink()
++            with self.assertRaises(FileNotFoundError):
++                run_preview(root/'capture.json', root/'preview', {})
++
++    def test_matrix_without_synchronized_provenance_is_not_accepted(self):
++        with tempfile.TemporaryDirectory() as td:
++            root = Path(td); data = self.fixture(root)
++            data['records'][0]['camera_to_base'] = np.eye(4).tolist()
++            (root/'capture.json').write_text(json.dumps(data))
++            with self.assertRaises((ValueError, KeyError)):
++                run_preview(root/'capture.json', root/'preview', {})
++
++    def test_capture_error_or_nonempty_invalid_records_are_rejected(self):
++        with tempfile.TemporaryDirectory() as td:
++            root = Path(td); data = self.fixture(root)
++            data['error'] = 'camera failed'
++            (root/'capture.json').write_text(json.dumps(data))
++            with self.assertRaises(ValueError):
++                run_preview(root/'capture.json', root/'preview', {})
++
++
++if __name__ == '__main__':
++    unittest.main()
+diff --git a/apple_pick_v2/tests/test_obstacle_scene_ros.py b/apple_pick_v2/tests/test_obstacle_scene_ros.py
+new file mode 100644
+index 0000000..f30d03e
+--- /dev/null
++++ b/apple_pick_v2/tests/test_obstacle_scene_ros.py
+@@ -0,0 +1,169 @@
++import copy
++import importlib.util
++import os
++import sys
++import unittest
++from types import SimpleNamespace
++from pathlib import Path
++from unittest.mock import patch
++
++import numpy as np
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
++from moveit_msgs.msg import PlanningScene
++from obstacle_geometry import build_snapshot
++from test_obstacle_geometry import record
++from obstacle_scene_ros import (box_object, publish_snapshot, scene_digest,
++                                make_plan_goal, verify_trajectory, observation_coverage, RosPlanTransport)
++
++
++class MemoryScene:
++    def __init__(self):
++        self.scene = PlanningScene()
++        self.scene.world.collision_objects = [box_object('foreign_table', [0, 0, -.2], [.8, .8, .1])]
++        self.reject = False
++        self.drop_writes = False
++        self.calls = 0
++
++    def execution_disabled(self):
++        return True
++
++    def read(self):
++        return copy.deepcopy(self.scene)
++
++    def apply(self, diff):
++        self.calls += 1
++        if self.reject:
++            return False
++        if not self.drop_writes:
++            self.assert_diff = (diff.is_diff, diff.robot_state.is_diff)
++            objs = {o.id:o for o in self.scene.world.collision_objects}
++            for o in diff.world.collision_objects:
++                if o.operation == o.REMOVE:
++                    objs.pop(o.id, None)
++                else:
++                    objs[o.id] = o
++            self.scene.world.collision_objects = list(objs.values())
++        return True
++
++
++class SceneTests(unittest.TestCase):
++    def snapshot(self):
++        return build_snapshot(np.full((3, 3), 1000, np.uint16), record(), {})
++
++    @patch.dict(os.environ, {'ROS_DOMAIN_ID':'87', 'ROS_AUTOMATIC_DISCOVERY_RANGE':'LOCALHOST'})
++    def test_readback_matches_and_foreign_geometry_survives(self):
++        t = MemoryScene(); foreign = scene_digest(t.read())
++        result = publish_snapshot(self.snapshot(), t, replay=True, now_s=200.)
++        self.assertEqual(result['status'], 'SCENE_PREVIEW')
++        self.assertFalse(result['executable'])
++        self.assertEqual(t.assert_diff, (True, True))
++        table = [o for o in t.scene.world.collision_objects if o.id == 'foreign_table']
++        check = PlanningScene(); check.world.collision_objects = table
++        self.assertEqual(scene_digest(check), foreign)
++        # A new view that sees nothing cannot clear the old scene.
++        empty = self.snapshot(); empty['occupied_cells'] = {}
++        with self.assertRaises(ValueError):
++            publish_snapshot(empty, t, replay=True, now_s=200.)
++
++    @patch.dict(os.environ, {'ROS_DOMAIN_ID':'87', 'ROS_AUTOMATIC_DISCOVERY_RANGE':'LOCALHOST'})
++    def test_rejected_write_and_lost_readback_are_failures(self):
++        for field in ['reject', 'drop_writes']:
++            t = MemoryScene(); setattr(t, field, True)
++            with self.subTest(field=field), self.assertRaises(RuntimeError):
++                publish_snapshot(self.snapshot(), t, replay=True, now_s=200.)
++
++    @patch.dict(os.environ, {'ROS_DOMAIN_ID':'87', 'ROS_AUTOMATIC_DISCOVERY_RANGE':'LOCALHOST'})
++    def test_changed_grid_or_padding_cannot_erase_old_occupied_volume(self):
++        depth = np.full((3, 3), 1000, np.uint16)
++        for change in ({'voxel_size_m':.1, 'padding_m':0.}, {'voxel_size_m':.11, 'padding_m':.1}):
++            t = MemoryScene()
++            first = build_snapshot(depth, record(), {'voxel_size_m':.1, 'padding_m':.1})
++            publish_snapshot(first, t, replay=True, now_s=200.)
++            digest = scene_digest(t.read())
++            second = build_snapshot(depth, record(), change)
++            # Force an index overlap as happens when only one spatial axis changes cell.
++            if change['voxel_size_m'] != .1:
++                ident = next(iter(first['occupied_cells']))
++                second['occupied_cells'][ident] = [0., 0., 1.1]
++            with self.subTest(change=change), self.assertRaises(ValueError):
++                publish_snapshot(second, t, replay=True, now_s=200.)
++            self.assertEqual(t.calls, 1)
++            self.assertEqual(scene_digest(t.read()), digest)
++
++    def test_fk_normalizes_joint_names_before_assigning_trajectory_samples(self):
++        from moveit_msgs.msg import RobotState
++        from geometry_msgs.msg import PoseStamped
++        transport = RosPlanTransport.__new__(RosPlanTransport)
++        transport.node = SimpleNamespace(create_client=lambda *a: object(), destroy_client=lambda c: None)
++        captured = []
++        def call(client, req):
++            captured.append(dict(zip(req.robot_state.joint_state.name, req.robot_state.joint_state.position)))
++            return SimpleNamespace(error_code=SimpleNamespace(val=1), pose_stamped=[PoseStamped() for _ in range(7)])
++        transport.call = call
++        start = RobotState(); start.joint_state.name = [f'joint{i}' for i in range(6, 0, -1)]
++        start.joint_state.position = [0.]*6
++        transport.fk_link_origins(np.array([[.1, .2, .3, .4, .5, .6]]), start)
++        self.assertEqual(captured[0], dict(joint1=.1, joint2=.2, joint3=.3, joint4=.4, joint5=.5, joint6=.6))
++
++    def test_stale_or_unverified_scene_never_writes_online(self):
++        t = MemoryScene()
++        for now in (100., 200.):
++            with self.assertRaises(ValueError):
++                publish_snapshot(self.snapshot(), t, replay=False, now_s=now)
++        self.assertEqual(t.calls, 0)
++
++    @patch.dict(os.environ, {'ROS_DOMAIN_ID':'0', 'ROS_AUTOMATIC_DISCOVERY_RANGE':'LOCALHOST'})
++    def test_replay_refuses_default_live_domain(self):
++        t = MemoryScene()
++        with self.assertRaises(ValueError):
++            publish_snapshot(self.snapshot(), t, replay=True, now_s=200.)
++        self.assertEqual(t.calls, 0)
++
++    def test_goal_is_plan_only_and_explicit_start(self):
++        q = [.1, .2, .3, .4, .5, .6]
++        scene = PlanningScene()
++        goal = make_plan_goal(scene, q, [v+.01 for v in q])
++        self.assertTrue(goal.planning_options.plan_only)
++        self.assertFalse(goal.planning_options.look_around)
++        self.assertEqual(list(goal.request.start_state.joint_state.position), q)
++
++    def test_coverage_never_turns_occluded_path_into_known_free(self):
++        result = observation_coverage([[0, 0, .5], [0, 0, 1.1]],
++                                      np.full((3, 3), 1000, np.uint16), record(), {})
++        self.assertEqual(result['free'], 1)
++        self.assertEqual(result['unknown'], 1)
++        self.assertFalse(result['full_robot_swept_volume_certified'])
++
++    def test_waypoints_alone_cannot_hide_collision_between_them(self):
++        from moveit_msgs.msg import RobotTrajectory, RobotState
++        from trajectory_msgs.msg import JointTrajectoryPoint
++        traj = RobotTrajectory(); traj.joint_trajectory.joint_names = [f'joint{i}' for i in range(1, 7)]
++        traj.joint_trajectory.points = [JointTrajectoryPoint(positions=[0.]*6), JointTrajectoryPoint(positions=[.1]*6)]
++        def valid(state):
++            return not (.04 < state.joint_state.position[0] < .06)
++        with self.assertRaises(RuntimeError):
++            verify_trajectory(traj, RobotState(), valid, step_rad=.01)
++
++    @patch.dict(os.environ, {'ROS_DOMAIN_ID':'87', 'ROS_AUTOMATIC_DISCOVERY_RANGE':'LOCALHOST'})
++    def test_launch_only_constructs_display_and_planner_with_execution_disabled(self):
++        path = Path(__file__).resolve().parents[1]/'obstacle_preview.launch.py'
++        spec = importlib.util.spec_from_file_location('obstacle_launch', path)
++        module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
++        calls = []
++        from launch.actions import LogInfo
++        def collect(**kwargs):
++            calls.append(kwargs)
++            return LogInfo(msg='test does not start processes')
++        with patch.object(module, 'Node', collect):
++            module.generate_launch_description()
++        self.assertEqual({c['executable'] for c in calls}, {'robot_state_publisher', 'move_group', 'rviz2'})
++        move = next(c for c in calls if c['executable'] == 'move_group')
++        params = {k:v for d in move['parameters'] for k,v in d.items()}
++        self.assertIs(params['allow_trajectory_execution'], False)
++        self.assertIs(params['moveit_manage_controllers'], False)
++        self.assertIn('move_group/MoveGroupExecuteTrajectoryAction', params['disable_capabilities'])
++
++
++if __name__ == '__main__':
++    unittest.main()

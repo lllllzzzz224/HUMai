@@ -1,0 +1,30 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2026-09-21</title><style>body{max-width:1040px;margin:42px auto;padding:0 24px 70px;font:17px/1.7 -apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;color:#172d3d;background:#fafbfc}h1,h2,h3{line-height:1.3;margin-top:1.5em}a{color:#066c99}img{max-width:100%;height:auto;border:1px solid #dbe3e8;border-radius:6px}pre{background:#eef2f5;padding:16px;overflow:auto;font-size:13px}code{font-size:.87em}table{border-collapse:collapse;width:100%;font-size:15px}td,th{padding:10px;border:1px solid #d2dde4;text-align:left;vertical-align:top}.note{padding:16px 20px;background:#fff1d8;border-left:4px solid #c08224}li{margin:7px 0}nav{font-size:14px;border-bottom:1px solid #d2dde4;padding-bottom:12px}</style><body><nav><a href="../../START_HERE.html">资料包首页</a></nav><h1>2026-09-21 每日进度</h1>
+<ul>
+<li>用户已用枝条遮挡橘子，要求按当前标准处理；本轮采用已讨论的无动作感知/规划预检范围，连接状态未知的枝条按不可穿越障碍处理。</li>
+<li>12:22 通过 D435 直接取得三组当前 RGB-D，保存到 <code>reports/branch_observation_20260921_122225/</code>。相机采集结束后已停止该临时采集流。</li>
+<li>现有模型的全幅离线检测在三帧中均检出中右侧完整入画橘子，置信度 0.8283–0.8541，目标掩膜内有效深度 91.72%–93.29%；这不等于完整果心定位或避障规划通过。</li>
+<li>查询 ROS 域 0 和 42 未发现相机/规划场景话题，进程检查未见相机、MoveIt、RViz。自动障碍建模仍只有设计，没有新增实现。本轮未启动规划栈、未写入碰撞场景。</li>
+<li>已记录预检结果 <code>NOT_RELEASED_FOR_MOTION</code>：缺少同步机械臂姿态/TF、枝条碰撞场景和完整通道验证。未发送机械臂或夹爪动作，不代表场景已被证明无路可走。</li>
+<li>完整预检前须补齐自动障碍建模与同步坐标，再进行仅规划验收。具体证据和结论见本轮报告目录中的 <code>预检结论.md</code>。</li>
+</ul>
+<h2>用户要求继续后的坐标采集</h2>
+<ul>
+<li>已整理实施计划 <code>development/hand_eye_calibration/apple_pick_v2/docs/superpowers/plans/2026-09-21-static-obstacle-preview.md</code>，通过异步选项请求用户审阅；产品模块尚未开始实现。</li>
+<li>只读控制器状态查询成功；单独启动 D435 相机后取得 6 组 RGB-D、真实关节和内部相机 TF 的同步观察，保存于 <code>reports/branch_registered_20260921_145529/</code>。采集稳定性最大跨度 0.005°，最长前后状态读取区间 0.1069 s；没有机械臂或夹爪动作。</li>
+<li>已将末份观察导出为 <code>base_link</code> 下 86,851 个采样点及 PNG 预览。输出属于观测点云，尚非碰撞模型或可执行规划。</li>
+<li>最新画面中原中右侧橘子不再可见，已询问是移走还是完全遮挡；不得继续使用中午目标坐标。</li>
+<li>新确认：实际手眼启动文件与原始标定 YAML 有差异；安装 URDF 的夹爪整体盒宽 80 mm，而当前配置开爪 85 mm，需要核查真实包络。相机碰撞盒需显式加入独立预览场景。</li>
+<li>本轮只读采集完成后已向自己启动的相机启动进程 PID 866313 发送 SIGINT；相机节点 PID 866355 的日志确认传感器关闭、进程正常结束，启动会话退出码为 0。</li>
+</ul>
+<h2>晚间继续：静态障碍预览落地</h2>
+<ul>
+<li>用户再次“继续”，完成当前开发副本的独立几何、离线导出、场景读回、plan-only与RViz显示模块；实际运行脚本、手眼标定和TCP未修改。</li>
+<li>复查最近15:10历史橘子帧：全帧0检出，实际56裁块策略最高0.51435，但只覆盖果实一片，不能当完整抓取目标。新采集检查无相机设备，未尝试运动。</li>
+<li>三组历史数据重放成功；带同步姿态的14:56基座快照3071体素写入隔离MoveIt，加入相机近似盒，完整读回一致。15:10数据仅相机系6924体素，未混用更早姿态。</li>
+<li>合成25mm障碍使直连13/21状态碰撞，RRTConnect绕行117个插值状态通过；全阻挡碰撞输入被拒绝。只删自有合成对象后原场景摘要恢复。不是橘子真实预抓取验收。</li>
+<li>独立审查发现同ID盒缩小导致旧占据丢失和FK关节顺序错配，均补失败回归后修复；另补超量程深度不得判自由测试。95项测试全部通过（新增23项，基线72项）。</li>
+<li>收尾停止本次独立模型/MoveIt/RViz/回放节点；MoveIt的SIGINT关闭超时由launch追加SIGTERM。没有机械臂/夹爪动作，无实际目录部署。</li>
+<li>成果：reports/obstacle_preview_validation_20260921_214559/验证结论.md，含RViz图、合成路线图、原始读回、测试与识别证据。接下来相机恢复后补同步当前场景与真实候选，不重复把历史成功当现场通过。</li>
+<li>本功能已提交开发分支 codex/fast-multi-fruit，提交9d3333f；保留先前4个未跟踪文件，没有合并或部署。主机PID检查确认本次预览进程均已结束。</li>
+</ul>
+</body></html>
