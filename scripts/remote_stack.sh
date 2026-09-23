@@ -156,20 +156,20 @@ do_stop() {
     fi
 
     # 2.2 彻底清理残留孤儿进程
-    log_info "正在清理可能残留的孤儿进程..."
-    local pids
-    pids=$(pgrep -f "apple_hand_eye_all.launch.py|rm_driver|rm_control|realsense2_camera_node|apple_center_localizer_v2.py|static_transform_publisher|move_group|rviz2" || true)
-    if [ -n "$pids" ]; then
-        echo "$pids" | xargs -r kill -INT 2>/dev/null || true
-        sleep 1
-        pids_left=$(pgrep -f "apple_hand_eye_all.launch.py|rm_driver|rm_control|realsense2_camera_node|apple_center_localizer_v2.py|static_transform_publisher|move_group|rviz2" || true)
-        if [ -n "$pids_left" ]; then
-            echo "$pids_left" | xargs -r kill -9 2>/dev/null || true
+        log_info "正在清理可能残留的孤儿进程..."
+        local pids
+        pids=$(pgrep -f "apple_hand_eye_all.launch.py|rm_driver|rm_control|realsense2_camera_node|apple_center_localizer_v2.py|camera_monitor.py|static_transform_publisher|move_group|rviz2" || true)
+        if [ -n "$pids" ]; then
+            echo "$pids" | xargs -r kill -INT 2>/dev/null || true
+            sleep 1
+            pids_left=$(pgrep -f "apple_hand_eye_all.launch.py|rm_driver|rm_control|realsense2_camera_node|apple_center_localizer_v2.py|camera_monitor.py|static_transform_publisher|move_group|rviz2" || true)
+            if [ -n "$pids_left" ]; then
+                echo "$pids_left" | xargs -r kill -9 2>/dev/null || true
+            fi
+            log_info "残留进程清理完成。"
+        else
+            log_info "无孤儿进程残留。"
         fi
-        log_info "残留进程清理完成。"
-    else
-        log_info "无孤儿进程残留。"
-    fi
 
     # 2.3 重启 ros2 daemon 避免残余缓存
     ensure_ros_env
@@ -297,7 +297,7 @@ do_status() {
     echo -e "\n当前视觉识别目标位姿:"
     if [ "$center_online" = true ]; then
         local center_info
-        center_info=$(timeout 3 ros2 topic echo /apple_pick_v2/apple_center --once 2>/dev/null || true)
+        center_info=$(timeout 5 ros2 topic echo /apple_pick_v2/apple_center --once 2>/dev/null || true)
         if [ -n "$center_info" ]; then
             local px py pz
             px=$(echo "$center_info" | grep -A 3 "position:" | grep "x:" | awk '{print $2}')
@@ -390,6 +390,34 @@ do_logs() {
 }
 
 # ==========================================
+# 7. 实时视觉监控大屏 (view)
+# ==========================================
+do_view() {
+    log_step "正在检查/启动实时视觉监控大屏 (GUI + Web 流)..."
+    ensure_ros_env
+
+    if ! tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+        log_warn "基础服务栈未运行，请先执行: $0 start"
+        exit 1
+    fi
+
+    # 检查 monitor 窗口是否存在
+    if ! tmux list-windows -t "$SESSION_NAME" 2>/dev/null | grep -q "monitor"; then
+        log_info "正在创建 monitor 独立显示通道并启动窗口..."
+        tmux new-window -t "$SESSION_NAME" -n monitor
+        local mon_cmd="export ROS_DOMAIN_ID=42 && source ${ROS_SETUP} && export DISPLAY=:0 && export WAYLAND_DISPLAY=wayland-0 && export XDG_RUNTIME_DIR=/run/user/1000 && export XAUTHORITY=\$(ls -1 /run/user/1000/.mutter-Xwaylandauth.* 2>/dev/null | head -n 1) && python3 -u ${SCRIPT_DIR}/camera_monitor.py --gui --web --port 5000"
+        tmux send-keys -t "${SESSION_NAME}:monitor" "${mon_cmd}" C-m
+        sleep 2
+    else
+        log_info "monitor 监控大屏已在后台运行中。"
+    fi
+
+    log_info "视觉监控大屏已就绪！"
+    echo -e "  - ${GREEN}Ubuntu 主机显示屏${NC} : 已弹出独立实时画面 (快捷键: 'f' 全屏, 'q' 退出)"
+    echo -e "  - ${GREEN}Mac / 本地浏览器${NC} : http://10.77.0.2:5000 (直接在浏览器看实时画面)"
+}
+
+# ==========================================
 # 主入口参数解析
 # ==========================================
 cmd="${1:-help}"
@@ -408,6 +436,9 @@ case "$cmd" in
     status)
         do_status "$@"
         ;;
+    view|monitor)
+        do_view "$@"
+        ;;
     grasp)
         do_grasp "$@"
         ;;
@@ -418,11 +449,12 @@ case "$cmd" in
         do_logs "$@"
         ;;
     help|--help|-h)
-        echo "用法: $0 {doctor|start [target]|stop|status|grasp [mode]|logs}"
+        echo "用法: $0 {doctor|start [target]|stop|status|view|grasp [mode]|logs}"
         echo "  doctor          : 系统环境与硬件端到端自检"
         echo "  start [orange]  : 一键拉起基础设施栈 (可指定目标: apple | orange)"
         echo "  stop            : 一键平稳关闭并彻底清理孤儿进程"
         echo "  status          : 查看当前各节点心跳与目标识别坐标"
+        echo "  view            : 在主机显示器弹窗显示实时画面，并在端口 5000 开启 Web 实时流"
         echo "  grasp [preview] : 执行抓取任务 (模式: preview | verify | single | continuous)"
         echo "  logs            : 附着到 tmux 会话查看实时日志"
         ;;

@@ -133,6 +133,14 @@ def cmd_align_basin(host: str) -> None:
     run_ssh(host, f"{REMOTE_SCRIPT} align-basin", interactive=True)
 
 
+def cmd_view(host: str) -> None:
+    """启动/打开实时视觉监控大屏 (主机屏幕独立窗口 + Web 实时流)"""
+    print(f"\n{Color.BOLD}{Color.CYAN}📺 正在启动/检查实时视觉监控大屏...{Color.RESET}")
+    print(f"   {Color.GREEN}✔ Ubuntu 主机屏幕{Color.RESET} : 正在拉起独立图形窗口 (快捷键: 'f' 全屏, 'q' 退出)")
+    print(f"   {Color.GREEN}✔ Mac 本地浏览器{Color.RESET} : 请在浏览器打开 {Color.BOLD}{Color.YELLOW}http://10.77.0.2:5000{Color.RESET} 即可实时查看！\n")
+    run_ssh(host, f"{REMOTE_SCRIPT} view")
+
+
 def cmd_ssh(host: str) -> None:
     """快速打开 SSH 交互终端"""
     print(f"\n{Color.CYAN}正在连接到 {host}...{Color.RESET}\n")
@@ -157,11 +165,12 @@ def interactive_menu(host: str) -> None:
         print(f"  [{Color.BOLD}5{Color.RESET}] 🥣 盆子对位 (align-basin) - 机械臂慢速移动至落料点，助你对齐盆子")
         print(f"  [{Color.BOLD}6{Color.RESET}] 🛑 安全停止 (stop)        - 一键平稳关闭并彻底清理孤儿进程")
         print(f"  [{Color.BOLD}7{Color.RESET}] 📜 实时日志 (logs)        - 附着到后台查看各节点实时输出")
-        print(f"  [{Color.BOLD}8{Color.RESET}] 💻 SSH 终端 (ssh)         - 快速进入 Ubuntu 命令行")
+        print(f"  [{Color.BOLD}8{Color.RESET}] 📺 视觉监控 (view)        - 在主机显示屏弹窗并在 Mac 浏览器开实时流")
+        print(f"  [{Color.BOLD}9{Color.RESET}] 💻 SSH 终端 (ssh)         - 快速进入 Ubuntu 命令行")
         print(f"  [{Color.BOLD}0{Color.RESET}] 🚪 退出控制台")
         print("=" * 54)
 
-        choice = input(f"请选择操作 [0-8]: ").strip()
+        choice = input(f"请选择操作 [0-9]: ").strip()
 
         if choice == "1":
             cmd_doctor(host)
@@ -188,6 +197,8 @@ def interactive_menu(host: str) -> None:
         elif choice == "7":
             cmd_logs(host)
         elif choice == "8":
+            cmd_view(host)
+        elif choice == "9":
             cmd_ssh(host)
         elif choice in ["0", "q", "exit"]:
             print(f"\n{Color.CYAN}再见！{Color.RESET}\n")
@@ -216,6 +227,8 @@ def main():
 
     subparsers.add_parser("status", help="查询系统节点状态与目标识别坐标")
 
+    subparsers.add_parser("view", help="在主机显示屏弹窗显示实时画面，并在端口 5000 开启 Web 实时流")
+
     p_grasp = subparsers.add_parser("grasp", help="安全分级触发抓取任务")
     p_grasp.add_argument("--mode", default="preview", choices=["preview", "verify", "single", "continuous"], help="抓取模式 (默认: preview)")
 
@@ -237,6 +250,8 @@ def main():
         cmd_start(args.host, args.target)
     elif args.command == "status":
         cmd_status(args.host)
+    elif args.command == "view":
+        cmd_view(args.host)
     elif args.command == "grasp":
         cmd_grasp(args.host, args.mode)
     elif args.command == "align-basin":
