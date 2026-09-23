@@ -1,0 +1,210 @@
+[
+  {
+    "name": "垂直正下 (0°倾角)",
+    "rpy": [
+      180.0,
+      0.0,
+      -34.391386276462924
+    ],
+    "pregrasp_12cm": {
+      "reachability": "IK_OK",
+      "valid": false,
+      "joints": [
+        145.61,
+        59.8,
+        39.9,
+        0.0,
+        80.3,
+        -180.0
+      ],
+      "joints_rad": [
+        2.5413428635824484,
+        1.0437051179393964,
+        0.6963360443790639,
+        6.648810098569113e-06,
+        1.4015417362567437,
+        -3.141605451228578
+      ],
+      "contacts_count": 59,
+      "contacts": [
+        "auto_obstacle_24_-20_1 <-> gripper_body_approx",
+        "auto_obstacle_25_-19_1 <-> gripper_body_approx",
+        "auto_obstacle_25_-20_1 <-> gripper_body_approx",
+        "auto_obstacle_26_-18_1 <-> gripper_body_approx",
+        "auto_obstacle_26_-19_1 <-> gripper_body_approx"
+      ]
+    },
+    "near_3cm": {
+      "reachability": "IK_OK",
+      "valid": false,
+      "joints": [
+        -34.39,
+        -110.44,
+        46.67,
+        -0.0,
+        -116.23,
+        -0.0
+      ],
+      "joints_rad": [
+        -0.6002452637192061,
+        -1.9275632647612289,
+        0.8145133723575628,
+        -4.490100273166621e-06,
+        -2.02855021106629,
+        -1.2854724722814173e-06
+      ],
+      "contacts_count": 186,
+      "contacts": [
+        "auto_obstacle_24_-20_1 <-> gripper_body_approx",
+        "auto_obstacle_24_-21_-7 <-> gripper_body_approx",
+        "auto_obstacle_24_-22_-7 <-> gripper_body_approx",
+        "auto_obstacle_25_-19_1 <-> gripper_body_approx",
+        "auto_obstacle_25_-20_1 <-> gripper_body_approx"
+      ]
+    }
+  },
+  {
+    "name": "右侧斜下 15° (Pitch +15°)",
+    "rpy": [
+      180.0,
+      15.0,
+      -34.391386276462924
+    ],
+    "pregrasp_12cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    },
+    "near_3cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    }
+  },
+  {
+    "name": "右侧斜下 25° (Pitch +25°)",
+    "rpy": [
+      180.0,
+      25.0,
+      -34.391386276462924
+    ],
+    "pregrasp_12cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    },
+    "near_3cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    }
+  },
+  {
+    "name": "右侧斜下 35° (Pitch +35°)",
+    "rpy": [
+      180.0,
+      35.0,
+      -34.391386276462924
+    ],
+    "pregrasp_12cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    },
+    "near_3cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    }
+  },
+  {
+    "name": "左侧斜下 15° (Pitch -15°)",
+    "rpy": [
+      180.0,
+      -15.0,
+      -34.391386276462924
+    ],
+    "pregrasp_12cm": {
+      "reachability": "IK_OK",
+      "valid": false,
+      "joints": [
+        145.61,
+        42.59,
+        77.32,
+        0.0,
+        45.1,
+        -180.0
+      ],
+      "joints_rad": [
+        2.54134493459259,
+        0.7432500205272892,
+        1.3494567174262346,
+        3.5680462824928295e-06,
+        0.7870785314765794,
+        -3.141595601382096
+      ],
+      "contacts_count": 77,
+      "contacts": [
+        "auto_obstacle_25_-20_1 <-> gripper_body_approx",
+        "auto_obstacle_26_-18_1 <-> gripper_body_approx",
+        "auto_obstacle_26_-19_1 <-> gripper_body_approx",
+        "auto_obstacle_26_-21_0 <-> gripper_body_approx",
+        "auto_obstacle_26_-22_0 <-> gripper_body_approx"
+      ]
+    },
+    "near_3cm": {
+      "reachability": "IK_OK",
+      "valid": false,
+      "joints": [
+        145.61,
+        55.28,
+        81.11,
+        0.0,
+        28.62,
+        -180.0
+      ],
+      "joints_rad": [
+        2.541344584498371,
+        0.964744637504753,
+        1.4155765601908943,
+        8.354082019761129e-06,
+        0.4994647210601444,
+        -3.1416014010140763
+      ],
+      "contacts_count": 192,
+      "contacts": [
+        "auto_obstacle_22_-20_2 <-> gripper_body_approx",
+        "auto_obstacle_23_-19_1 <-> gripper_body_approx",
+        "auto_obstacle_23_-19_2 <-> gripper_body_approx",
+        "auto_obstacle_23_-20_1 <-> gripper_body_approx",
+        "auto_obstacle_24_-18_1 <-> gripper_body_approx"
+      ]
+    }
+  },
+  {
+    "name": "偏航斜入 30° (Yaw +30°, Pitch 20°)",
+    "rpy": [
+      180.0,
+      20.0,
+      -4.391386276462924
+    ],
+    "pregrasp_12cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    },
+    "near_3cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    }
+  },
+  {
+    "name": "偏航斜入 -30° (Yaw -30°, Pitch 20°)",
+    "rpy": [
+      180.0,
+      20.0,
+      -64.39138627646292
+    ],
+    "pregrasp_12cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    },
+    "near_3cm": {
+      "reachability": "NO_IK",
+      "error_code": -31
+    }
+  }
+]
