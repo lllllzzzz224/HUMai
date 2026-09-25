@@ -12,7 +12,7 @@
 - **末端执行器**：RS485 Modbus-RTU 智能电动两指夹爪
 - **视觉感知**：Intel RealSense D435 RGB-D 深度相机（按当前 `Link6 → camera_link` 代码为 Eye-in-Hand 架构；外参精度仍需独立验收）
 - **计算主机**：Dell Vostro 3030 工控机（12th Gen Intel i5-12400 / 16GB RAM / 1TB NVMe SSD / Ubuntu 24.04 LTS）
-- **开发控制端**：MacBook Pro（通过千兆网络 `10.77.0.1 <-> 10.77.0.2` 免密 SSH 联动调度）
+
 
 ---
 
