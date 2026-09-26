@@ -40,7 +40,7 @@ INFO_TOPIC = "/camera/camera/aligned_depth_to_color/camera_info"
 APPLE_CLASS_ID = 47
 ORANGE_CLASS_ID = 49
 CLASS_NAMES = {APPLE_CLASS_ID: "apple", ORANGE_CLASS_ID: "orange"}
-MIN_CONFIDENCE = 0.15
+MIN_CONFIDENCE = 0.10
 MAX_SYNC_ERROR_NS = 100_000_000
 # Cropping makes a distant apple larger for the generic COCO model, but one
 # fixed crop can truncate the fruit and destabilise the estimated radius.
@@ -134,6 +134,9 @@ class AppleCenterLocalizer(Node):
         self.diagnostics_pub = self.create_publisher(
             String, "/apple_pick_v2/apple_diagnostics", 10
         )
+        self.annotated_image_pub = self.create_publisher(
+            Image, "/apple_pick_v2/annotated_image", 2
+        )
 
         self.create_subscription(CameraInfo, INFO_TOPIC, self.on_info, 10)
         self.create_subscription(Image, DEPTH_TOPIC, self.on_depth, 10)
@@ -148,6 +151,10 @@ class AppleCenterLocalizer(Node):
 
     def on_depth(self, message: Image) -> None:
         self.depth = message
+        if not hasattr(self, "depth_buffer"):
+            self.depth_buffer = []
+        self.depth_buffer.append(message)
+        self.depth_buffer = self.depth_buffer[-30:]
 
     def on_color(self, message: Image) -> None:
         now_ns = self.get_clock().now().nanoseconds
@@ -163,6 +170,8 @@ class AppleCenterLocalizer(Node):
             return
 
         color_ns = message.header.stamp.sec * 1_000_000_000 + message.header.stamp.nanosec
+        depth_candidates = getattr(self, "depth_buffer", [self.depth])
+        self.depth = min(depth_candidates, key=lambda d: abs((d.header.stamp.sec * 1_000_000_000 + d.header.stamp.nanosec) - color_ns))
         depth_ns = self.depth.header.stamp.sec * 1_000_000_000 + self.depth.header.stamp.nanosec
         sync_error_ns = abs(color_ns - depth_ns)
         if sync_error_ns > MAX_SYNC_ERROR_NS:
@@ -239,8 +248,20 @@ class AppleCenterLocalizer(Node):
                     }
                 )
         complete_candidates = [
-            candidate for candidate in candidates if not candidate["touches_edge"]
+            candidate
+            for candidate in candidates
+            if not candidate["touches_edge"] and not self.is_candidate_in_basin(candidate, depth, message.header)
         ]
+        if not complete_candidates and candidates:
+            non_basin = [
+                c for c in candidates
+                if not self.is_candidate_in_basin(c, depth, message.header)
+            ]
+            if non_basin:
+                complete_candidates = non_basin
+        if self.locked_uv is not None and self.locked_uv[1] > 340 and self.locked_uv[0] < 360:
+            self.locked_uv = None
+            self.lock_lost_count = 0
         selected = None
         if complete_candidates:
             if self.locked_uv is not None and self.lock_lost_count < 10:
@@ -251,18 +272,20 @@ class AppleCenterLocalizer(Node):
                     d_px = float(np.hypot(cu - self.locked_uv[0], cv - self.locked_uv[1]))
                     cand_dists.append((d_px, cand))
                 cand_dists.sort(key=lambda x: x[0])
-                if cand_dists[0][0] < 80.0:
+                if cand_dists[0][0] < 120.0:
                     selected = cand_dists[0][1]
                     self.lock_lost_count = 0
+                    gx0, gy0, gx1, gy1 = selected["global_xyxy"]
+                    self.locked_uv = ((gx0 + gx1) * 0.5, (gy0 + gy1) * 0.5)
                 else:
                     self.lock_lost_count += 1
-                    selected = max(complete_candidates, key=lambda c: c["confidence"])
+                    selected = None
             else:
                 selected = max(complete_candidates, key=lambda c: c["confidence"])
                 self.lock_lost_count = 0
-            if selected is not None:
-                gx0, gy0, gx1, gy1 = selected["global_xyxy"]
-                self.locked_uv = ((gx0 + gx1) * 0.5, (gy0 + gy1) * 0.5)
+                if selected is not None:
+                    gx0, gy0, gx1, gy1 = selected["global_xyxy"]
+                    self.locked_uv = ((gx0 + gx1) * 0.5, (gy0 + gy1) * 0.5)
 
         # A box can touch an internal tile boundary even though the fruit is
         # fully visible in the physical image. Only in that case, run one
@@ -318,13 +341,27 @@ class AppleCenterLocalizer(Node):
             complete_full_candidates = [
                 candidate
                 for candidate in full_candidates
-                if not candidate["touches_edge"]
+                if not candidate["touches_edge"] and not self.is_candidate_in_basin(candidate, depth, message.header)
             ]
             if complete_full_candidates:
-                selected = max(
-                    complete_full_candidates,
-                    key=lambda candidate: candidate["confidence"],
-                )
+                if self.locked_uv is not None and self.lock_lost_count < 10:
+                    cand_dists = []
+                    for cand in complete_full_candidates:
+                        gx0, gy0, gx1, gy1 = cand["global_xyxy"]
+                        cu, cv = (gx0 + gx1) * 0.5, (gy0 + gy1) * 0.5
+                        d_px = float(np.hypot(cu - self.locked_uv[0], cv - self.locked_uv[1]))
+                        cand_dists.append((d_px, cand))
+                    cand_dists.sort(key=lambda x: x[0])
+                    if cand_dists[0][0] < 80.0:
+                        selected = cand_dists[0][1]
+                        self.lock_lost_count = 0
+                    else:
+                        selected = max(complete_full_candidates, key=lambda c: c["confidence"])
+                else:
+                    selected = max(complete_full_candidates, key=lambda c: c["confidence"])
+                if selected is not None:
+                    gx0, gy0, gx1, gy1 = selected["global_xyxy"]
+                    self.locked_uv = ((gx0 + gx1) * 0.5, (gy0 + gy1) * 0.5)
                 self.stats["full_frame_accepts"] += 1
 
         self.stats["yolo_boxes"] = len(candidates)
@@ -340,6 +377,7 @@ class AppleCenterLocalizer(Node):
         if self.candidates_pub is not None:
             self.publish_candidate_snapshot(message, depth, candidates, rois, roi_images, results, model_duration_s)
         self.save_debug_images(color, roi_images, results, candidates, selected)
+        self.publish_annotated_image(color, candidates, selected, message.header)
         if not candidates:
             self.stats["conf_reject"] += 1
             self.stats["last_reject"] = "no_apple_box_at_threshold"
@@ -360,7 +398,7 @@ class AppleCenterLocalizer(Node):
         mask = np.zeros(depth.shape[:2], dtype=bool)
         mask[roi_y0:roi_y1, roi_x0:roi_x1] = roi_mask
         xyxy = selected["global_xyxy"]
-        estimate = self.estimate_points(mask, xyxy, depth)
+        estimate = self.estimate_points(mask, xyxy, depth, color=color)
         if estimate is None:
             self.stats["depth_reject"] += 1
             return
@@ -386,6 +424,39 @@ class AppleCenterLocalizer(Node):
         )
         self.stats["published_center"] += 1
         self.stats["last_reject"] = "none"
+
+    def is_candidate_in_basin(self, candidate, depth: np.ndarray, header) -> bool:
+        gx0, gy0, gx1, gy1 = candidate["global_xyxy"]
+        cu, cv = (gx0 + gx1) * 0.5, (gy0 + gy1) * 0.5
+        # 1. Image 2D check: basin is in the bottom-left corner of the camera frame
+        if cv > 340 and cu < 360:
+            return True
+        # 2. 3D base coordinate check: basin deposit zone has Y_base > -0.14m
+        if self.camera_info is not None:
+            try:
+                u_int, v_int = int(round(cu)), int(round(cv))
+                d_patch = depth[max(0, v_int - 3):min(depth.shape[0], v_int + 4), max(0, u_int - 3):min(depth.shape[1], u_int + 4)]
+                valid_d = d_patch[(d_patch > 200) & (d_patch < 1200)]
+                if len(valid_d) > 0:
+                    z_m = float(np.median(valid_d)) * 0.001
+                    cx_t = float(self.camera_info.k[2])
+                    cy_t = float(self.camera_info.k[5])
+                    fx_t = float(self.camera_info.k[0])
+                    fy_t = float(self.camera_info.k[4])
+                    x_m = (cu - cx_t) * z_m / fx_t
+                    y_m = (cv - cy_t) * z_m / fy_t
+                    p_base = self.to_base(header.frame_id, [np.array([x_m, y_m, z_m])], header.stamp)
+                    if p_base is not None:
+                        # 1) In basin check:
+                        if p_base[0][1] > -0.14:
+                            return True
+                        # 2) Vertical reach envelope check: RM65 vertical reach limit is ~0.445m
+                        r_xy = float(np.hypot(p_base[0][0], p_base[0][1]))
+                        if r_xy > 0.445:
+                            return True
+            except Exception:
+                pass
+        return False
 
     def publish_invalid_snapshot(self, message, reason):
         if self.candidates_pub is not None:
@@ -448,6 +519,49 @@ class AppleCenterLocalizer(Node):
                 seen.add(r)
                 unique_rois.append(r)
         return unique_rois
+
+    
+    def publish_annotated_image(self, color: np.ndarray, candidates, selected, header) -> None:
+        if self.annotated_image_pub.get_subscription_count() == 0:
+            return
+        annotated = color.copy()
+        for candidate in candidates:
+            x0, y0, x1, y1 = np.rint(candidate["global_xyxy"]).astype(int)
+            is_selected = candidate is selected
+            if is_selected:
+                box_color = (0, 255, 0)
+            elif candidate.get("touches_edge", False):
+                box_color = (0, 165, 255)
+            else:
+                box_color = (255, 120, 0)
+            cv2.rectangle(annotated, (x0, y0), (x1, y1), box_color, 2)
+            c_name = CLASS_NAMES.get(candidate["class_id"], "fruit")
+            label = f"{c_name} {candidate.get('confidence', 0.0):.2f}"
+            if is_selected:
+                label += " [SELECTED]"
+            elif candidate.get("touches_edge", False):
+                label += " [EDGE]"
+            cv2.putText(
+                annotated,
+                label,
+                (x0, max(y0 - 6, 14)),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.45,
+                box_color,
+                1,
+                cv2.LINE_AA,
+            )
+            cu, cv = int((x0 + x1) * 0.5), int((y0 + y1) * 0.5)
+            cv2.circle(annotated, (cu, cv), 4, (0, 0, 255), -1)
+
+        msg = Image()
+        msg.header = header
+        msg.height, msg.width = annotated.shape[:2]
+        msg.encoding = "bgr8"
+        msg.is_bigendian = 0
+        msg.step = msg.width * 3
+        msg.data = annotated.tobytes()
+        self.annotated_image_pub.publish(msg)
 
     def save_debug_images(
         self,
@@ -581,6 +695,8 @@ class AppleCenterLocalizer(Node):
                 r = float(np.linalg.norm(p[0] - c))
                 if r < min_r or r > max_r:
                     continue
+                if c[2] <= float(np.median(points[:, 2])):
+                    continue
                 dists = np.linalg.norm(points - c, axis=1)
                 inliers = np.where(np.abs(dists - r) < inlier_thresh)[0]
                 if len(inliers) > len(best_inliers):
@@ -599,8 +715,14 @@ class AppleCenterLocalizer(Node):
         return c, r, rmse
 
     def estimate_points(
-        self, mask: np.ndarray, xyxy: np.ndarray, depth: np.ndarray
+        self, mask: np.ndarray, xyxy: np.ndarray, depth: np.ndarray, color: np.ndarray | None = None
     ) -> tuple[np.ndarray, np.ndarray, float, int] | None:
+        if color is not None and color.shape[:2] == mask.shape[:2]:
+            b = color[:, :, 0].astype(np.float32)
+            g = color[:, :, 1].astype(np.float32)
+            r = color[:, :, 2].astype(np.float32)
+            exg = 2.0 * g - r - b
+            mask = mask & (exg <= 8.0)
         ys, xs = np.nonzero(mask)
         if xs.size < 50:
             self.stats["last_reject"] = "segmentation_mask_too_small"
@@ -624,8 +746,8 @@ class AppleCenterLocalizer(Node):
             ys_v = ys[valid_all]
             d_v = d_vals_all[valid_all]
             pts_3d = np.column_stack([(xs_v - cx_t) * d_v / fx_t, (ys_v - cy_t) * d_v / fy_t, d_v])
-            r_prior = float(np.clip(0.5 * max(width_px / fx_t, height_px / fy_t) * float(np.median(d_v)), 0.022, 0.036))
-            fit_res = self.ransac_sphere_fit(pts_3d, min_r=max(0.018, r_prior - 0.006), max_r=min(0.040, r_prior + 0.006))
+            r_prior = float(np.clip(0.5 * max(width_px / fx_t, height_px / fy_t) * float(np.median(d_v)), 0.022, 0.038))
+            fit_res = self.ransac_sphere_fit(pts_3d, min_r=max(0.018, r_prior - 0.007), max_r=min(0.045, r_prior + 0.007))
             if fit_res is not None:
                 c_c, r_m, rmse_m = fit_res
                 ray_c = c_c / np.linalg.norm(c_c)
@@ -685,12 +807,20 @@ class AppleCenterLocalizer(Node):
                 rclpy.time.Time.from_msg(stamp),
                 timeout=Duration(seconds=0.25),
             )
-        except TransformException as exc:
-            self.get_logger().warning(
-                f"Missing {BASE_FRAME} <- {camera_frame}: {exc}",
-                throttle_duration_sec=2.0,
-            )
-            return None
+        except TransformException:
+            try:
+                transform = self.tf_buffer.lookup_transform(
+                    BASE_FRAME,
+                    camera_frame,
+                    rclpy.time.Time(),
+                    timeout=Duration(seconds=0.25),
+                )
+            except TransformException as exc:
+                self.get_logger().warning(
+                    f"Missing {BASE_FRAME} <- {camera_frame}: {exc}",
+                    throttle_duration_sec=2.0,
+                )
+                return None
         t = transform.transform.translation
         translation = np.array([t.x, t.y, t.z], dtype=np.float64)
         return [
