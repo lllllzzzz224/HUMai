@@ -41,8 +41,12 @@ candidate_search:
   - 3.1
   - 2.233
   - 6.28
-  max_abs_pitch_deg: 0
+  max_abs_pitch_deg: 20
   pitch_stages_deg:
+  - - 15
+    - -15
+  - - 20
+    - -20
   - - 0
   score_weights:
     joint_limit_penalty: 0.02
