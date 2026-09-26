@@ -418,6 +418,23 @@ do_view() {
 }
 
 # ==========================================
+# 8. 视觉与 TCP 定位误差测量 (measure / offset)
+# ==========================================
+do_measure() {
+    local label="manual_verify"
+    log_step "准备执行视觉与 TCP 定位误差测量 (label: )..."
+    ensure_ros_env
+    local live_topics
+    live_topics=$(ros2 topic list 2>/dev/null || true)
+    if ! echo "$live_topics" | grep -q "^/joint_states$"; then
+        log_err "底层机械臂驱动未运行！请先执行 'bash start' 拉起基础设施。"
+        exit 1
+    fi
+    cd "/apple_pick_v2"
+    ${YOLO_PYTHON} measure_visual_tcp_offset.py --auto-scan --label "$label"
+}
+
+# ==========================================
 # 主入口参数解析
 # ==========================================
 cmd="${1:-help}"
@@ -444,6 +461,9 @@ case "$cmd" in
         ;;
     align-basin|align)
         do_align_basin "$@"
+        ;;
+    measure|offset)
+        do_measure "$@"
         ;;
     logs|attach)
         do_logs "$@"
