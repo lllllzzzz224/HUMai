@@ -383,6 +383,45 @@ def approach_candidate_stages(cfg: dict) -> list[list[dict]]:
     return stages
 
 
+def tool_approach_vector(yaw: float, pitch: float) -> np.ndarray:
+    """Unit vector in base frame pointing along the tool's downward approach axis.
+
+    For pitch=0, this is exactly [0, 0, -1] (straight down in base_link).
+    For pitch != 0, it tilts in the vertical plane defined by yaw.
+    """
+    ux = -math.sin(pitch) * math.cos(yaw)
+    uy = -math.sin(pitch) * math.sin(yaw)
+    uz = -math.cos(pitch)
+    return np.array([ux, uy, uz], dtype=np.float64)
+
+
+def candidate_waypoints(
+    apple_center: np.ndarray, yaw: float, pitch: float, cfg: dict
+) -> dict[str, np.ndarray]:
+    """Calculate 3D waypoint positions aligned with the candidate approach angle.
+
+    The tool approach vector points from the tool toward the target along the tool axis.
+    Retracting along -u_approach moves away from the target along the tool's entry corridor.
+    """
+    u_app = tool_approach_vector(yaw, pitch)
+    pre_dist = float(cfg["targets"]["pregrasp_above_apple_m"])
+    verify_dist = float(cfg["targets"]["verify_above_apple_m"])
+    grasp_dist = float(cfg["targets"]["grasp_above_apple_m"])
+    lift_dist = float(cfg["targets"]["lift_m"])
+
+    grasp_xyz = apple_center - grasp_dist * u_app
+    verify_xyz = apple_center - verify_dist * u_app
+    pre_xyz = apple_center - pre_dist * u_app
+    lift_xyz = grasp_xyz - lift_dist * u_app
+
+    return {
+        "PREGRASP": pre_xyz,
+        "VERIFY": verify_xyz,
+        "GRASP": grasp_xyz,
+        "LIFT": lift_xyz,
+    }
+
+
 def fast_ik_seeds(current: np.ndarray, cfg: dict) -> list[np.ndarray]:
     """Generate bounded deterministic seeds around the current SCAN state."""
     search = cfg["candidate_search"]
@@ -658,7 +697,17 @@ def prepare_round(
             rejected_waypoint: str | None = None
             reject_reason: str | None = None
 
-            for waypoint_name, waypoint_xyz in screen_waypoints:
+            c_wps = candidate_waypoints(
+                apple, candidate["yaw_rad"], candidate["pitch_rad"], cfg
+            )
+            c_screen_waypoints = [
+                ("PREGRASP", c_wps["PREGRASP"]),
+                ("VERIFY", c_wps["VERIFY"]),
+            ]
+            if not mode.verify_only:
+                c_screen_waypoints.append(("GRASP", c_wps["GRASP"]))
+
+            for waypoint_name, waypoint_xyz in c_screen_waypoints:
                 waypoint_pose = vertical_pose(
                     waypoint_xyz,
                     candidate["yaw_rad"],
@@ -782,6 +831,19 @@ def prepare_round(
         if key != "pitch_rad"
     }
     record["selected_candidate"]["pitch_rad"] = selected_pitch
+    selected_wps = candidate_waypoints(
+        apple, selected_yaw, selected_pitch, cfg
+    )
+    pre_xyz = selected_wps["PREGRASP"]
+    verify_xyz = selected_wps["VERIFY"]
+    grasp_xyz = selected_wps["GRASP"]
+    lift_xyz = selected_wps["LIFT"]
+    record.update({
+        "pregrasp_base_m": np.round(pre_xyz, 7).tolist(),
+        "verify_base_m": np.round(verify_xyz, 7).tolist(),
+        "grasp_base_m": np.round(grasp_xyz, 7).tolist(),
+        "lift_base_m": np.round(lift_xyz, 7).tolist(),
+    })
     pre_pose = vertical_pose(pre_xyz, selected_yaw, selected_pitch)
     verify_pose = vertical_pose(verify_xyz, selected_yaw, selected_pitch)
     grasp_pose = vertical_pose(grasp_xyz, selected_yaw, selected_pitch)
@@ -795,6 +857,10 @@ def prepare_round(
         f"pitch {selected_pitch_deg:+.0f}°，stage={selected_stage}",
         flush=True,
     )
+    print(f"姿态自适应 PREGRASP  : {record['pregrasp_base_m']} m")
+    print(f"姿态自适应 VERIFY    : {record['verify_base_m']} m")
+    print(f"姿态自适应 GRASP     : {record['grasp_base_m']} m")
+    print(f"姿态自适应 LIFT      : {record['lift_base_m']} m", flush=True)
 
     full_plan_time_s = float(
         cfg["candidate_search"]["full_planning_time_s"]
